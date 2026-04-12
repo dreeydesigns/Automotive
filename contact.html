@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body data-page="contact">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="marketplace.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <main class="rrc-main">
+    <section class="rrc-section">
+      <div class="rrc-container rrc-reveal">
+        <p class="rrc-eyebrow">Contact</p>
+        <h1>Direct access to an RRC specialist</h1>
+        <p>Share your request and a member of our team will respond within 24 hours.</p>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container contact-grid">
+        <div class="rrc-reveal">
+          <div class="rrc-card">
+            <h3>Reach us</h3>
+            <p>Ridgeways, Kiambu Road, Nairobi</p>
+            <p>Ngong Road, Nairobi</p>
+            <div class="contact-actions">
+              <a class="rrc-button rrc-button-primary" href="tel:+254790374141">Call +254 790 374 141</a>
+              <a class="rrc-button rrc-button-whatsapp" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="rrc-button rrc-button-outline" href="mailto:info@rangerovercentre.co.ke">Email</a>
+            </div>
+          </div>
+          <div class="contact-map" aria-label="Map">
+            <iframe title="RRC Map" src="https://maps.google.com/maps?q=Ridgeways%2C%20Kiambu%20Road%2C%20Nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="rrc-card rrc-reveal">
+          <h3>Send a message</h3>
+          <form class="rrc-form">
+            <label>
+              Full Name
+              <input class="rrc-input" type="text" placeholder="Full name" />
+            </label>
+            <label>
+              Phone Number (optional)
+              <input class="rrc-input" type="tel" placeholder="+254" />
+            </label>
+            <label>
+              Email (optional)
+              <input class="rrc-input" type="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              How can we help
+              <select class="rrc-select">
+                <option>Buy a vehicle</option>
+                <option>Sell a vehicle</option>
+                <option>Import a vehicle</option>
+                <option>Service or diagnostics</option>
+                <option>Spare parts</option>
+              </select>
+            </label>
+            <label>
+              Message
+              <textarea class="rrc-textarea" rows="4" placeholder="Tell us what you need"></textarea>
+            </label>
+            <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p>Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p>+254 790 374 141</p>
+        <p>info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="marketplace.html">Marketplace</a></p>
+        <p><a href="services.html">Services</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+  </footer>
+
+  <div class="rrc-popup" id="rrcPopup" aria-hidden="true">
+    <div class="rrc-popup-backdrop" data-popup-close></div>
+    <div class="rrc-popup-card" role="dialog" aria-modal="true">
+      <button class="rrc-popup-close" type="button" data-popup-close>×</button>
+      <h2>Let us find your perfect vehicle</h2>
+      <p>An RRC specialist will call you within 24 hours.</p>
+      <form class="rrc-form">
+        <label>
+          Full Name
+          <input class="rrc-input" type="text" placeholder="Full name" />
+        </label>
+        <label>
+          Phone Number (optional)
+          <input class="rrc-input" type="tel" placeholder="+254" />
+        </label>
+        <label>
+          I am looking for
+          <select class="rrc-select">
+            <option>Range Rover</option>
+            <option>Land Rover</option>
+            <option>Mercedes-Benz</option>
+            <option>BMW</option>
+            <option>Porsche</option>
+            <option>Other luxury vehicle</option>
+          </select>
+        </label>
+        <label>
+          Preferred budget
+          <select class="rrc-select">
+            <option>KES 2M - 5M</option>
+            <option>KES 5M - 10M</option>
+            <option>KES 10M - 20M</option>
+            <option>KES 20M+</option>
+          </select>
+        </label>
+        <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Get a Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>

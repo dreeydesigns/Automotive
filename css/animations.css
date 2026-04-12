@@ -1,0 +1,19 @@
+.rrc-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--t-slow), transform var(--t-slow);
+}
+
+.rrc-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rrc-fade {
+  opacity: 0;
+  transition: opacity var(--t-base);
+}
+
+.rrc-fade.loaded {
+  opacity: 1;
+}

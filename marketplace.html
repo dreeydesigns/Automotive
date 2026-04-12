@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketplace | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/marketplace.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body data-page="marketplace">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="contact.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <main class="rrc-main">
+    <section class="rrc-section">
+      <div class="rrc-container rrc-reveal">
+        <p class="rrc-eyebrow">Marketplace</p>
+        <h1>Curated vehicles with verified provenance</h1>
+        <p>Use the filters to refine by budget, year, mileage, and specification.</p>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container marketplace-layout">
+        <aside>
+          <form class="filter-panel" data-marketplace-form>
+            <div class="filter-header">
+              <div class="filter-title">Refine Your Search</div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterCategory" aria-expanded="true">Category <span>–</span></button>
+              <div class="filter-content" id="filterCategory">
+                <label><input type="radio" name="category" value="all" checked /> All</label>
+                <label><input type="radio" name="category" value="kenya" /> Available in Kenya</label>
+                <label><input type="radio" name="category" value="import" /> Import Stock</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterMake" aria-expanded="true">Make <span>–</span></button>
+              <div class="filter-content" id="filterMake">
+                <select class="rrc-select" name="make">
+                  <option value="all">All Makes</option>
+                  <option value="land rover">Land Rover</option>
+                  <option value="range rover">Range Rover</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="bmw">BMW</option>
+                  <option value="porsche">Porsche</option>
+                  <option value="audi">Audi</option>
+                  <option value="jaguar">Jaguar</option>
+                  <option value="lexus">Lexus</option>
+                  <option value="toyota">Toyota</option>
+                  <option value="vw">VW</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterBody" aria-expanded="true">Body Type <span>–</span></button>
+              <div class="filter-content" id="filterBody">
+                <select class="rrc-select" name="body">
+                  <option value="all">All Body Types</option>
+                  <option value="suv">SUV</option>
+                  <option value="sedan">Sedan</option>
+                  <option value="coupe">Coupe</option>
+                  <option value="convertible">Convertible</option>
+                  <option value="pickup">Pickup</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterYear" aria-expanded="true">Year Range <span>–</span></button>
+              <div class="filter-content" id="filterYear">
+                <div class="filter-row">
+                  <input class="rrc-input" name="yearMin" type="text" placeholder="2010" value="2010" />
+                  <input class="rrc-input" name="yearMax" type="text" placeholder="2026" value="2026" />
+                </div>
+                <div class="filter-row">
+                  <input name="yearRangeMin" type="range" min="2010" max="2026" value="2010" />
+                  <input name="yearRangeMax" type="range" min="2010" max="2026" value="2026" />
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterPrice" aria-expanded="true">Price KES <span>–</span></button>
+              <div class="filter-content" id="filterPrice">
+                <div class="filter-row">
+                  <input class="rrc-input" name="priceMin" type="text" placeholder="500000" value="500000" />
+                  <input class="rrc-input" name="priceMax" type="text" placeholder="20000000" value="20000000" />
+                </div>
+                <div class="filter-row">
+                  <input name="priceRangeMin" type="range" min="500000" max="20000000" value="500000" step="50000" />
+                  <input name="priceRangeMax" type="range" min="500000" max="20000000" value="20000000" step="50000" />
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterMileage" aria-expanded="true">Mileage <span>–</span></button>
+              <div class="filter-content" id="filterMileage">
+                <label><input type="radio" name="mileage" value="all" checked /> All</label>
+                <label><input type="radio" name="mileage" value="under-50" /> Under 50K</label>
+                <label><input type="radio" name="mileage" value="50-100" /> 50 - 100K</label>
+                <label><input type="radio" name="mileage" value="100-150" /> 100 - 150K</label>
+                <label><input type="radio" name="mileage" value="150-plus" /> 150K+</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterTransmission" aria-expanded="true">Transmission <span>–</span></button>
+              <div class="filter-content" id="filterTransmission">
+                <label><input type="checkbox" name="transmission" value="automatic" /> Automatic</label>
+                <label><input type="checkbox" name="transmission" value="manual" /> Manual</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterFuel" aria-expanded="true">Fuel Type <span>–</span></button>
+              <div class="filter-content" id="filterFuel">
+                <label><input type="checkbox" name="fuel" value="petrol" /> Petrol</label>
+                <label><input type="checkbox" name="fuel" value="diesel" /> Diesel</label>
+                <label><input type="checkbox" name="fuel" value="hybrid" /> Hybrid</label>
+                <label><input type="checkbox" name="fuel" value="electric" /> Electric</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterColor" aria-expanded="true">Colour <span>–</span></button>
+              <div class="filter-content" id="filterColor">
+                <div class="filter-colors">
+                  <label><input type="radio" name="color" value="all" checked /> All</label>
+                  <label><input type="radio" name="color" value="black" aria-label="Black" /> <span class="color-dot color-black"></span></label>
+                  <label><input type="radio" name="color" value="white" aria-label="White" /> <span class="color-dot color-white"></span></label>
+                  <label><input type="radio" name="color" value="silver" aria-label="Silver" /> <span class="color-dot color-silver"></span></label>
+                  <label><input type="radio" name="color" value="blue" aria-label="Blue" /> <span class="color-dot color-blue"></span></label>
+                  <label><input type="radio" name="color" value="green" aria-label="Green" /> <span class="color-dot color-green"></span></label>
+                  <label><input type="radio" name="color" value="red" aria-label="Red" /> <span class="color-dot color-red"></span></label>
+                  <label><input type="radio" name="color" value="grey" aria-label="Grey" /> <span class="color-dot color-grey"></span></label>
+                  <label><input type="radio" name="color" value="gold" aria-label="Gold" /> <span class="color-dot color-gold"></span></label>
+                </div>
+              </div>
+            </div>
+
+            <button class="rrc-button rrc-button-outline rrc-button-full" type="button" data-clear-filters>Clear All Filters</button>
+          </form>
+        </aside>
+
+        <div>
+          <div class="marketplace-toolbar">
+            <div class="rrc-data" data-vehicle-count>0 vehicles found</div>
+            <div class="rrc-form">
+              <label>
+                Sort
+                <select class="rrc-select" name="sort">
+                  <option value="date-desc" selected>Recently Added</option>
+                  <option value="price-asc">Lowest Price</option>
+                  <option value="price-desc">Highest Price</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="vehicle-grid" data-vehicle-grid>
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="range rover" data-body="suv" data-year="2022" data-price="18500000" data-mileage="38000" data-transmission="automatic" data-fuel="diesel" data-color="black" data-date="2025-03-12">
+              <div class="vehicle-image rrc-image">
+                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Range Rover Sport" />
+                <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h4>Range Rover Sport</h4>
+                <div class="vehicle-meta">2022 · 38,000 KM</div>
+                <div class="vehicle-price">KES 18.5M</div>
+                <div class="vehicle-specs">Diesel · Automatic · 3000cc</div>
+                <div class="vehicle-actions">
+                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="import" data-make="range rover" data-body="suv" data-year="2021" data-price="14200000" data-mileage="52000" data-transmission="automatic" data-fuel="petrol" data-color="white" data-date="2025-02-28">
+              <div class="vehicle-image rrc-image">
+                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Range Rover Velar" />
+                <span class="rrc-badge rrc-badge-import vehicle-badge">Import Stock</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h4>Range Rover Velar</h4>
+                <div class="vehicle-meta">2021 · 52,000 KM</div>
+                <div class="vehicle-price">KES 14.2M</div>
+                <div class="vehicle-specs">Petrol · Automatic · 2000cc</div>
+                <div class="vehicle-actions">
+                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="mercedes" data-body="sedan" data-year="2020" data-price="22500000" data-mileage="29000" data-transmission="automatic" data-fuel="petrol" data-color="silver" data-date="2025-01-16">
+              <div class="vehicle-image rrc-image">
+                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Mercedes S-Class" />
+                <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h4>Mercedes S-Class</h4>
+                <div class="vehicle-meta">2020 · 29,000 KM</div>
+                <div class="vehicle-price">KES 22.5M</div>
+                <div class="vehicle-specs">Petrol · Automatic · 3000cc</div>
+                <div class="vehicle-actions">
+                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="bmw" data-body="sedan" data-year="2019" data-price="18500000" data-mileage="42000" data-transmission="automatic" data-fuel="diesel" data-color="blue" data-date="2024-12-22">
+              <div class="vehicle-image rrc-image">
+                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="BMW 7 Series" />
+                <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h4>BMW 7 Series</h4>
+                <div class="vehicle-meta">2019 · 42,000 KM</div>
+                <div class="vehicle-price">KES 18.5M</div>
+                <div class="vehicle-specs">Diesel · Automatic · 3000cc</div>
+                <div class="vehicle-actions">
+                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="import" data-make="porsche" data-body="coupe" data-year="2022" data-price="33500000" data-mileage="18000" data-transmission="automatic" data-fuel="petrol" data-color="red" data-date="2025-03-05">
+              <div class="vehicle-image rrc-image">
+                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Porsche 911" />
+                <span class="rrc-badge rrc-badge-import vehicle-badge">Import Stock</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h4>Porsche 911 Carrera</h4>
+                <div class="vehicle-meta">2022 · 18,000 KM</div>
+                <div class="vehicle-price">KES 33.5M</div>
+                <div class="vehicle-specs">Petrol · Automatic · 3000cc</div>
+                <div class="vehicle-actions">
+                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="toyota" data-body="pickup" data-year="2018" data-price="6800000" data-mileage="92000" data-transmission="manual" data-fuel="diesel" data-color="grey" data-date="2024-11-11">
+              <div class="vehicle-image rrc-image">
+                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Toyota Hilux" />
+                <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h4>Toyota Hilux</h4>
+                <div class="vehicle-meta">2018 · 92,000 KM</div>
+                <div class="vehicle-price">KES 6.8M</div>
+                <div class="vehicle-specs">Diesel · Manual · 2800cc</div>
+                <div class="vehicle-actions">
+                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p>Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p>+254 790 374 141</p>
+        <p>info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="about.html">About</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+  </footer>
+
+  <div class="rrc-popup" id="rrcPopup" aria-hidden="true">
+    <div class="rrc-popup-backdrop" data-popup-close></div>
+    <div class="rrc-popup-card" role="dialog" aria-modal="true">
+      <button class="rrc-popup-close" type="button" data-popup-close>×</button>
+      <h2>Let us find your perfect vehicle</h2>
+      <p>An RRC specialist will call you within 24 hours.</p>
+      <form class="rrc-form">
+        <label>
+          Full Name
+          <input class="rrc-input" type="text" placeholder="Full name" />
+        </label>
+        <label>
+          Phone Number (optional)
+          <input class="rrc-input" type="tel" placeholder="+254" />
+        </label>
+        <label>
+          I am looking for
+          <select class="rrc-select">
+            <option>Range Rover</option>
+            <option>Land Rover</option>
+            <option>Mercedes-Benz</option>
+            <option>BMW</option>
+            <option>Porsche</option>
+            <option>Other luxury vehicle</option>
+          </select>
+        </label>
+        <label>
+          Preferred budget
+          <select class="rrc-select">
+            <option>KES 2M - 5M</option>
+            <option>KES 5M - 10M</option>
+            <option>KES 10M - 20M</option>
+            <option>KES 20M+</option>
+          </select>
+        </label>
+        <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Get a Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script src="js/marketplace.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>

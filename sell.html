@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell Your Car | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body data-page="sell">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="contact.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <main class="rrc-main">
+    <section class="rrc-section">
+      <div class="rrc-container rrc-reveal">
+        <p class="rrc-eyebrow">Sell Your Car</p>
+        <h1>Professional valuation with verified history</h1>
+        <p>RRC documents your vehicle and connects you with qualified buyers.</p>
+      </div>
+    </section>
+
+    <section class="rrc-section rrc-section-bone">
+      <div class="rrc-container rrc-reveal">
+        <h2>Consignment journey</h2>
+        <div class="rrc-step-row">
+          <div class="rrc-step">
+            <div class="rrc-step-number">01</div>
+            <h4>Inspection</h4>
+            <p>Full diagnostics, condition report, and service history.</p>
+          </div>
+          <div class="rrc-step">
+            <div class="rrc-step-number">02</div>
+            <h4>Listing</h4>
+            <p>Curated presentation with premium buyer access.</p>
+          </div>
+          <div class="rrc-step">
+            <div class="rrc-step-number">03</div>
+            <h4>Sale and upgrade</h4>
+            <p>Secure close with trade-in and upgrade support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container">
+        <div class="rrc-card rrc-reveal">
+          <h3>Request a valuation</h3>
+          <form class="rrc-form">
+            <label>
+              Full Name
+              <input class="rrc-input" type="text" placeholder="Full name" />
+            </label>
+            <label>
+              Phone Number (optional)
+              <input class="rrc-input" type="tel" placeholder="+254" />
+            </label>
+            <label>
+              Vehicle Make and Model
+              <input class="rrc-input" type="text" placeholder="Range Rover Sport" />
+            </label>
+            <label>
+              Year
+              <input class="rrc-input" type="text" placeholder="2020" />
+            </label>
+            <label>
+              Mileage
+              <input class="rrc-input" type="text" placeholder="40,000 KM" />
+            </label>
+            <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Request Valuation</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p>Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p>+254 790 374 141</p>
+        <p>info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="about.html">About</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+  </footer>
+
+  <div class="rrc-popup" id="rrcPopup" aria-hidden="true">
+    <div class="rrc-popup-backdrop" data-popup-close></div>
+    <div class="rrc-popup-card" role="dialog" aria-modal="true">
+      <button class="rrc-popup-close" type="button" data-popup-close>×</button>
+      <h2>Let us find your perfect vehicle</h2>
+      <p>An RRC specialist will call you within 24 hours.</p>
+      <form class="rrc-form">
+        <label>
+          Full Name
+          <input class="rrc-input" type="text" placeholder="Full name" />
+        </label>
+        <label>
+          Phone Number (optional)
+          <input class="rrc-input" type="tel" placeholder="+254" />
+        </label>
+        <label>
+          I am looking for
+          <select class="rrc-select">
+            <option>Range Rover</option>
+            <option>Land Rover</option>
+            <option>Mercedes-Benz</option>
+            <option>BMW</option>
+            <option>Porsche</option>
+            <option>Other luxury vehicle</option>
+          </select>
+        </label>
+        <label>
+          Preferred budget
+          <select class="rrc-select">
+            <option>KES 2M - 5M</option>
+            <option>KES 5M - 10M</option>
+            <option>KES 10M - 20M</option>
+            <option>KES 20M+</option>
+          </select>
+        </label>
+        <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Get a Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>

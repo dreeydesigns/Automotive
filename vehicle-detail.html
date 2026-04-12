@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Detail | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body data-page="detail">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="contact.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <main class="rrc-main">
+    <section class="rrc-section">
+      <div class="rrc-container detail-layout">
+        <div class="rrc-reveal">
+          <div class="detail-hero rrc-image">
+            <img id="detailHeroImg" class="rrc-lazy" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=80" srcset="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Range Rover Sport" />
+          </div>
+          <div class="detail-thumbs">
+            <div class="detail-thumb" data-thumb data-src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=80" data-srcset="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=80 1400w" data-alt="Range Rover Sport">\n              <img class="rrc-lazy" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=200&q=80" srcset="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=200&q=80 200w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=400&q=80 400w" loading="lazy" alt="Range Rover Sport thumbnail" />\n            </div>
+            <div class="detail-thumb" data-thumb data-src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1400&q=80" data-srcset="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1400&q=80 1400w" data-alt="Range Rover Sport side">\n              <img class="rrc-lazy" src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=200&q=80" srcset="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=200&q=80 200w, https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=400&q=80 400w" loading="lazy" alt="Range Rover Sport side thumbnail" />\n            </div>
+            <div class="detail-thumb" data-thumb data-src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80" data-srcset="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80 1400w" data-alt="Range Rover Sport interior">\n              <img class="rrc-lazy" src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=200&q=80" srcset="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=200&q=80 200w, https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=400&q=80 400w" loading="lazy" alt="Range Rover Sport interior thumbnail" />\n            </div>
+            <div class="detail-thumb" data-thumb data-src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80" data-srcset="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80 1400w" data-alt="Range Rover Sport rear">\n              <img class="rrc-lazy" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=200&q=80" srcset="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=200&q=80 200w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80 400w" loading="lazy" alt="Range Rover Sport rear thumbnail" />\n            </div>
+          </div>
+        </div>
+
+        <aside class="detail-sidebar rrc-reveal">
+          <div>
+            <h1>Range Rover Sport</h1>
+            <p>2022 · Autobiography</p>
+            <span class="rrc-badge rrc-badge-local">Available in Kenya</span>
+          </div>
+          <div class="detail-price">KES 18.5M</div>
+          <div class="detail-links">
+            <a href="contact.html">Finance options</a><br />
+            <a href="contact.html">Insurance assistance</a>
+          </div>
+          <a class="rrc-button rrc-button-primary rrc-button-full" href="contact.html">I'm Interested</a>
+          <a class="rrc-button rrc-button-whatsapp rrc-button-full" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container">
+        <div class="detail-specs rrc-reveal">
+          <div class="detail-specs-row">
+            <div class="detail-label">Engine</div>
+            <div class="detail-value">3000cc</div>
+          </div>
+          <div class="detail-specs-row">
+            <div class="detail-label">Mileage</div>
+            <div class="detail-value">38,000 KM</div>
+          </div>
+          <div class="detail-specs-row">
+            <div class="detail-label">Transmission</div>
+            <div class="detail-value">Automatic</div>
+          </div>
+          <div class="detail-specs-row">
+            <div class="detail-label">Fuel</div>
+            <div class="detail-value">Diesel</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section rrc-section-bone">
+      <div class="rrc-container">
+        <p class="rrc-eyebrow rrc-reveal">Vehicle History</p>
+        <div class="detail-timeline">
+          <div class="detail-timeline-item rrc-reveal">
+            <div class="rrc-data">Mar 2024</div>
+            <div>Major service completed and documented by RRC technicians.</div>
+          </div>
+          <div class="detail-timeline-item rrc-reveal">
+            <div class="rrc-data">Aug 2023</div>
+            <div>Diagnostics report updated, including brake and suspension checks.</div>
+          </div>
+          <div class="detail-timeline-item rrc-reveal">
+            <div class="rrc-data">Jan 2023</div>
+            <div>RRC certification issued following full inspection.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container rrc-reveal">
+        <p class="rrc-eyebrow">Diagnostic Report</p>
+        <p><a href="#" target="_blank" rel="noopener noreferrer">Download diagnostic PDF</a></p>
+      </div>
+    </section>
+
+    <section class="rrc-section rrc-section-bone">
+      <div class="rrc-container">
+        <p class="rrc-eyebrow rrc-reveal">Similar Vehicles</p>
+        <div class="rrc-pillars rrc-reveal">
+          <div class="rrc-pillar">Range Rover Velar</div>
+          <div class="rrc-pillar">Range Rover Vogue</div>
+          <div class="rrc-pillar">Land Rover Defender</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="detail-sticky">
+    <div>
+      <div class="rrc-data">KES 18.5M</div>
+    </div>
+    <a class="rrc-button rrc-button-primary" href="contact.html">I'm Interested</a>
+  </div>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p>Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p>+254 790 374 141</p>
+        <p>info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="marketplace.html">Marketplace</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="about.html">About</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+  </footer>
+
+  <div class="detail-lightbox" id="detailLightbox">
+    <img id="detailLightboxImg" src="" alt="Vehicle preview" />
+    <button class="rrc-button rrc-button-light detail-lightbox-close" id="detailLightboxClose" type="button">Close</button>
+  </div>
+
+  <div class="rrc-popup" id="rrcPopup" aria-hidden="true">
+    <div class="rrc-popup-backdrop" data-popup-close></div>
+    <div class="rrc-popup-card" role="dialog" aria-modal="true">
+      <button class="rrc-popup-close" type="button" data-popup-close>×</button>
+      <h2>Let us find your perfect vehicle</h2>
+      <p>An RRC specialist will call you within 24 hours.</p>
+      <form class="rrc-form">
+        <label>
+          Full Name
+          <input class="rrc-input" type="text" placeholder="Full name" />
+        </label>
+        <label>
+          Phone Number (optional)
+          <input class="rrc-input" type="tel" placeholder="+254" />
+        </label>
+        <label>
+          I am looking for
+          <select class="rrc-select">
+            <option>Range Rover</option>
+            <option>Land Rover</option>
+            <option>Mercedes-Benz</option>
+            <option>BMW</option>
+            <option>Porsche</option>
+            <option>Other luxury vehicle</option>
+          </select>
+        </label>
+        <label>
+          Preferred budget
+          <select class="rrc-select">
+            <option>KES 2M - 5M</option>
+            <option>KES 5M - 10M</option>
+            <option>KES 10M - 20M</option>
+            <option>KES 20M+</option>
+          </select>
+        </label>
+        <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Get a Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script src="js/vehicle-detail.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>
