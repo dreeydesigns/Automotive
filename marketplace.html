@@ -45,7 +45,7 @@
       <div class="rrc-container rrc-reveal">
         <p class="rrc-eyebrow">Marketplace</p>
         <h1>Curated vehicles with verified provenance</h1>
-        <p>Use the filters to refine by budget, year, mileage, and specification.</p>
+        <p>Use the filters to refine by budget, year, mileage, and certification history.</p>
       </div>
     </section>
 
@@ -71,16 +71,23 @@
               <div class="filter-content" id="filterMake">
                 <select class="rrc-select" name="make">
                   <option value="all">All Makes</option>
-                  <option value="land rover">Land Rover</option>
                   <option value="range rover">Range Rover</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="bmw">BMW</option>
-                  <option value="porsche">Porsche</option>
-                  <option value="audi">Audi</option>
-                  <option value="jaguar">Jaguar</option>
-                  <option value="lexus">Lexus</option>
-                  <option value="toyota">Toyota</option>
-                  <option value="vw">VW</option>
+                  <option value="land rover">Land Rover</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterModel" aria-expanded="true">Model <span>–</span></button>
+              <div class="filter-content" id="filterModel">
+                <select class="rrc-select" name="model">
+                  <option value="all">All Models</option>
+                  <option value="range rover sport">Range Rover Sport</option>
+                  <option value="range rover velar">Range Rover Velar</option>
+                  <option value="range rover autobiography">Range Rover Autobiography</option>
+                  <option value="range rover vogue">Range Rover Vogue</option>
+                  <option value="range rover classic">Range Rover Classic</option>
+                  <option value="defender 110">Defender 110</option>
                 </select>
               </div>
             </div>
@@ -103,12 +110,12 @@
               <button class="filter-toggle" type="button" data-toggle="filterYear" aria-expanded="true">Year Range <span>–</span></button>
               <div class="filter-content" id="filterYear">
                 <div class="filter-row">
-                  <input class="rrc-input" name="yearMin" type="text" placeholder="2010" value="2010" />
+                  <input class="rrc-input" name="yearMin" type="text" placeholder="1980" value="1980" />
                   <input class="rrc-input" name="yearMax" type="text" placeholder="2026" value="2026" />
                 </div>
                 <div class="filter-row">
-                  <input name="yearRangeMin" type="range" min="2010" max="2026" value="2010" />
-                  <input name="yearRangeMax" type="range" min="2010" max="2026" value="2026" />
+                  <input name="yearRangeMin" type="range" min="1980" max="2026" value="1980" />
+                  <input name="yearRangeMax" type="range" min="1980" max="2026" value="2026" />
                 </div>
               </div>
             </div>
@@ -135,6 +142,16 @@
                 <label><input type="radio" name="mileage" value="50-100" /> 50 - 100K</label>
                 <label><input type="radio" name="mileage" value="100-150" /> 100 - 150K</label>
                 <label><input type="radio" name="mileage" value="150-plus" /> 150K+</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <button class="filter-toggle" type="button" data-toggle="filterHistory" aria-expanded="true">History &amp; Condition <span>–</span></button>
+              <div class="filter-content filter-tags" id="filterHistory">
+                <label><input type="checkbox" name="history" value="rrc-certified" /> RRC Certified</label>
+                <label><input type="checkbox" name="history" value="accident-free" /> Accident-free</label>
+                <label><input type="checkbox" name="history" value="full-service" /> Full Service History</label>
+                <label><input type="checkbox" name="history" value="warranty" /> Warranty Included</label>
               </div>
             </div>
 
@@ -193,13 +210,13 @@
           </div>
 
           <div class="vehicle-grid" data-vehicle-grid>
-            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="range rover" data-body="suv" data-year="2022" data-price="18500000" data-mileage="38000" data-transmission="automatic" data-fuel="diesel" data-color="black" data-date="2025-03-12">
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="range rover" data-model="range rover sport" data-body="suv" data-year="2022" data-price="18500000" data-mileage="38000" data-transmission="automatic" data-fuel="diesel" data-color="white" data-history="rrc-certified,accident-free,full-service,warranty" data-date="2025-03-12">
               <div class="vehicle-image rrc-image">
-                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Range Rover Sport" />
+                <img class="rrc-lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg/900px-Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg/900px-Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg 900w, https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg/1400px-Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg 1400w" loading="lazy" alt="Range Rover Sport Autobiography" />
                 <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
               </div>
               <div class="vehicle-card-body">
-                <h4>Range Rover Sport</h4>
+                <h4>Range Rover Sport Autobiography</h4>
                 <div class="vehicle-meta">2022 · 38,000 KM</div>
                 <div class="vehicle-price">KES 18.5M</div>
                 <div class="vehicle-specs">Diesel · Automatic · 3000cc</div>
@@ -209,13 +226,13 @@
               </div>
             </article>
 
-            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="import" data-make="range rover" data-body="suv" data-year="2021" data-price="14200000" data-mileage="52000" data-transmission="automatic" data-fuel="petrol" data-color="white" data-date="2025-02-28">
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="import" data-make="range rover" data-model="range rover velar" data-body="suv" data-year="2021" data-price="14200000" data-mileage="52000" data-transmission="automatic" data-fuel="petrol" data-color="silver" data-history="rrc-certified,full-service" data-date="2025-02-28">
               <div class="vehicle-image rrc-image">
-                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Range Rover Velar" />
+                <img class="rrc-lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg/900px-2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg/900px-2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg 900w, https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg/1400px-2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg 1400w" loading="lazy" alt="Range Rover Velar R-Dynamic" />
                 <span class="rrc-badge rrc-badge-import vehicle-badge">Import Stock</span>
               </div>
               <div class="vehicle-card-body">
-                <h4>Range Rover Velar</h4>
+                <h4>Range Rover Velar R-Dynamic</h4>
                 <div class="vehicle-meta">2021 · 52,000 KM</div>
                 <div class="vehicle-price">KES 14.2M</div>
                 <div class="vehicle-specs">Petrol · Automatic · 2000cc</div>
@@ -225,31 +242,47 @@
               </div>
             </article>
 
-            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="mercedes" data-body="sedan" data-year="2020" data-price="22500000" data-mileage="29000" data-transmission="automatic" data-fuel="petrol" data-color="silver" data-date="2025-01-16">
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="range rover" data-model="range rover autobiography" data-body="suv" data-year="2014" data-price="21500000" data-mileage="62000" data-transmission="automatic" data-fuel="petrol" data-color="white" data-history="rrc-certified,accident-free,warranty" data-date="2025-01-16">
               <div class="vehicle-image rrc-image">
-                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Mercedes S-Class" />
+                <img class="rrc-lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg/900px-2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg/900px-2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg 900w, https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg/1400px-2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg 1400w" loading="lazy" alt="Range Rover Autobiography" />
                 <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
               </div>
               <div class="vehicle-card-body">
-                <h4>Mercedes S-Class</h4>
-                <div class="vehicle-meta">2020 · 29,000 KM</div>
-                <div class="vehicle-price">KES 22.5M</div>
-                <div class="vehicle-specs">Petrol · Automatic · 3000cc</div>
+                <h4>Range Rover Autobiography</h4>
+                <div class="vehicle-meta">2014 · 62,000 KM</div>
+                <div class="vehicle-price">KES 21.5M</div>
+                <div class="vehicle-specs">Petrol · Automatic · 5000cc</div>
                 <div class="vehicle-actions">
                   <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
                 </div>
               </div>
             </article>
 
-            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="bmw" data-body="sedan" data-year="2019" data-price="18500000" data-mileage="42000" data-transmission="automatic" data-fuel="diesel" data-color="blue" data-date="2024-12-22">
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="range rover" data-model="range rover vogue" data-body="suv" data-year="2017" data-price="17500000" data-mileage="64000" data-transmission="automatic" data-fuel="diesel" data-color="black" data-history="rrc-certified,full-service" data-date="2024-12-22">
               <div class="vehicle-image rrc-image">
-                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="BMW 7 Series" />
+                <img class="rrc-lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Land_Rover_RANGE_ROVER_VOGUE_%28ABA-LG3SB%29_front.jpg/900px-Land_Rover_RANGE_ROVER_VOGUE_%28ABA-LG3SB%29_front.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Land_Rover_RANGE_ROVER_VOGUE_%28ABA-LG3SB%29_front.jpg/900px-Land_Rover_RANGE_ROVER_VOGUE_%28ABA-LG3SB%29_front.jpg 900w, https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Land_Rover_RANGE_ROVER_VOGUE_%28ABA-LG3SB%29_front.jpg/1400px-Land_Rover_RANGE_ROVER_VOGUE_%28ABA-LG3SB%29_front.jpg 1400w" loading="lazy" alt="Range Rover Vogue" />
                 <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
               </div>
               <div class="vehicle-card-body">
-                <h4>BMW 7 Series</h4>
-                <div class="vehicle-meta">2019 · 42,000 KM</div>
-                <div class="vehicle-price">KES 18.5M</div>
+                <h4>Range Rover Vogue</h4>
+                <div class="vehicle-meta">2017 · 64,000 KM</div>
+                <div class="vehicle-price">KES 17.5M</div>
+                <div class="vehicle-specs">Diesel · Automatic · 4400cc</div>
+                <div class="vehicle-actions">
+                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="import" data-make="land rover" data-model="defender 110" data-body="suv" data-year="2020" data-price="19800000" data-mileage="44000" data-transmission="automatic" data-fuel="diesel" data-color="green" data-history="rrc-certified,accident-free,full-service" data-date="2025-03-05">
+              <div class="vehicle-image rrc-image">
+                <img class="rrc-lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Land_Rover_Defender_%28L663%29_IMG_4267.jpg/900px-Land_Rover_Defender_%28L663%29_IMG_4267.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Land_Rover_Defender_%28L663%29_IMG_4267.jpg/900px-Land_Rover_Defender_%28L663%29_IMG_4267.jpg 900w, https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Land_Rover_Defender_%28L663%29_IMG_4267.jpg/1400px-Land_Rover_Defender_%28L663%29_IMG_4267.jpg 1400w" loading="lazy" alt="Land Rover Defender 110" />
+                <span class="rrc-badge rrc-badge-import vehicle-badge">Import Stock</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h4>Land Rover Defender 110</h4>
+                <div class="vehicle-meta">2020 · 44,000 KM</div>
+                <div class="vehicle-price">KES 19.8M</div>
                 <div class="vehicle-specs">Diesel · Automatic · 3000cc</div>
                 <div class="vehicle-actions">
                   <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
@@ -257,32 +290,16 @@
               </div>
             </article>
 
-            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="import" data-make="porsche" data-body="coupe" data-year="2022" data-price="33500000" data-mileage="18000" data-transmission="automatic" data-fuel="petrol" data-color="red" data-date="2025-03-05">
+            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="range rover" data-model="range rover classic" data-body="suv" data-year="2000" data-price="4800000" data-mileage="160000" data-transmission="automatic" data-fuel="petrol" data-color="green" data-history="full-service" data-date="2024-11-11">
               <div class="vehicle-image rrc-image">
-                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Porsche 911" />
-                <span class="rrc-badge rrc-badge-import vehicle-badge">Import Stock</span>
-              </div>
-              <div class="vehicle-card-body">
-                <h4>Porsche 911 Carrera</h4>
-                <div class="vehicle-meta">2022 · 18,000 KM</div>
-                <div class="vehicle-price">KES 33.5M</div>
-                <div class="vehicle-specs">Petrol · Automatic · 3000cc</div>
-                <div class="vehicle-actions">
-                  <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="vehicle-card rrc-reveal" data-vehicle-card data-availability="kenya" data-make="toyota" data-body="pickup" data-year="2018" data-price="6800000" data-mileage="92000" data-transmission="manual" data-fuel="diesel" data-color="grey" data-date="2024-11-11">
-              <div class="vehicle-image rrc-image">
-                <img class="rrc-lazy" src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80" srcset="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1400&q=80 1400w" loading="lazy" alt="Toyota Hilux" />
+                <img class="rrc-lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/2000_Land_Rover_Range_Rover_Vogue_Automatic_4.6_Front.jpg/900px-2000_Land_Rover_Range_Rover_Vogue_Automatic_4.6_Front.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/2000_Land_Rover_Range_Rover_Vogue_Automatic_4.6_Front.jpg/900px-2000_Land_Rover_Range_Rover_Vogue_Automatic_4.6_Front.jpg 900w, https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/2000_Land_Rover_Range_Rover_Vogue_Automatic_4.6_Front.jpg/1400px-2000_Land_Rover_Range_Rover_Vogue_Automatic_4.6_Front.jpg 1400w" loading="lazy" alt="Range Rover Vogue Classic" />
                 <span class="rrc-badge rrc-badge-local vehicle-badge">Available in Kenya</span>
               </div>
               <div class="vehicle-card-body">
-                <h4>Toyota Hilux</h4>
-                <div class="vehicle-meta">2018 · 92,000 KM</div>
-                <div class="vehicle-price">KES 6.8M</div>
-                <div class="vehicle-specs">Diesel · Manual · 2800cc</div>
+                <h4>Range Rover Vogue Classic</h4>
+                <div class="vehicle-meta">2000 · 160,000 KM</div>
+                <div class="vehicle-price">KES 4.8M</div>
+                <div class="vehicle-specs">Petrol · Automatic · 4600cc</div>
                 <div class="vehicle-actions">
                   <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html" target="_blank" rel="noopener noreferrer">View Details</a>
                 </div>

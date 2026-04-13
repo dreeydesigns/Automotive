@@ -77,11 +77,13 @@ if (filterForm) {
   const applyFilters = () => {
     const category = getCheckedValue("category");
     const make = normalize(getSelected("make"));
+    const model = normalize(getSelected("model"));
     const body = normalize(getSelected("body"));
     const fuelFilters = getCheckedValues("fuel");
     const transmissionFilters = getCheckedValues("transmission");
     const color = getCheckedValue("color");
     const mileageBucket = getCheckedValue("mileage");
+    const historyFilters = getCheckedValues("history");
     const priceMin = parseNumber(filterForm.querySelector("[name=priceMin]").value);
     const priceMax = parseNumber(filterForm.querySelector("[name=priceMax]").value);
     const yearMin = parseNumber(filterForm.querySelector("[name=yearMin]").value);
@@ -92,10 +94,15 @@ if (filterForm) {
     cards.forEach((card) => {
       const cardAvailability = normalize(card.dataset.availability);
       const cardMake = normalize(card.dataset.make);
+      const cardModel = normalize(card.dataset.model);
       const cardBody = normalize(card.dataset.body);
       const cardFuel = normalize(card.dataset.fuel);
       const cardTransmission = normalize(card.dataset.transmission);
       const cardColor = normalize(card.dataset.color);
+      const cardHistory = (card.dataset.history || "")
+        .split(",")
+        .map((item) => normalize(item))
+        .filter(Boolean);
       const cardPrice = Number(card.dataset.price || 0);
       const cardYear = Number(card.dataset.year || 0);
       const cardMileage = Number(card.dataset.mileage || 0);
@@ -107,6 +114,10 @@ if (filterForm) {
       }
 
       if (make !== "all" && make && cardMake !== make) {
+        isVisible = false;
+      }
+
+      if (model !== "all" && model && cardModel !== model) {
         isVisible = false;
       }
 
@@ -123,6 +134,10 @@ if (filterForm) {
       }
 
       if (color !== "all" && color && cardColor !== color) {
+        isVisible = false;
+      }
+
+      if (historyFilters.length && !historyFilters.every((tag) => cardHistory.includes(tag))) {
         isVisible = false;
       }
 
