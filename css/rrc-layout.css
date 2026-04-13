@@ -114,7 +114,7 @@
 }
 
 .rrc-hero-home {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg/1600px-2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg');
+  background-image: url('../assets/images/hero-velar.jpg');
 }
 
 .rrc-hero::before {

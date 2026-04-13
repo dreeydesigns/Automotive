@@ -1,12 +1,9 @@
 (() => {
-  const buildImage = (path, file, width) =>
-    `https://upload.wikimedia.org/wikipedia/commons/thumb/${path}/${file}/${width}px-${file}`;
-
-  const makeImage = (path, file, alt) => ({
-    src: buildImage(path, file, 1400),
-    srcset: `${buildImage(path, file, 900)} 900w, ${buildImage(path, file, 1400)} 1400w`,
-    thumb: buildImage(path, file, 200),
-    thumbSrcset: `${buildImage(path, file, 200)} 200w, ${buildImage(path, file, 400)} 400w`,
+  const makeImage = (file, alt) => ({
+    src: `assets/images/${file}`,
+    srcset: `assets/images/${file} 900w, assets/images/${file} 1400w`,
+    thumb: `assets/images/${file}`,
+    thumbSrcset: `assets/images/${file} 200w, assets/images/${file} 400w`,
     alt,
   });
 
@@ -32,10 +29,10 @@
       warranty: "12 Months",
       location: "Nairobi",
       images: [
-        makeImage("5/54", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_front.jpg", "Range Rover Sport Autobiography front"),
-        makeImage("9/9d", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_rear.jpg", "Range Rover Sport rear"),
-        makeImage("9/9f", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_interior.jpg", "Range Rover Sport interior"),
-        makeImage("f/fe", "2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg", "Range Rover Autobiography detail"),
+        makeImage("rr-sport-front.jpg", "Range Rover Sport Autobiography front"),
+        makeImage("rr-sport-rear.jpg", "Range Rover Sport rear"),
+        makeImage("rr-sport-interior.jpg", "Range Rover Sport interior"),
+        makeImage("hero-velar.jpg", "Range Rover detail"),
       ],
       similar: ["range-rover-velar", "range-rover-autobiography", "defender-110"],
     },
@@ -60,10 +57,10 @@
       warranty: "6 Months",
       location: "Import stock",
       images: [
-        makeImage("9/9d", "2017_Land_Rover_Range_Rover_Velar_First_Edition_D3_3.0_Front.jpg", "Range Rover Velar front"),
-        makeImage("5/54", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_front.jpg", "Range Rover detail"),
-        makeImage("9/9f", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_interior.jpg", "Range Rover interior"),
-        makeImage("7/7b", "Land_Rover_RANGE_ROVER_VOGUE_(ABA-LG3SB)_front.jpg", "Range Rover Vogue detail"),
+        makeImage("hero-velar.jpg", "Range Rover Velar front"),
+        makeImage("rr-sport-front.jpg", "Range Rover detail"),
+        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeImage("rr-sport-rear.jpg", "Range Rover detail rear"),
       ],
       similar: ["range-rover-sport", "range-rover-vogue", "defender-110"],
     },
@@ -88,10 +85,10 @@
       warranty: "12 Months",
       location: "Nairobi",
       images: [
-        makeImage("f/fe", "2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg", "Range Rover Autobiography front"),
-        makeImage("5/54", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_front.jpg", "Range Rover detail"),
-        makeImage("9/9f", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_interior.jpg", "Range Rover interior"),
-        makeImage("7/7b", "Land_Rover_RANGE_ROVER_VOGUE_(ABA-LG3SB)_front.jpg", "Range Rover Vogue detail"),
+        makeImage("rr-sport-front.jpg", "Range Rover Autobiography front"),
+        makeImage("rr-sport-rear.jpg", "Range Rover detail"),
+        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeImage("hero-velar.jpg", "Range Rover detail"),
       ],
       similar: ["range-rover-vogue", "range-rover-sport", "defender-110"],
     },
@@ -116,10 +113,10 @@
       warranty: "6 Months",
       location: "Nairobi",
       images: [
-        makeImage("7/7b", "Land_Rover_RANGE_ROVER_VOGUE_(ABA-LG3SB)_front.jpg", "Range Rover Vogue front"),
-        makeImage("5/54", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_front.jpg", "Range Rover detail"),
-        makeImage("9/9f", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_interior.jpg", "Range Rover interior"),
-        makeImage("f/fe", "2014_Land_Rover_Range_Rover_Autobiography_5.0_Front.jpg", "Range Rover Autobiography detail"),
+        makeImage("rr-sport-rear.jpg", "Range Rover Vogue front"),
+        makeImage("rr-sport-front.jpg", "Range Rover detail"),
+        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeImage("hero-velar.jpg", "Range Rover detail"),
       ],
       similar: ["range-rover-sport", "range-rover-autobiography", "range-rover-classic"],
     },
@@ -144,10 +141,10 @@
       warranty: "3 Months",
       location: "Nairobi",
       images: [
-        makeImage("f/ff", "2000_Land_Rover_Range_Rover_Vogue_Automatic_4.6_Front.jpg", "Range Rover Classic front"),
-        makeImage("7/7b", "Land_Rover_RANGE_ROVER_VOGUE_(ABA-LG3SB)_front.jpg", "Range Rover Vogue detail"),
-        makeImage("9/9f", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_interior.jpg", "Range Rover interior"),
-        makeImage("5/54", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_front.jpg", "Range Rover detail"),
+        makeImage("rr-sport-front.jpg", "Range Rover Classic front"),
+        makeImage("rr-sport-rear.jpg", "Range Rover detail"),
+        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeImage("hero-velar.jpg", "Range Rover detail"),
       ],
       similar: ["range-rover-vogue", "defender-110", "range-rover-sport"],
     },
@@ -172,10 +169,10 @@
       warranty: "6 Months",
       location: "Import stock",
       images: [
-        makeImage("a/a3", "Land_Rover_Defender_(L663)_IMG_4267.jpg", "Land Rover Defender 110 front"),
-        makeImage("5/54", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_front.jpg", "Range Rover detail"),
-        makeImage("9/9f", "Land_Rover_RANGE_ROVER_SPORT_HSE_(L494)_interior.jpg", "Range Rover interior"),
-        makeImage("7/7b", "Land_Rover_RANGE_ROVER_VOGUE_(ABA-LG3SB)_front.jpg", "Range Rover Vogue detail"),
+        makeImage("rr-sport-front.jpg", "Land Rover Defender 110 front"),
+        makeImage("hero-velar.jpg", "Range Rover detail"),
+        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeImage("rr-sport-rear.jpg", "Range Rover detail rear"),
       ],
       similar: ["range-rover-sport", "range-rover-velar", "range-rover-vogue"],
     },
