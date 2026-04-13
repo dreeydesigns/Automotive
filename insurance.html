@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Assistance | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body data-page="insurance">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="marketplace.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <main class="rrc-main">
+    <section class="rrc-section rrc-section-bone">
+      <div class="rrc-container rrc-reveal">
+        <p class="rrc-eyebrow">Insurance Assistance</p>
+        <h1>Protection tailored to your vehicle history</h1>
+        <p>RRC matches your vehicle with the right insurer, coverage level, and service plan so you stay protected from day one.</p>
+        <div class="rrc-button-group">
+          <a class="rrc-button rrc-button-primary" href="marketplace.html">Browse Marketplace</a>
+          <a class="rrc-button rrc-button-outline" href="contact.html">Talk to RRC</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container">
+        <p class="rrc-eyebrow rrc-reveal">How It Works</p>
+        <div class="rrc-step-row">
+          <div class="rrc-step rrc-reveal">
+            <div class="rrc-step-number">01</div>
+            <h4>Share your vehicle</h4>
+            <p>We start with your vehicle details and driving profile.</p>
+          </div>
+          <div class="rrc-step rrc-reveal">
+            <div class="rrc-step-number">02</div>
+            <h4>Match the cover</h4>
+            <p>We compare comprehensive, third-party, and add-on options.</p>
+          </div>
+          <div class="rrc-step rrc-reveal">
+            <div class="rrc-step-number">03</div>
+            <h4>Activate and support</h4>
+            <p>RRC coordinates activation and supports claims when needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section rrc-section-white">
+      <div class="rrc-container">
+        <p class="rrc-eyebrow rrc-reveal">Selected Vehicle</p>
+        <div class="vehicle-summary rrc-reveal" data-vehicle-summary>
+          <div class="vehicle-summary-media rrc-image">
+            <img class="rrc-lazy" data-vehicle-image src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg/900px-Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg/900px-Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg 900w, https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg/1400px-Land_Rover_RANGE_ROVER_SPORT_HSE_%28L494%29_front.jpg 1400w" loading="lazy" alt="Range Rover Sport" />
+          </div>
+          <div class="vehicle-summary-body">
+            <h2 data-vehicle-name>Range Rover Sport</h2>
+            <p data-vehicle-subtitle>2022 - Autobiography</p>
+            <div class="vehicle-summary-meta">
+              <span data-vehicle-price>KES 18.5M</span>
+              <span data-vehicle-mileage>38,000 KM</span>
+              <span data-vehicle-engine>3.0L SDV6 / 3000cc</span>
+              <span data-vehicle-stock>Stock ID: RRC-2241</span>
+            </div>
+            <div class="rrc-button-group">
+              <a class="rrc-button rrc-button-outline" data-vehicle-link href="vehicle-detail.html?car=range-rover-sport">View Vehicle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container">
+        <p class="rrc-eyebrow rrc-reveal">Coverage Options</p>
+        <div class="detail-spec-grid">
+          <article class="detail-panel rrc-reveal">
+            <h3>What We Compare</h3>
+            <ul>
+              <li>Comprehensive and third-party cover</li>
+              <li>Vehicle valuation and agreed value cover</li>
+              <li>Roadside support and loss of use</li>
+              <li>Claims turnaround and repair partners</li>
+            </ul>
+          </article>
+          <article class="detail-panel rrc-reveal">
+            <h3>Recommended Add-ons</h3>
+            <ul>
+              <li>Excess protection and windscreen cover</li>
+              <li>Political violence and terror cover</li>
+              <li>Hire car and courtesy vehicle options</li>
+              <li>Service continuity with RRC workshops</li>
+            </ul>
+          </article>
+        </div>
+        <div class="partner-grid rrc-reveal">
+          <div class="partner-card">Jubilee Insurance</div>
+          <div class="partner-card">Britam</div>
+          <div class="partner-card">Old Mutual</div>
+          <div class="partner-card">CIC Insurance</div>
+          <div class="partner-card">APA Insurance</div>
+          <div class="partner-card">AAR Insurance</div>
+          <div class="partner-card">GA Insurance</div>
+          <div class="partner-card">Liberty</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section rrc-section-bone">
+      <div class="rrc-container">
+        <p class="rrc-eyebrow rrc-reveal">Continue The Conversation</p>
+        <h2 class="rrc-reveal">Choose a channel and we will continue with your vehicle context</h2>
+        <div class="channel-actions rrc-reveal">
+          <a class="rrc-button rrc-button-whatsapp" data-contact="whatsapp" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="rrc-button rrc-button-outline" data-contact="email" href="mailto:info@rangerovercentre.co.ke">Email</a>
+          <a class="rrc-button rrc-button-primary" data-contact="call" href="tel:+254790374141">Call Now</a>
+          <button class="rrc-button rrc-button-outline" type="button" data-copy-link>Copy Vehicle Link</button>
+        </div>
+        <p class="rrc-data" data-contact-note>We will include the vehicle link and stock ID for continuity.</p>
+      </div>
+    </section>
+
+    <section class="rrc-section rrc-section-white">
+      <div class="rrc-container">
+        <p class="rrc-eyebrow rrc-reveal">Choose Another Vehicle</p>
+        <div class="rrc-pillars rrc-reveal" data-vehicle-list>
+          <a class="rrc-pillar" href="insurance.html?car=range-rover-sport">Range Rover Sport</a>
+          <a class="rrc-pillar" href="insurance.html?car=range-rover-velar">Range Rover Velar</a>
+          <a class="rrc-pillar" href="insurance.html?car=range-rover-autobiography">Range Rover Autobiography</a>
+          <a class="rrc-pillar" href="insurance.html?car=range-rover-vogue">Range Rover Vogue</a>
+          <a class="rrc-pillar" href="insurance.html?car=range-rover-classic">Range Rover Classic</a>
+          <a class="rrc-pillar" href="insurance.html?car=defender-110">Defender 110</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p>Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p>+254 790 374 141</p>
+        <p>info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="marketplace.html">Marketplace</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="about.html">About</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre - Nairobi - Est. 2016</small></div>
+  </footer>
+
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script src="js/vehicle-data.js"></script>
+  <script src="js/vehicle-contact.js"></script>
+</body>
+</html>

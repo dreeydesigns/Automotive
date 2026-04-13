@@ -56,24 +56,24 @@
 
         <aside class="detail-sidebar rrc-reveal">
           <div>
-            <h1>Range Rover Sport</h1>
-            <p>2022 · Autobiography</p>
+            <h1 data-detail="name">Range Rover Sport</h1>
+            <p data-detail="subtitle">2022 - Autobiography</p>
             <div class="detail-badges">
               <span class="rrc-badge rrc-badge-local">Available in Kenya</span>
               <span class="rrc-badge rrc-badge-import">RRC Certified</span>
             </div>
           </div>
-          <div class="detail-price">KES 18.5M</div>
+          <div class="detail-price" data-detail="price">KES 18.5M</div>
           <div class="detail-quick">
-            <div><span class="detail-label">Stock ID</span><span class="detail-value">RRC-2241</span></div>
-            <div><span class="detail-label">VIN Status</span><span class="detail-value">Verified</span></div>
-            <div><span class="detail-label">Logbook</span><span class="detail-value">Ready</span></div>
-            <div><span class="detail-label">Warranty</span><span class="detail-value">12 Months</span></div>
-            <div><span class="detail-label">Location</span><span class="detail-value">Nairobi</span></div>
+            <div><span class="detail-label">Stock ID</span><span class="detail-value" data-detail="stockId">RRC-2241</span></div>
+            <div><span class="detail-label">VIN Status</span><span class="detail-value" data-detail="vinStatus">Verified</span></div>
+            <div><span class="detail-label">Logbook</span><span class="detail-value" data-detail="logbook">Ready</span></div>
+            <div><span class="detail-label">Warranty</span><span class="detail-value" data-detail="warranty">12 Months</span></div>
+            <div><span class="detail-label">Location</span><span class="detail-value" data-detail="location">Nairobi</span></div>
           </div>
           <div class="detail-links">
-            <a href="contact.html">Finance options</a><br />
-            <a href="contact.html">Insurance assistance</a>
+            <a href="finance.html" data-detail-link="finance">Finance options</a><br />
+            <a href="insurance.html" data-detail-link="insurance">Insurance assistance</a>
           </div>
           <a class="rrc-button rrc-button-primary rrc-button-full" href="contact.html">I'm Interested</a>
           <a class="rrc-button rrc-button-whatsapp rrc-button-full" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -86,35 +86,35 @@
         <div class="detail-specs rrc-reveal">
           <div class="detail-specs-row">
             <div class="detail-label">Engine</div>
-            <div class="detail-value">3.0L SDV6 · 3000cc</div>
+            <div class="detail-value" data-detail="engine">3.0L SDV6 / 3000cc</div>
           </div>
           <div class="detail-specs-row">
             <div class="detail-label">Power</div>
-            <div class="detail-value">340 hp · 700 Nm</div>
+            <div class="detail-value" data-detail="power">340 hp / 700 Nm</div>
           </div>
           <div class="detail-specs-row">
             <div class="detail-label">Mileage</div>
-            <div class="detail-value">38,000 KM</div>
+            <div class="detail-value" data-detail="mileage">38,000 KM</div>
           </div>
           <div class="detail-specs-row">
             <div class="detail-label">Transmission</div>
-            <div class="detail-value">8-Speed Automatic</div>
+            <div class="detail-value" data-detail="transmission">8-Speed Automatic</div>
           </div>
           <div class="detail-specs-row">
             <div class="detail-label">Drivetrain</div>
-            <div class="detail-value">AWD · Terrain Response 2</div>
+            <div class="detail-value" data-detail="drivetrain">AWD / Terrain Response 2</div>
           </div>
           <div class="detail-specs-row">
             <div class="detail-label">Exterior</div>
-            <div class="detail-value">Fuji White · Black Pack</div>
+            <div class="detail-value" data-detail="exterior">Fuji White / Black Pack</div>
           </div>
           <div class="detail-specs-row">
             <div class="detail-label">Interior</div>
-            <div class="detail-value">Ebony Windsor Leather</div>
+            <div class="detail-value" data-detail="interior">Ebony Windsor Leather</div>
           </div>
           <div class="detail-specs-row">
             <div class="detail-label">Service History</div>
-            <div class="detail-value">Full RRC logbook</div>
+            <div class="detail-value" data-detail="service">Full RRC logbook</div>
           </div>
         </div>
       </div>
@@ -143,27 +143,27 @@
             <div class="detail-specs detail-specs-compact">
               <div class="detail-specs-row">
                 <div class="detail-label">Engine</div>
-                <div class="detail-value">3.0L SDV6 · 3000cc</div>
+                <div class="detail-value" data-detail="engine">3.0L SDV6 / 3000cc</div>
               </div>
               <div class="detail-specs-row">
                 <div class="detail-label">Power</div>
-                <div class="detail-value">340 hp</div>
+                <div class="detail-value" data-detail="powerSimple">340 hp</div>
               </div>
               <div class="detail-specs-row">
                 <div class="detail-label">Torque</div>
-                <div class="detail-value">700 Nm</div>
+                <div class="detail-value" data-detail="torque">700 Nm</div>
               </div>
               <div class="detail-specs-row">
                 <div class="detail-label">0-100 KM/H</div>
-                <div class="detail-value">6.8s</div>
+                <div class="detail-value" data-detail="acceleration">6.8s</div>
               </div>
               <div class="detail-specs-row">
                 <div class="detail-label">Transmission</div>
-                <div class="detail-value">8-Speed ZF</div>
+                <div class="detail-value" data-detail="transmission">8-Speed ZF</div>
               </div>
               <div class="detail-specs-row">
                 <div class="detail-label">Drivetrain</div>
-                <div class="detail-value">AWD · Terrain Response 2</div>
+                <div class="detail-value" data-detail="drivetrain">AWD / Terrain Response 2</div>
               </div>
             </div>
           </article>
@@ -394,10 +394,10 @@
     <section class="rrc-section rrc-section-bone">
       <div class="rrc-container">
         <p class="rrc-eyebrow rrc-reveal">Similar Vehicles</p>
-        <div class="rrc-pillars rrc-reveal">
-          <div class="rrc-pillar">Range Rover Velar</div>
-          <div class="rrc-pillar">Range Rover Autobiography</div>
-          <div class="rrc-pillar">Defender 110</div>
+        <div class="rrc-pillars rrc-reveal" data-similar-list>
+          <a class="rrc-pillar" href="vehicle-detail.html?car=range-rover-velar" target="_blank" rel="noopener noreferrer">Range Rover Velar</a>
+          <a class="rrc-pillar" href="vehicle-detail.html?car=range-rover-autobiography" target="_blank" rel="noopener noreferrer">Range Rover Autobiography</a>
+          <a class="rrc-pillar" href="vehicle-detail.html?car=defender-110" target="_blank" rel="noopener noreferrer">Defender 110</a>
         </div>
       </div>
     </section>
@@ -405,7 +405,7 @@
 
   <div class="detail-sticky">
     <div>
-      <div class="rrc-data">KES 18.5M</div>
+      <div class="rrc-data" data-detail="price">KES 18.5M</div>
     </div>
     <a class="rrc-button rrc-button-primary" href="contact.html">I'm Interested</a>
   </div>
@@ -478,6 +478,7 @@
 
   <script src="js/rrc-nav.js"></script>
   <script src="js/rrc-reveal.js"></script>
+  <script src="js/vehicle-data.js"></script>
   <script src="js/vehicle-detail.js"></script>
   <script src="js/popup.js"></script>
 </body>
