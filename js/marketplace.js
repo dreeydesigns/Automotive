@@ -13,7 +13,7 @@
 
   const createCardElement = (vehicle) => {
     const article = document.createElement("article");
-    article.className = "rrc-car-card rrc-reveal revealed";
+    article.className = "rrc-showroom-card rrc-reveal";
     article.setAttribute("data-vehicle-card", "");
     article.setAttribute("data-availability", vehicle.availability || "kenya");
     article.setAttribute("data-make", vehicle.make || "range rover");
@@ -28,8 +28,7 @@
     article.setAttribute("data-history", (vehicle.history || []).join(","));
     article.setAttribute("data-date", vehicle.date || "2026-08-17");
 
-    const badgeClass = vehicle.availability === "import" ? "rrc-badge-import" : "rrc-badge-local";
-    const badgeText = vehicle.availability === "import" ? "In Transit (UK)" : "Nairobi Showroom";
+    const tag = vehicle.availability === "import" ? "In Transit · UK" : "Nairobi Ready";
     
     const image = (vehicle.images && vehicle.images[0]) || {
       src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format",
@@ -38,27 +37,23 @@
     };
 
     article.innerHTML = `
-      <div class="rrc-car-media">
+      <div class="rrc-showroom-media">
         <img src="${image.src}" srcset="${image.srcset || image.src}" loading="lazy" alt="${image.alt || vehicle.name}" />
-        <div class="rrc-car-badge-wrap">
-          <span class="rrc-badge ${badgeClass}">${badgeText}</span>
-          <span class="rrc-badge rrc-badge-local">RRC Verified</span>
-        </div>
       </div>
-      <div class="rrc-car-body">
-        <div class="rrc-car-header">
-          <h4 class="rrc-car-title">${vehicle.name} ${vehicle.trim}</h4>
-          <span class="rrc-car-price">${vehicle.price}</span>
+      <div class="rrc-showroom-body">
+        <span class="rrc-mono-tag ${vehicle.availability === 'import' ? 'clay' : 'green'}">${tag}</span>
+        <div class="rrc-showroom-header">
+          <h3 class="rrc-showroom-title">${vehicle.name} ${vehicle.trim}</h3>
+          <span class="rrc-showroom-price">${vehicle.price}</span>
         </div>
-        <div class="rrc-car-specs-grid">
-          <div class="rrc-car-spec-item">⚡ ${vehicle.power || "Factory Output"}</div>
-          <div class="rrc-car-spec-item">⛽ ${vehicle.engine || "Verified Powertrain"}</div>
-          <div class="rrc-car-spec-item">🕹️ ${vehicle.transmission || "Automatic"}</div>
-          <div class="rrc-car-spec-item">📍 ${vehicle.year || "Year"} · ${vehicle.mileage || "Verified KM"}</div>
+        <div class="rrc-showroom-specs">
+          <span>${vehicle.power || "Output"}</span>
+          <span>·</span>
+          <span>${vehicle.engine || "Powertrain"}</span>
+          <span>·</span>
+          <span>${vehicle.mileage || "Verified"}</span>
         </div>
-        <div class="rrc-car-actions">
-          <a class="rrc-btn rrc-btn-gold rrc-btn-full" href="vehicle-detail.html?car=${encodeURIComponent(vehicle.id)}">Inspect Dossier →</a>
-        </div>
+        <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="vehicle-detail.html?car=${encodeURIComponent(vehicle.id)}">View Dossier →</a>
       </div>
     `;
 
@@ -72,14 +67,14 @@
     const vList = Object.values(vehicles);
     if (vList.length === 0) {
       gridEl.innerHTML = `
-        <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; background: var(--rrc-charcoal); border-radius: var(--r-md); border: 1px dashed var(--rrc-glass-border);">
-          <p class="rrc-eyebrow">Inventory Status</p>
-          <h3>Acquisitions Being Audited</h3>
-          <p style="max-width: 500px; margin: 0 auto 20px;">New Range Rover and Defender arrivals are currently undergoing 120-point diagnostic inspection in our Ridgeways atelier.</p>
-          <a class="rrc-btn rrc-btn-gold" href="contact.html">Request Specific Commission</a>
+        <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; background: var(--rrc-surface); border-radius: 6px; border: 1px dashed var(--rrc-border);">
+          <span class="rrc-mono-tag">Inventory Status</span>
+          <h3 style="margin: 8px 0;">Acquisitions Undergoing Audit</h3>
+          <p style="max-width: 480px; margin: 0 auto 20px; font-size: 14px;">Incoming motorcars are currently undergoing 120-point diagnostic interrogation in our Ridgeways atelier.</p>
+          <a class="rrc-btn rrc-btn-primary" href="contact.html">Request Specific Commission</a>
         </div>
       `;
-      if (countEl) countEl.textContent = "[0 ACQUISITIONS MATCHED]";
+      if (countEl) countEl.textContent = "[0 MOTORCARS AVAILABLE]";
       return;
     }
 
@@ -117,12 +112,6 @@
     const category = getCheckedValue("category");
     const make = normalize(getSelected("make"));
     const fuelFilters = getCheckedValues("fuel");
-    const historyFilters = getCheckedValues("history");
-
-    const priceMinInput = filterForm.querySelector("[name=priceMin]");
-    const priceMaxInput = filterForm.querySelector("[name=priceMax]");
-    const priceMin = priceMinInput ? parseNumber(priceMinInput.value) : null;
-    const priceMax = priceMaxInput ? parseNumber(priceMaxInput.value) : null;
 
     let visibleCount = 0;
 
@@ -130,8 +119,6 @@
       const cardAvailability = normalize(card.dataset.availability);
       const cardMake = normalize(card.dataset.make);
       const cardFuel = normalize(card.dataset.fuel);
-      const cardHistory = (card.dataset.history || "").split(",").map(normalize).filter(Boolean);
-      const cardPrice = Number(card.dataset.price || 0);
 
       let isVisible = true;
 
@@ -144,18 +131,6 @@
       }
 
       if (fuelFilters.length && !fuelFilters.includes(cardFuel)) {
-        isVisible = false;
-      }
-
-      if (historyFilters.length && !historyFilters.every((tag) => cardHistory.includes(tag))) {
-        isVisible = false;
-      }
-
-      if (priceMin !== null && cardPrice > 0 && cardPrice < priceMin) {
-        isVisible = false;
-      }
-
-      if (priceMax !== null && cardPrice > 0 && cardPrice > priceMax) {
         isVisible = false;
       }
 
@@ -181,34 +156,6 @@
   };
 
   if (filterForm) {
-    const bindRange = ({ minInput, maxInput, minRange, maxRange }) => {
-      if (!minInput || !maxInput || !minRange || !maxRange) return;
-
-      const syncFromText = () => {
-        const min = parseNumber(minInput.value);
-        const max = parseNumber(maxInput.value);
-        if (min !== null) minRange.value = min;
-        if (max !== null) maxRange.value = max;
-      };
-
-      const syncFromRange = () => {
-        minInput.value = Number(minRange.value).toLocaleString();
-        maxInput.value = Number(maxRange.value).toLocaleString();
-      };
-
-      minInput.addEventListener("input", syncFromText);
-      maxInput.addEventListener("input", syncFromText);
-      minRange.addEventListener("input", syncFromRange);
-      maxRange.addEventListener("input", syncFromRange);
-    };
-
-    bindRange({
-      minInput: filterForm.querySelector("[name=priceMin]"),
-      maxInput: filterForm.querySelector("[name=priceMax]"),
-      minRange: filterForm.querySelector("[name=priceRangeMin]"),
-      maxRange: filterForm.querySelector("[name=priceRangeMax]"),
-    });
-
     filterForm.addEventListener("input", applyFilters);
     filterForm.addEventListener("submit", (e) => {
       e.preventDefault();
