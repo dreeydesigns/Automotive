@@ -223,8 +223,9 @@
 
 .detail-layout {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr);
   gap: var(--sp-5);
+  align-items: start;
 }
 
 .detail-badges {
@@ -262,32 +263,59 @@
   overflow: hidden;
   border: 1px solid var(--rrc-sand);
   background: var(--rrc-black);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
+  max-height: 480px;
+  width: 100%;
+  position: relative;
+}
+
+.detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .detail-thumbs {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 80px;
+  display: flex;
   gap: var(--sp-2);
   margin-top: var(--sp-3);
   overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .detail-thumb {
-  border: 1px solid var(--rrc-sand);
+  flex: 0 0 88px;
+  height: 64px;
+  border: 2px solid var(--rrc-sand);
   border-radius: var(--r-sm);
   overflow: hidden;
   cursor: pointer;
+  background: var(--rrc-black);
+  transition: border-color var(--t-fast), transform var(--t-fast);
+}
+
+.detail-thumb:hover {
+  border-color: var(--rrc-gold-lt);
+  transform: translateY(-2px);
 }
 
 .detail-thumb.active {
   border-color: var(--rrc-gold);
+  box-shadow: 0 0 0 1px var(--rrc-gold);
+}
+
+.detail-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .detail-sidebar {
   position: sticky;
-  top: 120px;
+  top: 100px;
   align-self: start;
   background: var(--rrc-white);
   border: 1px solid var(--rrc-sand);
@@ -604,6 +632,20 @@
 }
 
 @media (max-width: 1024px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  .detail-sidebar {
+    position: static;
+  }
+
+  .detail-hero {
+    aspect-ratio: 16 / 10;
+    max-height: 420px;
+  }
+
   .detail-spec-grid,
   .detail-highlights,
   .detail-condition-grid,
@@ -618,8 +660,18 @@
     width: 100%;
   }
 
-  .detail-layout {
-    grid-template-columns: 1fr;
+  .detail-hero {
+    aspect-ratio: 4 / 3;
+    max-height: 320px;
+  }
+
+  .detail-thumb {
+    flex: 0 0 76px;
+    height: 56px;
+  }
+
+  .detail-price {
+    font-size: 30px;
   }
 
   .detail-spec-grid,
@@ -653,5 +705,26 @@
 
   .rrc-popup.open .rrc-popup-card {
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-hero {
+    aspect-ratio: 4 / 3;
+    max-height: 240px;
+  }
+
+  .detail-thumbs {
+    gap: 6px;
+  }
+
+  .detail-thumb {
+    flex: 0 0 64px;
+    height: 48px;
+  }
+
+  .detail-specs-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }

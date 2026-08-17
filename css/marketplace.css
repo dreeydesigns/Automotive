@@ -208,23 +208,31 @@
   aspect-ratio: 16 / 9;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 960px) {
+  .marketplace-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  .filter-panel {
+    position: static;
+    top: auto;
+  }
+
   .vehicle-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 768px) {
-  .marketplace-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .filter-panel {
-    position: static;
-  }
-
+@media (max-width: 640px) {
   .vehicle-grid {
     grid-template-columns: 1fr;
+  }
+
+  .marketplace-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-2);
   }
 
   .filter-row {
