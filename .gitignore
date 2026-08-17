@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Sanity
+.sanity/
+**/dist/
+
+# System
+.DS_Store
+Thumbs.db
