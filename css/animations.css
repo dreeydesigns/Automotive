@@ -1,9 +1,116 @@
-/* Master Blueprint Animations (Lightship, DS Paris, & Rivian inspired) */
+/* ==========================================================================
+   RANGE ROVER & LAND ROVER CENTRE — KOENIGSEGG SADAIR'S SPEAR ANIMATION SYSTEM
+   ========================================================================== */
 
+/* 1. Koenigsegg Minimalist Preloader */
+.rrc-preloader {
+  position: fixed;
+  inset: 0;
+  background: #060607;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+}
+
+.rrc-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.rrc-preloader-brand {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rrc-ivory);
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: rrc-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.1s;
+}
+
+.rrc-preloader-bar {
+  width: 140px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.rrc-preloader-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--rrc-ivory);
+  animation: rrc-line-fill 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.2s;
+}
+
+@keyframes rrc-line-fill {
+  0% { width: 0%; transform: translateX(0); }
+  100% { width: 100%; transform: translateX(0); }
+}
+
+@keyframes rrc-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Hero Cinematic Scale-In (Koenigsegg Style) */
+.rrc-hero-video-wrap {
+  transform: scale(1.08);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.rrc-hero-video-wrap.settled {
+  transform: scale(1.0);
+}
+
+/* 3. Koenigsegg Split-Line Mask Reveal */
+.rrc-mask-line {
+  overflow: hidden;
+  display: block;
+}
+
+.rrc-mask-inner {
+  display: block;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.rrc-mask-line.revealed .rrc-mask-inner,
+.rrc-reveal.revealed .rrc-mask-inner {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* 4. Clip-Path Image Reveal (Inset wipe from bottom) */
+.rrc-clip-reveal {
+  clip-path: inset(0% 0% 100% 0%);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path, transform;
+}
+
+.rrc-clip-reveal.revealed {
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+/* 5. General Scroll Reveal System */
 .rrc-reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -12,85 +119,63 @@
   transform: translateY(0);
 }
 
-/* Savoir-Faire Looping Marquee (DS Design Studio Paris) */
-.rrc-marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 24px 0;
-  border-top: 1px solid var(--rrc-border);
-  border-bottom: 1px solid var(--rrc-border);
-  background: var(--rrc-surface);
-}
-
-.rrc-marquee-track {
-  display: inline-flex;
-  animation: rrc-marquee-scroll 28s linear infinite;
-}
-
-.rrc-marquee-track span {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--rrc-text-secondary);
-  padding: 0 32px;
-}
-
-@keyframes rrc-marquee-scroll {
-  from { transform: translateX(0%); }
-  to { transform: translateX(-50%); }
-}
-
-/* Lightship Horizontal Forward-Scroll Reel */
-.rrc-reel-section {
+/* 6. Koenigsegg Underline Sweep Links */
+.rrc-link-sweep {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  transition: color var(--t-fast);
 }
 
-.rrc-reel-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(320px, 480px);
-  gap: var(--sp-4);
-  overflow-x: auto;
-  padding: var(--sp-4) 0;
-  scrollbar-width: none;
-}
-
-.rrc-reel-track::-webkit-scrollbar {
-  display: none;
-}
-
-.rrc-reel-card {
-  background: var(--rrc-surface);
-  border: 1px solid var(--rrc-border);
-  border-radius: 6px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.rrc-reel-media {
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: #000;
-}
-
-.rrc-reel-media img {
+.rrc-link-sweep::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.rrc-reel-body {
-  padding: var(--sp-4);
+.rrc-link-sweep:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-/* Parallax Depth (Rivian inspired) */
-.rrc-parallax-layer {
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+.rrc-link-sweep span {
+  transition: transform 0.3s var(--ease-out);
 }
+
+.rrc-link-sweep:hover span {
+  transform: translateX(4px);
+}
+
+/* 7. Numbers Counter Precision */
+.rrc-counter-val {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* 8. Reduced Motion & Performance */
+@media (prefers-reduced-motion: reduce) {
+  .rrc-preloader { display: none !important; }
+  .rrc-hero-video-wrap { transform: none !important; transition: none !important; }
+  .rrc-mask-inner { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .rrc-clip-reveal { clip-path: none !important; transition: none !important; }
+  .rrc-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+[data-animations="false"] .rrc-preloader { display: none !important; }
+[data-animations="false"] .rrc-hero-video-wrap { transform: none !important; transition: none !important; }
+[data-animations="false"] .rrc-mask-inner { transform: none !important; opacity: 1 !important; transition: none !important; }
+[data-animations="false"] .rrc-clip-reveal { clip-path: none !important; transition: none !important; }
+[data-animations="false"] .rrc-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }

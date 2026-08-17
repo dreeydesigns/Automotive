@@ -1,5 +1,5 @@
 (() => {
-  // 1. Lamborghini "Allow Animations" Toggle & Reduced Motion
+  // 1. Lamborghini / Koenigsegg Reduced Motion Toggle
   const animToggles = document.querySelectorAll("[data-toggle-animations]");
   const storedAnim = localStorage.getItem("rrc_animations");
   if (storedAnim === "false") {
@@ -18,14 +18,38 @@
         document.documentElement.setAttribute("data-animations", "false");
         localStorage.setItem("rrc_animations", "false");
         toggle.textContent = "Motion: Off";
-        // Reset transforms
         const heroVideo = document.querySelector(".rrc-hero-video-wrap");
         if (heroVideo) heroVideo.style.transform = "none";
       }
     });
   });
 
-  // 2. Custom Minimalist Cursor (Section 45)
+  // 2. Koenigsegg Preloader & Entrance Choreography
+  const preloader = document.getElementById("rrcPreloader");
+  const heroWrap = document.querySelector(".rrc-hero-video-wrap");
+  const maskLines = document.querySelectorAll(".rrc-mask-line");
+
+  const triggerEntrance = () => {
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add("loaded");
+      }, 700);
+    }
+    setTimeout(() => {
+      if (heroWrap) heroWrap.classList.add("settled");
+      maskLines.forEach((line, idx) => {
+        setTimeout(() => line.classList.add("revealed"), idx * 120);
+      });
+    }, 900);
+  };
+
+  if (document.readyState === "complete") {
+    triggerEntrance();
+  } else {
+    window.addEventListener("load", triggerEntrance);
+  }
+
+  // 3. Custom Minimalist Cursor
   if (window.matchMedia("(pointer: fine)").matches) {
     const dot = document.createElement("div");
     dot.className = "rrc-cursor-dot";
@@ -56,9 +80,8 @@
     });
   }
 
-  // 3. Section 11/12: The Arrival Hero Narrative Rewriting on Scroll
+  // 4. Hero Narrative Rewriting on Scroll (Lightship + Koenigsegg Pinning)
   const heroHeadline = document.getElementById("rrcHeroHeadline");
-  const heroWrap = document.querySelector(".rrc-hero-video-wrap");
   const nav = document.querySelector(".rrc-nav");
 
   const getHeroSequence = () => window.RRC_HERO_SEQUENCE || [
@@ -82,9 +105,9 @@
     }
 
     if (scrollY < heroH * 1.5) {
-      // Parallax drift
+      // Parallax scale & drift
       if (heroWrap) {
-        heroWrap.style.transform = `translate3d(0, ${scrollY * 0.32}px, 0)`;
+        heroWrap.style.transform = `translate3d(0, ${scrollY * 0.28}px, 0) scale(${1 - scrollY * 0.00015})`;
       }
 
       // Narrative text progression
@@ -94,7 +117,7 @@
       if (step !== lastIndex && heroHeadline) {
         lastIndex = step;
         heroHeadline.style.opacity = "0";
-        heroHeadline.style.transform = "translateY(8px)";
+        heroHeadline.style.transform = "translateY(12px)";
         setTimeout(() => {
           heroHeadline.textContent = heroSequence[step];
           heroHeadline.style.opacity = "1";
@@ -107,7 +130,56 @@
   window.addEventListener("scroll", onScrollHero, { passive: true });
   onScrollHero();
 
-  // 4. Section 09: Polestar-Style Mega-Menu Interactive Preview
+  // 5. Koenigsegg Telemetry Numeric Counter Animation
+  const counterElements = document.querySelectorAll("[data-counter-target]");
+  if (counterElements.length > 0) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseFloat(el.getAttribute("data-counter-target"));
+          const prefix = el.getAttribute("data-counter-prefix") || "";
+          const suffix = el.getAttribute("data-counter-suffix") || "";
+          const isDecimal = target % 1 !== 0;
+          let current = 0;
+          const duration = 1200;
+          const stepTime = 20;
+          const steps = duration / stepTime;
+          const increment = target / steps;
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = `${prefix}${isDecimal ? current.toFixed(1) : Math.round(current)}${suffix}`;
+          }, stepTime);
+
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counterElements.forEach(el => counterObserver.observe(el));
+  }
+
+  // 6. Clip-Path Image Reveal Observer
+  const clipElements = document.querySelectorAll(".rrc-clip-reveal");
+  if (clipElements.length > 0) {
+    const clipObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          clipObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    clipElements.forEach(el => clipObserver.observe(el));
+  }
+
+  // 7. Polestar Mega-Menu Interactive Preview
   const megaModelBtns = document.querySelectorAll(".rrc-mega-model-btn");
   const megaImg = document.getElementById("rrcMegaPreviewImg");
   const megaTitle = document.getElementById("rrcMegaPreviewTitle");
@@ -174,7 +246,7 @@
     });
   });
 
-  // 5. Section 15/16: Lucid Model Switcher Interactive Engine
+  // 8. Lucid Model Switcher Interactive Engine
   const modelTabs = document.querySelectorAll(".rrc-model-tab");
   const modelImg = document.getElementById("rrcModelShowcaseImg");
   const modelTitle = document.getElementById("rrcModelShowcaseTitle");
@@ -187,7 +259,6 @@
   const modelShowcaseData = {
     "rangerover": {
       title: "Range Rover",
-      tagline: "Commanding by design.",
       desc: "Peerless refinement and effortless capability. The definitive luxury SUV for cross-county travel across East Africa.",
       power: "523 HP",
       zeroSixty: "4.4s",
@@ -197,7 +268,6 @@
     },
     "sport": {
       title: "Range Rover Sport",
-      tagline: "Performance, sharpened.",
       desc: "Visceral, dramatic, and uncompromisingly agile. Dynamic air suspension with switchable volume chambers.",
       power: "523 HP",
       zeroSixty: "4.3s",
@@ -207,7 +277,6 @@
     },
     "velar": {
       title: "Range Rover Velar",
-      tagline: "Minimalism in motion.",
       desc: "Avant-garde proportions with flush deployable door handles and pure reductionist design language.",
       power: "300 HP",
       zeroSixty: "6.1s",
@@ -217,7 +286,6 @@
     },
     "evoque": {
       title: "Range Rover Evoque",
-      tagline: "Urban charisma. Solihull soul.",
       desc: "Tailored luxury engineered for high-density metropolitan Nairobi with full off-tarmac confidence.",
       power: "249 HP",
       zeroSixty: "7.0s",
@@ -227,7 +295,6 @@
     },
     "defender": {
       title: "Land Rover Defender",
-      tagline: "Capability without compromise.",
       desc: "An icon reimagined for the 21st century. Monocoque D7x architecture tested over 1.2 million kilometers of extreme terrain.",
       power: "518 HP",
       zeroSixty: "4.9s",
@@ -237,7 +304,6 @@
     },
     "discovery": {
       title: "Land Rover Discovery",
-      tagline: "The versatile expedition flagship.",
       desc: "Seven full-sized adult seats, 3,500kg towing capacity, and intelligent seat fold technology for seamless family expeditions.",
       power: "300 HP",
       zeroSixty: "6.5s",
@@ -273,7 +339,7 @@
     });
   });
 
-  // 6. Section 21/22: Workshop / Service Bay Switcher
+  // 9. Workshop Bay Switcher
   const workshopTabs = document.querySelectorAll(".rrc-workshop-tab");
   const workshopImg = document.getElementById("rrcWorkshopImg");
   const workshopTitle = document.getElementById("rrcWorkshopTitle");
@@ -328,7 +394,7 @@
     });
   });
 
-  // 7. Section 13: Lightship Pinned Story Observer
+  // 10. Lightship Pinned Story Observer
   const storyCards = document.querySelectorAll(".rrc-story-step-card");
   const storyStatement = document.getElementById("rrcStoryStatement");
   const storyImg = document.getElementById("rrcStoryImg");

@@ -16,6 +16,16 @@
 <body data-page="home">
 
   <!-- ========================================================================
+       00. Koenigsegg Minimalist Preloader
+       ======================================================================== -->
+  <div class="rrc-preloader" id="rrcPreloader" aria-hidden="true">
+    <div class="rrc-preloader-brand">RANGE ROVER / LAND ROVER CENTRE</div>
+    <div class="rrc-preloader-bar">
+      <div class="rrc-preloader-line"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
        01. Global Floating Navigation & Polestar Mega-Menu (Section 07–09)
        ======================================================================== -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
@@ -43,7 +53,7 @@
               </ul>
 
               <div class="rrc-mega-preview-box">
-                <div class="rrc-mega-preview-media">
+                <div class="rrc-mega-preview-media rrc-clip-reveal">
                   <img id="rrcMegaPreviewImg" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=900&auto=format" alt="Model Preview" />
                 </div>
                 <div class="rrc-mega-preview-info">
@@ -92,7 +102,7 @@
   <main class="rrc-main">
     
     <!-- ========================================================================
-         ACT I — The Arrival (Section 11–12)
+         ACT I — The Arrival (Hero - Koenigsegg Scale-In & Split Mask)
          ======================================================================== -->
     <header class="rrc-hero-cinematic">
       <div class="rrc-hero-video-wrap">
@@ -104,7 +114,9 @@
       <div class="rrc-container rrc-hero-content">
         <span class="rrc-mono-tag green" data-sanity="heroEyebrow">Solihull Sourced · Nairobi Audited</span>
         <div class="rrc-hero-headline-wrap">
-          <h1 class="rrc-hero-headline" id="rrcHeroHeadline">A DIFFERENT WAY TO ARRIVE.</h1>
+          <h1 class="rrc-hero-headline rrc-mask-line" id="rrcHeroHeadline">
+            <span class="rrc-mask-inner">A DIFFERENT WAY TO ARRIVE.</span>
+          </h1>
         </div>
         <p style="max-width: 540px; font-size: 17px; margin-bottom: var(--sp-4);" data-sanity="heroSubtitle">
           Two British automotive legacies. Handcrafted for peerless refinement, verified for the Great Rift Valley and Kenyan terrain.
@@ -129,8 +141,8 @@
         <div class="rrc-story-split">
           <div class="rrc-story-narrative-box">
             <span class="rrc-mono-tag" style="color: #666;" data-sanity="storyEyebrow">The Narrative Arc</span>
-            <h2 class="rrc-story-statement" id="rrcStoryStatement">
-              IT STARTS WITH THE RIGHT VEHICLE.
+            <h2 class="rrc-story-statement rrc-mask-line" id="rrcStoryStatement">
+              <span class="rrc-mask-inner">IT STARTS WITH THE RIGHT VEHICLE.</span>
             </h2>
             <p style="color: #444; font-size: 16px;" data-sanity="storyDescription">
               Every acquisition is curated from certified UK networks, interrogated through 120-point diagnostic telemetry, and prepared for enduring African performance.
@@ -140,7 +152,7 @@
             </div>
           </div>
 
-          <div class="rrc-story-canvas">
+          <div class="rrc-story-canvas rrc-clip-reveal">
             <img id="rrcStoryImg" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&auto=format" alt="Story Narrative Visual" />
           </div>
         </div>
@@ -175,7 +187,7 @@
 
         <!-- Dynamic Model Showcase Presentation -->
         <div class="rrc-model-showcase-grid">
-          <div class="rrc-model-showcase-media">
+          <div class="rrc-model-showcase-media rrc-clip-reveal">
             <img id="rrcModelShowcaseImg" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1400&auto=format" alt="Range Rover Showcase" />
           </div>
 
@@ -189,11 +201,11 @@
             <div class="rrc-model-telemetry-strip">
               <div class="rrc-telemetry-item">
                 <span>Peak Power</span>
-                <span id="rrcModelPower">523 HP</span>
+                <span id="rrcModelPower" class="rrc-counter-val" data-counter-target="523" data-counter-suffix=" HP">523 HP</span>
               </div>
               <div class="rrc-telemetry-item">
                 <span>0–100 KM/H</span>
-                <span id="rrcModelZeroSixty">4.4s</span>
+                <span id="rrcModelZeroSixty" class="rrc-counter-val" data-counter-target="4.4" data-counter-suffix="s">4.4s</span>
               </div>
               <div class="rrc-telemetry-item">
                 <span>Drivetrain</span>
@@ -210,7 +222,7 @@
     </section>
 
     <!-- ========================================================================
-         ACT IV — Massive Featured Product Spotlight (Section 17)
+         ACT IV — Massive Featured Product Spotlight (Koenigsegg Minimalist Scale)
          ======================================================================== -->
     <section class="rrc-featured-spotlight">
       <div class="rrc-featured-backdrop">
@@ -242,7 +254,7 @@
     </section>
 
     <!-- ========================================================================
-         ACT V — Horizontal Forward-Scroll Journey (Section 19)
+         ACT V — Horizontal Forward-Scroll Journey (Lightship + Koenigsegg)
          ======================================================================== -->
     <section class="rrc-journey-section">
       <div class="rrc-container">
@@ -257,7 +269,7 @@
         <div class="rrc-journey-reel">
           <!-- Frame 01 -->
           <div class="rrc-journey-card">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=800&auto=format" alt="01 Arrival" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -269,7 +281,7 @@
 
           <!-- Frame 02 -->
           <div class="rrc-journey-card">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&auto=format" alt="02 Control" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -281,7 +293,7 @@
 
           <!-- Frame 03 -->
           <div class="rrc-journey-card">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&auto=format" alt="03 Movement" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -293,7 +305,7 @@
 
           <!-- Frame 04 -->
           <div class="rrc-journey-card">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&auto=format" alt="04 Open Road" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -305,7 +317,7 @@
 
           <!-- Frame 05 -->
           <div class="rrc-journey-card">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&auto=format" alt="05 Distance" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -324,15 +336,15 @@
     <section class="rrc-kenya-section">
       <div class="rrc-container rrc-kenya-grid">
         <div class="rrc-reveal">
-          <span class="rrc-mono-tag clay">Geographical Truth</span>
-          <h2 style="margin: 8px 0 16px;">BUILT FOR A COUNTRY THAT DOESN'T HAVE ONE ROAD.</h2>
-          <p style="font-size: 16px; margin-bottom: var(--sp-4);">
+          <span class="rrc-mono-tag clay" data-sanity="kenyaEyebrow">Geographical Truth</span>
+          <h2 style="margin: 8px 0 16px;" data-sanity="kenyaHeadline">BUILT FOR A COUNTRY THAT DOESN'T HAVE ONE ROAD.</h2>
+          <p style="font-size: 16px; margin-bottom: var(--sp-4);" data-sanity="kenyaDescription">
             From the smooth asphalt of the Nairobi Expressway to the basalt rock trails of Turkana and the red dust of Laikipia conservancies, these motorcars were engineered for real geographical versatility.
           </p>
           <a class="rrc-btn rrc-btn-secondary" href="marketplace.html">Explore Proven Fleet →</a>
         </div>
 
-        <div class="rrc-kenya-media rrc-reveal">
+        <div class="rrc-kenya-media rrc-clip-reveal">
           <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200&auto=format" alt="Kenyan Terrain Exploration" loading="lazy" />
         </div>
       </div>
@@ -343,8 +355,8 @@
          ======================================================================== -->
     <section class="rrc-workshop-section">
       <div class="rrc-container">
-        <span class="rrc-mono-tag green">Ridgeways Atelier</span>
-        <h2 style="margin-top: 6px;">OWNERSHIP DOESN'T END AT DELIVERY.</h2>
+        <span class="rrc-mono-tag green" data-sanity="workshopEyebrow">Ridgeways Atelier</span>
+        <h2 style="margin-top: 6px;" data-sanity="workshopHeadline">OWNERSHIP DOESN'T END AT DELIVERY.</h2>
 
         <div class="rrc-workshop-grid">
           <!-- Bay Selector Tabs -->
@@ -369,7 +381,7 @@
 
           <!-- Bay Preview Card -->
           <div class="rrc-workshop-preview-card">
-            <div class="rrc-workshop-preview-media">
+            <div class="rrc-workshop-preview-media rrc-clip-reveal">
               <img id="rrcWorkshopImg" src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&auto=format" alt="Atelier Diagnostics" />
             </div>
             <div style="display: grid; gap: var(--sp-3);">
@@ -424,7 +436,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-5);">
           <!-- Article 01 -->
           <article class="rrc-journey-card rrc-reveal">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&auto=format" alt="Buyer's Guide" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -439,7 +451,7 @@
 
           <!-- Article 02 -->
           <article class="rrc-journey-card rrc-reveal">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&auto=format" alt="Maintenance" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -454,7 +466,7 @@
 
           <!-- Article 03 -->
           <article class="rrc-journey-card rrc-reveal">
-            <div class="rrc-journey-media">
+            <div class="rrc-journey-media rrc-clip-reveal">
               <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&auto=format" alt="Sourcing" loading="lazy" />
             </div>
             <div class="rrc-journey-body">
@@ -475,14 +487,14 @@
          ======================================================================== -->
     <section class="rrc-centre-section">
       <div class="rrc-container rrc-centre-grid">
-        <div class="rrc-centre-media rrc-reveal">
+        <div class="rrc-centre-media rrc-clip-reveal">
           <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format" alt="RRC Ridgeways Facility" loading="lazy" />
         </div>
 
         <div class="rrc-centre-details rrc-reveal">
           <span class="rrc-mono-tag" style="color: #666;">Physical Sanctuary</span>
-          <h2 style="color: #0A0A0A; margin: 0;">RIDGEWAYS · NAIROBI</h2>
-          <p style="color: #444; font-size: 16px;">
+          <h2 style="color: #0A0A0A; margin: 0;" data-sanity="centreHeadline">RIDGEWAYS · NAIROBI</h2>
+          <p style="color: #444; font-size: 16px;" data-sanity="centreDescription">
             Come see the collection in person. Private viewings, diagnostic consultations, and discreet vehicle handovers in a dedicated automotive environment.
           </p>
 
@@ -504,11 +516,11 @@
          ======================================================================== -->
     <section class="rrc-close-section">
       <div class="rrc-container-narrow rrc-reveal">
-        <span class="rrc-mono-tag green">Direct Acquisition</span>
-        <h2 style="font-size: clamp(36px, 5.5vw, 68px); margin: 12px 0 16px;">
+        <span class="rrc-mono-tag green" data-sanity="closeEyebrow">Direct Acquisition</span>
+        <h2 style="font-size: clamp(36px, 5.5vw, 68px); margin: 12px 0 16px;" data-sanity="closeHeadline">
           THE ROAD IS YOURS.
         </h2>
-        <p style="max-width: 580px; margin: 0 auto var(--sp-5); font-size: 17px;">
+        <p style="max-width: 580px; margin: 0 auto var(--sp-5); font-size: 17px;" data-sanity="closeDescription">
           Let us find the right vehicle for it. Ten years of specialized Solihull trade, verified diagnostic logs, and direct client relationships across East Africa.
         </p>
         <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
@@ -575,8 +587,8 @@
       </div>
 
       <div class="rrc-footer-bottom">
-        <span>© 2026 Range Rover Centre Nairobi · All Rights Reserved</span>
-        <span>Engineered in Solihull. Proven on Kenyan roads.</span>
+        <span data-sanity="copyright">© 2026 Range Rover Centre Nairobi · All Rights Reserved</span>
+        <span data-sanity="footerTagline">Engineered in Solihull. Proven on Kenyan roads.</span>
       </div>
     </div>
   </footer>
@@ -597,7 +609,7 @@
         const card = document.createElement("article");
         card.className = "rrc-showroom-card rrc-reveal";
         card.innerHTML = `
-          <div class="rrc-showroom-media">
+          <div class="rrc-showroom-media rrc-clip-reveal">
             <img src="${img}" alt="${v.name}" loading="lazy" />
           </div>
           <div class="rrc-showroom-body">
