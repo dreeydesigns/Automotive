@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body data-page="services">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="contact.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <main class="rrc-main">
+    <section class="rrc-section">
+      <div class="rrc-container rrc-reveal">
+        <p class="rrc-eyebrow">Services</p>
+        <h1>Precision care for every stage of ownership</h1>
+        <p>RRC delivers full lifecycle support from diagnostics to upgrades.</p>
+      </div>
+    </section>
+
+    <section class="rrc-section rrc-section-bone">
+      <div class="rrc-container">
+        <div class="rrc-grid-2x2">
+          <article class="rrc-card rrc-reveal">
+            <h4>Servicing</h4>
+            <p>Scheduled maintenance with genuine parts and full documentation.</p>
+          </article>
+          <article class="rrc-card rrc-reveal">
+            <h4>Diagnostics</h4>
+            <p>Comprehensive inspection reports for every vehicle.</p>
+          </article>
+          <article class="rrc-card rrc-reveal">
+            <h4>Accident Recovery</h4>
+            <p>Body repairs, structural restoration, and insurance liaison.</p>
+          </article>
+          <article class="rrc-card rrc-reveal">
+            <h4>Customisation</h4>
+            <p>Facelifts, trim upgrades, and bespoke enhancements.</p>
+          </article>
+          <article class="rrc-card rrc-reveal">
+            <h4>Spare Parts</h4>
+            <p>Genuine parts sourcing with professional fitting.</p>
+          </article>
+          <article class="rrc-card rrc-reveal">
+            <h4>Insurance Assistance</h4>
+            <p>Guidance and claims support for every owner.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container rrc-reveal">
+        <div class="rrc-card">
+          <h3>Book a service consultation</h3>
+          <form class="rrc-form">
+            <label>
+              Full Name
+              <input class="rrc-input" type="text" placeholder="Full name" />
+            </label>
+            <label>
+              Phone Number (optional)
+              <input class="rrc-input" type="tel" placeholder="+254" />
+            </label>
+            <label>
+              Service needed
+              <select class="rrc-select">
+                <option>Servicing</option>
+                <option>Diagnostics</option>
+                <option>Accident Recovery</option>
+                <option>Customisation</option>
+                <option>Spare Parts</option>
+                <option>Insurance Assistance</option>
+              </select>
+            </label>
+            <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Book Consultation</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p>Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p>+254 790 374 141</p>
+        <p>info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="marketplace.html">Marketplace</a></p>
+        <p><a href="about.html">About</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+  </footer>
+
+  <div class="rrc-popup" id="rrcPopup" aria-hidden="true">
+    <div class="rrc-popup-backdrop" data-popup-close></div>
+    <div class="rrc-popup-card" role="dialog" aria-modal="true">
+      <button class="rrc-popup-close" type="button" data-popup-close>×</button>
+      <h2>Let us find your perfect vehicle</h2>
+      <p>An RRC specialist will call you within 24 hours.</p>
+      <form class="rrc-form">
+        <label>
+          Full Name
+          <input class="rrc-input" type="text" placeholder="Full name" />
+        </label>
+        <label>
+          Phone Number (optional)
+          <input class="rrc-input" type="tel" placeholder="+254" />
+        </label>
+        <label>
+          I am looking for
+          <select class="rrc-select">
+            <option>Range Rover</option>
+            <option>Land Rover</option>
+            <option>Mercedes-Benz</option>
+            <option>BMW</option>
+            <option>Porsche</option>
+            <option>Other luxury vehicle</option>
+          </select>
+        </label>
+        <label>
+          Preferred budget
+          <select class="rrc-select">
+            <option>KES 2M - 5M</option>
+            <option>KES 5M - 10M</option>
+            <option>KES 10M - 20M</option>
+            <option>KES 20M+</option>
+          </select>
+        </label>
+        <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Get a Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>

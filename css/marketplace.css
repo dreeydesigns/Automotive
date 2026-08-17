@@ -1,0 +1,231 @@
+.marketplace-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.filter-panel {
+  background: var(--rrc-white);
+  border: 1px solid var(--rrc-sand);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sp-3);
+}
+
+.filter-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--rrc-black);
+}
+
+.filter-section {
+  border-top: 1px solid var(--rrc-sand);
+  padding: var(--sp-3) 0;
+}
+
+.filter-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.filter-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--rrc-black);
+  cursor: pointer;
+  padding: 0;
+}
+
+.filter-content {
+  margin-top: var(--sp-2);
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.filter-content[hidden] {
+  display: none;
+}
+
+.filter-content label {
+  font-size: 14px;
+  color: var(--rrc-grey);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.filter-content input[type=range] {
+  width: 100%;
+  accent-color: var(--rrc-gold);
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+
+.filter-tags {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.filter-panel [data-clear-filters] {
+  margin-top: var(--sp-2);
+}
+
+.filter-tags label {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 14px;
+  color: var(--rrc-grey);
+}
+
+.filter-colors {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.color-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--rrc-sand);
+}
+
+.color-black { background: #111; }
+.color-white { background: #fff; }
+.color-silver { background: #c0c0c0; }
+.color-blue { background: #1d3f6f; }
+.color-green { background: #355e3b; }
+.color-red { background: #8b1e1e; }
+.color-grey { background: #777; }
+.color-gold { background: #c9a96e; }
+
+.marketplace-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.marketplace-toolbar .rrc-data {
+  font-size: 16px;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-3);
+}
+
+.vehicle-card {
+  background: var(--rrc-bone);
+  border: 1px solid var(--rrc-sand);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  display: grid;
+  height: 100%;
+  transition: border-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
+}
+
+.vehicle-card:hover {
+  border-color: var(--rrc-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.vehicle-card-body {
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.vehicle-card h4 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.vehicle-meta {
+  font-size: 14px;
+  color: var(--rrc-grey);
+}
+
+.vehicle-price {
+  font-family: var(--font-data);
+  font-size: 24px;
+  color: var(--rrc-gold);
+  font-weight: 700;
+}
+
+.vehicle-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  font-size: 13px;
+  color: var(--rrc-grey);
+}
+
+.vehicle-actions {
+  margin-top: auto;
+}
+
+.vehicle-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.vehicle-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 1024px) {
+  .vehicle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .marketplace-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-panel {
+    position: static;
+  }
+
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+}
