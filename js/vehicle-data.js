@@ -1,5 +1,9 @@
 (() => {
-  const makeImage = (file, alt) => ({
+  const SANITY_PROJECT_ID = "ckvlowx4";
+  const SANITY_DATASET = "production";
+  const SANITY_API_VERSION = "v2023-08-01";
+
+  const makeStaticImage = (file, alt) => ({
     src: `assets/images/${file}`,
     srcset: `assets/images/${file} 900w, assets/images/${file} 1400w`,
     thumb: `assets/images/${file}`,
@@ -7,7 +11,7 @@
     alt,
   });
 
-  const vehicles = {
+  const staticVehicles = {
     "range-rover-sport": {
       id: "range-rover-sport",
       name: "Range Rover Sport",
@@ -16,6 +20,7 @@
       price: "KES 18.5M",
       priceValue: 18500000,
       mileage: "38,000 KM",
+      mileageValue: 38000,
       engine: "3.0L SDV6 / 3000cc",
       power: "340 hp / 700 Nm",
       transmission: "8-Speed Automatic",
@@ -28,11 +33,18 @@
       logbook: "Ready",
       warranty: "12 Months",
       location: "Nairobi",
+      availability: "kenya",
+      make: "range rover",
+      model: "range rover sport",
+      body: "suv",
+      color: "white",
+      history: ["rrc-certified", "accident-free", "full-service", "warranty"],
+      date: "2025-03-12",
       images: [
-        makeImage("rr-sport-front.jpg", "Range Rover Sport Autobiography front"),
-        makeImage("rr-sport-rear.jpg", "Range Rover Sport rear"),
-        makeImage("rr-sport-interior.jpg", "Range Rover Sport interior"),
-        makeImage("hero-velar.jpg", "Range Rover detail"),
+        makeStaticImage("rr-sport-front.jpg", "Range Rover Sport Autobiography front"),
+        makeStaticImage("rr-sport-rear.jpg", "Range Rover Sport rear"),
+        makeStaticImage("rr-sport-interior.jpg", "Range Rover Sport interior"),
+        makeStaticImage("hero-velar.jpg", "Range Rover detail"),
       ],
       similar: ["range-rover-velar", "range-rover-autobiography", "defender-110"],
     },
@@ -44,6 +56,7 @@
       price: "KES 14.2M",
       priceValue: 14200000,
       mileage: "52,000 KM",
+      mileageValue: 52000,
       engine: "2.0L Si4 / 2000cc",
       power: "247 hp / 365 Nm",
       transmission: "8-Speed Automatic",
@@ -56,11 +69,18 @@
       logbook: "In transit",
       warranty: "6 Months",
       location: "Import stock",
+      availability: "import",
+      make: "range rover",
+      model: "range rover velar",
+      body: "suv",
+      color: "silver",
+      history: ["rrc-certified", "full-service"],
+      date: "2025-02-28",
       images: [
-        makeImage("hero-velar.jpg", "Range Rover Velar front"),
-        makeImage("rr-sport-front.jpg", "Range Rover detail"),
-        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
-        makeImage("rr-sport-rear.jpg", "Range Rover detail rear"),
+        makeStaticImage("hero-velar.jpg", "Range Rover Velar front"),
+        makeStaticImage("rr-sport-front.jpg", "Range Rover detail"),
+        makeStaticImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeStaticImage("rr-sport-rear.jpg", "Range Rover detail rear"),
       ],
       similar: ["range-rover-sport", "range-rover-vogue", "defender-110"],
     },
@@ -72,6 +92,7 @@
       price: "KES 21.5M",
       priceValue: 21500000,
       mileage: "62,000 KM",
+      mileageValue: 62000,
       engine: "5.0L V8 / 5000cc",
       power: "510 hp / 625 Nm",
       transmission: "8-Speed Automatic",
@@ -84,11 +105,18 @@
       logbook: "Ready",
       warranty: "12 Months",
       location: "Nairobi",
+      availability: "kenya",
+      make: "range rover",
+      model: "range rover autobiography",
+      body: "suv",
+      color: "black",
+      history: ["rrc-certified", "accident-free", "warranty"],
+      date: "2025-01-16",
       images: [
-        makeImage("rr-sport-front.jpg", "Range Rover Autobiography front"),
-        makeImage("rr-sport-rear.jpg", "Range Rover detail"),
-        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
-        makeImage("hero-velar.jpg", "Range Rover detail"),
+        makeStaticImage("rr-sport-front.jpg", "Range Rover Autobiography front"),
+        makeStaticImage("rr-sport-rear.jpg", "Range Rover detail"),
+        makeStaticImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeStaticImage("hero-velar.jpg", "Range Rover detail"),
       ],
       similar: ["range-rover-vogue", "range-rover-sport", "defender-110"],
     },
@@ -100,6 +128,7 @@
       price: "KES 17.5M",
       priceValue: 17500000,
       mileage: "64,000 KM",
+      mileageValue: 64000,
       engine: "4.4L SDV8 / 4400cc",
       power: "339 hp / 740 Nm",
       transmission: "8-Speed Automatic",
@@ -112,41 +141,20 @@
       logbook: "Ready",
       warranty: "6 Months",
       location: "Nairobi",
+      availability: "kenya",
+      make: "range rover",
+      model: "range rover vogue",
+      body: "suv",
+      color: "black",
+      history: ["rrc-certified", "full-service"],
+      date: "2025-02-10",
       images: [
-        makeImage("rr-sport-rear.jpg", "Range Rover Vogue front"),
-        makeImage("rr-sport-front.jpg", "Range Rover detail"),
-        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
-        makeImage("hero-velar.jpg", "Range Rover detail"),
+        makeStaticImage("rr-sport-rear.jpg", "Range Rover Vogue front"),
+        makeStaticImage("rr-sport-front.jpg", "Range Rover detail"),
+        makeStaticImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeStaticImage("hero-velar.jpg", "Range Rover detail"),
       ],
       similar: ["range-rover-sport", "range-rover-autobiography", "range-rover-classic"],
-    },
-    "range-rover-classic": {
-      id: "range-rover-classic",
-      name: "Range Rover Vogue",
-      trim: "Classic",
-      year: "2000",
-      price: "KES 4.8M",
-      priceValue: 4800000,
-      mileage: "160,000 KM",
-      engine: "4.6L V8 / 4600cc",
-      power: "222 hp / 380 Nm",
-      transmission: "Automatic",
-      drivetrain: "4WD",
-      exterior: "Oxford Green",
-      interior: "Tan leather",
-      fuel: "Petrol",
-      stockId: "RRC-1874",
-      vinStatus: "Verified",
-      logbook: "Ready",
-      warranty: "3 Months",
-      location: "Nairobi",
-      images: [
-        makeImage("rr-sport-front.jpg", "Range Rover Classic front"),
-        makeImage("rr-sport-rear.jpg", "Range Rover detail"),
-        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
-        makeImage("hero-velar.jpg", "Range Rover detail"),
-      ],
-      similar: ["range-rover-vogue", "defender-110", "range-rover-sport"],
     },
     "defender-110": {
       id: "defender-110",
@@ -156,6 +164,7 @@
       price: "KES 19.8M",
       priceValue: 19800000,
       mileage: "44,000 KM",
+      mileageValue: 44000,
       engine: "3.0L D300 / 3000cc",
       power: "296 hp / 650 Nm",
       transmission: "8-Speed Automatic",
@@ -168,16 +177,147 @@
       logbook: "In transit",
       warranty: "6 Months",
       location: "Import stock",
+      availability: "import",
+      make: "land rover",
+      model: "defender 110",
+      body: "suv",
+      color: "green",
+      history: ["rrc-certified", "warranty"],
+      date: "2025-01-22",
       images: [
-        makeImage("rr-sport-front.jpg", "Land Rover Defender 110 front"),
-        makeImage("hero-velar.jpg", "Range Rover detail"),
-        makeImage("rr-sport-interior.jpg", "Range Rover interior"),
-        makeImage("rr-sport-rear.jpg", "Range Rover detail rear"),
+        makeStaticImage("rr-sport-front.jpg", "Land Rover Defender 110 front"),
+        makeStaticImage("hero-velar.jpg", "Range Rover detail"),
+        makeStaticImage("rr-sport-interior.jpg", "Range Rover interior"),
+        makeStaticImage("rr-sport-rear.jpg", "Range Rover detail rear"),
       ],
       similar: ["range-rover-sport", "range-rover-velar", "range-rover-vogue"],
     },
   };
 
-  window.RRC_VEHICLES = vehicles;
-})();
+  const parseSanityAssetUrl = (assetRef) => {
+    if (!assetRef || typeof assetRef !== "string") return null;
+    const parts = assetRef.split("-");
+    if (parts.length < 4) return null;
+    const id = parts[1];
+    const dimensions = parts[2];
+    const format = parts[3];
+    return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}`;
+  };
 
+  const transformSanityDoc = (doc) => {
+    const slug = doc.slug?.current || doc._id;
+    const name = doc.name || "Untitled Vehicle";
+    const trim = doc.trim || "";
+    const year = String(doc.year || "");
+    const price = doc.price || (doc.priceValue ? `KES ${(doc.priceValue / 1000000).toFixed(1)}M` : "Contact for Price");
+    const priceValue = Number(doc.priceValue || 0);
+    const mileage = doc.mileage || "";
+    const cleanMileage = (mileage || "").replace(/[^0-9]/g, "");
+    const mileageValue = cleanMileage ? Number(cleanMileage) : 0;
+    const location = doc.location || "Nairobi";
+    const availability = location.toLowerCase().includes("import") ? "import" : "kenya";
+
+    const fullNameLower = `${name} ${trim}`.toLowerCase();
+    let make = "range rover";
+    if (fullNameLower.includes("defender") || fullNameLower.includes("discovery") || fullNameLower.includes("land rover")) {
+      make = "land rover";
+    }
+
+    let model = slug;
+    if (fullNameLower.includes("discovery")) model = "discovery";
+    else if (fullNameLower.includes("sport")) model = "range rover sport";
+    else if (fullNameLower.includes("velar")) model = "range rover velar";
+    else if (fullNameLower.includes("autobiography")) model = "range rover autobiography";
+    else if (fullNameLower.includes("vogue")) model = "range rover vogue";
+    else if (fullNameLower.includes("defender")) model = "defender 110";
+
+    const exteriorLower = (doc.exterior || "").toLowerCase();
+    let color = "other";
+    const knownColors = ["black", "white", "silver", "grey", "gray", "blue", "green", "red", "gold", "bronze", "brown"];
+    for (const c of knownColors) {
+      if (exteriorLower.includes(c)) {
+        color = c === "gray" ? "grey" : c;
+        break;
+      }
+    }
+
+    const images = (doc.images || []).map((img) => {
+      const assetRef = img?.asset?._ref;
+      const cdnUrl = parseSanityAssetUrl(assetRef) || "assets/images/hero-velar.jpg";
+      const alt = img.alt || name;
+      return {
+        src: cdnUrl,
+        srcset: `${cdnUrl}?w=900&auto=format 900w, ${cdnUrl}?w=1400&auto=format 1400w`,
+        thumb: `${cdnUrl}?w=400&auto=format`,
+        thumbSrcset: `${cdnUrl}?w=200&auto=format 200w, ${cdnUrl}?w=400&auto=format 400w`,
+        alt,
+      };
+    });
+
+    if (images.length === 0) {
+      images.push(makeStaticImage("rr-sport-front.jpg", name));
+    }
+
+    return {
+      id: slug,
+      name,
+      trim,
+      year,
+      price,
+      priceValue,
+      mileage,
+      mileageValue,
+      engine: doc.engine || "",
+      power: doc.power || "",
+      transmission: doc.transmission || "Automatic",
+      drivetrain: doc.drivetrain || "AWD",
+      exterior: doc.exterior || "",
+      interior: doc.interior || "",
+      fuel: (doc.fuel || "Petrol").toLowerCase(),
+      stockId: doc.stockId || `RRC-${year}`,
+      vinStatus: doc.vinStatus || "Verified",
+      logbook: doc.logbook || "Ready",
+      warranty: doc.warranty || "3 Months",
+      location,
+      availability,
+      make,
+      model,
+      body: "suv",
+      color,
+      history: ["rrc-certified", "warranty", "full-service"],
+      date: doc._createdAt ? doc._createdAt.split("T")[0] : "2026-08-17",
+      images,
+      featured: Boolean(doc.featured),
+      similar: [],
+    };
+  };
+
+  window.RRC_VEHICLES = { ...staticVehicles };
+
+  window.RRC_FETCH_PROMISE = (async () => {
+    try {
+      const query = encodeURIComponent('*[_type == "vehicle"] | order(_createdAt desc)');
+      const res = await fetch(`https://${SANITY_PROJECT_ID}.api.sanity.io/${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${query}`);
+      if (!res.ok) throw new Error(`Sanity fetch error: ${res.statusText}`);
+      const data = await res.json();
+      if (Array.isArray(data.result) && data.result.length > 0) {
+        const liveVehicles = {};
+        data.result.forEach((doc) => {
+          const transformed = transformSanityDoc(doc);
+          liveVehicles[transformed.id] = transformed;
+        });
+
+        // Merge Sanity vehicles first, then static fallbacks
+        window.RRC_VEHICLES = {
+          ...liveVehicles,
+          ...staticVehicles,
+        };
+      }
+    } catch (err) {
+      console.warn("Could not fetch Sanity vehicles live, using static dataset fallback.", err);
+    }
+
+    document.dispatchEvent(new CustomEvent("rrc:vehicles-ready", { detail: window.RRC_VEHICLES }));
+    return window.RRC_VEHICLES;
+  })();
+})();
