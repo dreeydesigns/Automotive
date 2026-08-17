@@ -6,23 +6,23 @@
   <title>Article Chronicle | Range Rover & Land Rover Centre</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/rrc-root.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
   <style>
     .article-container {
-      max-width: 860px;
+      max-width: 800px;
       margin: 0 auto;
     }
     .article-hero-media {
       width: 100%;
-      height: 480px;
-      border-radius: var(--r-md);
+      aspect-ratio: 16 / 10;
+      border-radius: 6px;
       overflow: hidden;
       margin: var(--sp-4) 0;
-      border: 1px solid var(--rrc-glass-border);
+      border: 1px solid var(--rrc-border);
     }
     .article-hero-media img {
       width: 100%;
@@ -30,46 +30,37 @@
       object-fit: cover;
     }
     .article-content {
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.8;
-      color: var(--rrc-grey-lt);
+      color: var(--rrc-text-secondary);
       display: grid;
       gap: var(--sp-4);
     }
     .article-content h2, .article-content h3 {
-      font-family: var(--font-display);
-      margin-top: var(--sp-5);
-      color: var(--rrc-white);
-    }
-    .article-content p {
-      color: var(--rrc-grey-lt);
+      margin-top: var(--sp-4);
+      color: var(--rrc-text-primary);
     }
   </style>
 </head>
-<body data-page="blog-post" class="rrc-pattern-grid">
+<body data-page="blog-post">
 
-  <!-- Header -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
-    <div class="rrc-container-wide">
-      <div class="rrc-logo-wrap">
-        <a class="rrc-logo" href="index.html">
-          <span>RRC</span><span class="rrc-logo-gold">.</span>
-        </a>
-        <span class="rrc-logo-sub">Solihull to Nairobi</span>
-      </div>
+    <div class="rrc-container">
+      <a class="rrc-brand-title" href="index.html">
+        Range Rover / Land Rover Centre
+      </a>
 
-      <div class="rrc-nav-links">
-        <a href="marketplace.html">Showroom</a>
-        <a href="import.html">Bespoke Import</a>
-        <a href="sell.html">Consignment</a>
-        <a href="services.html">Atelier & Care</a>
-        <a href="about.html">Heritage</a>
-        <a href="blog.html" class="active">Journal</a>
-      </div>
+      <ul class="rrc-nav-menu">
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">Showroom</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke Sourcing</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Atelier</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">Heritage</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link active" href="blog.html">Journal</a></li>
+      </ul>
 
-      <div class="rrc-nav-cta">
-        <a class="rrc-btn rrc-btn-gold" href="marketplace.html">Acquire Vehicle</a>
-        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation menu">☰</button>
+      <div class="rrc-nav-actions">
+        <button class="rrc-anim-toggle" data-toggle-animations title="Toggle animations">Motion: On</button>
+        <a class="rrc-btn rrc-btn-secondary" href="blog.html">← Journal</a>
       </div>
     </div>
   </nav>
@@ -78,19 +69,19 @@
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
     <button id="rrcNavClose" aria-label="Close menu">✕</button>
     <a href="marketplace.html">Showroom</a>
-    <a href="import.html">Bespoke Import</a>
-    <a href="sell.html">Consignment</a>
+    <a href="import.html">Bespoke Sourcing</a>
     <a href="services.html">Atelier & Care</a>
     <a href="about.html">Heritage</a>
     <a href="blog.html">Journal</a>
+    <a class="rrc-btn rrc-btn-primary" href="contact.html" style="margin-top: 24px;">Direct Concierge</a>
   </div>
 
   <main class="rrc-main">
     <article class="rrc-section">
-      <div class="rrc-container article-container rrc-reveal revealed">
-        <p class="rrc-eyebrow" id="postCategory">The RRC Journal</p>
-        <h1 id="postTitle" style="margin-bottom: var(--sp-2);">Article Title Loading...</h1>
-        <div style="font-family: var(--font-data); font-size: 12px; color: var(--rrc-gold); margin-bottom: var(--sp-3);" id="postMeta">By RRC Concierge Team</div>
+      <div class="rrc-container article-container rrc-reveal">
+        <span class="rrc-mono-tag green" id="postCategory">The RRC Journal</span>
+        <h1 id="postTitle" style="margin: 8px 0;">Article Chronicle</h1>
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--rrc-text-muted); margin-bottom: var(--sp-3);" id="postMeta">RRC Concierge Desk</div>
 
         <div class="article-hero-media" id="postMedia">
           <img id="postCover" src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&auto=format" alt="Cover" />
@@ -100,70 +91,27 @@
           <p id="postExcerpt">Loading article details...</p>
         </div>
 
-        <div style="margin-top: var(--sp-6); border-top: 1px solid var(--rrc-glass-border); padding-top: var(--sp-4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <a class="rrc-btn rrc-btn-outline" href="blog.html">← Return to Journal</a>
-          <a class="rrc-btn rrc-btn-gold" href="marketplace.html">Explore Showroom</a>
+        <div style="margin-top: var(--sp-6); border-top: 1px solid var(--rrc-border); padding-top: var(--sp-4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <a class="rrc-btn rrc-btn-secondary" href="blog.html">← Return to Journal</a>
+          <a class="rrc-btn rrc-btn-primary" href="marketplace.html">Explore Showroom</a>
         </div>
       </div>
     </article>
   </main>
 
-  <!-- Footer -->
   <footer class="rrc-footer">
-    <div class="rrc-container-wide rrc-footer-grid">
-      <div class="rrc-footer-col">
-        <div class="rrc-logo-wrap" style="margin-bottom: var(--sp-3);">
-          <span class="rrc-logo">RRC<span class="rrc-logo-gold">.</span></span>
-        </div>
-        <p style="font-size: 14px; max-width: 320px;">
-          The definitive Kenyan authority on Range Rover & Land Rover luxury motorcars.
-        </p>
-        <p style="font-size: 13px; color: var(--rrc-grey);" data-sanity="address">
-          Ridgeways, Kiambu Road, Nairobi, Kenya
-        </p>
+    <div class="rrc-container">
+      <div class="rrc-footer-bottom">
+        <span>© 2026 Range Rover / Land Rover Centre · Nairobi</span>
+        <span>Ridgeways, Kiambu Road</span>
       </div>
-
-      <div class="rrc-footer-col">
-        <h4>The Fleets</h4>
-        <ul class="rrc-footer-links">
-          <li><a href="marketplace.html">Range Rover SV</a></li>
-          <li><a href="marketplace.html">Range Rover Sport</a></li>
-          <li><a href="marketplace.html">Range Rover Velar</a></li>
-          <li><a href="marketplace.html">Defender 110 & 130</a></li>
-          <li><a href="marketplace.html">Discovery 4 & 5</a></li>
-        </ul>
-      </div>
-
-      <div class="rrc-footer-col">
-        <h4>Atelier Services</h4>
-        <ul class="rrc-footer-links">
-          <li><a href="import.html">UK Sourcing Protocol</a></li>
-          <li><a href="sell.html">Private Consignment</a></li>
-          <li><a href="services.html">ECU & Air Suspension Care</a></li>
-          <li><a href="finance.html">Luxury Vehicle Finance</a></li>
-          <li><a href="blog.html">The RRC Journal</a></li>
-        </ul>
-      </div>
-
-      <div class="rrc-footer-col">
-        <h4>Direct Concierge</h4>
-        <p style="font-size: 14px; margin-bottom: 8px;"><strong style="color: var(--rrc-white);">Direct Line:</strong> <span data-sanity="phone">+254 790 374 141</span></p>
-        <p style="font-size: 14px; margin-bottom: 16px;"><strong style="color: var(--rrc-white);">Email:</strong> <span data-sanity="email">info@rangerovercentre.co.ke</span></p>
-        <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
-          WhatsApp Specialist
-        </a>
-      </div>
-    </div>
-
-    <div class="rrc-container-wide rrc-footer-bottom">
-      <span>© 2026 Range Rover Centre Nairobi · All Rights Reserved.</span>
-      <span>Engineered for Discerning Luxury Drivers</span>
     </div>
   </footer>
 
   <script src="js/vehicle-data.js"></script>
-  <script src="js/rrc-nav.js"></script>
   <script src="js/rrc-reveal.js"></script>
+  <script src="js/rrc-interactive.js"></script>
+  <script src="js/rrc-nav.js"></script>
   <script>
     const samplePosts = {
       "range-rover-buyers-guide-kenya": {
@@ -178,51 +126,31 @@
           <h2>1. Fuel & Engine Selection</h2>
           <p>The 3.0L SDV6 and D300 diesel powertrains provide massive low-end torque ideal for long distance travel between Nairobi, Naivasha, and the coast with superior fuel economy. For enthusiasts seeking performance, the 5.0L Supercharged V8 offers unmatched responsiveness and exhaust acoustics.</p>
           <h2>2. Service History & Logbook Verification</h2>
-          <p>Every vehicle in our curated marketplace undergoes a 120-point diagnostic inspection, ECU scan, and verification of genuine mileage and maintenance records.</p>
+          <p>Always inspect factory diagnostic logs rather than stamped service booklets alone. At Range Rover Centre, every vehicle is subjected to a 120-point interrogation before listing.</p>
         `
       }
     };
 
-    const renderPostDetails = () => {
-      const params = new URLSearchParams(window.location.search);
-      const postSlug = params.get("post") || "range-rover-buyers-guide-kenya";
-
-      const livePost = (window.RRC_POSTS || []).find(p => (p.slug?.current || p.slug) === postSlug);
-      const post = livePost || samplePosts[postSlug] || samplePosts["range-rover-buyers-guide-kenya"];
-
-      if (!post) return;
-
-      document.title = `${post.title} | The RRC Journal`;
-      document.getElementById("postTitle").textContent = post.title;
-      document.getElementById("postCategory").textContent = post.category || "The RRC Journal";
-      
-      const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-GB", { month: "long", day: "numeric", year: "numeric" }) : "";
-      document.getElementById("postMeta").textContent = `By ${post.author || "RRC Concierge"} · ${date}`;
-
-      if (post.coverImageUrl) {
-        document.getElementById("postCover").src = post.coverImageUrl;
-      }
-
-      const contentEl = document.getElementById("postContent");
-      if (livePost && Array.isArray(livePost.body)) {
-        contentEl.innerHTML = livePost.body.map(block => {
-          if (block._type === 'block' && block.children) {
-            const text = block.children.map(c => c.text).join('');
-            if (block.style === 'h2') return `<h2>${text}</h2>`;
-            if (block.style === 'h3') return `<h3>${text}</h3>`;
-            return `<p>${text}</p>`;
-          }
-          return '';
-        }).join('');
-      } else if (post.bodyText) {
-        contentEl.innerHTML = post.bodyText;
-      } else {
-        contentEl.innerHTML = `<p>${post.excerpt || ""}</p>`;
-      }
+    const getParam = (param) => {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
     };
 
-    renderPostDetails();
-    document.addEventListener("rrc:data-ready", renderPostDetails);
+    const postSlug = getParam("post") || "range-rover-buyers-guide-kenya";
+    const post = samplePosts[postSlug] || samplePosts["range-rover-buyers-guide-kenya"];
+
+    if (post) {
+      document.title = `${post.title} | RRC Journal`;
+      const titleEl = document.getElementById("postTitle");
+      const catEl = document.getElementById("postCategory");
+      const coverEl = document.getElementById("postCover");
+      const contentEl = document.getElementById("postContent");
+
+      if (titleEl) titleEl.textContent = post.title;
+      if (catEl) catEl.textContent = post.category || "The RRC Journal";
+      if (coverEl && post.coverImageUrl) coverEl.src = post.coverImageUrl;
+      if (contentEl) contentEl.innerHTML = post.bodyText || `<p>${post.excerpt}</p>`;
+    }
   </script>
 </body>
 </html>

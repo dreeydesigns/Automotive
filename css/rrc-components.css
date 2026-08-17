@@ -14,26 +14,29 @@
   letter-spacing: 0.02em;
   border: 1px solid transparent;
   cursor: pointer;
+  text-decoration: none;
   transition: all var(--t-fast);
 }
 
-.rrc-btn-primary {
+.rrc-btn-primary, .rrc-btn-gold {
   background: var(--rrc-text-primary);
   color: var(--rrc-bg);
+  border-color: var(--rrc-text-primary);
 }
 
-.rrc-btn-primary:hover {
+.rrc-btn-primary:hover, .rrc-btn-gold:hover {
   background: #FFFFFF;
+  color: #000000;
   transform: translateY(-1px);
 }
 
-.rrc-btn-secondary {
+.rrc-btn-secondary, .rrc-btn-outline {
   background: transparent;
   border-color: var(--rrc-border-strong);
   color: var(--rrc-text-primary);
 }
 
-.rrc-btn-secondary:hover {
+.rrc-btn-secondary:hover, .rrc-btn-outline:hover {
   background: var(--rrc-surface-hover);
   border-color: var(--rrc-text-primary);
 }
@@ -51,6 +54,70 @@
 
 .rrc-btn-full {
   width: 100%;
+}
+
+/* Badges & Tags */
+.rrc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--rrc-border);
+  background: var(--rrc-surface);
+  color: var(--rrc-text-secondary);
+}
+
+.rrc-badge-local {
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #34D399;
+}
+
+.rrc-badge-import {
+  border-color: rgba(217, 119, 6, 0.3);
+  color: #FBBF24;
+}
+
+/* Forms & Inputs */
+.rrc-form-group {
+  display: grid;
+  gap: 6px;
+  margin-bottom: var(--sp-3);
+}
+
+.rrc-form-group label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--rrc-text-secondary);
+}
+
+.rrc-input, .rrc-select, .rrc-textarea {
+  width: 100%;
+  background: var(--rrc-bg);
+  border: 1px solid var(--rrc-border);
+  border-radius: 4px;
+  padding: 10px 14px;
+  color: var(--rrc-text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: border-color var(--t-fast);
+}
+
+.rrc-input:focus, .rrc-select:focus, .rrc-textarea:focus {
+  border-color: var(--rrc-text-primary);
+}
+
+.rrc-textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 /* Vehicle Showroom Card (Marketplace & Grid) */
