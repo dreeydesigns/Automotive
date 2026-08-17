@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vehicle Dossier | Range Rover & Land Rover Centre</title>
+  <meta name="description" content="Detailed engineering specifications and provenance dossier for certified Range Rover and Land Rover motorcars." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,124 +13,139 @@
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
 </head>
-<body data-page="detail">
+<body data-page="detail" class="rrc-theme-white">
 
+  <!-- Nav -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
     <div class="rrc-container">
       <a class="rrc-brand-title" href="index.html">
         Range Rover / Land Rover Centre
       </a>
       <div class="rrc-nav-actions">
-        <a class="rrc-btn rrc-btn-secondary" href="marketplace.html">← Showroom</a>
+        <a class="rrc-btn rrc-btn-secondary" href="marketplace.html" style="color: #0A0A0A; border-color: #0A0A0A;">← The Collection</a>
       </div>
     </div>
   </nav>
 
   <main class="rrc-main">
-    <header style="padding: var(--sp-5) 0 var(--sp-3); border-bottom: 1px solid var(--rrc-border);">
+    <!-- Header & Statement (Section 27) -->
+    <header style="padding: var(--sp-7) 0 var(--sp-3); border-bottom: 1px solid var(--rrc-mist);">
       <div class="rrc-container" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;">
         <div>
-          <span class="rrc-mono-tag green" data-detail="stockId">Stock Dossier</span>
-          <h1 style="margin: 6px 0 0;" data-detail="name">Vehicle Dossier</h1>
+          <span class="rrc-mono-tag green" data-detail="stockId" style="color: #0C3B2E;">Stock Dossier</span>
+          <h1 style="margin: 6px 0 0; color: #0A0A0A;" data-detail="name">Vehicle Dossier</h1>
         </div>
         <div>
-          <span class="rrc-mono-tag" data-detail="logbook">Ready for Transfer</span>
+          <span class="rrc-mono-tag" data-detail="logbook" style="color: #555;">Ready for NTSA Transfer</span>
         </div>
       </div>
     </header>
 
-    <section class="rrc-section">
+    <section class="rrc-section" style="padding-top: var(--sp-5);">
       <div class="rrc-container rrc-dossier-layout">
         
-        <!-- Left: Gallery & Specs -->
+        <!-- Left: Gallery, Statement, Telemetry (Section 27) -->
         <div>
           <div class="rrc-dossier-hero">
-            <img id="detailHeroImg" src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1600&auto=format" alt="Vehicle Photo" />
+            <img id="detailHeroImg" src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1600&auto=format" alt="Vehicle Dossier Photo" />
           </div>
 
+          <!-- Multi-Angle Thumbnail Track -->
           <div class="rrc-dossier-thumbs" id="detailThumbsTrack">
-            <!-- Populated dynamically via js/vehicle-detail.js -->
+            <!-- Dynamically populated via js/vehicle-detail.js -->
           </div>
 
-          <!-- Specifications -->
-          <div style="margin-top: var(--sp-6);">
-            <span class="rrc-mono-tag">Engineering Telemetry</span>
-            <h3 style="margin: 8px 0 var(--sp-4);">Powertrain & Architecture</h3>
+          <!-- 02 The Statement -->
+          <div style="margin-top: var(--sp-6); background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
+            <span class="rrc-mono-tag" style="color: #666;">The Vehicle Statement</span>
+            <p style="font-size: 16px; color: #222; margin-top: 8px; line-height: 1.7;" data-detail="description">
+              Handcrafted in Solihull and inspected by specialized technicians in Nairobi. Complete ECU diagnostic clearance, pristine chassis integrity, and ready title deed transfer.
+            </p>
+          </div>
 
-            <div class="rrc-dossier-specs-table" style="background: var(--rrc-surface); border-radius: 6px; padding: var(--sp-4);">
-              <div class="rrc-dossier-row">
-                <span>Engine / Capacity</span>
-                <span data-detail="engine">—</span>
+          <!-- 04 Specifications Table -->
+          <div style="margin-top: var(--sp-6);">
+            <span class="rrc-mono-tag" style="color: #666;">Engineering Telemetry</span>
+            <h3 style="margin: 8px 0 var(--sp-4); color: #0A0A0A;">Powertrain & Architecture</h3>
+
+            <div class="rrc-dossier-specs-table" style="background: #F9F9F8; border-color: var(--rrc-mist); border-radius: 6px; padding: var(--sp-4);">
+              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
+                <span style="color: #777;">Engine / Capacity</span>
+                <span data-detail="engine" style="color: #0A0A0A;">—</span>
               </div>
-              <div class="rrc-dossier-row">
-                <span>Output / Torque</span>
-                <span data-detail="power">—</span>
+              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
+                <span style="color: #777;">Output / Torque</span>
+                <span data-detail="power" style="color: #0A0A0A;">—</span>
               </div>
-              <div class="rrc-dossier-row">
-                <span>Odometer</span>
-                <span data-detail="mileage">—</span>
+              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
+                <span style="color: #777;">Odometer</span>
+                <span data-detail="mileage" style="color: #0A0A0A;">—</span>
               </div>
-              <div class="rrc-dossier-row">
-                <span>Transmission</span>
-                <span data-detail="transmission">—</span>
+              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
+                <span style="color: #777;">Transmission</span>
+                <span data-detail="transmission" style="color: #0A0A0A;">—</span>
               </div>
-              <div class="rrc-dossier-row">
-                <span>Drivetrain</span>
-                <span data-detail="drivetrain">—</span>
+              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
+                <span style="color: #777;">Drivetrain</span>
+                <span data-detail="drivetrain" style="color: #0A0A0A;">—</span>
               </div>
-              <div class="rrc-dossier-row">
-                <span>Exterior Pack</span>
-                <span data-detail="exterior">—</span>
+              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
+                <span style="color: #777;">Exterior Pack</span>
+                <span data-detail="exterior" style="color: #0A0A0A;">—</span>
               </div>
-              <div class="rrc-dossier-row">
-                <span>Cabin Leather</span>
-                <span data-detail="interior">—</span>
+              <div class="rrc-dossier-row" style="padding: 8px 0;">
+                <span style="color: #777;">Cabin Leather</span>
+                <span data-detail="interior" style="color: #0A0A0A;">—</span>
               </div>
             </div>
           </div>
 
-          <!-- Workshop Provenance Note -->
-          <div style="margin-top: var(--sp-5); background: var(--rrc-surface); border: 1px solid var(--rrc-border); border-radius: 6px; padding: var(--sp-4);">
-            <span class="rrc-mono-tag green">120-Point ECU Audit Clearance</span>
-            <p style="margin: 8px 0 0; font-size: 14px;">
-              Audited in our Ridgeways atelier with zero fault codes. Complete diagnostic clearance on air suspension pressure, injector balance, and electronic differentials.
+          <!-- 05 Condition & Provenance Certification -->
+          <div style="margin-top: var(--sp-5); background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
+            <span class="rrc-mono-tag green" style="color: #0C3B2E;">120-Point Atelier Clearance</span>
+            <h4 style="margin: 8px 0 6px; color: #0A0A0A;">Verified Solihull Provenance</h4>
+            <p style="margin: 0; font-size: 14px; color: #555;">
+              Audited in our Ridgeways atelier with zero fault codes. Complete diagnostic clearance on air suspension pressure, injector balance, transmission adaptation, and electronic differentials.
             </p>
           </div>
         </div>
 
-        <!-- Right: Acquisition & Advisor Contact -->
-        <aside class="rrc-dossier-sidebar">
+        <!-- Right: Acquisition Sidebar & Conversion Actions (Section 28) -->
+        <aside class="rrc-dossier-sidebar" style="background: #F9F9F8; border-color: var(--rrc-mist);">
           <div>
-            <span class="rrc-mono-tag" data-detail="subtitle">Edition Trim</span>
-            <div style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; margin-top: 6px;" data-detail="price">KES —</div>
+            <span class="rrc-mono-tag" data-detail="subtitle" style="color: #666;">Edition Trim</span>
+            <div style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: #0A0A0A; margin-top: 6px;" data-detail="price">KES —</div>
           </div>
 
-          <div class="rrc-dossier-specs-table">
+          <div class="rrc-dossier-specs-table" style="border-color: var(--rrc-mist);">
             <div class="rrc-dossier-row">
-              <span>Location</span>
-              <span data-detail="location">Ridgeways Showroom</span>
+              <span style="color: #777;">Location</span>
+              <span data-detail="location" style="color: #0A0A0A;">Ridgeways Showroom</span>
             </div>
             <div class="rrc-dossier-row">
-              <span>Warranty</span>
-              <span data-detail="warranty">12 Months RRC Warranty</span>
+              <span style="color: #777;">Warranty</span>
+              <span data-detail="warranty" style="color: #0A0A0A;">12 Months Atelier Warranty</span>
             </div>
             <div class="rrc-dossier-row">
-              <span>VIN Status</span>
-              <span data-detail="vinStatus">Verified</span>
+              <span style="color: #777;">Chassis / VIN</span>
+              <span data-detail="vinStatus" style="color: #0A0A0A;">Verified & Logged</span>
             </div>
           </div>
 
           <div style="display: grid; gap: 10px;">
             <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" id="detailWhatsappBtn" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
-              Speak to Sales Advisor on WhatsApp
+              Speak with a Concierge on WhatsApp
             </a>
-            <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="contact.html">
-              Schedule Private Viewing
+            <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="contact.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">
+              Arrange Private Viewing
+            </a>
+            <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="finance.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">
+              Structure Asset Financing
             </a>
           </div>
 
-          <p style="font-size: 12px; margin: 0; color: var(--rrc-text-muted);">
-            🛡️ Ready NTSA logbook transfer. Includes 120-point diagnostic file and ongoing atelier support.
+          <p style="font-size: 12px; margin: 0; color: #777;">
+            🛡️ Ready NTSA logbook transfer. Includes 120-point diagnostic inspection file and ongoing atelier support.
           </p>
         </aside>
 

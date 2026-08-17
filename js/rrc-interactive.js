@@ -1,5 +1,5 @@
 (() => {
-  // 1. Lamborghini "Allow Animations" Toggle & Preference
+  // 1. Lamborghini "Allow Animations" Toggle & Reduced Motion
   const animToggles = document.querySelectorAll("[data-toggle-animations]");
   const storedAnim = localStorage.getItem("rrc_animations");
   if (storedAnim === "false") {
@@ -18,15 +18,14 @@
         document.documentElement.setAttribute("data-animations", "false");
         localStorage.setItem("rrc_animations", "false");
         toggle.textContent = "Motion: Off";
-        // Reset any inline parallax transforms
-        const heroBackdrop = document.querySelector(".rrc-hero-backdrop");
-        if (heroBackdrop) heroBackdrop.style.transform = "none";
-        document.querySelectorAll(".rrc-reel-media img").forEach(img => img.style.transform = "none");
+        // Reset transforms
+        const heroVideo = document.querySelector(".rrc-hero-video-wrap");
+        if (heroVideo) heroVideo.style.transform = "none";
       }
     });
   });
 
-  // 2. Custom Minimalist Cursor (Gated to pointer: fine)
+  // 2. Custom Minimalist Cursor (Section 45)
   if (window.matchMedia("(pointer: fine)").matches) {
     const dot = document.createElement("div");
     dot.className = "rrc-cursor-dot";
@@ -57,113 +56,323 @@
     });
   }
 
-  // 3. Section A: Real Throttled Parallax Engine (Ticket A1 & Ticket A2)
-  const heroBackdrop = document.querySelector(".rrc-hero-backdrop");
-  const reelImages = document.querySelectorAll(".rrc-reel-media img");
-  let isTicking = false;
+  // 3. Section 11/12: The Arrival Hero Narrative Rewriting on Scroll
+  const heroHeadline = document.getElementById("rrcHeroHeadline");
+  const heroWrap = document.querySelector(".rrc-hero-video-wrap");
+  const nav = document.querySelector(".rrc-nav");
 
-  const updateParallax = () => {
-    // Ticket E2: Check motion preference
-    if (document.documentElement.getAttribute("data-animations") === "false") {
-      isTicking = false;
-      return;
-    }
-
-    const scrollY = window.scrollY;
-
-    // Ticket A1: Hero Backdrop Parallax (moves at 35% scroll speed relative to text)
-    if (heroBackdrop && scrollY < window.innerHeight * 1.5) {
-      const heroOffset = scrollY * 0.35;
-      heroBackdrop.style.transform = `translate3d(0, ${heroOffset}px, 0)`;
-    }
-
-    // Ticket A2: Provenance Arc Reel Image Parallax inside fixed card frame
-    if (reelImages.length > 0) {
-      const windowHeight = window.innerHeight;
-      reelImages.forEach(img => {
-        const rect = img.parentElement.getBoundingClientRect();
-        if (rect.bottom >= 0 && rect.top <= windowHeight) {
-          // Calculate normalized relative position from center of screen (-1 to 1)
-          const relY = (rect.top + rect.height / 2 - windowHeight / 2) / (windowHeight / 2);
-          const imgOffset = relY * -24; // Subtle 24px vertical drift
-          img.style.transform = `translate3d(0, ${imgOffset}px, 0) scale(1.12)`;
-        }
-      });
-    }
-
-    isTicking = false;
-  };
-
-  const onScroll = () => {
-    if (!isTicking) {
-      requestAnimationFrame(updateParallax);
-      isTicking = true;
-    }
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  updateParallax(); // Initial run
-
-  // 4. Beat 3: Lightship Dynamic Rewriting Headline on Reel Scroll
-  const dynamicHeadline = document.getElementById("rrcDynamicHeadline");
-  const reelCards = document.querySelectorAll(".rrc-reel-card");
-
-  const storyHeadlines = [
-    "From the factory gates in Solihull...",
-    "...to the open tarmac of Nairobi...",
-    "...across the red dust of Laikipia...",
-    "...home to the homestead."
+  const heroSequence = [
+    "A DIFFERENT WAY TO ARRIVE.",
+    "BUILT FOR THE CITY.",
+    "READY FOR THE DISTANCE.",
+    "BUILT FOR BOTH."
   ];
 
-  if (dynamicHeadline && reelCards.length > 0) {
-    const reelObserver = new IntersectionObserver((entries) => {
+  let lastIndex = 0;
+
+  const onScrollHero = () => {
+    if (document.documentElement.getAttribute("data-animations") === "false") return;
+
+    const scrollY = window.scrollY;
+    const heroH = window.innerHeight;
+
+    if (nav) {
+      nav.classList.toggle("scrolled", scrollY > 60);
+    }
+
+    if (scrollY < heroH * 1.5) {
+      // Parallax drift
+      if (heroWrap) {
+        heroWrap.style.transform = `translate3d(0, ${scrollY * 0.32}px, 0)`;
+      }
+
+      // Narrative text progression
+      const progress = Math.min(Math.max(scrollY / (heroH * 0.8), 0), 1);
+      const step = Math.min(Math.floor(progress * heroSequence.length), heroSequence.length - 1);
+
+      if (step !== lastIndex && heroHeadline) {
+        lastIndex = step;
+        heroHeadline.style.opacity = "0";
+        heroHeadline.style.transform = "translateY(8px)";
+        setTimeout(() => {
+          heroHeadline.textContent = heroSequence[step];
+          heroHeadline.style.opacity = "1";
+          heroHeadline.style.transform = "translateY(0)";
+        }, 180);
+      }
+    }
+  };
+
+  window.addEventListener("scroll", onScrollHero, { passive: true });
+  onScrollHero();
+
+  // 4. Section 09: Polestar-Style Mega-Menu Interactive Preview
+  const megaModelBtns = document.querySelectorAll(".rrc-mega-model-btn");
+  const megaImg = document.getElementById("rrcMegaPreviewImg");
+  const megaTitle = document.getElementById("rrcMegaPreviewTitle");
+  const megaSub = document.getElementById("rrcMegaPreviewSub");
+  const megaLink = document.getElementById("rrcMegaPreviewLink");
+
+  const megaModelsData = {
+    "rangerover": {
+      title: "Range Rover Autobiography / SV",
+      sub: "523 HP · 4.4L Twin-Turbo V8 · All-Wheel Steering",
+      img: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=900&auto=format",
+      url: "marketplace.html?make=range+rover"
+    },
+    "sport": {
+      title: "Range Rover Sport First Edition",
+      sub: "523 HP · Dynamic Response Pro · Stormer Handling Pack",
+      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format",
+      url: "marketplace.html?make=range+rover"
+    },
+    "velar": {
+      title: "Range Rover Velar R-Dynamic",
+      sub: "300 HP · D300 Mild-Hybrid Diesel · Touch Pro Duo",
+      img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900&auto=format",
+      url: "marketplace.html?make=range+rover"
+    },
+    "evoque": {
+      title: "Range Rover Evoque Autobiography",
+      sub: "249 HP · P250 Turbo · ClearSight Ground View",
+      img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&auto=format",
+      url: "marketplace.html?make=range+rover"
+    },
+    "defender": {
+      title: "Land Rover Defender 110 V8 Carpathian",
+      sub: "518 HP · 5.0L Supercharged V8 · Electronic Active Diff",
+      img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900&auto=format",
+      url: "marketplace.html?make=land+rover"
+    },
+    "discovery": {
+      title: "Land Rover Discovery 5 HSE Luxury",
+      sub: "300 HP · 7 Full-Size Seats · Terrain Response 2",
+      img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&auto=format",
+      url: "marketplace.html?make=land+rover"
+    }
+  };
+
+  megaModelBtns.forEach(btn => {
+    btn.addEventListener("mouseenter", () => {
+      megaModelBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const key = btn.getAttribute("data-mega-key");
+      const data = megaModelsData[key];
+      if (data) {
+        if (megaTitle) megaTitle.textContent = data.title;
+        if (megaSub) megaSub.textContent = data.sub;
+        if (megaLink) megaLink.href = data.url;
+        if (megaImg) {
+          megaImg.style.opacity = "0.4";
+          setTimeout(() => {
+            megaImg.src = data.img;
+            megaImg.style.opacity = "1";
+          }, 150);
+        }
+      }
+    });
+  });
+
+  // 5. Section 15/16: Lucid Model Switcher Interactive Engine
+  const modelTabs = document.querySelectorAll(".rrc-model-tab");
+  const modelImg = document.getElementById("rrcModelShowcaseImg");
+  const modelTitle = document.getElementById("rrcModelShowcaseTitle");
+  const modelDesc = document.getElementById("rrcModelShowcaseDesc");
+  const modelPower = document.getElementById("rrcModelPower");
+  const modelZeroSixty = document.getElementById("rrcModelZeroSixty");
+  const modelDrive = document.getElementById("rrcModelDrive");
+  const modelLink = document.getElementById("rrcModelLink");
+
+  const modelShowcaseData = {
+    "rangerover": {
+      title: "Range Rover",
+      tagline: "Commanding by design.",
+      desc: "Peerless refinement and effortless capability. The definitive luxury SUV for cross-county travel across East Africa.",
+      power: "523 HP",
+      zeroSixty: "4.4s",
+      drive: "AWD / Steering",
+      img: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1400&auto=format",
+      link: "marketplace.html?make=range+rover"
+    },
+    "sport": {
+      title: "Range Rover Sport",
+      tagline: "Performance, sharpened.",
+      desc: "Visceral, dramatic, and uncompromisingly agile. Dynamic air suspension with switchable volume chambers.",
+      power: "523 HP",
+      zeroSixty: "4.3s",
+      drive: "Dynamic AWD",
+      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&auto=format",
+      link: "marketplace.html?make=range+rover"
+    },
+    "velar": {
+      title: "Range Rover Velar",
+      tagline: "Minimalism in motion.",
+      desc: "Avant-garde proportions with flush deployable door handles and pure reductionist design language.",
+      power: "300 HP",
+      zeroSixty: "6.1s",
+      drive: "Intelligent AWD",
+      img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=1400&auto=format",
+      link: "marketplace.html?make=range+rover"
+    },
+    "evoque": {
+      title: "Range Rover Evoque",
+      tagline: "Urban charisma. Solihull soul.",
+      desc: "Tailored luxury engineered for high-density metropolitan Nairobi with full off-tarmac confidence.",
+      power: "249 HP",
+      zeroSixty: "7.0s",
+      drive: "Driveline AWD",
+      img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1400&auto=format",
+      link: "marketplace.html?make=range+rover"
+    },
+    "defender": {
+      title: "Land Rover Defender",
+      tagline: "Capability without compromise.",
+      desc: "An icon reimagined for the 21st century. Monocoque D7x architecture tested over 1.2 million kilometers of extreme terrain.",
+      power: "518 HP",
+      zeroSixty: "4.9s",
+      drive: "Permanent 4WD",
+      img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1400&auto=format",
+      link: "marketplace.html?make=land+rover"
+    },
+    "discovery": {
+      title: "Land Rover Discovery",
+      tagline: "The versatile expedition flagship.",
+      desc: "Seven full-sized adult seats, 3,500kg towing capacity, and intelligent seat fold technology for seamless family expeditions.",
+      power: "300 HP",
+      zeroSixty: "6.5s",
+      drive: "Twin-Speed 4WD",
+      img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1400&auto=format",
+      link: "marketplace.html?make=land+rover"
+    }
+  };
+
+  modelTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      modelTabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      const key = tab.getAttribute("data-model-tab");
+      const data = modelShowcaseData[key];
+      if (data) {
+        if (modelTitle) modelTitle.textContent = data.title;
+        if (modelDesc) modelDesc.textContent = data.desc;
+        if (modelPower) modelPower.textContent = data.power;
+        if (modelZeroSixty) modelZeroSixty.textContent = data.zeroSixty;
+        if (modelDrive) modelDrive.textContent = data.drive;
+        if (modelLink) modelLink.href = data.link;
+        if (modelImg) {
+          modelImg.style.opacity = "0.3";
+          modelImg.style.transform = "scale(0.98)";
+          setTimeout(() => {
+            modelImg.src = data.img;
+            modelImg.style.opacity = "1";
+            modelImg.style.transform = "scale(1)";
+          }, 200);
+        }
+      }
+    });
+  });
+
+  // 6. Section 21/22: Workshop / Service Bay Switcher
+  const workshopTabs = document.querySelectorAll(".rrc-workshop-tab");
+  const workshopImg = document.getElementById("rrcWorkshopImg");
+  const workshopTitle = document.getElementById("rrcWorkshopTitle");
+  const workshopDesc = document.getElementById("rrcWorkshopDesc");
+  const workshopTag = document.getElementById("rrcWorkshopTag");
+
+  const workshopData = {
+    "diagnostics": {
+      title: "Factory Pathfinder & SDD Diagnostic Protocols",
+      desc: "Full electronic control unit interrogation, module software flashes, real-time telemetry logging, and injector balance analysis.",
+      tag: "Bay 01 // Electronics",
+      img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&auto=format"
+    },
+    "maintenance": {
+      title: "Scheduled Servicing & Powertrain Care",
+      desc: "Transmission fluid flushes, timing gear replacements for SDV6/V8 engines, and comprehensive preventative maintenance.",
+      tag: "Bay 02 // Powertrain",
+      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format"
+    },
+    "parts": {
+      title: "Direct Solihull Supply Chain",
+      desc: "100% genuine Land Rover factory parts sourced directly from the UK with zero compromise on tolerances.",
+      tag: "Bay 03 // Genuine Parts",
+      img: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=900&auto=format"
+    },
+    "detail": {
+      title: "Atelier Detailing & Ceramic Protection",
+      desc: "Paint depth correction, high-solids ceramic coatings, and interior semi-aniline leather hydration for Kenyan sunshine.",
+      tag: "Bay 04 // Detailing",
+      img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=900&auto=format"
+    }
+  };
+
+  workshopTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      workshopTabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      const key = tab.getAttribute("data-workshop-key");
+      const data = workshopData[key];
+      if (data) {
+        if (workshopTitle) workshopTitle.textContent = data.title;
+        if (workshopDesc) workshopDesc.textContent = data.desc;
+        if (workshopTag) workshopTag.textContent = data.tag;
+        if (workshopImg) {
+          workshopImg.style.opacity = "0.3";
+          setTimeout(() => {
+            workshopImg.src = data.img;
+            workshopImg.style.opacity = "1";
+          }, 180);
+        }
+      }
+    });
+  });
+
+  // 7. Section 13: Lightship Pinned Story Observer
+  const storyCards = document.querySelectorAll(".rrc-story-step-card");
+  const storyStatement = document.getElementById("rrcStoryStatement");
+  const storyImg = document.getElementById("rrcStoryImg");
+
+  const storySteps = [
+    {
+      statement: "IT STARTS WITH THE RIGHT VEHICLE.",
+      img: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&auto=format"
+    },
+    {
+      statement: "THEN THE DETAILS MATTER.",
+      img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=1200&auto=format"
+    },
+    {
+      statement: "SO DOES WHO STANDS BEHIND IT.",
+      img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1200&auto=format"
+    },
+    {
+      statement: "AND WHERE IT TAKES YOU.",
+      img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200&auto=format"
+    }
+  ];
+
+  if (storyCards.length > 0 && storyStatement && storyImg) {
+    const storyObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const index = Number(entry.target.getAttribute("data-story-index") || 0);
-          if (storyHeadlines[index]) {
-            dynamicHeadline.style.opacity = "0";
-            dynamicHeadline.style.transform = "translateY(8px)";
+          const index = Number(entry.target.getAttribute("data-story-step") || 0);
+          const data = storySteps[index];
+          if (data) {
+            storyStatement.style.opacity = "0";
+            storyStatement.style.transform = "translateY(8px)";
+            storyImg.style.opacity = "0.4";
             setTimeout(() => {
-              dynamicHeadline.textContent = storyHeadlines[index];
-              dynamicHeadline.style.opacity = "1";
-              dynamicHeadline.style.transform = "translateY(0)";
-            }, 200);
+              storyStatement.textContent = data.statement;
+              storyImg.src = data.img;
+              storyStatement.style.opacity = "1";
+              storyStatement.style.transform = "translateY(0)";
+              storyImg.style.opacity = "1";
+            }, 180);
           }
         }
       });
     }, { threshold: 0.5 });
 
-    reelCards.forEach(card => reelObserver.observe(card));
+    storyCards.forEach(card => storyObserver.observe(card));
   }
-
-  // 5. Beat 2: Model Switcher (Range Rover vs Land Rover)
-  const switcherBtns = document.querySelectorAll(".rrc-switcher-btn");
-  const heroVideo = document.getElementById("rrcHeroArrivalVideo");
-  const heroHeadline = document.getElementById("rrcHeroHeadline");
-
-  const marqueThemes = {
-    "rangerover": {
-      title: "Solihull to the Great Rift.",
-      poster: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&auto=format&fit=crop&q=85"
-    },
-    "landrover": {
-      title: "Built for Unforgiving Earth.",
-      poster: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1920&auto=format&fit=crop&q=85"
-    }
-  };
-
-  switcherBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      switcherBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      const marque = btn.getAttribute("data-switcher-marque");
-      const theme = marqueThemes[marque];
-      if (theme) {
-        if (heroHeadline) heroHeadline.textContent = theme.title;
-        if (heroVideo && theme.poster) {
-          heroVideo.setAttribute("poster", theme.poster);
-        }
-      }
-    });
-  });
 })();

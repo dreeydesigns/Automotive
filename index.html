@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Range Rover & Land Rover Centre · Nairobi</title>
+  <meta name="description" content="A private automotive gallery for Range Rover and Land Rover luxury motorcars in Nairobi, Kenya. Sourced from Solihull, audited for Kenyan roads." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -14,60 +15,75 @@
 </head>
 <body data-page="home">
 
-  <!-- Header with Polestar-style Mega-Menu -->
+  <!-- ========================================================================
+       01. Global Floating Navigation & Polestar Mega-Menu (Section 07–09)
+       ======================================================================== -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
     <div class="rrc-container">
       <a class="rrc-brand-title" href="index.html">
         Range Rover / Land Rover Centre
       </a>
 
-      <!-- Polestar-style Mega-Menu Navigation -->
+      <!-- Center Menu -->
       <ul class="rrc-nav-menu">
         <li class="rrc-nav-item">
           <a class="rrc-nav-link" href="marketplace.html">
             Models ▾
           </a>
-          <!-- Inline Mega-Menu with Distinct Model Imagery -->
+          <!-- Full-Width Polestar Mega Menu (Section 09) -->
           <div class="rrc-mega-menu">
-            <a class="rrc-mega-card" href="marketplace.html?make=range+rover">
-              <div class="rrc-mega-media">
-                <img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&auto=format" alt="Range Rover Royal Fleet" />
+            <div class="rrc-container rrc-mega-grid">
+              <ul class="rrc-mega-models-list">
+                <li><button class="rrc-mega-model-btn active" data-mega-key="rangerover">Range Rover <span>→</span></button></li>
+                <li><button class="rrc-mega-model-btn" data-mega-key="sport">Range Rover Sport <span>→</span></button></li>
+                <li><button class="rrc-mega-model-btn" data-mega-key="velar">Range Rover Velar <span>→</span></button></li>
+                <li><button class="rrc-mega-model-btn" data-mega-key="evoque">Range Rover Evoque <span>→</span></button></li>
+                <li><button class="rrc-mega-model-btn" data-mega-key="defender">Land Rover Defender <span>→</span></button></li>
+                <li><button class="rrc-mega-model-btn" data-mega-key="discovery">Land Rover Discovery <span>→</span></button></li>
+              </ul>
+
+              <div class="rrc-mega-preview-box">
+                <div class="rrc-mega-preview-media">
+                  <img id="rrcMegaPreviewImg" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=900&auto=format" alt="Model Preview" />
+                </div>
+                <div class="rrc-mega-preview-info">
+                  <span class="rrc-mono-tag green">Flagship Fleet</span>
+                  <h3 id="rrcMegaPreviewTitle" style="font-size: 24px;">Range Rover Autobiography / SV</h3>
+                  <p id="rrcMegaPreviewSub" style="font-size: 13px;">523 HP · 4.4L Twin-Turbo V8 · All-Wheel Steering</p>
+                  <div>
+                    <a class="rrc-btn rrc-btn-primary" id="rrcMegaPreviewLink" href="marketplace.html?make=range+rover">Explore Model →</a>
+                  </div>
+                </div>
               </div>
-              <div class="rrc-mega-title">The Royal Fleet · Range Rover</div>
-              <div class="rrc-mega-sub">Autobiography · SV · Sport · Velar</div>
-            </a>
-            <a class="rrc-mega-card" href="marketplace.html?make=land+rover">
-              <div class="rrc-mega-media">
-                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=600&auto=format" alt="Land Rover Expedition Fleet" />
-              </div>
-              <div class="rrc-mega-title">The Expedition Fleet · Land Rover</div>
-              <div class="rrc-mega-sub">Defender 110/130 · Discovery 4/5</div>
-            </a>
+            </div>
           </div>
         </li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke Sourcing</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Atelier</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">Heritage</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Services</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">About</a></li>
         <li class="rrc-nav-item"><a class="rrc-nav-link" href="blog.html">Journal</a></li>
       </ul>
 
-      <!-- Action & Motion Toggle (Lamborghini style) -->
+      <!-- Right Actions -->
       <div class="rrc-nav-actions">
-        <button class="rrc-anim-toggle" data-toggle-animations title="Toggle animations for low-bandwidth mode">
+        <button class="rrc-anim-toggle" data-toggle-animations title="Toggle motion animations">
           Motion: On
         </button>
-        <a class="rrc-btn rrc-btn-primary" href="marketplace.html">Showroom</a>
-        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open menu">☰</button>
+        <a class="rrc-btn rrc-btn-secondary" href="marketplace.html">The Collection</a>
+        <a class="rrc-btn rrc-btn-primary" href="contact.html">Concierge</a>
+        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open mobile menu">☰</button>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (Section 10) -->
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
     <button id="rrcNavClose" aria-label="Close menu">✕</button>
-    <a href="marketplace.html">Showroom</a>
+    <a href="marketplace.html">The Collection</a>
+    <a href="marketplace.html?make=range+rover">Range Rover</a>
+    <a href="marketplace.html?make=land+rover">Land Rover Defender</a>
+    <a href="services.html">Services & Atelier</a>
     <a href="import.html">Bespoke Sourcing</a>
-    <a href="services.html">Atelier & Care</a>
     <a href="about.html">Heritage</a>
     <a href="blog.html">Journal</a>
     <a class="rrc-btn rrc-btn-primary" href="contact.html" style="margin-top: 24px;">Direct Concierge</a>
@@ -75,191 +91,432 @@
 
   <main class="rrc-main">
     
-    <!-- Beat 1 — The Arrival (Hero with Autoplaying Video & Real Parallax) -->
-    <header class="rrc-hero-arrival">
-      <div class="rrc-hero-backdrop rrc-parallax-layer">
-        <video id="rrcHeroArrivalVideo" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&auto=format&fit=crop&q=85" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) contrast(1.1);">
+    <!-- ========================================================================
+         ACT I — The Arrival (Section 11–12)
+         ======================================================================== -->
+    <header class="rrc-hero-cinematic">
+      <div class="rrc-hero-video-wrap">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&auto=format&fit=crop&q=85">
           <source src="https://assets.mixkit.co/videos/preview/mixkit-car-driving-on-a-road-in-nature-4261-large.mp4" type="video/mp4" />
         </video>
       </div>
 
-      <!-- Ticket B2: Removed hardcoded 'revealed' class so it animates naturally on entry -->
-      <div class="rrc-container rrc-hero-content rrc-reveal">
-        <span class="rrc-mono-tag green" data-sanity="heroEyebrow">Solihull · Ridgeways · Nairobi</span>
-        <h1 class="rrc-hero-headline" id="rrcHeroHeadline" data-sanity="heroTitleLine1">Solihull to the Great Rift.</h1>
-        <p style="max-width: 600px; font-size: 18px; margin-bottom: var(--sp-4);" data-sanity="heroSubtitle">
-          Two legacies. Handcrafted in Britain, audited for Kenyan roads.
+      <div class="rrc-container rrc-hero-content">
+        <span class="rrc-mono-tag green">Solihull Sourced · Nairobi Audited</span>
+        <div class="rrc-hero-headline-wrap">
+          <h1 class="rrc-hero-headline" id="rrcHeroHeadline">A DIFFERENT WAY TO ARRIVE.</h1>
+        </div>
+        <p style="max-width: 540px; font-size: 17px; margin-bottom: var(--sp-4);">
+          Two British automotive legacies. Handcrafted for peerless refinement, verified for the Great Rift Valley and Kenyan terrain.
         </p>
-        <div>
-          <a class="rrc-btn rrc-btn-primary" data-sanity-link="heroPrimaryCta" href="marketplace.html">Explore the Fleets</a>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a class="rrc-btn rrc-btn-primary" href="marketplace.html">Explore Vehicles</a>
+          <a class="rrc-btn rrc-btn-secondary" href="about.html">Discover the Centre</a>
+        </div>
+
+        <div class="rrc-hero-bottom-bar">
+          <span>NAIROBI · KENYA</span>
+          <span>SCROLL TO EXPLORE ↓</span>
         </div>
       </div>
     </header>
 
-    <!-- Beat 2 — The Choice (Sticky Top-of-Page Switcher) -->
-    <div class="rrc-model-switcher-bar">
-      <div class="rrc-container rrc-switcher-track">
-        <button class="rrc-switcher-btn active" data-switcher-marque="rangerover">Range Rover</button>
-        <button class="rrc-switcher-btn" data-switcher-marque="landrover">Land Rover</button>
-      </div>
-    </div>
-
-    <!-- Beat 3 — The Story (Lightship Rewriting Headline & Forward-Scroll Reel with Image Parallax) -->
-    <section class="rrc-section rrc-story-section">
+    <!-- ========================================================================
+         ACT II — The Story (Lightship Pinned Narrative - Section 13)
+         ======================================================================== -->
+    <section class="rrc-section rrc-story-pinned-section">
       <div class="rrc-container">
-        <div class="rrc-dynamic-headline-wrap">
-          <span class="rrc-mono-tag">The Provenance Arc</span>
-          <h2 class="rrc-dynamic-headline" id="rrcDynamicHeadline">
-            From the factory gates in Solihull...
-          </h2>
+        <div class="rrc-story-split">
+          <div class="rrc-story-narrative-box">
+            <span class="rrc-mono-tag" style="color: #666;">The Narrative Arc</span>
+            <h2 class="rrc-story-statement" id="rrcStoryStatement">
+              IT STARTS WITH THE RIGHT VEHICLE.
+            </h2>
+            <p style="color: #444; font-size: 16px;">
+              Every acquisition is curated from certified UK networks, interrogated through 120-point diagnostic telemetry, and prepared for enduring African performance.
+            </p>
+            <div style="margin-top: var(--sp-3);">
+              <a class="rrc-btn rrc-btn-primary" href="about.html">Discover the Centre →</a>
+            </div>
+          </div>
+
+          <div class="rrc-story-canvas">
+            <img id="rrcStoryImg" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&auto=format" alt="Story Narrative Visual" />
+          </div>
         </div>
 
-        <div class="rrc-reel-track">
-          <!-- Frame 1 -->
-          <div class="rrc-reel-card" data-story-index="0">
-            <div class="rrc-reel-media">
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format" alt="Solihull Factory Gates" loading="lazy" />
-            </div>
-            <div class="rrc-reel-body">
-              <span class="rrc-mono-tag">01 // Solihull Sourcing</span>
-              <h4 style="margin: 8px 0 4px;">Direct Factory Provenance</h4>
-              <p style="font-size: 14px; margin: 0;">Sourced directly from Land Rover UK networks with clean service histories.</p>
-            </div>
+        <!-- Hidden Step Triggers for Scroll Progress -->
+        <div style="display: flex; gap: 8px; margin-top: var(--sp-4); opacity: 0.2;">
+          <div class="rrc-story-step-card" data-story-step="0">01</div>
+          <div class="rrc-story-step-card" data-story-step="1">02</div>
+          <div class="rrc-story-step-card" data-story-step="2">03</div>
+          <div class="rrc-story-step-card" data-story-step="3">04</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT III — Model Family Switcher (Lucid Principle - Section 15–16)
+         ======================================================================== -->
+    <section class="rrc-section rrc-models-section">
+      <div class="rrc-container">
+        <span class="rrc-mono-tag" style="color: #666;">Choose Your Character</span>
+        <h2 style="color: #0A0A0A; margin-top: 6px;">Meet the Family.</h2>
+
+        <!-- Tab Bar -->
+        <div class="rrc-model-switcher-tabs">
+          <button class="rrc-model-tab active" data-model-tab="rangerover">Range Rover</button>
+          <button class="rrc-model-tab" data-model-tab="sport">Range Rover Sport</button>
+          <button class="rrc-model-tab" data-model-tab="velar">Range Rover Velar</button>
+          <button class="rrc-model-tab" data-model-tab="evoque">Range Rover Evoque</button>
+          <button class="rrc-model-tab" data-model-tab="defender">Defender</button>
+          <button class="rrc-model-tab" data-model-tab="discovery">Discovery</button>
+        </div>
+
+        <!-- Dynamic Model Showcase Presentation -->
+        <div class="rrc-model-showcase-grid">
+          <div class="rrc-model-showcase-media">
+            <img id="rrcModelShowcaseImg" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1400&auto=format" alt="Range Rover Showcase" />
           </div>
 
-          <!-- Frame 2 -->
-          <div class="rrc-reel-card" data-story-index="1">
-            <div class="rrc-reel-media">
-              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&auto=format" alt="Nairobi Tarmac" loading="lazy" />
-            </div>
-            <div class="rrc-reel-body">
-              <span class="rrc-mono-tag">02 // Nairobi Tarmac</span>
-              <h4 style="margin: 8px 0 4px;">120-Point ECU Audit</h4>
-              <p style="font-size: 14px; margin: 0;">Electronic interrogation and pneumatic suspension leveling in Ridgeways.</p>
-            </div>
-          </div>
+          <div class="rrc-model-showcase-details">
+            <span class="rrc-mono-tag green" style="color: #0C3B2E;">Engineering Masterpiece</span>
+            <h3 id="rrcModelShowcaseTitle" style="color: #0A0A0A; font-size: 32px;">Range Rover</h3>
+            <p id="rrcModelShowcaseDesc" style="color: #555; font-size: 15px;">
+              Peerless refinement and effortless capability. The definitive luxury SUV for cross-county travel across East Africa.
+            </p>
 
-          <!-- Frame 3 -->
-          <div class="rrc-reel-card" data-story-index="2">
-            <div class="rrc-reel-media">
-              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&auto=format" alt="Laikipia Red Dust" loading="lazy" />
+            <div class="rrc-model-telemetry-strip">
+              <div class="rrc-telemetry-item">
+                <span>Peak Power</span>
+                <span id="rrcModelPower">523 HP</span>
+              </div>
+              <div class="rrc-telemetry-item">
+                <span>0–100 KM/H</span>
+                <span id="rrcModelZeroSixty">4.4s</span>
+              </div>
+              <div class="rrc-telemetry-item">
+                <span>Drivetrain</span>
+                <span id="rrcModelDrive">AWD / Steering</span>
+              </div>
             </div>
-            <div class="rrc-reel-body">
-              <span class="rrc-mono-tag">03 // Laikipia Terrain</span>
-              <h4 style="margin: 8px 0 4px;">Altitude & Terrain Tuning</h4>
-              <p style="font-size: 14px; margin: 0;">Calibrated for the Rift Valley, unpaved terrain, and trans-county endurance.</p>
-            </div>
-          </div>
 
-          <!-- Frame 4 -->
-          <div class="rrc-reel-card" data-story-index="3">
-            <div class="rrc-reel-media">
-              <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=900&auto=format" alt="Homestead Handover" loading="lazy" />
-            </div>
-            <div class="rrc-reel-body">
-              <span class="rrc-mono-tag">04 // Handover</span>
-              <h4 style="margin: 8px 0 4px;">Ready Logbook Transfer</h4>
-              <p style="font-size: 14px; margin: 0;">Direct title deed transfer, warranty backing, and ongoing atelier care.</p>
+            <div>
+              <a class="rrc-btn rrc-btn-primary" id="rrcModelLink" href="marketplace.html?make=range+rover">Explore Available Stock →</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Beat 4 — The Craft (DS Paris Savoir-Faire Workshop) -->
-    <section class="rrc-section" style="background: var(--rrc-surface); border-top: 1px solid var(--rrc-border);">
-      <div class="rrc-container">
-        <span class="rrc-mono-tag">Savoir-Faire · Ridgeways</span>
-        <h2>British Engineering. Kenyan Mastery.</h2>
+    <!-- ========================================================================
+         ACT IV — Massive Featured Product Spotlight (Section 17)
+         ======================================================================== -->
+    <section class="rrc-featured-spotlight">
+      <div class="rrc-featured-backdrop">
+        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1920&auto=format" alt="Defender 110 Spotlight" />
+      </div>
 
-        <div class="rrc-craft-grid">
-          <div class="rrc-craft-media rrc-reveal">
-            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1200&auto=format" alt="RRC Workshop Floor Diagnostics" loading="lazy" />
-          </div>
+      <div class="rrc-container rrc-featured-content rrc-reveal">
+        <span class="rrc-mono-tag clay">Expedition Icon</span>
+        <h2 style="font-size: clamp(34px, 5.5vw, 68px); margin: 8px 0 14px;">DEFENDER 110 V8</h2>
+        <p style="font-size: 18px; max-width: 580px; margin-bottom: var(--sp-4);">
+          Prepared for the roads beyond the map. Carpathian Grey, 518 HP Supercharged V8, and electronic active differential.
+        </p>
 
-          <div class="rrc-craft-points rrc-reveal">
-            <div class="rrc-craft-point">
-              <h4>Specialized Diagnostic Hardware</h4>
-              <p>Direct factory Land Rover Pathfinder and SDD diagnostics for complete module telemetry.</p>
-            </div>
+        <div style="display: flex; gap: var(--sp-4); align-items: baseline; font-family: var(--font-mono); font-size: 12px; margin-bottom: var(--sp-4); color: var(--rrc-text-secondary); flex-wrap: wrap;">
+          <span>7 SEATS</span>
+          <span>·</span>
+          <span>PERMANENT 4WD</span>
+          <span>·</span>
+          <span>5.0L V8 SUPERCHARGED</span>
+          <span>·</span>
+          <span>KES 22.8M</span>
+        </div>
 
-            <div class="rrc-craft-point">
-              <h4>Air Suspension Calibration</h4>
-              <p>Precision valve-block servicing, air compressor rebuilds, and Dynamic Response Pro setup.</p>
-            </div>
-
-            <div class="rrc-craft-point">
-              <h4>Genuine Solihull Supply Chain</h4>
-              <p>Direct component sourcing ensuring every bushing, brake pad, and filter meets factory tolerance.</p>
-            </div>
-          </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a class="rrc-btn rrc-btn-primary" href="vehicle-detail.html?car=land-rover-defender-110-v8-carpathian">View Defender Dossier →</a>
+          <a class="rrc-btn rrc-btn-secondary" href="marketplace.html?make=land+rover">See All Defenders</a>
         </div>
       </div>
     </section>
 
-    <!-- Looping Marquee Line (DS Paris) -->
-    <div class="rrc-marquee-container">
-      <div class="rrc-marquee-track">
-        <span>Engineered in Britain. Proven on Kenyan roads. — </span>
-        <span>Engineered in Britain. Proven on Kenyan roads. — </span>
-        <span>Engineered in Britain. Proven on Kenyan roads. — </span>
-        <span>Engineered in Britain. Proven on Kenyan roads. — </span>
-      </div>
-    </div>
-
-    <!-- Integrated Dealer / Service Flow (Rivian style) -->
-    <section class="rrc-section">
+    <!-- ========================================================================
+         ACT V — Horizontal Forward-Scroll Journey (Section 19)
+         ======================================================================== -->
+    <section class="rrc-journey-section">
       <div class="rrc-container">
-        <div class="rrc-service-strip">
-          <div class="rrc-service-strip-item">
-            <span class="rrc-mono-tag green">Atelier Location</span>
-            <h4 data-sanity="address">Ridgeways, Kiambu Road</h4>
-            <p>Mon – Sat: 08:00 — 18:00</p>
-          </div>
-          <div class="rrc-service-strip-item">
-            <span class="rrc-mono-tag">Next Diagnostic Slot</span>
-            <h4>Available Tomorrow</h4>
-            <p>Ridgeways Diagnostic Bay 2</p>
-          </div>
-          <div class="rrc-service-strip-item">
-            <span class="rrc-mono-tag">Direct Line</span>
-            <h4 data-sanity="phone">+254 790 374 141</h4>
-            <p data-sanity="email">info@rangerovercentre.co.ke</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Showroom Fleet -->
-    <section class="rrc-section" style="border-top: 1px solid var(--rrc-border);">
-      <div class="rrc-container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--sp-5); flex-wrap: wrap; gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--sp-5); flex-wrap: wrap; gap: 14px;">
           <div>
-            <span class="rrc-mono-tag">Showroom Selection</span>
-            <h2 style="margin: 4px 0 0;">Current Inventory</h2>
+            <span class="rrc-mono-tag">Cinematic Strip</span>
+            <h2 style="margin-top: 4px;">The Journey in Five Frames.</h2>
           </div>
-          <a class="rrc-btn rrc-btn-secondary" href="marketplace.html">View Full Showroom →</a>
+          <span class="rrc-mono-tag" style="color: var(--rrc-text-muted);">01 → 05</span>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-4);" id="homepageFleetGrid">
-          <!-- Populated dynamically from Sanity/Curated Dataset -->
+        <div class="rrc-journey-reel">
+          <!-- Frame 01 -->
+          <div class="rrc-journey-card">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=800&auto=format" alt="01 Arrival" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">01 // ARRIVAL</span>
+              <h4>Solihull Precision</h4>
+              <p style="font-size: 13px; margin: 0;">Uncompromising manufacturing standards and clean service provenance.</p>
+            </div>
+          </div>
+
+          <!-- Frame 02 -->
+          <div class="rrc-journey-card">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&auto=format" alt="02 Control" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">02 // CONTROL</span>
+              <h4>Nairobi Arteries</h4>
+              <p style="font-size: 13px; margin: 0;">Effortless poise across city roundabouts, expressways, and urban rhythm.</p>
+            </div>
+          </div>
+
+          <!-- Frame 03 -->
+          <div class="rrc-journey-card">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&auto=format" alt="03 Movement" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">03 // MOVEMENT</span>
+              <h4>Rift Valley Descent</h4>
+              <p style="font-size: 13px; margin: 0;">Dynamic air suspension adapting to elevation drops and steep gradients.</p>
+            </div>
+          </div>
+
+          <!-- Frame 04 -->
+          <div class="rrc-journey-card">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&auto=format" alt="04 Open Road" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">04 // OPEN ROAD</span>
+              <h4>Laikipia Red Dust</h4>
+              <p style="font-size: 13px; margin: 0;">Terrain Response 2 conquering unpaved savannah expanses effortlessly.</p>
+            </div>
+          </div>
+
+          <!-- Frame 05 -->
+          <div class="rrc-journey-card">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&auto=format" alt="05 Distance" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">05 // DISTANCE</span>
+              <h4>Homestead Sanctuary</h4>
+              <p style="font-size: 13px; margin: 0;">Long-range grand touring luxury that arrives composed, every time.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Beat 5 — The Confidence Close (Koenigsegg Style) -->
-    <section class="rrc-confidence-section">
+    <!-- ========================================================================
+         ACT VI — The "Kenya" Section (Section 20)
+         ======================================================================== -->
+    <section class="rrc-kenya-section">
+      <div class="rrc-container rrc-kenya-grid">
+        <div class="rrc-reveal">
+          <span class="rrc-mono-tag clay">Geographical Truth</span>
+          <h2 style="margin: 8px 0 16px;">BUILT FOR A COUNTRY THAT DOESN'T HAVE ONE ROAD.</h2>
+          <p style="font-size: 16px; margin-bottom: var(--sp-4);">
+            From the smooth asphalt of the Nairobi Expressway to the basalt rock trails of Turkana and the red dust of Laikipia conservancies, these motorcars were engineered for real geographical versatility.
+          </p>
+          <a class="rrc-btn rrc-btn-secondary" href="marketplace.html">Explore Proven Fleet →</a>
+        </div>
+
+        <div class="rrc-kenya-media rrc-reveal">
+          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200&auto=format" alt="Kenyan Terrain Exploration" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT VII — The Atelier & Service Story (Section 21–22)
+         ======================================================================== -->
+    <section class="rrc-workshop-section">
+      <div class="rrc-container">
+        <span class="rrc-mono-tag green">Ridgeways Atelier</span>
+        <h2 style="margin-top: 6px;">OWNERSHIP DOESN'T END AT DELIVERY.</h2>
+
+        <div class="rrc-workshop-grid">
+          <!-- Bay Selector Tabs -->
+          <div class="rrc-workshop-tabs">
+            <div class="rrc-workshop-tab active" data-workshop-key="diagnostics">
+              <h4>Diagnostics</h4>
+              <span>Factory Pathfinder & SDD Scans</span>
+            </div>
+            <div class="rrc-workshop-tab" data-workshop-key="maintenance">
+              <h4>Scheduled Service</h4>
+              <span>Powertrain & Gearbox Overhauls</span>
+            </div>
+            <div class="rrc-workshop-tab" data-workshop-key="parts">
+              <h4>Genuine Parts</h4>
+              <span>Direct Solihull UK Sourcing</span>
+            </div>
+            <div class="rrc-workshop-tab" data-workshop-key="detail">
+              <h4>Detailing</h4>
+              <span>Ceramic & Semi-Aniline Care</span>
+            </div>
+          </div>
+
+          <!-- Bay Preview Card -->
+          <div class="rrc-workshop-preview-card">
+            <div class="rrc-workshop-preview-media">
+              <img id="rrcWorkshopImg" src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&auto=format" alt="Atelier Diagnostics" />
+            </div>
+            <div style="display: grid; gap: var(--sp-3);">
+              <span class="rrc-mono-tag green" id="rrcWorkshopTag">Bay 01 // Electronics</span>
+              <h3 id="rrcWorkshopTitle" style="font-size: 22px;">Factory Pathfinder & SDD Diagnostic Protocols</h3>
+              <p id="rrcWorkshopDesc" style="font-size: 14px; margin: 0;">
+                Full electronic control unit interrogation, module software flashes, real-time telemetry logging, and injector balance analysis.
+              </p>
+              <div style="margin-top: var(--sp-2);">
+                <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20book%20a%20service%20or%20diagnostic%20slot." target="_blank" rel="noopener noreferrer">
+                  Book Diagnostic Bay via WhatsApp →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT VIII — Curated Collection (Showroom - Section 23–26)
+         ======================================================================== -->
+    <section class="rrc-collection-section">
+      <div class="rrc-container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <span class="rrc-mono-tag" style="color: #666;">The Collection</span>
+            <h2 style="color: #0A0A0A; margin-top: 4px;">Available Motorcars.</h2>
+          </div>
+          <a class="rrc-btn rrc-btn-secondary" href="marketplace.html" style="color: #0A0A0A; border-color: #0A0A0A;">View Full Showroom →</a>
+        </div>
+
+        <div class="rrc-collection-grid" id="homepageFleetGrid">
+          <!-- Populated dynamically via js/vehicle-data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT IX — The Editorial Journal (Section 34–35)
+         ======================================================================== -->
+    <section class="rrc-section" style="background: var(--rrc-obsidian); border-top: 1px solid var(--rrc-border);">
+      <div class="rrc-container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--sp-5); flex-wrap: wrap; gap: 14px;">
+          <div>
+            <span class="rrc-mono-tag">The Journal</span>
+            <h2 style="margin-top: 4px;">Editorial Chronicles.</h2>
+          </div>
+          <a class="rrc-btn rrc-btn-secondary" href="blog.html">Explore Journal →</a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-5);">
+          <!-- Article 01 -->
+          <article class="rrc-journey-card rrc-reveal">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&auto=format" alt="Buyer's Guide" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">Guides · 6 Min Read</span>
+              <h4>The Ultimate Range Rover Buyer's Guide in Kenya</h4>
+              <p style="font-size: 13px; margin: 0;">Navigating duty, terrain response considerations, and full provenance checks.</p>
+              <div style="margin-top: 8px;">
+                <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="blog-post.html?post=range-rover-buyers-guide-kenya">Read Chronicle →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 02 -->
+          <article class="rrc-journey-card rrc-reveal">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&auto=format" alt="Maintenance" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">Maintenance · 5 Min Read</span>
+              <h4>Maintaining SDV6 and V8 Supercharged Engines</h4>
+              <p style="font-size: 13px; margin: 0;">Key diagnostic intervals, pneumatic calibration, and fluids for factory tolerance.</p>
+              <div style="margin-top: 8px;">
+                <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="blog.html">Read Chronicle →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 03 -->
+          <article class="rrc-journey-card rrc-reveal">
+            <div class="rrc-journey-media">
+              <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&auto=format" alt="Sourcing" loading="lazy" />
+            </div>
+            <div class="rrc-journey-body">
+              <span class="rrc-mono-tag">Insights · 4 Min Read</span>
+              <h4>Direct UK & Japan Sourcing: The RRC Protocol</h4>
+              <p style="font-size: 13px; margin: 0;">How our acquisition team inspects and clears custom vehicles to your doorstep.</p>
+              <div style="margin-top: 8px;">
+                <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="blog.html">Read Chronicle →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT X — The Centre (Ridgeways Physical Facility - Section 37)
+         ======================================================================== -->
+    <section class="rrc-centre-section">
+      <div class="rrc-container rrc-centre-grid">
+        <div class="rrc-centre-media rrc-reveal">
+          <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format" alt="RRC Ridgeways Facility" loading="lazy" />
+        </div>
+
+        <div class="rrc-centre-details rrc-reveal">
+          <span class="rrc-mono-tag" style="color: #666;">Physical Sanctuary</span>
+          <h2 style="color: #0A0A0A; margin: 0;">RIDGEWAYS · NAIROBI</h2>
+          <p style="color: #444; font-size: 16px;">
+            Come see the collection in person. Private viewings, diagnostic consultations, and discreet vehicle handovers in a dedicated automotive environment.
+          </p>
+
+          <div style="display: grid; gap: 8px; font-family: var(--font-mono); font-size: 13px; color: #444; border-top: 1px solid var(--rrc-mist); border-bottom: 1px solid var(--rrc-mist); padding: var(--sp-3) 0;">
+            <p style="margin: 0;">📍 Ridgeways, Kiambu Road, Nairobi</p>
+            <p style="margin: 0;">🕒 Mon – Sat: 08:00 — 18:00</p>
+            <p style="margin: 0;">📞 +254 790 374 141</p>
+          </div>
+
+          <div>
+            <a class="rrc-btn rrc-btn-primary" href="contact.html">Book Private Showroom Viewing →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT XI — The Confidence Close (Section 39)
+         ======================================================================== -->
+    <section class="rrc-close-section">
       <div class="rrc-container-narrow rrc-reveal">
         <span class="rrc-mono-tag green">Direct Acquisition</span>
         <h2 style="font-size: clamp(36px, 5.5vw, 68px); margin: 12px 0 16px;">
-          We know these cars better than anyone else in Kenya.
+          THE ROAD IS YOURS.
         </h2>
         <p style="max-width: 580px; margin: 0 auto var(--sp-5); font-size: 17px;">
-          Ten years of specialized Solihull trade, verified diagnostic logs, and direct client relationships across East Africa.
+          Let us find the right vehicle for it. Ten years of specialized Solihull trade, verified diagnostic logs, and direct client relationships across East Africa.
         </p>
-        <div>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
           <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20am%20inquiring%20about%20a%20Range%20Rover%20/%20Land%20Rover%20acquisition." target="_blank" rel="noopener noreferrer">
-            Speak to a Sales Advisor on WhatsApp
+            Speak to a Concierge on WhatsApp
+          </a>
+          <a class="rrc-btn rrc-btn-secondary" href="marketplace.html">
+            Explore the Collection
           </a>
         </div>
       </div>
@@ -267,34 +524,58 @@
 
   </main>
 
-  <!-- Restrained Footer -->
+  <!-- ========================================================================
+       Minimal 4-Column Footer (Section 40)
+       ======================================================================== -->
   <footer class="rrc-footer">
     <div class="rrc-container">
-      <div class="rrc-footer-top">
+      <div class="rrc-footer-grid">
+        <!-- Col 01: Brand & Philosophy -->
         <div>
-          <h4 style="margin-bottom: 6px;">Range Rover / Land Rover Centre</h4>
-          <p style="font-size: 14px; max-width: 320px;">
-            Specialized automotive sanctuary for Range Rover and Land Rover motorcars in Nairobi.
+          <h4 style="margin-bottom: 8px;">Range Rover / Land Rover Centre</h4>
+          <p style="font-size: 13px; max-width: 320px; color: var(--rrc-text-secondary);">
+            A private automotive gallery for Range Rover and Land Rover luxury motorcars in Nairobi.
           </p>
         </div>
-        <div style="display: flex; gap: var(--sp-6); flex-wrap: wrap;">
-          <div>
-            <p class="rrc-mono-tag" style="margin-bottom: 8px;">Navigate</p>
-            <p style="font-size: 14px; margin-bottom: 4px;"><a href="marketplace.html">Showroom</a></p>
-            <p style="font-size: 14px; margin-bottom: 4px;"><a href="import.html">Bespoke Sourcing</a></p>
-            <p style="font-size: 14px; margin-bottom: 4px;"><a href="services.html">Atelier</a></p>
-            <p style="font-size: 14px; margin-bottom: 4px;"><a href="blog.html">Journal</a></p>
-          </div>
-          <div>
-            <p class="rrc-mono-tag" style="margin-bottom: 8px;">Facility</p>
-            <p style="font-size: 14px; margin-bottom: 4px;">Ridgeways, Kiambu Road, Nairobi</p>
-            <p style="font-size: 14px; margin-bottom: 4px;">+254 790 374 141</p>
-          </div>
+
+        <!-- Col 02: Explore -->
+        <div class="rrc-footer-col">
+          <h5>Explore</h5>
+          <ul class="rrc-footer-links">
+            <li><a href="marketplace.html?make=range+rover">Range Rover</a></li>
+            <li><a href="marketplace.html?make=range+rover">Range Rover Sport</a></li>
+            <li><a href="marketplace.html?make=range+rover">Range Rover Velar</a></li>
+            <li><a href="marketplace.html?make=land+rover">Defender 110 & 130</a></li>
+            <li><a href="marketplace.html?make=land+rover">Discovery 5</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 03: Ownership -->
+        <div class="rrc-footer-col">
+          <h5>Ownership</h5>
+          <ul class="rrc-footer-links">
+            <li><a href="services.html">Atelier & Diagnostics</a></li>
+            <li><a href="import.html">Bespoke Sourcing</a></li>
+            <li><a href="finance.html">Asset Finance</a></li>
+            <li><a href="sell.html">Private Consignment</a></li>
+            <li><a href="insurance.html">Underwriting</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 04: Connect -->
+        <div class="rrc-footer-col">
+          <h5>Connect</h5>
+          <ul class="rrc-footer-links">
+            <li><a href="about.html">Heritage</a></li>
+            <li><a href="blog.html">The Journal</a></li>
+            <li><a href="contact.html">Ridgeways Location</a></li>
+            <li><a href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">Direct WhatsApp</a></li>
+          </ul>
         </div>
       </div>
 
       <div class="rrc-footer-bottom">
-        <span>© 2026 Range Rover Centre Nairobi</span>
+        <span>© 2026 Range Rover Centre Nairobi · All Rights Reserved</span>
         <span>Engineered in Solihull. Proven on Kenyan roads.</span>
       </div>
     </div>
@@ -312,7 +593,7 @@
 
       Object.values(vehicles).slice(0, 3).forEach(v => {
         const img = (v.images && v.images[0]) ? v.images[0].src : "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900&auto=format";
-        const tag = v.availability === "import" ? "In Transit · UK" : "Nairobi Ready";
+        const tag = v.availability === "import" ? "In Transit · UK" : "Nairobi Showroom";
         const card = document.createElement("article");
         card.className = "rrc-showroom-card rrc-reveal";
         card.innerHTML = `
@@ -320,7 +601,7 @@
             <img src="${img}" alt="${v.name}" loading="lazy" />
           </div>
           <div class="rrc-showroom-body">
-            <span class="rrc-mono-tag">${tag}</span>
+            <span class="rrc-mono-tag ${v.availability === 'import' ? 'clay' : 'green'}">${tag}</span>
             <div class="rrc-showroom-header">
               <h3 class="rrc-showroom-title">${v.name} ${v.trim}</h3>
               <span class="rrc-showroom-price">${v.price}</span>

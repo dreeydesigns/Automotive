@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bespoke Import Protocol | Range Rover & Land Rover Centre</title>
+  <title>Bespoke Sourcing | Range Rover & Land Rover Centre</title>
+  <meta name="description" content="Find the one that's not here. Commission a bespoke Range Rover or Defender specification directly from certified UK & Japan networks." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,27 +13,27 @@
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
 </head>
-<body data-page="import">
+<body data-page="import" class="rrc-theme-ivory">
 
-  <!-- Header -->
+  <!-- Nav -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
     <div class="rrc-container">
-      <a class="rrc-brand-title" href="index.html">
+      <a class="rrc-brand-title" href="index.html" style="color: #0A0A0A;">
         Range Rover / Land Rover Centre
       </a>
 
       <ul class="rrc-nav-menu">
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">Showroom</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link active" href="import.html">Bespoke Sourcing</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Atelier</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">Heritage</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="blog.html">Journal</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html" style="color: #444;">The Collection</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html" style="color: #444;">Services</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link active" href="import.html" style="color: #0A0A0A;">Bespoke</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html" style="color: #444;">About</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="blog.html" style="color: #444;">Journal</a></li>
       </ul>
 
       <div class="rrc-nav-actions">
-        <button class="rrc-anim-toggle" data-toggle-animations title="Toggle animations">Motion: On</button>
+        <button class="rrc-anim-toggle" data-toggle-animations title="Toggle animations" style="color: #444; border-color: rgba(0,0,0,0.15);">Motion: On</button>
         <a class="rrc-btn rrc-btn-primary" href="contact.html">Concierge</a>
-        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open menu">☰</button>
+        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open menu" style="color: #0A0A0A; border-color: rgba(0,0,0,0.2);">☰</button>
       </div>
     </div>
   </nav>
@@ -40,7 +41,7 @@
   <!-- Mobile Drawer -->
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
     <button id="rrcNavClose" aria-label="Close menu">✕</button>
-    <a href="marketplace.html">Showroom</a>
+    <a href="marketplace.html">The Collection</a>
     <a href="import.html">Bespoke Sourcing</a>
     <a href="services.html">Atelier & Care</a>
     <a href="about.html">Heritage</a>
@@ -49,55 +50,130 @@
   </div>
 
   <main class="rrc-main">
-    <header style="padding: var(--sp-6) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-border);">
+    <!-- Header (Section 29) -->
+    <header style="padding: var(--sp-7) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-mist);">
       <div class="rrc-container">
-        <span class="rrc-mono-tag">Direct Sourcing Protocol</span>
-        <h1 style="margin: 8px 0;">Custom UK & Japan Acquisitions.</h1>
-        <p style="max-width: 680px; margin: 0; font-size: 16px;">
-          If your desired Range Rover SV, Autobiography, or Defender specification is not currently on our Ridgeways lot, our international acquisition team will source, inspect, ship, and clear it directly to Nairobi.
+        <span class="rrc-mono-tag" style="color: #666;">International Acquisition</span>
+        <h1 style="margin: 8px 0; color: #0A0A0A;">Find the one that's not here.</h1>
+        <p style="max-width: 680px; margin: 0; font-size: 17px; color: #444;">
+          You tell us what you are looking for. Then we source. If your desired Range Rover Autobiography, SV, or Defender 130 specification is not in Kenya, our international acquisition team will audit and clear it directly.
         </p>
       </div>
     </header>
 
-    <!-- Sourcing Steps -->
+    <!-- 5-Step Sourcing Protocol (Section 29) -->
     <section class="rrc-section">
       <div class="rrc-container">
-        <div class="rrc-provenance-track">
-          <div class="rrc-provenance-card rrc-reveal">
-            <div class="rrc-provenance-step">01</div>
-            <h4 style="margin: 8px 0 4px;">Specification Brief</h4>
-            <p style="font-size: 13px; margin: 0;">Define your exact powertrain (V8 / D300 / P400), exterior styling pack, interior leather trim, and mileage tolerance.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--sp-4);">
+          <div style="background: #FFF; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-4);">
+            <span class="rrc-mono-tag" style="color: #888;">Step 01</span>
+            <h4 style="color: #0A0A0A; margin: 8px 0 4px;">Tell Us the Vehicle</h4>
+            <p style="font-size: 13px; color: #555; margin: 0;">Specify model line: Range Rover, Sport, Velar, Evoque, Defender, or Discovery.</p>
           </div>
 
-          <div class="rrc-provenance-card rrc-reveal">
-            <div class="rrc-provenance-step">02</div>
-            <h4 style="margin: 8px 0 4px;">UK On-Site Audit</h4>
-            <p style="font-size: 13px; margin: 0;">Our UK inspectors perform physical appraisals, paint depth analysis, and full electronic module interrogations.</p>
+          <div style="background: #FFF; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-4);">
+            <span class="rrc-mono-tag" style="color: #888;">Step 02</span>
+            <h4 style="color: #0A0A0A; margin: 8px 0 4px;">Define Specification</h4>
+            <p style="font-size: 13px; color: #555; margin: 0;">Powertrain, paint finish, semi-aniline interior, sound systems, and options.</p>
           </div>
 
-          <div class="rrc-provenance-card rrc-reveal">
-            <div class="rrc-provenance-step">03</div>
-            <h4 style="margin: 8px 0 4px;">Port & Sea Logistics</h4>
-            <p style="font-size: 13px; margin: 0;">Containerized maritime transit, marine insurance, KRA customs clearance, and NTSA registration handled completely.</p>
+          <div style="background: #FFF; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-4);">
+            <span class="rrc-mono-tag" style="color: #888;">Step 03</span>
+            <h4 style="color: #0A0A0A; margin: 8px 0 4px;">Budget Parameters</h4>
+            <p style="font-size: 13px; color: #555; margin: 0;">Total landed investment inclusive of UK acquisition, freight, and KRA customs duty.</p>
           </div>
 
-          <div class="rrc-provenance-card rrc-reveal">
-            <div class="rrc-provenance-step">04</div>
-            <h4 style="margin: 8px 0 4px;">Nairobi Handover</h4>
-            <p style="font-size: 13px; margin: 0;">Delivered to our Ridgeways atelier for final detailing, Kenyan registration plates, and key handover.</p>
+          <div style="background: #FFF; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-4);">
+            <span class="rrc-mono-tag" style="color: #888;">Step 04</span>
+            <h4 style="color: #0A0A0A; margin: 8px 0 4px;">Logistics & Inspection</h4>
+            <p style="font-size: 13px; color: #555; margin: 0;">120-point UK pre-purchase audit, marine insurance, and containerized transport.</p>
+          </div>
+
+          <div style="background: #FFF; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-4);">
+            <span class="rrc-mono-tag green" style="color: #0C3B2E;">Step 05</span>
+            <h4 style="color: #0A0A0A; margin: 8px 0 4px;">Nairobi Handover</h4>
+            <p style="font-size: 13px; color: #555; margin: 0;">Delivery at Ridgeways with Kenyan registration plates and key handover.</p>
           </div>
         </div>
 
-        <div style="text-align: center; margin-top: var(--sp-6);">
-          <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20commission%20a%20bespoke%20import%20specification." target="_blank" rel="noopener noreferrer">
-            Commission Custom Import via WhatsApp →
-          </a>
+        <!-- Structured Sourcing Brief Form (Section 30) -->
+        <div style="margin-top: var(--sp-8); background: #FFF; border: 1px solid var(--rrc-mist); border-radius: 8px; padding: var(--sp-6); max-width: 960px; margin-left: auto; margin-right: auto;">
+          <span class="rrc-mono-tag" style="color: #666;">Acquisition Brief</span>
+          <h2 style="color: #0A0A0A; margin: 6px 0 var(--sp-4);">Commission Your Search</h2>
+
+          <form style="display: grid; gap: var(--sp-4);" onsubmit="event.preventDefault(); alert('Your bespoke sourcing mandate has been registered. An acquisition specialist will connect with you.');">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--sp-3);">
+              <div class="rrc-form-group">
+                <label style="color: #666;">Full Name</label>
+                <input class="rrc-input" type="text" placeholder="e.g. David Mwangi" required style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;" />
+              </div>
+              <div class="rrc-form-group">
+                <label style="color: #666;">Phone / WhatsApp</label>
+                <input class="rrc-input" type="tel" placeholder="+254 7XX XXX XXX" required style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;" />
+              </div>
+              <div class="rrc-form-group">
+                <label style="color: #666;">Email Address</label>
+                <input class="rrc-input" type="email" placeholder="name@domain.com" required style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--sp-3);">
+              <div class="rrc-form-group">
+                <label style="color: #666;">Vehicle Model</label>
+                <select class="rrc-select" style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;">
+                  <option>Range Rover Autobiography / SV</option>
+                  <option>Range Rover Sport</option>
+                  <option>Range Rover Velar</option>
+                  <option>Defender 110 / 130</option>
+                  <option>Discovery 5</option>
+                </select>
+              </div>
+              <div class="rrc-form-group">
+                <label style="color: #666;">Model Year Range</label>
+                <input class="rrc-input" type="text" placeholder="e.g. 2022 – 2025" style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;" />
+              </div>
+              <div class="rrc-form-group">
+                <label style="color: #666;">Preferred Powertrain</label>
+                <select class="rrc-select" style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;">
+                  <option>V8 Supercharged / Twin-Turbo</option>
+                  <option>D300 / SDV6 Diesel</option>
+                  <option>P400 / P530 Petrol</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--sp-3);">
+              <div class="rrc-form-group">
+                <label style="color: #666;">Target Budget (KES)</label>
+                <input class="rrc-input" type="text" placeholder="e.g. KES 25,000,000" style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;" />
+              </div>
+              <div class="rrc-form-group">
+                <label style="color: #666;">Delivery Timeframe</label>
+                <select class="rrc-select" style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;">
+                  <option>Immediate / Within 30 Days</option>
+                  <option>60 to 90 Days</option>
+                  <option>Flexible / Sourcing Rare Spec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="rrc-form-group">
+              <label style="color: #666;">Specific Options & Notes (Exterior Pack, Cabin Leather, etc.)</label>
+              <textarea class="rrc-textarea" placeholder="Detail any specific exterior paint colors, Shadow exterior packs, rear executive seating, or sound system preferences..." style="background: #F9F9F8; border-color: var(--rrc-mist); color: #0A0A0A;"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
+              <button class="rrc-btn rrc-btn-primary" type="submit">Submit Sourcing Mandate →</button>
+              <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20discuss%20a%20bespoke%20import%20search." target="_blank" rel="noopener noreferrer">
+                Discuss on WhatsApp
+              </a>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Restrained Footer -->
   <footer class="rrc-footer">
     <div class="rrc-container">
       <div class="rrc-footer-bottom">

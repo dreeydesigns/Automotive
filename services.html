@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atelier & Care | Range Rover & Land Rover Centre</title>
+  <meta name="description" content="Specialized mechanical sanctuary and diagnostic protocols for Range Rover and Land Rover motorcars in Nairobi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +13,7 @@
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
 </head>
-<body data-page="services">
+<body data-page="services" class="rrc-theme-white">
 
   <!-- Nav -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
@@ -22,10 +23,10 @@
       </a>
 
       <ul class="rrc-nav-menu">
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">Showroom</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke Sourcing</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link active" href="services.html">Atelier</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">Heritage</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">The Collection</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link active" href="services.html">Services</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">About</a></li>
         <li class="rrc-nav-item"><a class="rrc-nav-link" href="blog.html">Journal</a></li>
       </ul>
 
@@ -40,7 +41,7 @@
   <!-- Mobile Drawer -->
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
     <button id="rrcNavClose" aria-label="Close menu">✕</button>
-    <a href="marketplace.html">Showroom</a>
+    <a href="marketplace.html">The Collection</a>
     <a href="import.html">Bespoke Sourcing</a>
     <a href="services.html">Atelier & Care</a>
     <a href="about.html">Heritage</a>
@@ -49,46 +50,65 @@
   </div>
 
   <main class="rrc-main">
-    <header style="padding: var(--sp-6) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-border);">
+    <header style="padding: var(--sp-7) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-mist);">
       <div class="rrc-container">
-        <span class="rrc-mono-tag">Ridgeways Atelier</span>
-        <h1 style="margin: 8px 0;">Precision Engineering & Care.</h1>
-        <p style="max-width: 680px; margin: 0; font-size: 16px;">
-          Dedicated exclusively to Range Rover and Land Rover motorcars. Factory Pathfinder/SDD diagnostic protocols, genuine Solihull components, and air suspension tuning.
+        <span class="rrc-mono-tag" style="color: #666;">The Ridgeways Atelier</span>
+        <h1 style="margin: 8px 0; color: #0A0A0A;">Ownership doesn't end at delivery.</h1>
+        <p style="max-width: 680px; margin: 0; font-size: 17px; color: #555;">
+          Dedicated exclusively to Range Rover and Land Rover motorcars. Specialized diagnostic bays, factory Pathfinder telemetry, pneumatic air suspension leveling, and genuine Solihull supply chain.
         </p>
       </div>
     </header>
 
-    <!-- Services Grid -->
+    <!-- Atelier Capabilities Grid (Section 21–22) -->
     <section class="rrc-section">
       <div class="rrc-container">
-        <div class="rrc-feature-grid">
-          <div class="rrc-feature-card rrc-reveal">
-            <div class="rrc-feature-icon">⚙️</div>
-            <h4 class="rrc-feature-title">ECU & Module Diagnostics</h4>
-            <p style="font-size: 13px;">Full factory Land Rover diagnostic scans, software updates, injector balance testing, and sensor telemetry analysis.</p>
-            <span class="rrc-mono-tag green">Bay 01 // Diagnostics</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--sp-5);">
+          
+          <div style="background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
+            <div style="font-size: 24px; margin-bottom: 8px;">⚙️</div>
+            <span class="rrc-mono-tag green" style="color: #0C3B2E;">Bay 01 // Electronics</span>
+            <h3 style="color: #0A0A0A; margin: 8px 0;">Pathfinder & SDD Diagnostics</h3>
+            <p style="color: #555; font-size: 14px;">
+              Live module interrogation, CCF configuration coding, software updates, and injector balance testing with certified factory hardware.
+            </p>
           </div>
 
-          <div class="rrc-feature-card rrc-reveal">
-            <div class="rrc-feature-icon">🛡️</div>
-            <h4 class="rrc-feature-title">Air Suspension Calibration</h4>
-            <p style="font-size: 13px;">Compressor overhauls, valve block servicing, height sensor leveling, and Dynamic Response Pro tuning for Kenyan terrain.</p>
-            <span class="rrc-mono-tag green">Bay 02 // Pneumatics</span>
+          <div style="background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
+            <div style="font-size: 24px; margin-bottom: 8px;">🛡️</div>
+            <span class="rrc-mono-tag green" style="color: #0C3B2E;">Bay 02 // Pneumatics</span>
+            <h3 style="color: #0A0A0A; margin: 8px 0;">Air Suspension Calibration</h3>
+            <p style="color: #555; font-size: 14px;">
+              Compressor overhaul, valve-block servicing, height sensor precision calibration, and Dynamic Response Pro tuning for African terrain.
+            </p>
           </div>
 
-          <div class="rrc-feature-card rrc-reveal">
-            <div class="rrc-feature-icon">✨</div>
-            <h4 class="rrc-feature-title">Styling & Performance</h4>
-            <p style="font-size: 13px;">Bespoke de-chroming, shadow exterior pack fitment, SV aerodynamic accents, and ceramic paint protection.</p>
-            <span class="rrc-mono-tag clay">Bay 03 // Detailing</span>
+          <div style="background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
+            <div style="font-size: 24px; margin-bottom: 8px;">📦</div>
+            <span class="rrc-mono-tag green" style="color: #0C3B2E;">Bay 03 // Supply Chain</span>
+            <h3 style="color: #0A0A0A; margin: 8px 0;">Genuine Solihull Parts</h3>
+            <p style="color: #555; font-size: 14px;">
+              Direct factory Land Rover component supply ensuring every brake rotor, bushing, actuator, and fluid meets exact factory tolerances.
+            </p>
           </div>
+
         </div>
 
-        <div style="text-align: center; margin-top: var(--sp-6);">
-          <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20book%20a%20diagnostic%20or%20service%20appointment." target="_blank" rel="noopener noreferrer">
-            Book Diagnostic Bay via WhatsApp →
-          </a>
+        <!-- Direct Booking Callout -->
+        <div style="margin-top: var(--sp-8); background: #0A0A0A; color: #FFF; border-radius: 8px; padding: var(--sp-7); text-align: center;">
+          <span class="rrc-mono-tag green">Atelier Appointment</span>
+          <h2 style="margin: 10px 0 14px;">Book Your Vehicle into the Atelier</h2>
+          <p style="max-width: 540px; margin: 0 auto var(--sp-5); font-size: 16px; color: var(--rrc-text-secondary);">
+            Schedule scheduled maintenance, diagnostic interrogation, or suspension calibration directly with our service director.
+          </p>
+          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+            <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20schedule%20a%20service%20or%20diagnostic%20slot." target="_blank" rel="noopener noreferrer">
+              Book via WhatsApp Concierge
+            </a>
+            <a class="rrc-btn rrc-btn-secondary" href="contact.html">
+              Contact Ridgeways Desk
+            </a>
+          </div>
         </div>
       </div>
     </section>

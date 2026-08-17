@@ -1,117 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap');
+/* ==========================================================================
+   RANGE ROVER & LAND ROVER CENTRE — MASTER DESIGN SYSTEM TOKENS
+   Inspired by Lightship (Storytelling), Lucid (Restraint), Polestar (Minimalism)
+   ========================================================================== */
 
 :root {
-  /* Restrained Luxury Palette (Lucid & Polestar discipline) */
-  --rrc-bg: #0B0B0C;
-  --rrc-surface: #131316;
-  --rrc-surface-hover: #1C1C22;
+  /* Core Tonal Palette (Section 04) */
+  --rrc-obsidian: #0A0A0A;      /* Primary dark background */
+  --rrc-carbon: #141414;        /* Secondary dark surface */
+  --rrc-ivory: #F5F3EE;         /* Primary light background */
+  --rrc-white: #FFFFFF;         /* High-contrast pure light */
+  --rrc-graphite: #6F6F6A;      /* Secondary text & muted annotations */
+  --rrc-mist: #D8D6CF;          /* Subtle dividers & borders on light */
+  
+  /* Brand Heritage Accents (Used sparingly) */
+  --rrc-heritage-green: #0C3B2E;/* Solihull British Racing Green */
+  --rrc-heritage-green-light: #165B47;
+  --rrc-earth-clay: #8A4E2D;    /* Kenyan Red Earth & Rift Valley */
+  --rrc-earth-clay-light: #A8653F;
+  
+  /* Default Dark Context Tokens */
+  --rrc-bg: var(--rrc-obsidian);
+  --rrc-surface: var(--rrc-carbon);
+  --rrc-surface-hover: #1E1E20;
   --rrc-border: rgba(255, 255, 255, 0.08);
-  --rrc-border-strong: rgba(255, 255, 255, 0.16);
-  
-  /* Text Neutrals */
-  --rrc-text-primary: #F7F5F1;
-  --rrc-text-secondary: #8E8E98;
-  --rrc-text-muted: #585864;
-  
-  /* Restrained Heritage Accents (Zero Gold Foil Cliché) */
-  --rrc-british-green: #0C3B2E;
-  --rrc-green-glow: rgba(12, 59, 46, 0.35);
-  --rrc-kenyan-clay: #8A4E2D;
-  --rrc-clay-glow: rgba(138, 78, 45, 0.35);
-  
-  /* Typography */
-  --font-display: "Syne", "Plus Jakarta Sans", sans-serif;
-  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: "Space Mono", "Courier New", monospace;
+  --rrc-border-strong: rgba(255, 255, 255, 0.22);
+  --rrc-text-primary: #FFFFFF;
+  --rrc-text-secondary: #9E9E9A;
+  --rrc-text-muted: #666663;
 
-  /* Spacing */
+  /* Typography System (Section 05) */
+  --font-display: "Syne", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  /* Spacing Scale (Generous luxury gallery spacing - Section 02) */
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 16px;
   --sp-4: 24px;
   --sp-5: 40px;
   --sp-6: 64px;
-  --sp-7: 120px;
-  --sp-8: 180px;
+  --sp-7: 104px;
+  --sp-8: 160px;
+  --sp-9: 240px;
 
-  /* Transitions */
+  /* Transitions & Motion Engine (Section 41) */
+  --t-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --t-base: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --t-cinematic: 900ms cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --t-fast: 150ms var(--ease-out);
-  --t-base: 300ms var(--ease-out);
-  --t-slow: 600ms var(--ease-out);
 }
 
-/* Reduced Motion Mode (Lamborghini style toggle) */
-html[data-animations="false"] * {
-  animation: none !important;
-  transition: none !important;
-  scroll-behavior: auto !important;
+/* Alternate Gallery Tone Sections (Section 03) */
+.rrc-theme-ivory {
+  --rrc-bg: var(--rrc-ivory);
+  --rrc-surface: #EBE8E0;
+  --rrc-surface-hover: #E0DDD4;
+  --rrc-border: rgba(0, 0, 0, 0.08);
+  --rrc-border-strong: rgba(0, 0, 0, 0.25);
+  --rrc-text-primary: #0A0A0A;
+  --rrc-text-secondary: #595955;
+  --rrc-text-muted: #888882;
+  background-color: var(--rrc-bg);
+  color: var(--rrc-text-primary);
 }
 
-* {
+.rrc-theme-white {
+  --rrc-bg: var(--rrc-white);
+  --rrc-surface: #F9F9F8;
+  --rrc-surface-hover: #F0F0EE;
+  --rrc-border: rgba(0, 0, 0, 0.07);
+  --rrc-border-strong: rgba(0, 0, 0, 0.22);
+  --rrc-text-primary: #0A0A0A;
+  --rrc-text-secondary: #555550;
+  --rrc-text-muted: #888882;
+  background-color: var(--rrc-bg);
+  color: var(--rrc-text-primary);
+}
+
+.rrc-theme-obsidian {
+  --rrc-bg: var(--rrc-obsidian);
+  --rrc-surface: var(--rrc-carbon);
+  --rrc-surface-hover: #1E1E20;
+  --rrc-border: rgba(255, 255, 255, 0.08);
+  --rrc-border-strong: rgba(255, 255, 255, 0.22);
+  --rrc-text-primary: #FFFFFF;
+  --rrc-text-secondary: #9E9E9A;
+  --rrc-text-muted: #666663;
+  background-color: var(--rrc-bg);
+  color: var(--rrc-text-primary);
+}
+
+/* Global Reset & Base */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  background: var(--rrc-bg);
-  color: var(--rrc-text-primary);
   font-family: var(--font-body);
+  background-color: var(--rrc-obsidian);
+  color: var(--rrc-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  color-scheme: dark;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--rrc-bg);
-  color: var(--rrc-text-primary);
-  line-height: 1.65;
-  font-size: 16px;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Custom Minimalist Cursor */
-@media (pointer: fine) {
-  body {
-    cursor: default;
-  }
-  .rrc-cursor-dot {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 6px;
-    background: var(--rrc-text-primary);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background 0.2s;
-  }
-  .rrc-cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(247, 245, 241, 0.25);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease-out, width 0.2s, height 0.2s;
-  }
-  body.cursor-hover .rrc-cursor-ring {
-    width: 48px;
-    height: 48px;
-    border-color: rgba(247, 245, 241, 0.6);
-  }
-}
-
-img, video {
-  max-width: 100%;
-  display: block;
+  line-height: 1.6;
 }
 
 a {
@@ -119,46 +118,51 @@ a {
   text-decoration: none;
 }
 
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Typography Hierarchy (Section 02 & 05) */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--rrc-text-primary);
+}
+
+h1 {
+  font-size: clamp(38px, 6.5vw, 84px);
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(30px, 4.5vw, 56px);
+}
+
+h3 {
+  font-size: clamp(22px, 2.5vw, 36px);
+}
+
+h4 {
+  font-size: clamp(17px, 1.8vw, 24px);
+}
+
 p {
   color: var(--rrc-text-secondary);
-  margin-bottom: var(--sp-3);
-  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  color: var(--rrc-text-primary);
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-h1 { font-size: clamp(48px, 7vw, 96px); }
-h2 { font-size: clamp(32px, 4.5vw, 60px); }
-h3 { font-size: clamp(24px, 3vw, 40px); }
-h4 { font-size: 20px; font-weight: 600; }
-
-.rrc-container {
-  width: min(100% - 48px, 1360px);
-  margin: 0 auto;
-}
-
-.rrc-container-narrow {
-  width: min(100% - 48px, 980px);
-  margin: 0 auto;
-}
-
-.rrc-section {
-  padding: var(--sp-7) 0;
-  position: relative;
-}
-
+/* Minimalist Editorial Monospace Tag */
 .rrc-mono-tag {
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--rrc-text-secondary);
+  color: var(--rrc-text-muted);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -167,20 +171,98 @@ h4 { font-size: 20px; font-weight: 600; }
 .rrc-mono-tag::before {
   content: "";
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--rrc-text-primary);
+  background: var(--rrc-text-muted);
 }
 
-.rrc-mono-tag.green::before { background: #34D399; }
-.rrc-mono-tag.clay::before { background: #F97316; }
+.rrc-mono-tag.green::before {
+  background: #34D399;
+}
 
-@media (max-width: 768px) {
-  .rrc-container, .rrc-container-narrow {
-    width: min(100% - 32px, 1360px);
+.rrc-mono-tag.clay::before {
+  background: #F59E0B;
+}
+
+/* Layout Containers (Section 06) */
+.rrc-container {
+  width: 100%;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+}
+
+.rrc-container-narrow {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+}
+
+.rrc-section {
+  padding: var(--sp-8) 0;
+  position: relative;
+}
+
+/* Custom Minimalist Gallery Cursor (Desktop only - Section 45) */
+.rrc-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease;
+}
+
+.rrc-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+body.cursor-hover .rrc-cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Reduced Motion Mode (Section 58) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  .rrc-section {
-    padding: var(--sp-6) 0;
+  .rrc-cursor-dot, .rrc-cursor-ring {
+    display: none !important;
   }
+}
+
+html[data-animations="false"] *,
+html[data-animations="false"] *::before,
+html[data-animations="false"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-animations="false"] .rrc-cursor-dot,
+html[data-animations="false"] .rrc-cursor-ring {
+  display: none !important;
 }

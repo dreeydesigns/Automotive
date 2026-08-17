@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vehicle Finance & Asset Structuring | Range Rover & Land Rover Centre</title>
+  <meta name="description" content="Make the right vehicle fit the right plan. Asset financing solutions for Range Rover and Land Rover motorcars in Kenya." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,8 +13,9 @@
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
 </head>
-<body data-page="finance">
+<body data-page="finance" class="rrc-theme-white">
 
+  <!-- Nav -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
     <div class="rrc-container">
       <a class="rrc-brand-title" href="index.html">
@@ -21,10 +23,10 @@
       </a>
 
       <ul class="rrc-nav-menu">
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">Showroom</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke Sourcing</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Atelier</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">Heritage</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">The Collection</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Services</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke</a></li>
+        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">About</a></li>
         <li class="rrc-nav-item"><a class="rrc-nav-link" href="blog.html">Journal</a></li>
       </ul>
 
@@ -39,7 +41,7 @@
   <!-- Mobile Drawer -->
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
     <button id="rrcNavClose" aria-label="Close menu">✕</button>
-    <a href="marketplace.html">Showroom</a>
+    <a href="marketplace.html">The Collection</a>
     <a href="import.html">Bespoke Sourcing</a>
     <a href="services.html">Atelier & Care</a>
     <a href="about.html">Heritage</a>
@@ -48,42 +50,79 @@
   </div>
 
   <main class="rrc-main">
-    <header style="padding: var(--sp-6) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-border);">
+    <header style="padding: var(--sp-7) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-mist);">
       <div class="rrc-container">
-        <span class="rrc-mono-tag">Asset Finance</span>
-        <h1 style="margin: 8px 0;">Tailored Luxury Acquisition Structuring.</h1>
-        <p style="max-width: 680px; margin: 0; font-size: 16px;">
-          Flexible banking partnerships with Tier-1 Kenyan commercial lenders for up to 80% asset financing with competitive amortizations.
+        <span class="rrc-mono-tag" style="color: #666;">Asset Structuring</span>
+        <h1 style="margin: 8px 0; color: #0A0A0A;">Make the right vehicle fit the right plan.</h1>
+        <p style="max-width: 680px; margin: 0; font-size: 17px; color: #555;">
+          Direct Tier-1 Kenyan commercial banking partnerships for up to 80% asset financing with customized amortization tenures and expedited 48-hour delivery.
         </p>
       </div>
     </header>
 
+    <!-- Indicative Finance Calculator (Section 31–32) -->
     <section class="rrc-section">
       <div class="rrc-container">
-        <div class="rrc-feature-grid">
-          <div class="rrc-feature-card rrc-reveal">
-            <div class="rrc-feature-icon">🏦</div>
-            <h4 class="rrc-feature-title">Tier-1 Banking Facilities</h4>
-            <p style="font-size: 13px;">Direct integrations with NCBA, Stanbic, I&M, and Absa for accelerated credit appraisal and pre-approvals.</p>
+        <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--sp-7); align-items: start; max-width: 1100px; margin: 0 auto;">
+          
+          <!-- Inputs -->
+          <div style="background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 8px; padding: var(--sp-6);">
+            <span class="rrc-mono-tag" style="color: #666;">Indicative Calculator</span>
+            <h3 style="color: #0A0A0A; margin: 6px 0 var(--sp-4);">Customize Your Structure</h3>
+
+            <div style="display: grid; gap: var(--sp-3);">
+              <div class="rrc-form-group">
+                <label style="color: #666;">Vehicle Purchase Price (KES)</label>
+                <input class="rrc-input" type="number" id="calcPrice" value="22000000" step="500000" style="background: #FFF; border-color: var(--rrc-mist); color: #0A0A0A;" />
+              </div>
+
+              <div class="rrc-form-group">
+                <label style="color: #666;">Deposit Percentage (<span id="calcDepositLabel">30%</span>)</label>
+                <input type="range" id="calcDeposit" min="20" max="60" value="30" step="5" style="width: 100%; accent-color: #0A0A0A;" />
+              </div>
+
+              <div class="rrc-form-group">
+                <label style="color: #666;">Loan Tenure (<span id="calcTermLabel">48 Months</span>)</label>
+                <input type="range" id="calcTerm" min="12" max="60" value="48" step="6" style="width: 100%; accent-color: #0A0A0A;" />
+              </div>
+
+              <div class="rrc-form-group">
+                <label style="color: #666;">Indicative Interest Rate: 13.5% p.a.</label>
+              </div>
+            </div>
           </div>
 
-          <div class="rrc-feature-card rrc-reveal">
-            <div class="rrc-feature-icon">📊</div>
-            <h4 class="rrc-feature-title">Bespoke Tenures</h4>
-            <p style="font-size: 13px;">12 to 60-month financing terms with structured balloon payment options for corporate fleets and private individuals.</p>
+          <!-- Summary Box -->
+          <div style="background: #0A0A0A; color: #FFF; border-radius: 8px; padding: var(--sp-6); display: grid; gap: var(--sp-4);">
+            <span class="rrc-mono-tag green">Indicative Repayment</span>
+            
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--rrc-text-secondary); text-transform: uppercase;">Estimated Monthly Repayment</span>
+              <div style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: #FFF; margin-top: 4px;" id="calcMonthly">
+                KES 398,500
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--rrc-border); padding-top: var(--sp-3); display: grid; gap: 8px; font-size: 13px; color: var(--rrc-text-secondary);">
+              <div style="display: flex; justify-content: space-between;">
+                <span>Required Deposit:</span>
+                <span id="calcDepositAmt" style="color: #FFF; font-weight: 600;">KES 6,600,000</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Financed Capital:</span>
+                <span id="calcFinancedAmt" style="color: #FFF; font-weight: 600;">KES 15,400,000</span>
+              </div>
+            </div>
+
+            <p style="font-size: 11px; color: #777; margin: 0; line-height: 1.5;">
+              ⚠️ *Important Notice:* All figures generated are indicative mathematical estimates for planning purposes and do not constitute an approved credit facility. Final terms are subject to formal banking appraisal.
+            </p>
+
+            <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20discuss%20asset%20finance%20structuring." target="_blank" rel="noopener noreferrer">
+              Consult Asset Finance Director on WhatsApp
+            </a>
           </div>
 
-          <div class="rrc-feature-card rrc-reveal">
-            <div class="rrc-feature-icon">⚡</div>
-            <h4 class="rrc-feature-title">Expedited Handover</h4>
-            <p style="font-size: 13px;">Joint registration processing ensuring you take delivery within 48 hours of bank commitment issuance.</p>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: var(--sp-6);">
-          <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20discuss%20vehicle%20finance%20options." target="_blank" rel="noopener noreferrer">
-            Consult Asset Advisor on WhatsApp →
-          </a>
         </div>
       </div>
     </section>
@@ -102,5 +141,40 @@
   <script src="js/rrc-reveal.js"></script>
   <script src="js/rrc-interactive.js"></script>
   <script src="js/rrc-nav.js"></script>
+  <script>
+    const calcPrice = document.getElementById("calcPrice");
+    const calcDeposit = document.getElementById("calcDeposit");
+    const calcDepositLabel = document.getElementById("calcDepositLabel");
+    const calcTerm = document.getElementById("calcTerm");
+    const calcTermLabel = document.getElementById("calcTermLabel");
+    const calcMonthly = document.getElementById("calcMonthly");
+    const calcDepositAmt = document.getElementById("calcDepositAmt");
+    const calcFinancedAmt = document.getElementById("calcFinancedAmt");
+
+    const updateCalc = () => {
+      const price = Number(calcPrice.value) || 0;
+      const depPct = Number(calcDeposit.value) || 30;
+      const termMonths = Number(calcTerm.value) || 48;
+      const annualRate = 0.135;
+
+      calcDepositLabel.textContent = `${depPct}%`;
+      calcTermLabel.textContent = `${termMonths} Months`;
+
+      const depositVal = price * (depPct / 100);
+      const financedVal = price - depositVal;
+
+      const monthlyRate = annualRate / 12;
+      const monthlyPayment = (financedVal * monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+
+      calcDepositAmt.textContent = `KES ${Math.round(depositVal).toLocaleString()}`;
+      calcFinancedAmt.textContent = `KES ${Math.round(financedVal).toLocaleString()}`;
+      calcMonthly.textContent = `KES ${Math.round(monthlyPayment).toLocaleString()}`;
+    };
+
+    [calcPrice, calcDeposit, calcTerm].forEach(el => {
+      if (el) el.addEventListener("input", updateCalc);
+    });
+    updateCalc();
+  </script>
 </body>
 </html>
