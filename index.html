@@ -589,7 +589,11 @@
       });
     };
 
-    if (window.RRC_VEHICLES) renderFleet(window.RRC_VEHICLES);
+    if (window.RRC_FETCH_PROMISE) {
+      window.RRC_FETCH_PROMISE.then(v => renderFleet(v));
+    } else if (window.RRC_VEHICLES && Object.keys(window.RRC_VEHICLES).length > 0) {
+      renderFleet(window.RRC_VEHICLES);
+    }
     document.addEventListener("rrc:vehicles-ready", (e) => renderFleet(e.detail));
   </script>
 </body>

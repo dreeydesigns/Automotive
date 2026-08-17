@@ -194,7 +194,13 @@
     sortSelect.addEventListener("change", applyFilters);
   }
 
-  renderVehicles();
+  if (window.RRC_FETCH_PROMISE) {
+    window.RRC_FETCH_PROMISE.then(() => {
+      renderVehicles();
+    });
+  } else if (window.RRC_VEHICLES && Object.keys(window.RRC_VEHICLES).length > 0) {
+    renderVehicles();
+  }
 
   document.addEventListener("rrc:vehicles-ready", () => {
     renderVehicles();
