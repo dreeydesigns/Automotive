@@ -547,7 +547,7 @@
           const transformed = transformSanityDoc(doc);
           liveVehicles[transformed.id] = transformed;
         });
-        window.RRC_VEHICLES = { ...liveVehicles, ...curatedLuxuryFleet };
+        window.RRC_VEHICLES = liveVehicles;
       }
 
       // 2. Process Site Settings
