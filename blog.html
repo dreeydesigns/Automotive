@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The RRC Journal | Range Rover & Land Rover Centre</title>
-  <meta name="description" content="Chronicles, engineering insights, and Range Rover ownership guides in East Africa." />
+  <title>Journal & Chronicles | Range Rover & Land Rover Centre</title>
+  <meta name="description" content="Editorial perspectives on Range Rover and Land Rover ownership, maintenance protocols, terrain navigation, and bespoke acquisition in Kenya." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -21,49 +21,32 @@
       <a class="rrc-brand-title" href="index.html">
         Range Rover / Land Rover Centre
       </a>
-
-      <ul class="rrc-nav-menu">
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">The Collection</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Services</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">About</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link active" href="blog.html">Journal</a></li>
-      </ul>
-
       <div class="rrc-nav-actions">
-        <button class="rrc-anim-toggle" data-toggle-animations title="Toggle animations">Motion: On</button>
-        <a class="rrc-btn rrc-btn-primary" href="marketplace.html">The Collection</a>
-        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open menu">☰</button>
+        <a class="rrc-btn rrc-btn-secondary" href="marketplace.html" style="color: #0A0A0A; border-color: #0A0A0A;">The Collection</a>
+        <a class="rrc-btn rrc-btn-primary" href="contact.html">Concierge</a>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Drawer -->
-  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
-    <button id="rrcNavClose" aria-label="Close menu">✕</button>
-    <a href="marketplace.html">The Collection</a>
-    <a href="import.html">Bespoke Sourcing</a>
-    <a href="services.html">Atelier & Care</a>
-    <a href="about.html">Heritage</a>
-    <a href="blog.html">Journal</a>
-    <a class="rrc-btn rrc-btn-primary" href="contact.html" style="margin-top: 24px;">Direct Concierge</a>
-  </div>
-
-  <main class="rrc-main">
-    <header style="padding: var(--sp-7) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-mist);">
+  <main class="rrc-main" style="padding-top: 72px;">
+    <!-- Editorial Header (Section 34) -->
+    <header class="rrc-section-editorial" style="background: #FFFFFF; border-bottom: 1px solid var(--rrc-mist);">
       <div class="rrc-container">
-        <span class="rrc-mono-tag" style="color: #666;">The Editorial Journal</span>
-        <h1 style="margin: 8px 0; color: #0A0A0A;">Insights, Provenance & Marques.</h1>
-        <p style="max-width: 680px; margin: 0; font-size: 17px; color: #555;">
-          Expert automotive chronicles, engine care diagnostics, and Range Rover ownership guides in East Africa.
+        <span class="rrc-mono-tag" style="color: #666;">The Journal</span>
+        <h1 style="font-size: clamp(34px, 5vw, 64px); margin: 6px 0 16px; color: #0A0A0A;">
+          Editorial Chronicles.
+        </h1>
+        <p style="max-width: 600px; font-size: 17px; color: #444;">
+          Reflections on Solihull engineering, East African expedition capabilities, and verified vehicle stewardship.
         </p>
       </div>
     </header>
 
-    <section class="rrc-section">
+    <!-- Articles Grid (Section 35) -->
+    <section class="rrc-section" style="background: #FFFFFF;">
       <div class="rrc-container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-6);" id="blogGrid">
-          <!-- Populated via Sanity CMS / samplePosts -->
+        <div class="rrc-collection-grid" id="blogGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-5);">
+          <!-- Populated dynamically via Sanity CMS -->
         </div>
       </div>
     </section>
@@ -83,45 +66,29 @@
   <script src="js/rrc-interactive.js"></script>
   <script src="js/rrc-nav.js"></script>
   <script>
-    const samplePosts = [
-      {
-        title: "The Ultimate Range Rover Buyer's Guide in Kenya",
-        slug: { current: "range-rover-buyers-guide-kenya" },
-        category: "Guides",
-        coverImageUrl: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=900&auto=format",
-        excerpt: "Navigating duty, terrain response considerations, and full provenance checks for luxury SUVs in East Africa.",
-        publishedAt: "2026-08-15"
-      },
-      {
-        title: "Preventative Maintenance for SDV6 and V8 Supercharged Engines",
-        slug: { current: "maintaining-sdv6-v8-engines" },
-        category: "Maintenance",
-        coverImageUrl: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=900&auto=format",
-        excerpt: "Key diagnostic intervals, pneumatic calibration, and fluids to keep your vehicle performing at peak factory specifications.",
-        publishedAt: "2026-08-10"
-      },
-      {
-        title: "Direct UK & Japan Sourcing: The RRC International Protocol",
-        slug: { current: "direct-uk-japan-sourcing-guide" },
-        category: "Insights",
-        coverImageUrl: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900&auto=format",
-        excerpt: "How our acquisition specialists inspect, certify, and clear custom vehicles straight to your doorstep.",
-        publishedAt: "2026-08-01"
-      }
-    ];
-
     const renderPosts = (posts) => {
       const grid = document.getElementById("blogGrid");
       if (!grid) return;
       grid.innerHTML = "";
-      const displayPosts = (posts && posts.length > 0) ? posts : samplePosts;
 
-      displayPosts.forEach(post => {
+      if (!posts || posts.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; background: #FBFBF9; border-radius: 6px; border: 1px dashed var(--rrc-mist);">
+            <span class="rrc-mono-tag">Journal Status</span>
+            <h3 style="margin: 8px 0; color: #0A0A0A;">New Chronicles in Preparation</h3>
+            <p style="max-width: 480px; margin: 0 auto 20px; font-size: 14px; color: #666;">Our acquisition and engineering team is currently authoring new perspectives on Solihull motorcars.</p>
+            <a class="rrc-btn rrc-btn-primary" href="marketplace.html">Explore Showroom</a>
+          </div>
+        `;
+        return;
+      }
+
+      posts.forEach(post => {
         const slug = post.slug?.current || post.slug || "#";
-        const cover = post.coverImageUrl || "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900&auto=format";
+        const cover = post.coverImageUrl || "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format";
         const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-GB", { month: "short", day: "numeric", year: "numeric" }) : "";
         const card = document.createElement("article");
-        card.className = "rrc-journey-card rrc-reveal";
+        card.className = "rrc-journey-card rrc-reveal revealed";
         card.style.background = "#F9F9F8";
         card.style.borderColor = "var(--rrc-mist)";
         card.innerHTML = `
@@ -141,12 +108,16 @@
       });
     };
 
-    renderPosts(window.RRC_POSTS);
+    if (window.RRC_FETCH_PROMISE) {
+      window.RRC_FETCH_PROMISE.then(() => {
+        renderPosts(window.RRC_POSTS);
+      });
+    } else if (window.RRC_POSTS && window.RRC_POSTS.length > 0) {
+      renderPosts(window.RRC_POSTS);
+    }
 
     document.addEventListener("rrc:data-ready", (e) => {
-      if (e.detail?.posts && e.detail.posts.length > 0) {
-        renderPosts(e.detail.posts);
-      }
+      if (e.detail && e.detail.posts) renderPosts(e.detail.posts);
     });
   </script>
 </body>

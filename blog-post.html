@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Article Chronicle | Range Rover & Land Rover Centre</title>
+  <meta name="description" content="Editorial perspectives and ownership guides from the Range Rover & Land Rover Centre Nairobi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -11,88 +12,39 @@
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
-  <style>
-    .article-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .article-hero-media {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      border-radius: 6px;
-      overflow: hidden;
-      margin: var(--sp-4) 0;
-      border: 1px solid var(--rrc-border);
-    }
-    .article-hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .article-content {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--rrc-text-secondary);
-      display: grid;
-      gap: var(--sp-4);
-    }
-    .article-content h2, .article-content h3 {
-      margin-top: var(--sp-4);
-      color: var(--rrc-text-primary);
-    }
-  </style>
 </head>
-<body data-page="blog-post">
+<body data-page="blog-post" class="rrc-theme-white">
 
+  <!-- Nav -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
     <div class="rrc-container">
       <a class="rrc-brand-title" href="index.html">
         Range Rover / Land Rover Centre
       </a>
-
-      <ul class="rrc-nav-menu">
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="marketplace.html">Showroom</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="import.html">Bespoke Sourcing</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="services.html">Atelier</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link" href="about.html">Heritage</a></li>
-        <li class="rrc-nav-item"><a class="rrc-nav-link active" href="blog.html">Journal</a></li>
-      </ul>
-
       <div class="rrc-nav-actions">
-        <button class="rrc-anim-toggle" data-toggle-animations title="Toggle animations">Motion: On</button>
-        <a class="rrc-btn rrc-btn-secondary" href="blog.html">← Journal</a>
+        <a class="rrc-btn rrc-btn-secondary" href="blog.html" style="color: #0A0A0A; border-color: #0A0A0A;">← All Chronicles</a>
+        <a class="rrc-btn rrc-btn-primary" href="marketplace.html">The Collection</a>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Drawer -->
-  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
-    <button id="rrcNavClose" aria-label="Close menu">✕</button>
-    <a href="marketplace.html">Showroom</a>
-    <a href="import.html">Bespoke Sourcing</a>
-    <a href="services.html">Atelier & Care</a>
-    <a href="about.html">Heritage</a>
-    <a href="blog.html">Journal</a>
-    <a class="rrc-btn rrc-btn-primary" href="contact.html" style="margin-top: 24px;">Direct Concierge</a>
-  </div>
+  <main class="rrc-main" style="padding-top: 72px;">
+    <article class="rrc-section" style="background: #FFFFFF;">
+      <div class="rrc-container article-container rrc-reveal revealed" style="max-width: 800px; margin: 0 auto;">
+        <span class="rrc-mono-tag green" id="postCategory" style="color: #0C3B2E;">The RRC Journal</span>
+        <h1 id="postTitle" style="margin: 8px 0; color: #0A0A0A; font-size: clamp(28px, 4vw, 44px);">Article Chronicle</h1>
+        <div style="font-family: var(--font-mono); font-size: 11px; color: #666; margin-bottom: var(--sp-4);" id="postMeta">RRC Editorial Desk</div>
 
-  <main class="rrc-main">
-    <article class="rrc-section">
-      <div class="rrc-container article-container rrc-reveal">
-        <span class="rrc-mono-tag green" id="postCategory">The RRC Journal</span>
-        <h1 id="postTitle" style="margin: 8px 0;">Article Chronicle</h1>
-        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--rrc-text-muted); margin-bottom: var(--sp-3);" id="postMeta">RRC Concierge Desk</div>
-
-        <div class="article-hero-media" id="postMedia">
-          <img id="postCover" src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&auto=format" alt="Cover" />
+        <div class="article-hero-media" id="postMedia" style="aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background: #000; margin-bottom: var(--sp-5);">
+          <img id="postCover" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format" alt="Article Cover" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
 
-        <div class="article-content" id="postContent">
-          <p id="postExcerpt">Loading article details...</p>
+        <div class="article-content" id="postContent" style="font-size: 16px; line-height: 1.8; color: #333;">
+          <p id="postExcerpt">Loading article details from Sanity...</p>
         </div>
 
-        <div style="margin-top: var(--sp-6); border-top: 1px solid var(--rrc-border); padding-top: var(--sp-4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <a class="rrc-btn rrc-btn-secondary" href="blog.html">← Return to Journal</a>
+        <div style="margin-top: var(--sp-6); border-top: 1px solid var(--rrc-mist); padding-top: var(--sp-4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <a class="rrc-btn rrc-btn-secondary" href="blog.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">← Return to Journal</a>
           <a class="rrc-btn rrc-btn-primary" href="marketplace.html">Explore Showroom</a>
         </div>
       </div>
@@ -113,44 +65,45 @@
   <script src="js/rrc-interactive.js"></script>
   <script src="js/rrc-nav.js"></script>
   <script>
-    const samplePosts = {
-      "range-rover-buyers-guide-kenya": {
-        title: "The Ultimate Range Rover Buyer's Guide in Kenya",
-        category: "Guides",
-        author: "RRC Concierge Team",
-        publishedAt: "2026-08-15",
-        coverImageUrl: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=1200&auto=format",
-        excerpt: "Navigating duty, terrain response considerations, and full provenance checks for luxury SUVs in East Africa.",
-        bodyText: `
-          <p>Buying a Range Rover in Kenya requires a thorough understanding of duty structures, model variants, and local terrain requirements. Whether selecting a Range Rover Sport, Velar, or the flagship Autobiography, provenance is the single most important factor in long-term satisfaction.</p>
-          <h2>1. Fuel & Engine Selection</h2>
-          <p>The 3.0L SDV6 and D300 diesel powertrains provide massive low-end torque ideal for long distance travel between Nairobi, Naivasha, and the coast with superior fuel economy. For enthusiasts seeking performance, the 5.0L Supercharged V8 offers unmatched responsiveness and exhaust acoustics.</p>
-          <h2>2. Service History & Logbook Verification</h2>
-          <p>Always inspect factory diagnostic logs rather than stamped service booklets alone. At Range Rover Centre, every vehicle is subjected to a 120-point interrogation before listing.</p>
-        `
+    const renderCurrentPost = (posts) => {
+      if (!posts || posts.length === 0) return;
+      const urlParams = new URLSearchParams(window.location.search);
+      const postSlug = urlParams.get("post");
+
+      const post = (postSlug && posts.find(p => (p.slug?.current === postSlug || p.slug === postSlug || p._id === postSlug))) || posts[0];
+
+      if (post) {
+        document.title = `${post.title} | Range Rover & Land Rover Centre`;
+        const titleEl = document.getElementById("postTitle");
+        const catEl = document.getElementById("postCategory");
+        const metaEl = document.getElementById("postMeta");
+        const coverEl = document.getElementById("postCover");
+        const contentEl = document.getElementById("postContent");
+
+        const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-GB", { month: "short", day: "numeric", year: "numeric" }) : "";
+        const author = post.author || "RRC Editorial Desk";
+
+        if (titleEl) titleEl.textContent = post.title;
+        if (catEl) catEl.textContent = post.category || "The RRC Journal";
+        if (metaEl) metaEl.textContent = `${author} ${date ? `· ${date}` : ""}`;
+        if (coverEl && post.coverImageUrl) coverEl.src = post.coverImageUrl;
+        if (contentEl) {
+          contentEl.innerHTML = post.bodyText || `<p style="font-size: 17px; line-height: 1.8; color: #111;">${post.excerpt || ""}</p>`;
+        }
       }
     };
 
-    const getParam = (param) => {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    };
-
-    const postSlug = getParam("post") || "range-rover-buyers-guide-kenya";
-    const post = samplePosts[postSlug] || samplePosts["range-rover-buyers-guide-kenya"];
-
-    if (post) {
-      document.title = `${post.title} | RRC Journal`;
-      const titleEl = document.getElementById("postTitle");
-      const catEl = document.getElementById("postCategory");
-      const coverEl = document.getElementById("postCover");
-      const contentEl = document.getElementById("postContent");
-
-      if (titleEl) titleEl.textContent = post.title;
-      if (catEl) catEl.textContent = post.category || "The RRC Journal";
-      if (coverEl && post.coverImageUrl) coverEl.src = post.coverImageUrl;
-      if (contentEl) contentEl.innerHTML = post.bodyText || `<p>${post.excerpt}</p>`;
+    if (window.RRC_FETCH_PROMISE) {
+      window.RRC_FETCH_PROMISE.then(() => {
+        renderCurrentPost(window.RRC_POSTS);
+      });
+    } else if (window.RRC_POSTS && window.RRC_POSTS.length > 0) {
+      renderCurrentPost(window.RRC_POSTS);
     }
+
+    document.addEventListener("rrc:data-ready", (e) => {
+      if (e.detail && e.detail.posts) renderCurrentPost(e.detail.posts);
+    });
   </script>
 </body>
 </html>
