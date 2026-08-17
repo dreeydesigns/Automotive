@@ -61,7 +61,7 @@
   const heroWrap = document.querySelector(".rrc-hero-video-wrap");
   const nav = document.querySelector(".rrc-nav");
 
-  const heroSequence = [
+  const getHeroSequence = () => window.RRC_HERO_SEQUENCE || [
     "A DIFFERENT WAY TO ARRIVE.",
     "BUILT FOR THE CITY.",
     "READY FOR THE DISTANCE.",
@@ -75,6 +75,7 @@
 
     const scrollY = window.scrollY;
     const heroH = window.innerHeight;
+    const heroSequence = getHeroSequence();
 
     if (nav) {
       nav.classList.toggle("scrolled", scrollY > 60);
