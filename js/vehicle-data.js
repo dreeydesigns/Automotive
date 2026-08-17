@@ -432,9 +432,9 @@
       const excerpt = post.excerpt || "Read our latest editorial insights and guides from the Range Rover Centre.";
 
       const card = document.createElement("article");
-      card.className = "rrc-journey-card rrc-reveal";
+      card.className = "rrc-journey-card rrc-reveal revealed";
       card.innerHTML = `
-        <div class="rrc-journey-media rrc-clip-reveal">
+        <div class="rrc-journey-media">
           <img src="${coverUrl}" alt="${post.title}" loading="lazy" />
         </div>
         <div class="rrc-journey-body">

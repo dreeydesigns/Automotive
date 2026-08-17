@@ -564,9 +564,9 @@
         const img = (v.images && v.images[0]) ? v.images[0].src : "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900&auto=format";
         const tag = v.availability === "import" ? "In Transit · UK" : "Nairobi Showroom";
         const card = document.createElement("article");
-        card.className = "rrc-showroom-card rrc-reveal";
+        card.className = "rrc-showroom-card rrc-reveal revealed";
         card.innerHTML = `
-          <div class="rrc-showroom-media rrc-clip-reveal">
+          <div class="rrc-showroom-media">
             <img src="${img}" alt="${v.name}" loading="lazy" />
           </div>
           <div class="rrc-showroom-body">
