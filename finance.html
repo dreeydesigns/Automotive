@@ -3,191 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Finance Options | Range Rover Centre</title>
+  <title>Luxury Finance & Terms | Range Rover & Land Rover Centre</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
 </head>
-<body data-page="finance">
-  <nav class="rrc-nav" aria-label="Primary">
-    <div class="rrc-container">
-      <a class="rrc-logo" href="index.html">RRC</a>
+<body data-page="finance" class="rrc-pattern-grid">
+
+  <!-- Header -->
+  <nav class="rrc-nav" aria-label="Primary Navigation">
+    <div class="rrc-container-wide">
+      <div class="rrc-logo-wrap">
+        <a class="rrc-logo" href="index.html">
+          <span>RRC</span><span class="rrc-logo-gold">.</span>
+        </a>
+        <span class="rrc-logo-sub">Solihull to Nairobi</span>
+      </div>
+
       <div class="rrc-nav-links">
-        <a href="marketplace.html">Marketplace</a>
-        <a href="import.html">Import a Car</a>
-        <a href="sell.html">Sell Your Car</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
+        <a href="marketplace.html">Showroom</a>
+        <a href="import.html">Bespoke Import</a>
+        <a href="sell.html">Consignment</a>
+        <a href="services.html">Atelier & Care</a>
+        <a href="about.html">Heritage</a>
+        <a href="blog.html">Journal</a>
       </div>
+
       <div class="rrc-nav-cta">
-        <a class="rrc-button rrc-button-primary" href="marketplace.html">Find My Car</a>
+        <a class="rrc-btn rrc-btn-gold" href="marketplace.html">Explore Fleet</a>
+        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation menu">☰</button>
       </div>
-      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
     </div>
   </nav>
 
+  <!-- Mobile Drawer -->
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
-    <button id="rrcNavClose" aria-label="Close navigation">X</button>
-    <a href="marketplace.html">Marketplace</a>
-    <a href="import.html">Import a Car</a>
-    <a href="sell.html">Sell Your Car</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
+    <button id="rrcNavClose" aria-label="Close menu">✕</button>
+    <a href="marketplace.html">Showroom</a>
+    <a href="import.html">Bespoke Import</a>
+    <a href="sell.html">Consignment</a>
+    <a href="services.html">Atelier & Care</a>
+    <a href="about.html">Heritage</a>
+    <a href="blog.html">Journal</a>
   </div>
 
   <main class="rrc-main">
-    <section class="rrc-section rrc-section-bone">
-      <div class="rrc-container rrc-reveal">
-        <p class="rrc-eyebrow">Finance Options</p>
-        <h1>Flexible finance with transparent terms</h1>
-        <p>We evaluate your vehicle, budget, and timeline, then match you with finance partners who understand luxury ownership.</p>
-        <div class="rrc-button-group">
-          <a class="rrc-button rrc-button-primary" href="marketplace.html">Browse Marketplace</a>
-          <a class="rrc-button rrc-button-outline" href="contact.html">Talk to RRC</a>
-        </div>
-      </div>
-    </section>
-
     <section class="rrc-section">
-      <div class="rrc-container">
-        <p class="rrc-eyebrow rrc-reveal">How It Works</p>
-        <div class="rrc-step-row">
-          <div class="rrc-step rrc-reveal">
-            <div class="rrc-step-number">01</div>
-            <h4>Choose a vehicle</h4>
-            <p>Select a vehicle and share your preferred budget range.</p>
-          </div>
-          <div class="rrc-step rrc-reveal">
-            <div class="rrc-step-number">02</div>
-            <h4>RRC pre-assessment</h4>
-            <p>We review affordability, deposit options, and vehicle history.</p>
-          </div>
-          <div class="rrc-step rrc-reveal">
-            <div class="rrc-step-number">03</div>
-            <h4>Approval and delivery</h4>
-            <p>We coordinate approvals, documentation, and handover.</p>
-          </div>
-        </div>
+      <div class="rrc-container rrc-reveal revealed">
+        <p class="rrc-eyebrow">Asset Financing & Asset Backed Terms</p>
+        <h1 style="margin-bottom: var(--sp-2);">Bespoke Luxury Vehicle Finance.</h1>
+        <p style="max-width: 720px; font-size: 18px; line-height: 1.8;">
+          Through our established banking relationships with Kenya's premier financial institutions (NCBA, Stanbic, I&M, KCB), we facilitate competitive asset financing structures up to 80% valuation.
+        </p>
       </div>
     </section>
 
-    <section class="rrc-section rrc-section-white">
+    <!-- Finance Card Section -->
+    <section class="rrc-section" style="background: var(--rrc-black);">
       <div class="rrc-container">
-        <p class="rrc-eyebrow rrc-reveal">Selected Vehicle</p>
-        <div class="vehicle-summary rrc-reveal" data-vehicle-summary>
-          <div class="vehicle-summary-media rrc-image">
-            <img class="rrc-lazy" data-vehicle-image src="assets/images/rr-sport-front.jpg" loading="lazy" alt="Range Rover Sport" />
+        <div class="rrc-feature-grid">
+          <div class="rrc-feature-card rrc-reveal delay-1">
+            <div class="rrc-feature-icon">🏛️</div>
+            <h4 class="rrc-feature-title" style="color: var(--rrc-gold);">Up to 80% Financing</h4>
+            <p>Flexible financing tenures from 12 to 60 months tailored for individual executives and corporate acquisitions.</p>
           </div>
-          <div class="vehicle-summary-body">
-            <h2 data-vehicle-name>Range Rover Sport</h2>
-            <p data-vehicle-subtitle>2022 - Autobiography</p>
-            <div class="vehicle-summary-meta">
-              <span data-vehicle-price>KES 18.5M</span>
-              <span data-vehicle-mileage>38,000 KM</span>
-              <span data-vehicle-engine>3.0L SDV6 / 3000cc</span>
-              <span data-vehicle-stock>Stock ID: RRC-2241</span>
-            </div>
-            <div class="rrc-button-group">
-              <a class="rrc-button rrc-button-outline" data-vehicle-link href="vehicle-detail.html?car=range-rover-sport">View Vehicle</a>
-            </div>
+
+          <div class="rrc-feature-card rrc-reveal delay-2">
+            <div class="rrc-feature-icon">⚡</div>
+            <h4 class="rrc-feature-title" style="color: var(--rrc-gold);">Expedited Approvals</h4>
+            <p>Direct liaison with relationship managers ensures swift letter of offer turnaround within 48 to 72 hours.</p>
+          </div>
+
+          <div class="rrc-feature-card rrc-reveal delay-3">
+            <div class="rrc-feature-icon">📑</div>
+            <h4 class="rrc-feature-title" style="color: var(--rrc-gold);">Logbook Escrow</h4>
+            <p>Smooth joint registration and seamless transfer protocols directly through NTSA TIMS.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="rrc-section">
-      <div class="rrc-container">
-        <p class="rrc-eyebrow rrc-reveal">Options Available</p>
-        <div class="detail-spec-grid">
-          <article class="detail-panel rrc-reveal">
-            <h3>What We Evaluate</h3>
-            <ul>
-              <li>Deposit range and preferred term length</li>
-              <li>Income profile and affordability</li>
-              <li>Vehicle age, provenance, and valuation</li>
-              <li>Trade-in and upgrade opportunities</li>
-            </ul>
-          </article>
-          <article class="detail-panel rrc-reveal">
-            <h3>Typical Structures</h3>
-            <ul>
-              <li>Deposits from 20% to 40%</li>
-              <li>Terms from 12 to 60 months</li>
-              <li>Balloon options for luxury upgrades</li>
-              <li>Insurance integration at approval</li>
-            </ul>
-          </article>
-        </div>
-        <div class="partner-grid rrc-reveal">
-          <div class="partner-card">KCB Bank</div>
-          <div class="partner-card">NCBA Bank</div>
-          <div class="partner-card">Stanbic Bank</div>
-          <div class="partner-card">Absa Bank</div>
-          <div class="partner-card">Equity Bank</div>
-          <div class="partner-card">I&M Bank</div>
-          <div class="partner-card">Co-op Bank</div>
-          <div class="partner-card">Standard Chartered</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="rrc-section rrc-section-bone">
-      <div class="rrc-container">
-        <p class="rrc-eyebrow rrc-reveal">Continue The Conversation</p>
-        <h2 class="rrc-reveal">Choose a channel and we will continue with your vehicle context</h2>
-        <div class="channel-actions rrc-reveal">
-          <a class="rrc-button rrc-button-whatsapp" data-contact="whatsapp" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          <a class="rrc-button rrc-button-outline" data-contact="email" href="mailto:info@rangerovercentre.co.ke">Email</a>
-          <a class="rrc-button rrc-button-primary" data-contact="call" href="tel:+254790374141">Call Now</a>
-          <button class="rrc-button rrc-button-outline" type="button" data-copy-link>Copy Vehicle Link</button>
-        </div>
-        <p class="rrc-data" data-contact-note>We will include the vehicle link and stock ID for continuity.</p>
-      </div>
-    </section>
-
-    <section class="rrc-section rrc-section-white">
-      <div class="rrc-container">
-        <p class="rrc-eyebrow rrc-reveal">Choose Another Vehicle</p>
-        <div class="rrc-pillars rrc-reveal" data-vehicle-list>
-          <a class="rrc-pillar" href="finance.html?car=range-rover-sport">Range Rover Sport</a>
-          <a class="rrc-pillar" href="finance.html?car=range-rover-velar">Range Rover Velar</a>
-          <a class="rrc-pillar" href="finance.html?car=range-rover-autobiography">Range Rover Autobiography</a>
-          <a class="rrc-pillar" href="finance.html?car=range-rover-vogue">Range Rover Vogue</a>
-          <a class="rrc-pillar" href="finance.html?car=range-rover-classic">Range Rover Classic</a>
-          <a class="rrc-pillar" href="finance.html?car=defender-110">Defender 110</a>
+        <div style="text-align: center; margin-top: var(--sp-6);">
+          <a class="rrc-btn rrc-btn-whatsapp" href="https://wa.me/254790374141?text=Hello%20RRC,%20I%20would%20like%20to%20discuss%20asset%20financing%20structures." target="_blank" rel="noopener noreferrer">
+            Consult Finance Concierge via WhatsApp →
+          </a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="rrc-footer">
-    <div class="rrc-container rrc-footer-grid">
-      <div>
-        <p class="rrc-logo">RRC</p>
-        <p>Ridgeways, Kiambu Road, Nairobi</p>
+    <div class="rrc-container-wide rrc-footer-grid">
+      <div class="rrc-footer-col">
+        <div class="rrc-logo-wrap" style="margin-bottom: var(--sp-3);">
+          <span class="rrc-logo">RRC<span class="rrc-logo-gold">.</span></span>
+        </div>
+        <p style="font-size: 14px; max-width: 320px;">
+          The definitive Kenyan authority on Range Rover & Land Rover luxury motorcars.
+        </p>
+        <p style="font-size: 13px; color: var(--rrc-grey);" data-sanity="address">
+          Ridgeways, Kiambu Road, Nairobi, Kenya
+        </p>
       </div>
-      <div>
-        <p><strong>Contact</strong></p>
-        <p>+254 790 374 141</p>
-        <p>info@rangerovercentre.co.ke</p>
+
+      <div class="rrc-footer-col">
+        <h4>The Fleets</h4>
+        <ul class="rrc-footer-links">
+          <li><a href="marketplace.html">Range Rover SV</a></li>
+          <li><a href="marketplace.html">Range Rover Sport</a></li>
+          <li><a href="marketplace.html">Range Rover Velar</a></li>
+          <li><a href="marketplace.html">Defender 110 & 130</a></li>
+          <li><a href="marketplace.html">Discovery 4 & 5</a></li>
+        </ul>
       </div>
-      <div>
-        <p><strong>Navigate</strong></p>
-        <p><a href="marketplace.html">Marketplace</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="about.html">About</a></p>
+
+      <div class="rrc-footer-col">
+        <h4>Atelier Services</h4>
+        <ul class="rrc-footer-links">
+          <li><a href="import.html">UK Sourcing Protocol</a></li>
+          <li><a href="sell.html">Private Consignment</a></li>
+          <li><a href="services.html">ECU & Air Suspension Care</a></li>
+          <li><a href="finance.html">Luxury Vehicle Finance</a></li>
+          <li><a href="blog.html">The RRC Journal</a></li>
+        </ul>
+      </div>
+
+      <div class="rrc-footer-col">
+        <h4>Direct Concierge</h4>
+        <p style="font-size: 14px; margin-bottom: 8px;"><strong style="color: var(--rrc-white);">Direct Line:</strong> <span data-sanity="phone">+254 790 374 141</span></p>
+        <p style="font-size: 14px; margin-bottom: 16px;"><strong style="color: var(--rrc-white);">Email:</strong> <span data-sanity="email">info@rangerovercentre.co.ke</span></p>
+        <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
+          WhatsApp Specialist
+        </a>
       </div>
     </div>
-    <div class="rrc-container"><small>Range Rover Centre - Nairobi - Est. 2016</small></div>
+
+    <div class="rrc-container-wide rrc-footer-bottom">
+      <span>© 2026 Range Rover Centre Nairobi · All Rights Reserved.</span>
+      <span>Engineered for Discerning Luxury Drivers</span>
+    </div>
   </footer>
 
+  <script src="js/vehicle-data.js"></script>
   <script src="js/rrc-nav.js"></script>
   <script src="js/rrc-reveal.js"></script>
-  <script src="js/vehicle-data.js"></script>
-  <script src="js/vehicle-contact.js"></script>
 </body>
 </html>

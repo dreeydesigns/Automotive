@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Article | Range Rover Centre</title>
+  <title>Article Chronicle | Range Rover & Land Rover Centre</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
-  <link rel="stylesheet" href="css/marketplace.css" />
-  <link rel="stylesheet" href="css/animations.css" />
   <style>
     .article-container {
-      max-width: 800px;
+      max-width: 860px;
       margin: 0 auto;
     }
     .article-hero-media {
       width: 100%;
-      height: 440px;
+      height: 480px;
       border-radius: var(--r-md);
       overflow: hidden;
       margin: var(--sp-4) 0;
+      border: 1px solid var(--rrc-glass-border);
     }
     .article-hero-media img {
       width: 100%;
@@ -30,56 +30,67 @@
       object-fit: cover;
     }
     .article-content {
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.8;
-      color: var(--rrc-charcoal);
+      color: var(--rrc-grey-lt);
       display: grid;
-      gap: var(--sp-3);
+      gap: var(--sp-4);
     }
     .article-content h2, .article-content h3 {
       font-family: var(--font-display);
-      margin-top: var(--sp-4);
+      margin-top: var(--sp-5);
+      color: var(--rrc-white);
     }
     .article-content p {
-      color: var(--rrc-charcoal);
+      color: var(--rrc-grey-lt);
     }
   </style>
 </head>
-<body data-page="blog-post">
-  <nav class="rrc-nav" aria-label="Primary">
-    <div class="rrc-container">
-      <a class="rrc-logo" href="index.html">RRC</a>
+<body data-page="blog-post" class="rrc-pattern-grid">
+
+  <!-- Header -->
+  <nav class="rrc-nav" aria-label="Primary Navigation">
+    <div class="rrc-container-wide">
+      <div class="rrc-logo-wrap">
+        <a class="rrc-logo" href="index.html">
+          <span>RRC</span><span class="rrc-logo-gold">.</span>
+        </a>
+        <span class="rrc-logo-sub">Solihull to Nairobi</span>
+      </div>
+
       <div class="rrc-nav-links">
-        <a href="marketplace.html">Marketplace</a>
-        <a href="import.html">Import a Car</a>
-        <a href="sell.html">Sell Your Car</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Journal</a>
+        <a href="marketplace.html">Showroom</a>
+        <a href="import.html">Bespoke Import</a>
+        <a href="sell.html">Consignment</a>
+        <a href="services.html">Atelier & Care</a>
+        <a href="about.html">Heritage</a>
+        <a href="blog.html" class="active">Journal</a>
       </div>
+
       <div class="rrc-nav-cta">
-        <a class="rrc-button rrc-button-primary" href="marketplace.html">Find My Car</a>
+        <a class="rrc-btn rrc-btn-gold" href="marketplace.html">Acquire Vehicle</a>
+        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation menu">☰</button>
       </div>
-      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
     </div>
   </nav>
 
+  <!-- Mobile Drawer -->
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
-    <button id="rrcNavClose" aria-label="Close navigation">X</button>
-    <a href="marketplace.html">Marketplace</a>
-    <a href="import.html">Import a Car</a>
-    <a href="sell.html">Sell Your Car</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
+    <button id="rrcNavClose" aria-label="Close menu">✕</button>
+    <a href="marketplace.html">Showroom</a>
+    <a href="import.html">Bespoke Import</a>
+    <a href="sell.html">Consignment</a>
+    <a href="services.html">Atelier & Care</a>
+    <a href="about.html">Heritage</a>
     <a href="blog.html">Journal</a>
   </div>
 
   <main class="rrc-main">
     <article class="rrc-section">
       <div class="rrc-container article-container rrc-reveal revealed">
-        <p class="rrc-eyebrow" id="postCategory">Journal</p>
-        <h1 id="postTitle">Article Title</h1>
-        <div class="vehicle-meta" id="postMeta">By RRC Team</div>
+        <p class="rrc-eyebrow" id="postCategory">The RRC Journal</p>
+        <h1 id="postTitle" style="margin-bottom: var(--sp-2);">Article Title Loading...</h1>
+        <div style="font-family: var(--font-data); font-size: 12px; color: var(--rrc-gold); margin-bottom: var(--sp-3);" id="postMeta">By RRC Concierge Team</div>
 
         <div class="article-hero-media" id="postMedia">
           <img id="postCover" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format" alt="Cover" />
@@ -89,33 +100,65 @@
           <p id="postExcerpt">Loading article details...</p>
         </div>
 
-        <div style="margin-top: var(--sp-5); border-top: 1px solid var(--rrc-sand); padding-top: var(--sp-4);">
-          <a class="rrc-button rrc-button-outline" href="blog.html">← Back to Journal</a>
+        <div style="margin-top: var(--sp-6); border-top: 1px solid var(--rrc-glass-border); padding-top: var(--sp-4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <a class="rrc-btn rrc-btn-outline" href="blog.html">← Return to Journal</a>
+          <a class="rrc-btn rrc-btn-gold" href="marketplace.html">Explore Showroom</a>
         </div>
       </div>
     </article>
   </main>
 
+  <!-- Footer -->
   <footer class="rrc-footer">
-    <div class="rrc-container rrc-footer-grid">
-      <div>
-        <p class="rrc-logo">RRC</p>
-        <p data-sanity="address">Ridgeways, Kiambu Road, Nairobi</p>
+    <div class="rrc-container-wide rrc-footer-grid">
+      <div class="rrc-footer-col">
+        <div class="rrc-logo-wrap" style="margin-bottom: var(--sp-3);">
+          <span class="rrc-logo">RRC<span class="rrc-logo-gold">.</span></span>
+        </div>
+        <p style="font-size: 14px; max-width: 320px;">
+          The definitive Kenyan authority on Range Rover & Land Rover luxury motorcars.
+        </p>
+        <p style="font-size: 13px; color: var(--rrc-grey);" data-sanity="address">
+          Ridgeways, Kiambu Road, Nairobi, Kenya
+        </p>
       </div>
-      <div>
-        <p><strong>Contact</strong></p>
-        <p data-sanity="phone">+254 790 374 141</p>
-        <p data-sanity="email">info@rangerovercentre.co.ke</p>
+
+      <div class="rrc-footer-col">
+        <h4>The Fleets</h4>
+        <ul class="rrc-footer-links">
+          <li><a href="marketplace.html">Range Rover SV</a></li>
+          <li><a href="marketplace.html">Range Rover Sport</a></li>
+          <li><a href="marketplace.html">Range Rover Velar</a></li>
+          <li><a href="marketplace.html">Defender 110 & 130</a></li>
+          <li><a href="marketplace.html">Discovery 4 & 5</a></li>
+        </ul>
       </div>
-      <div>
-        <p><strong>Navigate</strong></p>
-        <p><a href="marketplace.html">Marketplace</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="about.html">About</a></p>
-        <p><a href="blog.html">Journal</a></p>
+
+      <div class="rrc-footer-col">
+        <h4>Atelier Services</h4>
+        <ul class="rrc-footer-links">
+          <li><a href="import.html">UK Sourcing Protocol</a></li>
+          <li><a href="sell.html">Private Consignment</a></li>
+          <li><a href="services.html">ECU & Air Suspension Care</a></li>
+          <li><a href="finance.html">Luxury Vehicle Finance</a></li>
+          <li><a href="blog.html">The RRC Journal</a></li>
+        </ul>
+      </div>
+
+      <div class="rrc-footer-col">
+        <h4>Direct Concierge</h4>
+        <p style="font-size: 14px; margin-bottom: 8px;"><strong style="color: var(--rrc-white);">Direct Line:</strong> <span data-sanity="phone">+254 790 374 141</span></p>
+        <p style="font-size: 14px; margin-bottom: 16px;"><strong style="color: var(--rrc-white);">Email:</strong> <span data-sanity="email">info@rangerovercentre.co.ke</span></p>
+        <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
+          WhatsApp Specialist
+        </a>
       </div>
     </div>
-    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+
+    <div class="rrc-container-wide rrc-footer-bottom">
+      <span>© 2026 Range Rover Centre Nairobi · All Rights Reserved.</span>
+      <span>Engineered for Discerning Luxury Drivers</span>
+    </div>
   </footer>
 
   <script src="js/vehicle-data.js"></script>
@@ -149,12 +192,12 @@
 
       if (!post) return;
 
-      document.title = `${post.title} | RRC Journal`;
+      document.title = `${post.title} | The RRC Journal`;
       document.getElementById("postTitle").textContent = post.title;
-      document.getElementById("postCategory").textContent = post.category || "Journal";
+      document.getElementById("postCategory").textContent = post.category || "The RRC Journal";
       
       const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-GB", { month: "long", day: "numeric", year: "numeric" }) : "";
-      document.getElementById("postMeta").textContent = `${post.author || "RRC Concierge"} · ${date}`;
+      document.getElementById("postMeta").textContent = `By ${post.author || "RRC Concierge"} · ${date}`;
 
       if (post.coverImageUrl) {
         document.getElementById("postCover").src = post.coverImageUrl;
@@ -162,7 +205,6 @@
 
       const contentEl = document.getElementById("postContent");
       if (livePost && Array.isArray(livePost.body)) {
-        // Simple portable text renderer
         contentEl.innerHTML = livePost.body.map(block => {
           if (block._type === 'block' && block.children) {
             const text = block.children.map(c => c.text).join('');

@@ -3,8 +3,8 @@
   const lightbox = document.getElementById("detailLightbox");
   const lightboxImg = document.getElementById("detailLightboxImg");
   const lightboxClose = document.getElementById("detailLightboxClose");
-  const thumbsContainer = document.querySelector(".detail-thumbs");
-  const similarList = document.querySelector("[data-similar-list]");
+  const thumbsContainer = document.getElementById("detailThumbsTrack") || document.querySelector(".detail-thumbs-track") || document.querySelector(".detail-thumbs");
+  const whatsappBtn = document.getElementById("detailWhatsappBtn");
 
   const updateText = (key, value) => {
     if (!value) return;
@@ -27,21 +27,20 @@
     const srcset = thumb.getAttribute("data-srcset");
     const alt = thumb.getAttribute("data-alt") || "Vehicle image";
     heroImg.src = src;
-    heroImg.srcset = srcset;
+    heroImg.srcset = srcset || src;
     heroImg.alt = alt;
-    heroImg.classList.add("loaded");
     allThumbs.forEach((t) => t.classList.remove("active"));
     thumb.classList.add("active");
   };
 
   const buildThumb = (image) => {
     const wrapper = document.createElement("div");
-    wrapper.className = "detail-thumb";
+    wrapper.className = "detail-thumb-item";
     wrapper.setAttribute("data-thumb", "");
     wrapper.setAttribute("data-src", image.src);
     wrapper.setAttribute("data-srcset", image.srcset || image.src);
     wrapper.setAttribute("data-alt", image.alt);
-    wrapper.innerHTML = `<img class="rrc-lazy" src="${image.thumb || image.src}" srcset="${image.thumbSrcset || image.src}" loading="lazy" alt="${image.alt} thumbnail" />`;
+    wrapper.innerHTML = `<img src="${image.thumb || image.src}" loading="lazy" alt="${image.alt} thumbnail" />`;
     return wrapper;
   };
 
@@ -62,41 +61,43 @@
     const vehicles = window.RRC_VEHICLES || {};
     const params = new URLSearchParams(window.location.search);
     const keys = Object.keys(vehicles);
-    const defaultId = keys[0] || "range-rover-sport";
+    if (keys.length === 0) return;
+
+    const defaultId = keys[0];
     const requestedId = params.get("car");
     const vehicle = (requestedId && vehicles[requestedId]) || vehicles[defaultId];
 
     if (!vehicle) return;
 
-    updateText("name", vehicle.name);
-    updateText("subtitle", `${vehicle.year} - ${vehicle.trim}`);
+    updateText("name", `${vehicle.name} ${vehicle.trim}`);
+    updateText("subtitle", `${vehicle.year} · ${vehicle.trim}`);
     updateText("price", vehicle.price);
-    updateText("engine", vehicle.engine);
-    updateText("power", vehicle.power);
-    updateText("mileage", vehicle.mileage);
-    updateText("transmission", vehicle.transmission);
-    updateText("drivetrain", vehicle.drivetrain);
-    updateText("exterior", vehicle.exterior);
-    updateText("interior", vehicle.interior);
-    updateText("service", "Full RRC logbook");
-    updateText("stockId", vehicle.stockId);
-    updateText("vinStatus", vehicle.vinStatus);
-    updateText("logbook", vehicle.logbook);
-    updateText("warranty", vehicle.warranty);
-    updateText("location", vehicle.location);
-
-    const powerParts = (vehicle.power || "").split("/");
-    updateText("powerSimple", powerParts[0] ? powerParts[0].trim() : "N/A");
-    updateText("torque", powerParts[1] ? powerParts[1].trim() : "N/A");
-    updateText("acceleration", vehicle.acceleration || "6.8s");
+    updateText("engine", vehicle.engine || "3.0L SDV6 Twin-Turbo");
+    updateText("power", vehicle.power || "241 HP / 600 Nm");
+    updateText("mileage", vehicle.mileage || "Verified");
+    updateText("transmission", vehicle.transmission || "8-Speed Automatic");
+    updateText("drivetrain", vehicle.drivetrain || "AWD / Terrain Response 2");
+    updateText("exterior", vehicle.exterior || "Santorini Black");
+    updateText("interior", vehicle.interior || "Windsor Leather");
+    updateText("service", "Full RRC Logbook History");
+    updateText("stockId", vehicle.stockId || "RRC-LIVE");
+    updateText("vinStatus", `VIN: ${vehicle.vinStatus || "Verified"}`);
+    updateText("logbook", `Logbook: ${vehicle.logbook || "Ready"}`);
+    updateText("warranty", vehicle.warranty || "6 Months");
+    updateText("location", vehicle.location || "Nairobi");
 
     updateLink("finance", `finance.html?car=${encodeURIComponent(vehicle.id)}`);
     updateLink("insurance", `insurance.html?car=${encodeURIComponent(vehicle.id)}`);
 
+    if (whatsappBtn) {
+      const msg = encodeURIComponent(`Hello Range Rover Centre, I am interested in acquiring the ${vehicle.name} ${vehicle.trim} (${vehicle.year}) priced at ${vehicle.price} (Stock: ${vehicle.stockId}). Please provide the full provenance file.`);
+      whatsappBtn.href = `https://wa.me/254790374141?text=${msg}`;
+    }
+
     if (heroImg && vehicle.images && vehicle.images.length) {
       heroImg.src = vehicle.images[0].src;
       heroImg.srcset = vehicle.images[0].srcset || vehicle.images[0].src;
-      heroImg.alt = vehicle.images[0].alt;
+      heroImg.alt = vehicle.images[0].alt || vehicle.name;
     }
 
     if (thumbsContainer && vehicle.images && vehicle.images.length) {
@@ -107,28 +108,10 @@
       bindThumbs();
     }
 
-    if (similarList) {
-      const similarIds =
-        vehicle.similar && vehicle.similar.length
-          ? vehicle.similar
-          : Object.keys(vehicles).filter((id) => id !== vehicle.id).slice(0, 3);
-      similarList.innerHTML = "";
-      similarIds.forEach((id) => {
-        const similarVehicle = vehicles[id];
-        if (!similarVehicle) return;
-        const link = document.createElement("a");
-        link.className = "rrc-pillar";
-        link.href = `vehicle-detail.html?car=${encodeURIComponent(similarVehicle.id)}`;
-        link.textContent = `${similarVehicle.name} ${similarVehicle.trim}`;
-        similarList.appendChild(link);
-      });
-    }
-
     document.title = `${vehicle.name} ${vehicle.trim} | Range Rover Centre`;
   };
 
   renderVehicle();
-  bindThumbs();
 
   document.addEventListener("rrc:vehicles-ready", () => {
     renderVehicle();
@@ -137,8 +120,6 @@
   if (heroImg && lightbox && lightboxImg) {
     heroImg.addEventListener("click", () => {
       lightboxImg.src = heroImg.src;
-      lightboxImg.srcset = heroImg.srcset;
-      lightboxImg.alt = heroImg.alt;
       lightbox.classList.add("open");
     });
   }

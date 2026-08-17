@@ -3,285 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marketplace | Range Rover Centre</title>
+  <title>Curated Showroom | Range Rover & Land Rover Centre</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
   <link rel="stylesheet" href="css/marketplace.css" />
-  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .showroom-hero {
+      padding: var(--sp-6) 0 var(--sp-4);
+      border-bottom: 1px solid var(--rrc-glass-border);
+      background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 60%);
+    }
+  </style>
 </head>
-<body data-page="marketplace">
-  <nav class="rrc-nav" aria-label="Primary">
-    <div class="rrc-container">
-      <a class="rrc-logo" href="index.html">RRC</a>
+<body data-page="marketplace" class="rrc-pattern-grid">
+
+  <!-- Header -->
+  <nav class="rrc-nav" aria-label="Primary Navigation">
+    <div class="rrc-container-wide">
+      <div class="rrc-logo-wrap">
+        <a class="rrc-logo" href="index.html">
+          <span>RRC</span><span class="rrc-logo-gold">.</span>
+        </a>
+        <span class="rrc-logo-sub">Solihull to Nairobi</span>
+      </div>
+
       <div class="rrc-nav-links">
-        <a href="marketplace.html">Marketplace</a>
-        <a href="import.html">Import a Car</a>
-        <a href="sell.html">Sell Your Car</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
+        <a href="marketplace.html" class="active">Showroom</a>
+        <a href="import.html">Bespoke Import</a>
+        <a href="sell.html">Consignment</a>
+        <a href="services.html">Atelier & Care</a>
+        <a href="about.html">Heritage</a>
+        <a href="blog.html">Journal</a>
       </div>
+
       <div class="rrc-nav-cta">
-        <a class="rrc-button rrc-button-primary" href="contact.html">Find My Car</a>
+        <a class="rrc-btn rrc-btn-gold" href="contact.html">Concierge Desk</a>
+        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation menu">☰</button>
       </div>
-      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
     </div>
   </nav>
 
+  <!-- Mobile Drawer -->
   <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
-    <button id="rrcNavClose" aria-label="Close navigation">X</button>
-    <a href="marketplace.html">Marketplace</a>
-    <a href="import.html">Import a Car</a>
-    <a href="sell.html">Sell Your Car</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
+    <button id="rrcNavClose" aria-label="Close menu">✕</button>
+    <a href="marketplace.html">Showroom</a>
+    <a href="import.html">Bespoke Import</a>
+    <a href="sell.html">Consignment</a>
+    <a href="services.html">Atelier & Care</a>
+    <a href="about.html">Heritage</a>
+    <a href="blog.html">Journal</a>
+    <a class="rrc-btn rrc-btn-gold" href="contact.html" style="margin-top: 24px;">Concierge Desk</a>
   </div>
 
   <main class="rrc-main">
-    <section class="rrc-section">
-      <div class="rrc-container rrc-reveal">
-        <p class="rrc-eyebrow">Marketplace</p>
-        <h1>Curated vehicles with verified provenance</h1>
-        <p>Use the filters to refine by budget, year, mileage, and certification history.</p>
+    
+    <!-- Showroom Header -->
+    <header class="showroom-hero">
+      <div class="rrc-container-wide">
+        <p class="rrc-eyebrow">The Curated Showroom</p>
+        <h1 style="margin-bottom: var(--sp-2);">Verified British Marques.</h1>
+        <p style="max-width: 680px; margin: 0; font-size: 17px;">
+          Exclusively Range Rover and Land Rover acquisitions. Each motorcar carries authenticated diagnostic logs, verified Kenyan logbooks, and full provenance records.
+        </p>
       </div>
-    </section>
+    </header>
 
+    <!-- Showroom Grid & Precision Filters -->
     <section class="rrc-section">
-      <div class="rrc-container marketplace-layout">
+      <div class="rrc-container-wide marketplace-layout">
+        
+        <!-- Precision Filter Sidebar -->
         <aside>
-          <form class="filter-panel" data-marketplace-form>
+          <form class="filter-panel" data-marketplace-form style="background: var(--rrc-charcoal); border-color: var(--rrc-glass-border); border-radius: var(--r-md);">
             <div class="filter-header">
-              <div class="filter-title">Refine Your Search</div>
+              <div class="filter-title" style="color: var(--rrc-gold); font-family: var(--font-data);">[FILTER // TELEMETRY]</div>
             </div>
 
+            <!-- Fleet Marque Filter -->
             <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterCategory" aria-expanded="true">Category <span>–</span></button>
-              <div class="filter-content" id="filterCategory">
-                <label><input type="radio" name="category" value="all" checked /> All</label>
-                <label><input type="radio" name="category" value="kenya" /> Available in Kenya</label>
-                <label><input type="radio" name="category" value="import" /> Import Stock</label>
-              </div>
-            </div>
-
-            <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterMake" aria-expanded="true">Make <span>–</span></button>
+              <button class="filter-toggle" type="button" data-toggle="filterMake" aria-expanded="true" style="color: var(--rrc-white);">Fleet Marque <span>–</span></button>
               <div class="filter-content" id="filterMake">
                 <select class="rrc-select" name="make">
-                  <option value="all">All Makes</option>
-                  <option value="range rover">Range Rover</option>
-                  <option value="land rover">Land Rover</option>
+                  <option value="all">All Fleets (Range & Land Rover)</option>
+                  <option value="range rover">The Royal Fleet (Range Rover)</option>
+                  <option value="land rover">The Expedition Fleet (Land Rover & Defender)</option>
                 </select>
               </div>
             </div>
 
+            <!-- Location / Availability -->
             <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterModel" aria-expanded="true">Model <span>–</span></button>
-              <div class="filter-content" id="filterModel">
-                <select class="rrc-select" name="model">
-                  <option value="all">All Models</option>
-                  <option value="range rover sport">Range Rover Sport</option>
-                  <option value="range rover velar">Range Rover Velar</option>
-                  <option value="range rover autobiography">Range Rover Autobiography</option>
-                  <option value="range rover vogue">Range Rover Vogue</option>
-                  <option value="range rover classic">Range Rover Classic</option>
-                  <option value="defender 110">Defender 110</option>
-                  <option value="discovery">Discovery</option>
-                </select>
+              <button class="filter-toggle" type="button" data-toggle="filterCategory" aria-expanded="true" style="color: var(--rrc-white);">Availability <span>–</span></button>
+              <div class="filter-content" id="filterCategory">
+                <label style="color: var(--rrc-grey-lt);"><input type="radio" name="category" value="all" checked /> All Acquisitions</label>
+                <label style="color: var(--rrc-grey-lt);"><input type="radio" name="category" value="kenya" /> Nairobi Showroom Ready</label>
+                <label style="color: var(--rrc-grey-lt);"><input type="radio" name="category" value="import" /> UK / Japan In-Transit</label>
               </div>
             </div>
 
+            <!-- Fuel Powertrain -->
             <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterBody" aria-expanded="true">Body Type <span>–</span></button>
-              <div class="filter-content" id="filterBody">
-                <select class="rrc-select" name="body">
-                  <option value="all">All Body Types</option>
-                  <option value="suv">SUV</option>
-                  <option value="sedan">Sedan</option>
-                  <option value="coupe">Coupe</option>
-                  <option value="convertible">Convertible</option>
-                  <option value="pickup">Pickup</option>
-                </select>
+              <button class="filter-toggle" type="button" data-toggle="filterFuel" aria-expanded="true" style="color: var(--rrc-white);">Powertrain <span>–</span></button>
+              <div class="filter-content" id="filterFuel">
+                <label style="color: var(--rrc-grey-lt);"><input type="checkbox" name="fuel" value="diesel" /> Diesel (SDV6 / D300 / SDV8)</label>
+                <label style="color: var(--rrc-grey-lt);"><input type="checkbox" name="fuel" value="petrol" /> Petrol (V8 Supercharged / Si4)</label>
+                <label style="color: var(--rrc-grey-lt);"><input type="checkbox" name="fuel" value="hybrid" /> PHEV / Electric</label>
               </div>
             </div>
 
+            <!-- Price Slider -->
             <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterYear" aria-expanded="true">Year Range <span>–</span></button>
-              <div class="filter-content" id="filterYear">
-                <div class="filter-row">
-                  <input class="rrc-input" name="yearMin" type="text" placeholder="1980" value="1980" />
-                  <input class="rrc-input" name="yearMax" type="text" placeholder="2026" value="2026" />
-                </div>
-                <div class="filter-row">
-                  <input name="yearRangeMin" type="range" min="1980" max="2026" value="1980" />
-                  <input name="yearRangeMax" type="range" min="1980" max="2026" value="2026" />
-                </div>
-              </div>
-            </div>
-
-            <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterPrice" aria-expanded="true">Price KES <span>–</span></button>
+              <button class="filter-toggle" type="button" data-toggle="filterPrice" aria-expanded="true" style="color: var(--rrc-white);">Budget Bracket (KES) <span>–</span></button>
               <div class="filter-content" id="filterPrice">
                 <div class="filter-row">
-                  <input class="rrc-input" name="priceMin" type="text" placeholder="500000" value="500000" />
-                  <input class="rrc-input" name="priceMax" type="text" placeholder="25000000" value="25000000" />
+                  <input class="rrc-input" name="priceMin" type="text" placeholder="2,000,000" value="2000000" />
+                  <input class="rrc-input" name="priceMax" type="text" placeholder="35,000,000" value="35000000" />
                 </div>
-                <div class="filter-row">
-                  <input name="priceRangeMin" type="range" min="500000" max="25000000" value="500000" step="50000" />
-                  <input name="priceRangeMax" type="range" min="500000" max="25000000" value="25000000" step="50000" />
+                <div class="filter-row" style="margin-top: 8px;">
+                  <input name="priceRangeMin" type="range" min="2000000" max="35000000" value="2000000" step="500000" />
+                  <input name="priceRangeMax" type="range" min="2000000" max="35000000" value="35000000" step="500000" />
                 </div>
               </div>
             </div>
 
+            <!-- Certification Badges -->
             <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterMileage" aria-expanded="true">Mileage <span>–</span></button>
-              <div class="filter-content" id="filterMileage">
-                <label><input type="radio" name="mileage" value="all" checked /> All</label>
-                <label><input type="radio" name="mileage" value="under-50" /> Under 50K</label>
-                <label><input type="radio" name="mileage" value="50-100" /> 50 - 100K</label>
-                <label><input type="radio" name="mileage" value="100-150" /> 100 - 150K</label>
-                <label><input type="radio" name="mileage" value="150-plus" /> 150K+</label>
-              </div>
-            </div>
-
-            <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterHistory" aria-expanded="true">History &amp; Condition <span>–</span></button>
+              <button class="filter-toggle" type="button" data-toggle="filterHistory" aria-expanded="true" style="color: var(--rrc-white);">Certification <span>–</span></button>
               <div class="filter-content filter-tags" id="filterHistory">
-                <label><input type="checkbox" name="history" value="rrc-certified" /> RRC Certified</label>
-                <label><input type="checkbox" name="history" value="accident-free" /> Accident-free</label>
-                <label><input type="checkbox" name="history" value="full-service" /> Full Service History</label>
-                <label><input type="checkbox" name="history" value="warranty" /> Warranty Included</label>
+                <label style="color: var(--rrc-grey-lt);"><input type="checkbox" name="history" value="rrc-certified" /> 120-Pt RRC Certified</label>
+                <label style="color: var(--rrc-grey-lt);"><input type="checkbox" name="history" value="warranty" /> Warranty Inclusive</label>
+                <label style="color: var(--rrc-grey-lt);"><input type="checkbox" name="history" value="full-service" /> Solihull / Official Service Log</label>
               </div>
             </div>
 
-            <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterTransmission" aria-expanded="true">Transmission <span>–</span></button>
-              <div class="filter-content" id="filterTransmission">
-                <label><input type="checkbox" name="transmission" value="automatic" /> Automatic</label>
-                <label><input type="checkbox" name="transmission" value="manual" /> Manual</label>
-              </div>
-            </div>
-
-            <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterFuel" aria-expanded="true">Fuel Type <span>–</span></button>
-              <div class="filter-content" id="filterFuel">
-                <label><input type="checkbox" name="fuel" value="petrol" /> Petrol</label>
-                <label><input type="checkbox" name="fuel" value="diesel" /> Diesel</label>
-                <label><input type="checkbox" name="fuel" value="hybrid" /> Hybrid</label>
-                <label><input type="checkbox" name="fuel" value="electric" /> Electric</label>
-              </div>
-            </div>
-
-            <div class="filter-section">
-              <button class="filter-toggle" type="button" data-toggle="filterColor" aria-expanded="true">Colour <span>–</span></button>
-              <div class="filter-content" id="filterColor">
-                <div class="filter-colors">
-                  <label><input type="radio" name="color" value="all" checked /> All</label>
-                  <label><input type="radio" name="color" value="black" aria-label="Black" /> <span class="color-dot color-black"></span></label>
-                  <label><input type="radio" name="color" value="white" aria-label="White" /> <span class="color-dot color-white"></span></label>
-                  <label><input type="radio" name="color" value="silver" aria-label="Silver" /> <span class="color-dot color-silver"></span></label>
-                  <label><input type="radio" name="color" value="blue" aria-label="Blue" /> <span class="color-dot color-blue"></span></label>
-                  <label><input type="radio" name="color" value="green" aria-label="Green" /> <span class="color-dot color-green"></span></label>
-                  <label><input type="radio" name="color" value="red" aria-label="Red" /> <span class="color-dot color-red"></span></label>
-                  <label><input type="radio" name="color" value="grey" aria-label="Grey" /> <span class="color-dot color-grey"></span></label>
-                  <label><input type="radio" name="color" value="gold" aria-label="Gold" /> <span class="color-dot color-gold"></span></label>
-                </div>
-              </div>
-            </div>
-
-            <button class="rrc-button rrc-button-outline rrc-button-full" type="button" data-clear-filters>Clear All Filters</button>
+            <button class="rrc-btn rrc-btn-outline rrc-btn-full" type="button" data-clear-filters style="margin-top: var(--sp-3);">Reset Parameters</button>
           </form>
         </aside>
 
+        <!-- Vehicle Grid Area -->
         <div>
-          <div class="marketplace-toolbar">
-            <div class="rrc-data" data-vehicle-count>0 vehicles found</div>
-            <div class="rrc-form">
-              <label>
-                Sort
-                <select class="rrc-select" name="sort">
-                  <option value="date-desc" selected>Recently Added</option>
-                  <option value="price-asc">Lowest Price</option>
-                  <option value="price-desc">Highest Price</option>
-                </select>
-              </label>
+          <div class="marketplace-toolbar" style="border-bottom: 1px solid var(--rrc-glass-border); padding-bottom: var(--sp-3); margin-bottom: var(--sp-5);">
+            <div class="rrc-data" data-vehicle-count style="font-size: 14px; letter-spacing: 0.08em;">
+              [SCANNING LIVE SANITY INVENTORY...]
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 12px; text-transform: uppercase; font-family: var(--font-data); color: var(--rrc-grey);">Sort By</span>
+              <select class="rrc-select" name="sort" style="width: auto; min-width: 180px; padding: 6px 14px; font-size: 13px;">
+                <option value="date-desc" selected>Recently Added</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
             </div>
           </div>
 
-          <div class="vehicle-grid" data-vehicle-grid>
-            <!-- Vehicles will be populated dynamically from Sanity and static inventory -->
+          <!-- Dynamic Grid -->
+          <div class="vehicle-grid" data-vehicle-grid style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-4);">
+            <!-- Populated via js/marketplace.js from live Sanity database -->
           </div>
         </div>
+
       </div>
     </section>
+
   </main>
 
+  <!-- Footer -->
   <footer class="rrc-footer">
-    <div class="rrc-container rrc-footer-grid">
-      <div>
-        <p class="rrc-logo">RRC</p>
-        <p>Ridgeways, Kiambu Road, Nairobi</p>
+    <div class="rrc-container-wide rrc-footer-grid">
+      <div class="rrc-footer-col">
+        <div class="rrc-logo-wrap" style="margin-bottom: var(--sp-3);">
+          <span class="rrc-logo">RRC<span class="rrc-logo-gold">.</span></span>
+        </div>
+        <p style="font-size: 14px; max-width: 320px;">
+          The definitive Kenyan authority on Range Rover & Land Rover luxury motorcars.
+        </p>
+        <p style="font-size: 13px; color: var(--rrc-grey);" data-sanity="address">
+          Ridgeways, Kiambu Road, Nairobi, Kenya
+        </p>
       </div>
-      <div>
-        <p><strong>Contact</strong></p>
-        <p>+254 790 374 141</p>
-        <p>info@rangerovercentre.co.ke</p>
-      </div>
-      <div>
-        <p><strong>Navigate</strong></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="about.html">About</a></p>
-      </div>
-    </div>
-    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
-  </footer>
 
-  <div class="rrc-popup" id="rrcPopup" aria-hidden="true">
-    <div class="rrc-popup-backdrop" data-popup-close></div>
-    <div class="rrc-popup-card" role="dialog" aria-modal="true">
-      <button class="rrc-popup-close" type="button" data-popup-close>×</button>
-      <h2>Let us find your perfect vehicle</h2>
-      <p>An RRC specialist will call you within 24 hours.</p>
-      <form class="rrc-form">
-        <label>
-          Full Name
-          <input class="rrc-input" type="text" placeholder="Full name" />
-        </label>
-        <label>
-          Phone Number (optional)
-          <input class="rrc-input" type="tel" placeholder="+254" />
-        </label>
-        <label>
-          I am looking for
-          <select class="rrc-select">
-            <option>Range Rover</option>
-            <option>Land Rover</option>
-            <option>Mercedes-Benz</option>
-            <option>BMW</option>
-            <option>Porsche</option>
-            <option>Other luxury vehicle</option>
-          </select>
-        </label>
-        <label>
-          Preferred budget
-          <select class="rrc-select">
-            <option>KES 2M - 5M</option>
-            <option>KES 5M - 10M</option>
-            <option>KES 10M - 20M</option>
-            <option>KES 20M+</option>
-          </select>
-        </label>
-        <button class="rrc-button rrc-button-primary rrc-button-full" type="submit">Get a Call Back</button>
-      </form>
+      <div class="rrc-footer-col">
+        <h4>The Fleets</h4>
+        <ul class="rrc-footer-links">
+          <li><a href="marketplace.html">Range Rover SV</a></li>
+          <li><a href="marketplace.html">Range Rover Sport</a></li>
+          <li><a href="marketplace.html">Range Rover Velar</a></li>
+          <li><a href="marketplace.html">Defender 110 & 130</a></li>
+          <li><a href="marketplace.html">Discovery 4 & 5</a></li>
+        </ul>
+      </div>
+
+      <div class="rrc-footer-col">
+        <h4>Atelier Services</h4>
+        <ul class="rrc-footer-links">
+          <li><a href="import.html">UK Sourcing Protocol</a></li>
+          <li><a href="sell.html">Private Consignment</a></li>
+          <li><a href="services.html">ECU & Air Suspension Care</a></li>
+          <li><a href="finance.html">Luxury Vehicle Finance</a></li>
+          <li><a href="blog.html">The RRC Journal</a></li>
+        </ul>
+      </div>
+
+      <div class="rrc-footer-col">
+        <h4>Direct Concierge</h4>
+        <p style="font-size: 14px; margin-bottom: 8px;"><strong style="color: var(--rrc-white);">Direct Line:</strong> <span data-sanity="phone">+254 790 374 141</span></p>
+        <p style="font-size: 14px; margin-bottom: 16px;"><strong style="color: var(--rrc-white);">Email:</strong> <span data-sanity="email">info@rangerovercentre.co.ke</span></p>
+        <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
+          WhatsApp Specialist
+        </a>
+      </div>
     </div>
-  </div>
+
+    <div class="rrc-container-wide rrc-footer-bottom">
+      <span>© 2026 Range Rover Centre Nairobi · All Rights Reserved.</span>
+      <span>Curated Exclusively for Range Rover & Land Rover</span>
+    </div>
+  </footer>
 
   <script src="js/vehicle-data.js"></script>
   <script src="js/rrc-nav.js"></script>
   <script src="js/rrc-reveal.js"></script>
   <script src="js/marketplace.js"></script>
-  <script src="js/popup.js"></script>
 </body>
 </html>

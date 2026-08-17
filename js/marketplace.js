@@ -13,7 +13,7 @@
 
   const createCardElement = (vehicle) => {
     const article = document.createElement("article");
-    article.className = "vehicle-card rrc-reveal revealed";
+    article.className = "rrc-car-card rrc-reveal revealed";
     article.setAttribute("data-vehicle-card", "");
     article.setAttribute("data-availability", vehicle.availability || "kenya");
     article.setAttribute("data-make", vehicle.make || "range rover");
@@ -29,28 +29,35 @@
     article.setAttribute("data-date", vehicle.date || "2026-08-17");
 
     const badgeClass = vehicle.availability === "import" ? "rrc-badge-import" : "rrc-badge-local";
-    const badgeText = vehicle.availability === "import" ? "Import Stock" : "Available in Kenya";
+    const badgeText = vehicle.availability === "import" ? "In Transit (UK)" : "Nairobi Showroom";
+    
     const image = (vehicle.images && vehicle.images[0]) || {
-      src: "assets/images/hero-velar.jpg",
-      srcset: "assets/images/hero-velar.jpg 900w",
+      src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format",
+      srcset: "",
       alt: vehicle.name,
     };
 
-    const fuelCap = (vehicle.fuel || "Petrol").charAt(0).toUpperCase() + (vehicle.fuel || "Petrol").slice(1);
-    const specsText = [fuelCap, vehicle.transmission, vehicle.engine].filter(Boolean).join(" · ");
-
     article.innerHTML = `
-      <div class="vehicle-image rrc-image">
-        <img class="rrc-lazy loaded" src="${image.src}" srcset="${image.srcset || image.src}" alt="${image.alt || vehicle.name}" />
-        <span class="rrc-badge ${badgeClass} vehicle-badge">${badgeText}</span>
+      <div class="rrc-car-media">
+        <img src="${image.src}" srcset="${image.srcset || image.src}" loading="lazy" alt="${image.alt || vehicle.name}" />
+        <div class="rrc-car-badge-wrap">
+          <span class="rrc-badge ${badgeClass}">${badgeText}</span>
+          <span class="rrc-badge rrc-badge-local">RRC Verified</span>
+        </div>
       </div>
-      <div class="vehicle-card-body">
-        <h4>${vehicle.name} ${vehicle.trim}</h4>
-        <div class="vehicle-meta">${vehicle.year} · ${vehicle.mileage}</div>
-        <div class="vehicle-price">${vehicle.price}</div>
-        <div class="vehicle-specs">${specsText}</div>
-        <div class="vehicle-actions">
-          <a class="rrc-button rrc-button-outline rrc-button-full" href="vehicle-detail.html?car=${encodeURIComponent(vehicle.id)}">View Details</a>
+      <div class="rrc-car-body">
+        <div class="rrc-car-header">
+          <h4 class="rrc-car-title">${vehicle.name} ${vehicle.trim}</h4>
+          <span class="rrc-car-price">${vehicle.price}</span>
+        </div>
+        <div class="rrc-car-specs-grid">
+          <div class="rrc-car-spec-item">⚡ ${vehicle.power || "Factory Output"}</div>
+          <div class="rrc-car-spec-item">⛽ ${vehicle.engine || "Verified Powertrain"}</div>
+          <div class="rrc-car-spec-item">🕹️ ${vehicle.transmission || "Automatic"}</div>
+          <div class="rrc-car-spec-item">📍 ${vehicle.year || "Year"} · ${vehicle.mileage || "Verified KM"}</div>
+        </div>
+        <div class="rrc-car-actions">
+          <a class="rrc-btn rrc-btn-gold rrc-btn-full" href="vehicle-detail.html?car=${encodeURIComponent(vehicle.id)}">Inspect Dossier →</a>
         </div>
       </div>
     `;
@@ -61,7 +68,22 @@
   const renderVehicles = () => {
     const vehicles = window.RRC_VEHICLES || {};
     gridEl.innerHTML = "";
-    Object.values(vehicles).forEach((vehicle) => {
+    
+    const vList = Object.values(vehicles);
+    if (vList.length === 0) {
+      gridEl.innerHTML = `
+        <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; background: var(--rrc-charcoal); border-radius: var(--r-md); border: 1px dashed var(--rrc-glass-border);">
+          <p class="rrc-eyebrow">Inventory Status</p>
+          <h3>Acquisitions Being Audited</h3>
+          <p style="max-width: 500px; margin: 0 auto 20px;">New Range Rover and Defender arrivals are currently undergoing 120-point diagnostic inspection in our Ridgeways atelier.</p>
+          <a class="rrc-btn rrc-btn-gold" href="contact.html">Request Specific Commission</a>
+        </div>
+      `;
+      if (countEl) countEl.textContent = "[0 ACQUISITIONS MATCHED]";
+      return;
+    }
+
+    vList.forEach((vehicle) => {
       gridEl.appendChild(createCardElement(vehicle));
     });
     applyFilters();
@@ -83,63 +105,33 @@
     return field ? field.value : "all";
   };
 
-  const matchesMileage = (mileage, bucket) => {
-    if (bucket === "all") return true;
-    if (bucket === "under-50") return mileage < 50000;
-    if (bucket === "50-100") return mileage >= 50000 && mileage < 100000;
-    if (bucket === "100-150") return mileage >= 100000 && mileage < 150000;
-    return mileage >= 150000;
-  };
-
   const applyFilters = () => {
     const cards = Array.from(gridEl.querySelectorAll("[data-vehicle-card]"));
-    if (!cards.length) {
-      if (countEl) countEl.textContent = "0 vehicles found";
-      return;
-    }
+    if (!cards.length) return;
 
     if (!filterForm) {
-      if (countEl) countEl.textContent = `${cards.length} vehicles found`;
+      if (countEl) countEl.textContent = `[${cards.length} MOTORCARS AVAILABLE]`;
       return;
     }
 
     const category = getCheckedValue("category");
     const make = normalize(getSelected("make"));
-    const model = normalize(getSelected("model"));
-    const body = normalize(getSelected("body"));
     const fuelFilters = getCheckedValues("fuel");
-    const transmissionFilters = getCheckedValues("transmission");
-    const color = getCheckedValue("color");
-    const mileageBucket = getCheckedValue("mileage");
     const historyFilters = getCheckedValues("history");
 
     const priceMinInput = filterForm.querySelector("[name=priceMin]");
     const priceMaxInput = filterForm.querySelector("[name=priceMax]");
-    const yearMinInput = filterForm.querySelector("[name=yearMin]");
-    const yearMaxInput = filterForm.querySelector("[name=yearMax]");
-
     const priceMin = priceMinInput ? parseNumber(priceMinInput.value) : null;
     const priceMax = priceMaxInput ? parseNumber(priceMaxInput.value) : null;
-    const yearMin = yearMinInput ? parseNumber(yearMinInput.value) : null;
-    const yearMax = yearMaxInput ? parseNumber(yearMaxInput.value) : null;
 
     let visibleCount = 0;
 
     cards.forEach((card) => {
       const cardAvailability = normalize(card.dataset.availability);
       const cardMake = normalize(card.dataset.make);
-      const cardModel = normalize(card.dataset.model);
-      const cardBody = normalize(card.dataset.body);
       const cardFuel = normalize(card.dataset.fuel);
-      const cardTransmission = normalize(card.dataset.transmission);
-      const cardColor = normalize(card.dataset.color);
-      const cardHistory = (card.dataset.history || "")
-        .split(",")
-        .map((item) => normalize(item))
-        .filter(Boolean);
+      const cardHistory = (card.dataset.history || "").split(",").map(normalize).filter(Boolean);
       const cardPrice = Number(card.dataset.price || 0);
-      const cardYear = Number(card.dataset.year || 0);
-      const cardMileage = Number(card.dataset.mileage || 0);
 
       let isVisible = true;
 
@@ -151,23 +143,7 @@
         isVisible = false;
       }
 
-      if (model !== "all" && model && !cardModel.includes(model) && !model.includes(cardModel)) {
-        isVisible = false;
-      }
-
-      if (body !== "all" && body && cardBody !== body) {
-        isVisible = false;
-      }
-
       if (fuelFilters.length && !fuelFilters.includes(cardFuel)) {
-        isVisible = false;
-      }
-
-      if (transmissionFilters.length && !transmissionFilters.includes(cardTransmission)) {
-        isVisible = false;
-      }
-
-      if (color !== "all" && color && cardColor !== color) {
         isVisible = false;
       }
 
@@ -183,26 +159,12 @@
         isVisible = false;
       }
 
-      if (yearMin !== null && cardYear > 0 && cardYear < yearMin) {
-        isVisible = false;
-      }
-
-      if (yearMax !== null && cardYear > 0 && cardYear > yearMax) {
-        isVisible = false;
-      }
-
-      if (!matchesMileage(cardMileage, mileageBucket)) {
-        isVisible = false;
-      }
-
-      card.style.display = isVisible ? "grid" : "none";
-      if (isVisible) {
-        visibleCount += 1;
-      }
+      card.style.display = isVisible ? "flex" : "none";
+      if (isVisible) visibleCount += 1;
     });
 
     if (countEl) {
-      countEl.textContent = `${visibleCount} vehicles found`;
+      countEl.textContent = `[${visibleCount} MOTORCARS AVAILABLE]`;
     }
 
     const sortValue = getSelected("sort");
@@ -227,20 +189,11 @@
         const max = parseNumber(maxInput.value);
         if (min !== null) minRange.value = min;
         if (max !== null) maxRange.value = max;
-        clampRange();
       };
 
       const syncFromRange = () => {
-        minInput.value = minRange.value;
-        maxInput.value = maxRange.value;
-        clampRange();
-      };
-
-      const clampRange = () => {
-        if (Number(minRange.value) > Number(maxRange.value)) {
-          maxRange.value = minRange.value;
-          maxInput.value = maxRange.value;
-        }
+        minInput.value = Number(minRange.value).toLocaleString();
+        maxInput.value = Number(maxRange.value).toLocaleString();
       };
 
       minInput.addEventListener("input", syncFromText);
@@ -256,22 +209,15 @@
       maxRange: filterForm.querySelector("[name=priceRangeMax]"),
     });
 
-    bindRange({
-      minInput: filterForm.querySelector("[name=yearMin]"),
-      maxInput: filterForm.querySelector("[name=yearMax]"),
-      minRange: filterForm.querySelector("[name=yearRangeMin]"),
-      maxRange: filterForm.querySelector("[name=yearRangeMax]"),
-    });
-
     filterForm.addEventListener("input", applyFilters);
-    filterForm.addEventListener("submit", (event) => {
-      event.preventDefault();
+    filterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
       applyFilters();
     });
 
-    const clearButton = filterForm.querySelector("[data-clear-filters]");
-    if (clearButton) {
-      clearButton.addEventListener("click", () => {
+    const clearBtn = filterForm.querySelector("[data-clear-filters]");
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
         filterForm.reset();
         applyFilters();
       });
@@ -291,9 +237,7 @@
         }
         toggle.setAttribute("aria-expanded", isHidden ? "true" : "false");
         const icon = toggle.querySelector("span");
-        if (icon) {
-          icon.textContent = isHidden ? "–" : "+";
-        }
+        if (icon) icon.textContent = isHidden ? "–" : "+";
       });
     });
   }
@@ -303,10 +247,8 @@
     sortSelect.addEventListener("change", applyFilters);
   }
 
-  // Initial render
   renderVehicles();
 
-  // Re-render when Sanity data arrives
   document.addEventListener("rrc:vehicles-ready", () => {
     renderVehicles();
   });
