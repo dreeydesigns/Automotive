@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vehicle Dossier | Range Rover & Land Rover Centre</title>
-  <meta name="description" content="Detailed engineering specifications and provenance dossier for certified Range Rover and Land Rover motorcars." />
+  <meta name="description" content="Detailed engineering specifications and provenance dossier for certified Range Rover and Land Rover motorcars in Nairobi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -23,113 +23,194 @@
       </a>
       <div class="rrc-nav-actions">
         <a class="rrc-btn rrc-btn-secondary" href="marketplace.html" style="color: #0A0A0A; border-color: #0A0A0A;">← The Collection</a>
+        <a class="rrc-btn rrc-btn-primary" href="contact.html">Concierge</a>
       </div>
     </div>
   </nav>
 
-  <main class="rrc-main">
-    <!-- Header & Statement (Section 27) -->
-    <header style="padding: var(--sp-7) 0 var(--sp-3); border-bottom: 1px solid var(--rrc-mist);">
-      <div class="rrc-container" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;">
-        <div>
-          <span class="rrc-mono-tag green" data-detail="stockId" style="color: #0C3B2E;">Stock Dossier</span>
-          <h1 style="margin: 6px 0 0; color: #0A0A0A;" data-detail="name">Vehicle Dossier</h1>
+  <main class="rrc-main" style="padding-top: 72px;">
+    
+    <!-- ========================================================================
+         CAKE Makka Work Inspired Product Header
+         ======================================================================== -->
+    <header style="padding: var(--sp-6) 0 var(--sp-4); border-bottom: 1px solid var(--rrc-mist);">
+      <div class="rrc-container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+              <span class="rrc-mono-tag green" data-detail="stockId" style="color: #0C3B2E;">Stock Dossier</span>
+              <span class="rrc-mono-tag" data-detail="location" style="color: #666;">Ridgeways Showroom</span>
+            </div>
+            <h1 style="margin: 0; color: #0A0A0A; font-size: clamp(28px, 4vw, 48px);" data-detail="name">Land Rover Discovery 4</h1>
+            <p style="margin: 6px 0 0; font-size: 16px; color: #555;" data-detail="subtitle">SDV6 HSE · 7 Full-Size Seats</p>
+          </div>
+
+          <div style="text-align: right;">
+            <div style="font-family: var(--font-mono); font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; color: #0A0A0A;" data-detail="price">KES 5.45M</div>
+            <span class="rrc-mono-tag green" data-detail="logbook" style="color: #0C3B2E;">Ready for NTSA Transfer</span>
+          </div>
         </div>
-        <div>
-          <span class="rrc-mono-tag" data-detail="logbook" style="color: #555;">Ready for NTSA Transfer</span>
+
+        <!-- Key Facts Row (CAKE Scandinavian Style) -->
+        <div style="display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center; border-top: 1px solid var(--rrc-mist); margin-top: var(--sp-4); padding-top: var(--sp-3); font-family: var(--font-mono); font-size: 12px; color: #555;">
+          <span data-detail="yearTag">Year: 2011</span>
+          <span>·</span>
+          <span data-detail="mileageTag">Mileage: 45,000 KM</span>
+          <span>·</span>
+          <span data-detail="fuelTag">Fuel: Diesel</span>
+          <span>·</span>
+          <span data-detail="transmissionTag">Transmission: Automatic</span>
+          <span>·</span>
+          <span data-detail="warrantyTag">Warranty: 6 Months Atelier</span>
         </div>
       </div>
     </header>
 
+    <!-- ========================================================================
+         Main Product Showcase & Sidebar
+         ======================================================================== -->
     <section class="rrc-section" style="padding-top: var(--sp-5);">
       <div class="rrc-container rrc-dossier-layout">
         
-        <!-- Left: Gallery, Statement, Telemetry (Section 27) -->
+        <!-- Left: Gallery, Statement, Features, Stack, & Specs -->
         <div>
-          <div class="rrc-dossier-hero">
-            <img id="detailHeroImg" src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1600&auto=format" alt="Vehicle Dossier Photo" />
+          <!-- Hero Image & Lightbox Trigger -->
+          <div class="rrc-dossier-hero rrc-clip-reveal">
+            <img id="detailHeroImg" src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600&auto=format" alt="Vehicle Photo" />
           </div>
 
-          <!-- Multi-Angle Thumbnail Track -->
+          <!-- Multi-Angle Thumbnail Strip -->
           <div class="rrc-dossier-thumbs" id="detailThumbsTrack">
-            <!-- Dynamically populated via js/vehicle-detail.js -->
+            <!-- Populated via js/vehicle-detail.js -->
           </div>
 
-          <!-- 02 The Statement -->
-          <div style="margin-top: var(--sp-6); background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
+          <!-- Overview Statement (CAKE Style) -->
+          <div style="margin-top: var(--sp-6); background: #FBFBF9; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
             <span class="rrc-mono-tag" style="color: #666;">The Vehicle Statement</span>
-            <p style="font-size: 16px; color: #222; margin-top: 8px; line-height: 1.7;" data-detail="description">
-              Handcrafted in Solihull and inspected by specialized technicians in Nairobi. Complete ECU diagnostic clearance, pristine chassis integrity, and ready title deed transfer.
+            <p style="font-size: 17px; color: #111; margin-top: 8px; line-height: 1.7;" data-detail="statement">
+              A refined seven-seat expedition SUV combining Solihull grand touring comfort with dual-range Terrain Response capability, prepared and certified for Kenyan roads.
             </p>
           </div>
 
-          <!-- 04 Specifications Table -->
-          <div style="margin-top: var(--sp-6);">
-            <span class="rrc-mono-tag" style="color: #666;">Engineering Telemetry</span>
-            <h3 style="margin: 8px 0 var(--sp-4); color: #0A0A0A;">Powertrain & Architecture</h3>
+          <!-- Key Features Grid (CAKE Makka Work 6-Box Scandinavian Grid) -->
+          <div style="margin-top: var(--sp-7);">
+            <span class="rrc-mono-tag" style="color: #666;">Engineering Highlights</span>
+            <h3 style="margin: 6px 0 var(--sp-4); color: #0A0A0A;">Key Characteristics</h3>
 
-            <div class="rrc-dossier-specs-table" style="background: #F9F9F8; border-color: var(--rrc-mist); border-radius: 6px; padding: var(--sp-4);">
-              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
-                <span style="color: #777;">Engine / Capacity</span>
-                <span data-detail="engine" style="color: #0A0A0A;">—</span>
+            <div class="rrc-cake-features-grid">
+              <div class="rrc-cake-feature-card">
+                <span class="rrc-mono-tag green" style="color: #0C3B2E;">Drivetrain</span>
+                <h4>Permanent 4WD & Terrain Response</h4>
+                <p>Configurable pneumatic air suspension with 5 driver-selectable terrain modes for Nairobi tarmac and savannah tracks.</p>
               </div>
-              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
-                <span style="color: #777;">Output / Torque</span>
-                <span data-detail="power" style="color: #0A0A0A;">—</span>
+
+              <div class="rrc-cake-feature-card">
+                <span class="rrc-mono-tag green" style="color: #0C3B2E;">Seating</span>
+                <h4>7 Full-Size Stadium Seats</h4>
+                <p>True three-row passenger elevation with independent climate controls and flat-folding cargo reconfiguration.</p>
               </div>
-              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
-                <span style="color: #777;">Odometer</span>
-                <span data-detail="mileage" style="color: #0A0A0A;">—</span>
+
+              <div class="rrc-cake-feature-card">
+                <span class="rrc-mono-tag green" style="color: #0C3B2E;">Powertrain</span>
+                <h4>SDV6 Twin-Turbo Diesel (600 Nm)</h4>
+                <p>Massive low-end pulling torque paired with ZF smooth shift adaptation for long-distance Kenya touring.</p>
               </div>
-              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
-                <span style="color: #777;">Transmission</span>
-                <span data-detail="transmission" style="color: #0A0A0A;">—</span>
+
+              <div class="rrc-cake-feature-card">
+                <span class="rrc-mono-tag green" style="color: #0C3B2E;">Acoustics</span>
+                <h4>Harman Kardon LOGIC7 Audio</h4>
+                <p>14-speaker high-fidelity sound stage with Bluetooth connectivity and rear cabin entertainment.</p>
               </div>
-              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
-                <span style="color: #777;">Drivetrain</span>
-                <span data-detail="drivetrain" style="color: #0A0A0A;">—</span>
+
+              <div class="rrc-cake-feature-card">
+                <span class="rrc-mono-tag green" style="color: #0C3B2E;">Audit</span>
+                <h4>120-Point Atelier Diagnostic Audit</h4>
+                <p>Zero fault codes across electronic control units, verified suspension pressure, and certified injector balance.</p>
               </div>
-              <div class="rrc-dossier-row" style="border-bottom: 1px solid var(--rrc-mist); padding: 8px 0;">
-                <span style="color: #777;">Exterior Pack</span>
-                <span data-detail="exterior" style="color: #0A0A0A;">—</span>
-              </div>
-              <div class="rrc-dossier-row" style="padding: 8px 0;">
-                <span style="color: #777;">Cabin Leather</span>
-                <span data-detail="interior" style="color: #0A0A0A;">—</span>
+
+              <div class="rrc-cake-feature-card">
+                <span class="rrc-mono-tag green" style="color: #0C3B2E;">Transfer</span>
+                <h4>Immediate NTSA Logbook Transfer</h4>
+                <p>Clean Kenyan title deed with duty clearance receipts and full service provenance documentation.</p>
               </div>
             </div>
           </div>
 
-          <!-- 05 Condition & Provenance Certification -->
-          <div style="margin-top: var(--sp-5); background: #F9F9F8; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
-            <span class="rrc-mono-tag green" style="color: #0C3B2E;">120-Point Atelier Clearance</span>
+          <!-- CAKE Style Editorial Image Stack -->
+          <div class="rrc-cake-image-stack">
+            <div class="rrc-cake-image-frame rrc-clip-reveal">
+              <img id="detailStackImg1" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1400&auto=format" alt="Vehicle Exterior Profile" loading="lazy" />
+            </div>
+            <div class="rrc-cake-image-frame rrc-clip-reveal">
+              <img id="detailStackImg2" src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=1400&auto=format" alt="Vehicle Luxury Interior" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Specifications Table -->
+          <div style="margin-top: var(--sp-7);">
+            <span class="rrc-mono-tag" style="color: #666;">Technical Dossier</span>
+            <h3 style="margin: 6px 0 var(--sp-4); color: #0A0A0A;">Full Technical Specifications</h3>
+
+            <div class="rrc-dossier-specs-table" style="background: #FBFBF9; border-color: var(--rrc-mist);">
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Engine / Displacement</span>
+                <span data-detail="engine">3.0L SDV6 Twin-Turbo Diesel / 2993cc</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Power & Torque</span>
+                <span data-detail="power">241 HP / 600 Nm</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Odometer (Verified)</span>
+                <span data-detail="mileage">45,000 KM</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Transmission</span>
+                <span data-detail="transmission">6-Speed ZF CommandShift Automatic</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Drivetrain & Suspension</span>
+                <span data-detail="drivetrain">Permanent 4WD / Electronic Air Suspension</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Exterior Paint & Trim</span>
+                <span data-detail="exterior">Santorini Black Metallic / HSE Bright Pack</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Cabin Upholstery</span>
+                <span data-detail="interior">Almond & Arabica Windsor Leather</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Chassis / VIN Status</span>
+                <span data-detail="vinStatus">Verified & Clean</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Logbook Transfer</span>
+                <span data-detail="logbook">Ready for Transfer</span>
+              </div>
+              <div class="rrc-dossier-row" style="border-color: var(--rrc-mist);">
+                <span>Warranty</span>
+                <span data-detail="warranty">6 Months Atelier Warranty</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Atelier Confidence Box -->
+          <div style="margin-top: var(--sp-6); background: #FBFBF9; border: 1px solid var(--rrc-mist); border-radius: 6px; padding: var(--sp-5);">
+            <span class="rrc-mono-tag green" style="color: #0C3B2E;">Ridgeways Atelier Certified</span>
             <h4 style="margin: 8px 0 6px; color: #0A0A0A;">Verified Solihull Provenance</h4>
             <p style="margin: 0; font-size: 14px; color: #555;">
-              Audited in our Ridgeways atelier with zero fault codes. Complete diagnostic clearance on air suspension pressure, injector balance, transmission adaptation, and electronic differentials.
+              Inspected in our dedicated Ridgeways workshop. All vehicle systems have been cleared via Pathfinder diagnostic protocols, pneumatic suspension leveling, and genuine parts calibration.
             </p>
           </div>
         </div>
 
-        <!-- Right: Acquisition Sidebar & Conversion Actions (Section 28) -->
-        <aside class="rrc-dossier-sidebar" style="background: #F9F9F8; border-color: var(--rrc-mist);">
+        <!-- Right: Acquisition Sidebar -->
+        <aside class="rrc-dossier-sidebar" style="background: #FBFBF9; border-color: var(--rrc-mist);">
           <div>
-            <span class="rrc-mono-tag" data-detail="subtitle" style="color: #666;">Edition Trim</span>
-            <div style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: #0A0A0A; margin-top: 6px;" data-detail="price">KES —</div>
-          </div>
-
-          <div class="rrc-dossier-specs-table" style="border-color: var(--rrc-mist);">
-            <div class="rrc-dossier-row">
-              <span style="color: #777;">Location</span>
-              <span data-detail="location" style="color: #0A0A0A;">Ridgeways Showroom</span>
-            </div>
-            <div class="rrc-dossier-row">
-              <span style="color: #777;">Warranty</span>
-              <span data-detail="warranty" style="color: #0A0A0A;">12 Months Atelier Warranty</span>
-            </div>
-            <div class="rrc-dossier-row">
-              <span style="color: #777;">Chassis / VIN</span>
-              <span data-detail="vinStatus" style="color: #0A0A0A;">Verified & Logged</span>
-            </div>
+            <span class="rrc-mono-tag" style="color: #666;">Acquisition Investment</span>
+            <div style="font-family: var(--font-mono); font-size: 34px; font-weight: 700; color: #0A0A0A; margin-top: 4px;" data-detail="price">KES 5.45M</div>
+            <p style="font-size: 12px; color: #777; margin: 4px 0 0;">Inclusive of NTSA transfer & 120-point inspection</p>
           </div>
 
           <div style="display: grid; gap: 10px;">
@@ -139,25 +220,75 @@
             <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="contact.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">
               Arrange Private Viewing
             </a>
-            <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="finance.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">
-              Structure Asset Financing
+            <a class="rrc-btn rrc-btn-secondary rrc-btn-full" data-detail-link="finance" href="finance.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">
+              Calculate Asset Financing
+            </a>
+            <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="sell.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">
+              Trade-In / Valuation
             </a>
           </div>
 
-          <p style="font-size: 12px; margin: 0; color: #777;">
-            Ready NTSA logbook transfer. Includes 120-point diagnostic inspection file and ongoing atelier support.
-          </p>
+          <div style="border-top: 1px solid var(--rrc-mist); padding-top: var(--sp-3); font-size: 12px; color: #666; display: grid; gap: 6px;">
+            <p style="margin: 0;">Showroom: Ridgeways, Kiambu Road, Nairobi</p>
+            <p style="margin: 0;">Direct Line: +254 790 374 141</p>
+          </div>
         </aside>
 
       </div>
     </section>
+
+    <!-- ========================================================================
+         Similar Available Vehicles
+         ======================================================================== -->
+    <section class="rrc-section" style="background: #FBFBF9; border-top: 1px solid var(--rrc-mist); margin-top: var(--sp-8);">
+      <div class="rrc-container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--sp-5); flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="rrc-mono-tag" style="color: #666;">Fleet Portfolio</span>
+            <h2 style="color: #0A0A0A; margin: 4px 0 0;">Similar Available Vehicles.</h2>
+          </div>
+          <a class="rrc-btn rrc-btn-secondary" href="marketplace.html" style="color: #0A0A0A; border-color: #0A0A0A;">View Full Showroom →</a>
+        </div>
+
+        <div class="rrc-collection-grid" id="detailSimilarGrid">
+          <!-- Populated via js/vehicle-detail.js -->
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <div class="rrc-lightbox" id="detailLightbox">
-    <button class="rrc-lightbox-close" id="detailLightboxClose">✕</button>
-    <img id="detailLightboxImg" src="" alt="Dossier zoom" />
+  <!-- ========================================================================
+       CAKE Makka Work Sticky Bottom Action Bar
+       ======================================================================== -->
+  <div class="rrc-cake-sticky-bar" id="rrcCakeStickyBar">
+    <div class="rrc-container rrc-cake-sticky-inner">
+      <div class="rrc-cake-sticky-info">
+        <div class="rrc-cake-sticky-thumb">
+          <img id="stickyThumbImg" src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400&auto=format" alt="Vehicle Thumbnail" />
+        </div>
+        <div>
+          <h4 style="margin: 0; color: #0A0A0A;" data-detail="name">Land Rover Discovery 4</h4>
+          <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: #0A0A0A;" data-detail="price">KES 5.45M</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <a class="rrc-btn rrc-btn-secondary" href="contact.html" style="color: #0A0A0A; border-color: var(--rrc-mist);">Schedule Viewing</a>
+        <a class="rrc-btn rrc-btn-whatsapp" id="stickyWhatsappBtn" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
+          Enquire on WhatsApp
+        </a>
+      </div>
+    </div>
   </div>
 
+  <!-- Lightbox Modal -->
+  <div class="rrc-lightbox" id="detailLightbox">
+    <button class="rrc-lightbox-close" id="detailLightboxClose">✕</button>
+    <img id="detailLightboxImg" src="" alt="Vehicle Photo Zoom" />
+  </div>
+
+  <!-- Footer -->
   <footer class="rrc-footer">
     <div class="rrc-container">
       <div class="rrc-footer-bottom">

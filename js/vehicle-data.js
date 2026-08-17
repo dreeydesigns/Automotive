@@ -186,6 +186,56 @@
         }
       ]
     },
+    "land-rover-discovery-4-2011-sdv6-hse": {
+      id: "land-rover-discovery-4-2011-sdv6-hse",
+      name: "Land Rover Discovery 4",
+      trim: "SDV6 HSE · 7 Full-Size Seats",
+      year: "2011",
+      price: "KES 5.45M",
+      priceValue: 5450000,
+      mileage: "45,000 KM",
+      mileageValue: 45000,
+      engine: "3.0L SDV6 Twin-Turbo Diesel / 2993cc",
+      power: "241 HP / 600 Nm",
+      transmission: "6-Speed ZF CommandShift Automatic",
+      drivetrain: "Permanent 4WD / Terrain Response",
+      exterior: "Santorini Black Metallic / HSE Bright Pack",
+      interior: "Almond & Arabica Windsor Leather",
+      fuel: "diesel",
+      stockId: "RRC-DISC4-11",
+      vinStatus: "Verified",
+      logbook: "Ready for Transfer",
+      warranty: "6 Months Atelier Warranty",
+      location: "Ridgeways Showroom",
+      availability: "kenya",
+      make: "land rover",
+      model: "discovery",
+      body: "suv",
+      color: "black",
+      statement: "A refined seven-seat expedition SUV combining Solihull grand touring comfort with dual-range Terrain Response capability, prepared and certified for Kenyan roads.",
+      history: ["rrc-certified", "warranty", "full-service"],
+      date: "2026-08-16",
+      images: [
+        {
+          src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900 900w, https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600 1600w",
+          thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400",
+          alt: "Discovery 4 SDV6 HSE Front 3/4"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900 900w",
+          thumb: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400",
+          alt: "Discovery 4 Profile & Terrain"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=900 900w",
+          thumb: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400",
+          alt: "Discovery 4 7-Seat Windsor Cabin"
+        }
+      ]
+    },
     "land-rover-discovery-5-hse-luxury": {
       id: "land-rover-discovery-5-hse-luxury",
       name: "Land Rover Discovery 5",

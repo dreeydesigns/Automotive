@@ -194,87 +194,85 @@
   margin: 6px 0 var(--sp-3);
 }
 
-/* Vehicle Dossier Detail Layout */
+/* Vehicle Dossier/* Dossier Layout (CAKE Makka Work Inspired Scandinavian Product Layout) */
 .rrc-dossier-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(360px, 1fr);
-  gap: var(--sp-6);
+  grid-template-columns: 1fr 380px;
+  gap: var(--sp-7);
   align-items: start;
 }
 
 .rrc-dossier-hero {
+  aspect-ratio: 16 / 10;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--rrc-border);
   background: #000;
-  aspect-ratio: 16 / 10;
-  max-height: 520px;
+  cursor: pointer;
 }
 
 .rrc-dossier-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: zoom-in;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.rrc-dossier-hero:hover img {
+  transform: scale(1.02);
 }
 
 .rrc-dossier-thumbs {
   display: flex;
   gap: 10px;
-  margin-top: var(--sp-3);
+  margin-top: 12px;
   overflow-x: auto;
-  padding-bottom: 6px;
+  padding-bottom: 4px;
 }
 
-.rrc-dossier-thumb {
-  flex: 0 0 96px;
-  height: 64px;
+.detail-thumb-item {
+  width: 80px;
+  height: 54px;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--rrc-border);
   cursor: pointer;
-  transition: border-color var(--t-fast);
+  opacity: 0.6;
+  transition: all var(--t-fast);
+  flex-shrink: 0;
 }
 
-.rrc-dossier-thumb.active {
+.detail-thumb-item.active,
+.detail-thumb-item:hover {
+  opacity: 1;
   border-color: var(--rrc-text-primary);
 }
 
-.rrc-dossier-thumb img {
+.detail-thumb-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.rrc-dossier-sidebar {
-  position: sticky;
-  top: 96px;
-  background: var(--rrc-surface);
-  border: 1px solid var(--rrc-border);
-  border-radius: 6px;
-  padding: var(--sp-5);
-  display: grid;
-  gap: var(--sp-4);
-}
-
 .rrc-dossier-specs-table {
   display: grid;
-  gap: 8px;
-  border-top: 1px solid var(--rrc-border);
-  border-bottom: 1px solid var(--rrc-border);
-  padding: var(--sp-3) 0;
-  font-size: 13px;
+  border: 1px solid var(--rrc-border);
+  border-radius: 6px;
+  padding: var(--sp-4);
 }
 
 .rrc-dossier-row {
   display: flex;
   justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rrc-border);
+  font-size: 13px;
+}
+
+.rrc-dossier-row:last-child {
+  border-bottom: none;
 }
 
 .rrc-dossier-row span:first-child {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--rrc-text-secondary);
   text-transform: uppercase;
 }
 
@@ -319,7 +317,121 @@
   cursor: pointer;
 }
 
+/* CAKE Makka Work Sticky Bottom Action Bar */
+.rrc-cake-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--rrc-mist);
+  padding: 12px 0;
+  z-index: 1100;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rrc-cake-sticky-bar.visible {
+  transform: translateY(0%);
+}
+
+.rrc-cake-sticky-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.rrc-cake-sticky-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rrc-cake-sticky-thumb {
+  width: 52px;
+  height: 36px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+}
+
+.rrc-cake-sticky-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CAKE Scandinavian Feature Grid */
+.rrc-cake-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--sp-4);
+  margin: var(--sp-6) 0;
+}
+
+.rrc-cake-feature-card {
+  background: #FBFBF9;
+  border: 1px solid var(--rrc-mist);
+  border-radius: 6px;
+  padding: var(--sp-4);
+  display: grid;
+  gap: 6px;
+  transition: border-color var(--t-fast), transform var(--t-fast);
+}
+
+.rrc-cake-feature-card:hover {
+  border-color: #0A0A0A;
+  transform: translateY(-2px);
+}
+
+.rrc-cake-feature-card h4 {
+  font-size: 16px;
+  color: #0A0A0A;
+  margin: 0;
+}
+
+.rrc-cake-feature-card p {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* CAKE Editorial Image Stack */
+.rrc-cake-image-stack {
+  display: grid;
+  gap: var(--sp-5);
+  margin: var(--sp-6) 0;
+}
+
+.rrc-cake-image-frame {
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--rrc-mist);
+}
+
+.rrc-cake-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 1024px) {
   .rrc-dossier-layout { grid-template-columns: 1fr; }
   .rrc-dossier-sidebar { position: static; }
+}
+
+@media (max-width: 768px) {
+  .rrc-cake-sticky-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
 }
