@@ -27,18 +27,18 @@
           <a class="rrc-nav-link" href="marketplace.html">
             Models ▾
           </a>
-          <!-- Inline Mega-Menu on Hover -->
+          <!-- Inline Mega-Menu with Distinct Model Imagery -->
           <div class="rrc-mega-menu">
             <a class="rrc-mega-card" href="marketplace.html?make=range+rover">
               <div class="rrc-mega-media">
-                <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=600&auto=format" alt="Range Rover Fleet" />
+                <img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&auto=format" alt="Range Rover Royal Fleet" />
               </div>
               <div class="rrc-mega-title">The Royal Fleet · Range Rover</div>
               <div class="rrc-mega-sub">Autobiography · SV · Sport · Velar</div>
             </a>
             <a class="rrc-mega-card" href="marketplace.html?make=land+rover">
               <div class="rrc-mega-media">
-                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=600&auto=format" alt="Land Rover Fleet" />
+                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=600&auto=format" alt="Land Rover Expedition Fleet" />
               </div>
               <div class="rrc-mega-title">The Expedition Fleet · Land Rover</div>
               <div class="rrc-mega-sub">Defender 110/130 · Discovery 4/5</div>
@@ -75,13 +75,16 @@
 
   <main class="rrc-main">
     
-    <!-- Beat 1 — The Arrival (Hero with Rivian Parallax Depth) -->
+    <!-- Beat 1 — The Arrival (Hero with Autoplaying Video & Real Parallax) -->
     <header class="rrc-hero-arrival">
       <div class="rrc-hero-backdrop rrc-parallax-layer">
-        <img id="rrcHeroArrivalImage" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&auto=format&fit=crop&q=85" alt="Range Rover Kenya Terrain" />
+        <video id="rrcHeroArrivalVideo" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&auto=format&fit=crop&q=85" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) contrast(1.1);">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-car-driving-on-a-road-in-nature-4261-large.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      <div class="rrc-container rrc-hero-content rrc-reveal revealed">
+      <!-- Ticket B2: Removed hardcoded 'revealed' class so it animates naturally on entry -->
+      <div class="rrc-container rrc-hero-content rrc-reveal">
         <span class="rrc-mono-tag green" data-sanity="heroEyebrow">Solihull · Ridgeways · Nairobi</span>
         <h1 class="rrc-hero-headline" id="rrcHeroHeadline" data-sanity="heroTitleLine1">Solihull to the Great Rift.</h1>
         <p style="max-width: 600px; font-size: 18px; margin-bottom: var(--sp-4);" data-sanity="heroSubtitle">
@@ -101,7 +104,7 @@
       </div>
     </div>
 
-    <!-- Beat 3 — The Story (Lightship Rewriting Headline & Forward-Scroll Reel) -->
+    <!-- Beat 3 — The Story (Lightship Rewriting Headline & Forward-Scroll Reel with Image Parallax) -->
     <section class="rrc-section rrc-story-section">
       <div class="rrc-container">
         <div class="rrc-dynamic-headline-wrap">
@@ -115,7 +118,7 @@
           <!-- Frame 1 -->
           <div class="rrc-reel-card" data-story-index="0">
             <div class="rrc-reel-media">
-              <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format" alt="Solihull Sourcing" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format" alt="Solihull Factory Gates" loading="lazy" />
             </div>
             <div class="rrc-reel-body">
               <span class="rrc-mono-tag">01 // Solihull Sourcing</span>
@@ -127,7 +130,7 @@
           <!-- Frame 2 -->
           <div class="rrc-reel-card" data-story-index="1">
             <div class="rrc-reel-media">
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format" alt="Nairobi Tarmac" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&auto=format" alt="Nairobi Tarmac" loading="lazy" />
             </div>
             <div class="rrc-reel-body">
               <span class="rrc-mono-tag">02 // Nairobi Tarmac</span>
@@ -139,7 +142,7 @@
           <!-- Frame 3 -->
           <div class="rrc-reel-card" data-story-index="2">
             <div class="rrc-reel-media">
-              <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900&auto=format" alt="Laikipia Red Dust" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&auto=format" alt="Laikipia Red Dust" loading="lazy" />
             </div>
             <div class="rrc-reel-body">
               <span class="rrc-mono-tag">03 // Laikipia Terrain</span>
@@ -171,7 +174,7 @@
 
         <div class="rrc-craft-grid">
           <div class="rrc-craft-media rrc-reveal">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&auto=format" alt="RRC Workshop Floor" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1200&auto=format" alt="RRC Workshop Floor Diagnostics" loading="lazy" />
           </div>
 
           <div class="rrc-craft-points rrc-reveal">
@@ -298,8 +301,9 @@
   </footer>
 
   <script src="js/vehicle-data.js"></script>
-  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
   <script src="js/rrc-interactive.js"></script>
+  <script src="js/rrc-nav.js"></script>
   <script>
     const renderFleet = (vehicles) => {
       const grid = document.getElementById("homepageFleetGrid");
@@ -307,10 +311,10 @@
       grid.innerHTML = "";
 
       Object.values(vehicles).slice(0, 3).forEach(v => {
-        const img = (v.images && v.images[0]) ? v.images[0].src : "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format";
+        const img = (v.images && v.images[0]) ? v.images[0].src : "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900&auto=format";
         const tag = v.availability === "import" ? "In Transit · UK" : "Nairobi Ready";
         const card = document.createElement("article");
-        card.className = "rrc-showroom-card rrc-reveal revealed";
+        card.className = "rrc-showroom-card rrc-reveal";
         card.innerHTML = `
           <div class="rrc-showroom-media">
             <img src="${img}" alt="${v.name}" loading="lazy" />

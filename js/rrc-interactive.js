@@ -1,5 +1,5 @@
 (() => {
-  // 1. Lamborghini "Allow Animations" Toggle
+  // 1. Lamborghini "Allow Animations" Toggle & Preference
   const animToggles = document.querySelectorAll("[data-toggle-animations]");
   const storedAnim = localStorage.getItem("rrc_animations");
   if (storedAnim === "false") {
@@ -18,11 +18,15 @@
         document.documentElement.setAttribute("data-animations", "false");
         localStorage.setItem("rrc_animations", "false");
         toggle.textContent = "Motion: Off";
+        // Reset any inline parallax transforms
+        const heroBackdrop = document.querySelector(".rrc-hero-backdrop");
+        if (heroBackdrop) heroBackdrop.style.transform = "none";
+        document.querySelectorAll(".rrc-reel-media img").forEach(img => img.style.transform = "none");
       }
     });
   });
 
-  // 2. Custom Minimalist Cursor
+  // 2. Custom Minimalist Cursor (Gated to pointer: fine)
   if (window.matchMedia("(pointer: fine)").matches) {
     const dot = document.createElement("div");
     dot.className = "rrc-cursor-dot";
@@ -53,7 +57,54 @@
     });
   }
 
-  // 3. Lightship Dynamic Rewriting Headline on Scroll
+  // 3. Section A: Real Throttled Parallax Engine (Ticket A1 & Ticket A2)
+  const heroBackdrop = document.querySelector(".rrc-hero-backdrop");
+  const reelImages = document.querySelectorAll(".rrc-reel-media img");
+  let isTicking = false;
+
+  const updateParallax = () => {
+    // Ticket E2: Check motion preference
+    if (document.documentElement.getAttribute("data-animations") === "false") {
+      isTicking = false;
+      return;
+    }
+
+    const scrollY = window.scrollY;
+
+    // Ticket A1: Hero Backdrop Parallax (moves at 35% scroll speed relative to text)
+    if (heroBackdrop && scrollY < window.innerHeight * 1.5) {
+      const heroOffset = scrollY * 0.35;
+      heroBackdrop.style.transform = `translate3d(0, ${heroOffset}px, 0)`;
+    }
+
+    // Ticket A2: Provenance Arc Reel Image Parallax inside fixed card frame
+    if (reelImages.length > 0) {
+      const windowHeight = window.innerHeight;
+      reelImages.forEach(img => {
+        const rect = img.parentElement.getBoundingClientRect();
+        if (rect.bottom >= 0 && rect.top <= windowHeight) {
+          // Calculate normalized relative position from center of screen (-1 to 1)
+          const relY = (rect.top + rect.height / 2 - windowHeight / 2) / (windowHeight / 2);
+          const imgOffset = relY * -24; // Subtle 24px vertical drift
+          img.style.transform = `translate3d(0, ${imgOffset}px, 0) scale(1.12)`;
+        }
+      });
+    }
+
+    isTicking = false;
+  };
+
+  const onScroll = () => {
+    if (!isTicking) {
+      requestAnimationFrame(updateParallax);
+      isTicking = true;
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  updateParallax(); // Initial run
+
+  // 4. Beat 3: Lightship Dynamic Rewriting Headline on Reel Scroll
   const dynamicHeadline = document.getElementById("rrcDynamicHeadline");
   const reelCards = document.querySelectorAll(".rrc-reel-card");
 
@@ -65,7 +116,7 @@
   ];
 
   if (dynamicHeadline && reelCards.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
+    const reelObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const index = Number(entry.target.getAttribute("data-story-index") || 0);
@@ -82,24 +133,22 @@
       });
     }, { threshold: 0.5 });
 
-    reelCards.forEach(card => observer.observe(card));
+    reelCards.forEach(card => reelObserver.observe(card));
   }
 
-  // 4. Beat 2 Model Switcher & Polestar Marque Tabs
+  // 5. Beat 2: Model Switcher (Range Rover vs Land Rover)
   const switcherBtns = document.querySelectorAll(".rrc-switcher-btn");
-  const heroImage = document.getElementById("rrcHeroArrivalImage");
+  const heroVideo = document.getElementById("rrcHeroArrivalVideo");
   const heroHeadline = document.getElementById("rrcHeroHeadline");
 
   const marqueThemes = {
     "rangerover": {
       title: "Solihull to the Great Rift.",
-      image: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&auto=format&fit=crop&q=85",
-      accent: "green"
+      poster: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1920&auto=format&fit=crop&q=85"
     },
     "landrover": {
       title: "Built for Unforgiving Earth.",
-      image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1920&auto=format&fit=crop&q=85",
-      accent: "clay"
+      poster: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1920&auto=format&fit=crop&q=85"
     }
   };
 
@@ -111,29 +160,10 @@
       const theme = marqueThemes[marque];
       if (theme) {
         if (heroHeadline) heroHeadline.textContent = theme.title;
-        if (heroImage) {
-          heroImage.style.opacity = "0";
-          setTimeout(() => {
-            heroImage.src = theme.image;
-            heroImage.style.opacity = "1";
-          }, 250);
+        if (heroVideo && theme.poster) {
+          heroVideo.setAttribute("poster", theme.poster);
         }
       }
     });
   });
-
-  // 5. Scroll Reveals
-  const revealElements = document.querySelectorAll(".rrc-reveal");
-  if (revealElements.length > 0) {
-    const revObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          revObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-
-    revealElements.forEach(el => revObserver.observe(el));
-  }
 })();

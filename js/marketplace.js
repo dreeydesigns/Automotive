@@ -32,7 +32,7 @@
     const badgeText = vehicle.availability === "import" ? "In Transit (UK)" : "Nairobi Showroom";
     
     const image = (vehicle.images && vehicle.images[0]) || {
-      src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format",
+      src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format",
       srcset: "",
       alt: vehicle.name,
     };
