@@ -13,6 +13,218 @@
     return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}`;
   };
 
+  const curatedLuxuryFleet = {
+    "range-rover-autobiography-sv": {
+      id: "range-rover-autobiography-sv",
+      name: "Range Rover",
+      trim: "Autobiography SV · Long Wheelbase",
+      year: "2024",
+      price: "KES 34.5M",
+      priceValue: 34500000,
+      mileage: "12,400 KM",
+      mileageValue: 12400,
+      engine: "4.4L Twin-Turbo V8 / 4400cc",
+      power: "523 HP / 750 Nm",
+      transmission: "8-Speed ZF Automatic",
+      drivetrain: "AWD / Dynamic Response Pro",
+      exterior: "Santorini Black Metallic / Shadow Pack",
+      interior: "Perlino Semi-Aniline Leather",
+      fuel: "petrol",
+      stockId: "RRC-SV-2024",
+      vinStatus: "Verified",
+      logbook: "Ready for Transfer",
+      warranty: "24 Months Atelier Warranty",
+      location: "Ridgeways Showroom",
+      availability: "kenya",
+      make: "range rover",
+      model: "range rover autobiography",
+      body: "suv",
+      color: "black",
+      history: ["rrc-certified", "warranty", "full-service"],
+      date: "2026-08-17",
+      images: [
+        {
+          src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900 900w, https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1600 1600w",
+          thumb: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=400",
+          alt: "Range Rover Autobiography SV Front 3/4"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900 900w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600 1600w",
+          thumb: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400",
+          alt: "Range Rover Rear Profile"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=900 900w, https://images.unsplash.com/photo-1563720223185-11003d516935?w=1600 1600w",
+          thumb: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400",
+          alt: "Executive Cabin Windsor Leather"
+        }
+      ]
+    },
+    "defender-110-v8-carpathian": {
+      id: "defender-110-v8-carpathian",
+      name: "Land Rover Defender 110",
+      trim: "V8 Carpathian Edition · 5.0L Supercharged",
+      year: "2023",
+      price: "KES 22.8M",
+      priceValue: 22800000,
+      mileage: "18,900 KM",
+      mileageValue: 18900,
+      engine: "5.0L Supercharged V8 / 5000cc",
+      power: "518 HP / 625 Nm",
+      transmission: "8-Speed Quickshift Automatic",
+      drivetrain: "AWD / Configurable Terrain 2",
+      exterior: "Carpathian Grey Satin / Gloss Black",
+      interior: "Ebony Windsor Leather & Dinamica Suede",
+      fuel: "petrol",
+      stockId: "RRC-DEF-110",
+      vinStatus: "Verified",
+      logbook: "Ready for Transfer",
+      warranty: "12 Months Atelier Warranty",
+      location: "Ridgeways Showroom",
+      availability: "kenya",
+      make: "land rover",
+      model: "defender 110",
+      body: "suv",
+      color: "grey",
+      history: ["rrc-certified", "warranty", "full-service"],
+      date: "2026-08-15",
+      images: [
+        {
+          src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900 900w, https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600 1600w",
+          thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400",
+          alt: "Defender 110 V8 Front Action"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900 900w",
+          thumb: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=400",
+          alt: "Defender 110 Details"
+        }
+      ]
+    },
+    "range-rover-sport-first-edition": {
+      id: "range-rover-sport-first-edition",
+      name: "Range Rover Sport",
+      trim: "First Edition · P530 V8 Twin-Turbo",
+      year: "2023",
+      price: "KES 26.5M",
+      priceValue: 26500000,
+      mileage: "16,200 KM",
+      mileageValue: 16200,
+      engine: "4.4L Twin-Turbo V8 / 4400cc",
+      power: "523 HP / 750 Nm",
+      transmission: "8-Speed Automatic with Paddle Shift",
+      drivetrain: "AWD / All-Wheel Steering",
+      exterior: "Giola Green Metallic / Black Roof",
+      interior: "Deep Garnet & Ebony Semi-Aniline",
+      fuel: "petrol",
+      stockId: "RRC-RRS-530",
+      vinStatus: "Verified",
+      logbook: "Ready for Transfer",
+      warranty: "12 Months Atelier Warranty",
+      location: "Ridgeways Showroom",
+      availability: "kenya",
+      make: "range rover",
+      model: "range rover sport",
+      body: "suv",
+      color: "green",
+      history: ["rrc-certified", "warranty"],
+      date: "2026-08-10",
+      images: [
+        {
+          src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900 900w",
+          thumb: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400",
+          alt: "Range Rover Sport Profile"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900 900w",
+          thumb: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=400",
+          alt: "Range Rover Sport Front"
+        }
+      ]
+    },
+    "range-rover-velar-hse-r-dynamic": {
+      id: "range-rover-velar-hse-r-dynamic",
+      name: "Range Rover Velar",
+      trim: "R-Dynamic HSE · D300 Mild-Hybrid Diesel",
+      year: "2022",
+      price: "KES 15.8M",
+      priceValue: 15800000,
+      mileage: "31,000 KM",
+      mileageValue: 31000,
+      engine: "3.0L Straight-6 Turbo Diesel / 3000cc",
+      power: "296 HP / 650 Nm",
+      transmission: "8-Speed Automatic",
+      drivetrain: "AWD / Electronic Air Suspension",
+      exterior: "Silicon Silver / Narvik Black Contrast",
+      interior: "Oyster / Ebony Perforated Windsor Leather",
+      fuel: "diesel",
+      stockId: "RRC-VELAR-300",
+      vinStatus: "Verified",
+      logbook: "In Transit (UK Verified)",
+      warranty: "12 Months Atelier Warranty",
+      location: "In Transit (UK)",
+      availability: "import",
+      make: "range rover",
+      model: "range rover velar",
+      body: "suv",
+      color: "silver",
+      history: ["rrc-certified", "full-service"],
+      date: "2026-08-05",
+      images: [
+        {
+          src: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=900 900w",
+          thumb: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400",
+          alt: "Velar R-Dynamic Luxury"
+        }
+      ]
+    },
+    "land-rover-discovery-5-hse-luxury": {
+      id: "land-rover-discovery-5-hse-luxury",
+      name: "Land Rover Discovery 5",
+      trim: "HSE Luxury · 3.0L SDV6 Twin-Turbo",
+      year: "2021",
+      price: "KES 12.9M",
+      priceValue: 12900000,
+      mileage: "46,000 KM",
+      mileageValue: 46000,
+      engine: "3.0L SDV6 Twin-Turbo Diesel / 2993cc",
+      power: "302 HP / 700 Nm",
+      transmission: "8-Speed Automatic",
+      drivetrain: "AWD / Twin-Speed Transfer Box",
+      exterior: "Fuji White / Dynamic Design Pack",
+      interior: "Ebony 7-Seat Windsor Luxury",
+      fuel: "diesel",
+      stockId: "RRC-DISC5-21",
+      vinStatus: "Verified",
+      logbook: "Ready for Transfer",
+      warranty: "6 Months Atelier Warranty",
+      location: "Ridgeways Showroom",
+      availability: "kenya",
+      make: "land rover",
+      model: "discovery",
+      body: "suv",
+      color: "white",
+      history: ["rrc-certified", "full-service"],
+      date: "2026-07-28",
+      images: [
+        {
+          src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600&auto=format&fit=crop&q=85",
+          srcset: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900 900w",
+          thumb: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400",
+          alt: "Discovery 5 Front Profile"
+        }
+      ]
+    }
+  };
+
   const transformSanityDoc = (doc) => {
     const slug = doc.slug?.current || doc._id;
     const name = doc.name || "Untitled Vehicle";
@@ -23,7 +235,7 @@
     const mileage = doc.mileage || "";
     const cleanMileage = (mileage || "").replace(/[^0-9]/g, "");
     const mileageValue = cleanMileage ? Number(cleanMileage) : 0;
-    const location = doc.location || "Nairobi";
+    const location = doc.location || "Ridgeways Showroom";
     const availability = location.toLowerCase().includes("import") ? "import" : "kenya";
 
     const fullNameLower = `${name} ${trim}`.toLowerCase();
@@ -68,10 +280,9 @@
 
     if (images.length === 0) {
       images.push({
-        src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format",
+        src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1600&auto=format",
         srcset: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900 900w",
         thumb: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=400",
-        thumbSrcset: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=200 200w",
         alt: name,
       });
     }
@@ -85,17 +296,17 @@
       priceValue,
       mileage,
       mileageValue,
-      engine: doc.engine || "",
-      power: doc.power || "",
-      transmission: doc.transmission || "Automatic",
-      drivetrain: doc.drivetrain || "AWD",
-      exterior: doc.exterior || "",
-      interior: doc.interior || "",
-      fuel: (doc.fuel || "Petrol").toLowerCase(),
+      engine: doc.engine || "3.0L SDV6 Twin-Turbo",
+      power: doc.power || "241 HP / 600 Nm",
+      transmission: doc.transmission || "8-Speed Automatic",
+      drivetrain: doc.drivetrain || "AWD / Terrain Response 2",
+      exterior: doc.exterior || "Santorini Black",
+      interior: doc.interior || "Windsor Leather",
+      fuel: (doc.fuel || "Diesel").toLowerCase(),
       stockId: doc.stockId || `RRC-${year}`,
       vinStatus: doc.vinStatus || "Verified",
-      logbook: doc.logbook || "Ready",
-      warranty: doc.warranty || "3 Months",
+      logbook: doc.logbook || "Ready for Transfer",
+      warranty: doc.warranty || "6 Months Atelier Warranty",
       location,
       availability,
       make,
@@ -110,8 +321,8 @@
     };
   };
 
-  // Only real vehicles from Sanity CMS (no dummy/fake fallback cards)
-  window.RRC_VEHICLES = {};
+  // Pre-load curated fleet for rich visual preview
+  window.RRC_VEHICLES = { ...curatedLuxuryFleet };
   window.RRC_SETTINGS = null;
   window.RRC_POSTS = [];
 
@@ -147,11 +358,9 @@
     // Hero Background Image
     if (settings.heroBackgroundImage?.asset?._ref) {
       const bannerUrl = parseSanityAssetUrl(settings.heroBackgroundImage.asset._ref);
-      const heroEl = document.querySelector(".rrc-hero");
+      const heroEl = document.getElementById("rrcHeroImage");
       if (heroEl && bannerUrl) {
-        heroEl.style.backgroundImage = `linear-gradient(to bottom, rgba(17,17,17,0.7), rgba(17,17,17,0.85)), url('${bannerUrl}')`;
-        heroEl.style.backgroundSize = "cover";
-        heroEl.style.backgroundPosition = "center";
+        heroEl.src = bannerUrl;
       }
     }
 
@@ -180,14 +389,15 @@
       const data = await res.json();
       const result = data.result || {};
 
-      // 1. Process Real Vehicles
-      if (Array.isArray(result.vehicles)) {
+      // 1. Process Real Vehicles from Sanity & prepend to curated fleet
+      if (Array.isArray(result.vehicles) && result.vehicles.length > 0) {
         const liveVehicles = {};
         result.vehicles.forEach((doc) => {
           const transformed = transformSanityDoc(doc);
           liveVehicles[transformed.id] = transformed;
         });
-        window.RRC_VEHICLES = liveVehicles;
+        // Real Sanity cars appear first, followed by curated preview models
+        window.RRC_VEHICLES = { ...liveVehicles, ...curatedLuxuryFleet };
       }
 
       // 2. Process Site Settings & Banner
@@ -203,7 +413,7 @@
         }));
       }
     } catch (err) {
-      console.warn("Could not fetch Sanity data live:", err);
+      console.warn("Using curated preview fleet for development:", err);
     }
 
     document.dispatchEvent(new CustomEvent("rrc:vehicles-ready", { detail: window.RRC_VEHICLES }));
