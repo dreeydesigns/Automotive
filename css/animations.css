@@ -1,9 +1,9 @@
-/* Cinematic Animations & Micro-Interactions (Lucid & Koenigsegg inspired) */
+/* Master Blueprint Animations (Lightship, DS Paris, & Rivian inspired) */
 
 .rrc-reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity var(--t-slow), transform var(--t-slow);
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -12,114 +12,85 @@
   transform: translateY(0);
 }
 
-/* Stagger delay helpers */
-.delay-1 { transition-delay: 80ms; }
-.delay-2 { transition-delay: 160ms; }
-.delay-3 { transition-delay: 240ms; }
-.delay-4 { transition-delay: 320ms; }
-.delay-5 { transition-delay: 400ms; }
-
-/* Hotspot Beacon (Rivian & Lamborghini inspired) */
-.rrc-hotspot {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-  z-index: 10;
-  transform: translate(-50%, -50%);
-}
-
-.rrc-hotspot-pin {
-  width: 14px;
-  height: 14px;
-  background: var(--rrc-gold);
-  border: 2px solid var(--rrc-white);
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 20px var(--rrc-gold);
-  transition: transform var(--t-fast), background var(--t-fast);
-}
-
-.rrc-hotspot:hover .rrc-hotspot-pin,
-.rrc-hotspot.active .rrc-hotspot-pin {
-  transform: translate(-50%, -50%) scale(1.3);
-  background: var(--rrc-white);
-}
-
-.rrc-hotspot-pulse {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1.5px solid var(--rrc-gold);
-  animation: rrc-pulse-beacon 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-}
-
-@keyframes rrc-pulse-beacon {
-  0% {
-    transform: scale(0.6);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2.4);
-    opacity: 0;
-  }
-}
-
-/* Ambient Radial Lighting Glow */
-.rrc-ambient-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.45;
-}
-
-.rrc-glow-gold {
-  background: radial-gradient(circle, var(--rrc-gold) 0%, transparent 70%);
-}
-
-.rrc-glow-green {
-  background: radial-gradient(circle, var(--rrc-racing-green) 0%, transparent 70%);
-}
-
-/* Subtle Shimmer on Premium Gold Accents */
-@keyframes rrc-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.rrc-shimmer-text {
-  background: linear-gradient(90deg, var(--rrc-white) 0%, var(--rrc-gold-bright) 50%, var(--rrc-white) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rrc-shimmer 8s linear infinite;
-}
-
-/* Luxury Card Elevation */
-.rrc-luxe-card {
-  background: var(--rrc-charcoal);
-  border: 1px solid var(--rrc-glass-border);
-  border-radius: var(--r-md);
-  position: relative;
+/* Savoir-Faire Looping Marquee (DS Design Studio Paris) */
+.rrc-marquee-container {
   overflow: hidden;
-  transition: border-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
+  white-space: nowrap;
+  padding: 24px 0;
+  border-top: 1px solid var(--rrc-border);
+  border-bottom: 1px solid var(--rrc-border);
+  background: var(--rrc-surface);
 }
 
-.rrc-luxe-card:hover {
-  border-color: rgba(197, 160, 89, 0.4);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--rrc-gold-subtle);
+.rrc-marquee-track {
+  display: inline-flex;
+  animation: rrc-marquee-scroll 28s linear infinite;
 }
 
-/* Subtle Grid Background Pattern (DS Studio inspired guilloché) */
-.rrc-pattern-grid {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 40px 40px;
+.rrc-marquee-track span {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--rrc-text-secondary);
+  padding: 0 32px;
+}
+
+@keyframes rrc-marquee-scroll {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+
+/* Lightship Horizontal Forward-Scroll Reel */
+.rrc-reel-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rrc-reel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 480px);
+  gap: var(--sp-4);
+  overflow-x: auto;
+  padding: var(--sp-4) 0;
+  scrollbar-width: none;
+}
+
+.rrc-reel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.rrc-reel-card {
+  background: var(--rrc-surface);
+  border: 1px solid var(--rrc-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.rrc-reel-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #000;
+}
+
+.rrc-reel-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rrc-reel-body {
+  padding: var(--sp-4);
+}
+
+/* Parallax Depth (Rivian inspired) */
+.rrc-parallax-layer {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }

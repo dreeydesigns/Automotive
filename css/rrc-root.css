@@ -1,63 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Master Luxury Palette (Lucid + Koenigsegg + British Heritage) */
-  --rrc-obsidian: #070709;
-  --rrc-black: #0C0C10;
-  --rrc-charcoal: #14141A;
-  --rrc-slate: #1C1C24;
-  --rrc-slate-light: #2A2A36;
-  --rrc-sand: #383848;
-  --rrc-bone: #0E0E14;
+  /* Restrained Luxury Palette (Lucid & Polestar discipline) */
+  --rrc-bg: #0B0B0C;
+  --rrc-surface: #131316;
+  --rrc-surface-hover: #1C1C22;
+  --rrc-border: rgba(255, 255, 255, 0.08);
+  --rrc-border-strong: rgba(255, 255, 255, 0.16);
   
-  /* Champagne Gold Accents */
-  --rrc-gold: #C5A059;
-  --rrc-gold-bright: #E5C378;
-  --rrc-gold-glow: rgba(197, 160, 89, 0.25);
-  --rrc-gold-subtle: rgba(197, 160, 89, 0.08);
+  /* Text Neutrals */
+  --rrc-text-primary: #F7F5F1;
+  --rrc-text-secondary: #8E8E98;
+  --rrc-text-muted: #585864;
   
-  /* Racing Green & Accent Tones */
-  --rrc-racing-green: #0D281E;
-  --rrc-green-glow: rgba(13, 40, 30, 0.6);
+  /* Restrained Heritage Accents (Zero Gold Foil Cliché) */
+  --rrc-british-green: #0C3B2E;
+  --rrc-green-glow: rgba(12, 59, 46, 0.35);
+  --rrc-kenyan-clay: #8A4E2D;
+  --rrc-clay-glow: rgba(138, 78, 45, 0.35);
   
-  /* Textures & Neutrals */
-  --rrc-white: #FFFFFF;
-  --rrc-grey-lt: #D8D8E2;
-  --rrc-grey: #8E8EA0;
-  --rrc-grey-dark: #525264;
-  
-  /* Glassmorphism */
-  --rrc-glass-bg: rgba(18, 18, 24, 0.75);
-  --rrc-glass-border: rgba(255, 255, 255, 0.08);
-  --rrc-glass-glow: rgba(197, 160, 89, 0.15);
-
   /* Typography */
-  --font-display: "Cinzel", "Georgia", serif;
-  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-data: "Space Mono", "Courier New", monospace;
+  --font-display: "Syne", "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
 
-  /* Spacing Scale */
+  /* Spacing */
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 16px;
   --sp-4: 24px;
   --sp-5: 40px;
   --sp-6: 64px;
-  --sp-7: 100px;
-  --sp-8: 160px;
-
-  /* Border Radii */
-  --r-sm: 4px;
-  --r-md: 10px;
-  --r-lg: 18px;
-  --r-full: 9999px;
+  --sp-7: 120px;
+  --sp-8: 180px;
 
   /* Transitions */
-  --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-enter: cubic-bezier(0, 0, 0.15, 1);
-  --t-fast: 180ms var(--ease-luxe);
-  --t-base: 320ms var(--ease-luxe);
-  --t-slow: 700ms var(--ease-enter);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 150ms var(--ease-out);
+  --t-base: 300ms var(--ease-out);
+  --t-slow: 600ms var(--ease-out);
+}
+
+/* Reduced Motion Mode (Lamborghini style toggle) */
+html[data-animations="false"] * {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
 }
 
 * {
@@ -67,21 +55,58 @@
 }
 
 html {
+  background: var(--rrc-bg);
+  color: var(--rrc-text-primary);
+  font-family: var(--font-body);
   scroll-behavior: smooth;
-  background: var(--rrc-obsidian);
-  color: var(--rrc-white);
   color-scheme: dark;
 }
 
 body {
-  font-family: var(--font-body);
-  background: var(--rrc-obsidian);
-  color: var(--rrc-grey-lt);
-  line-height: 1.7;
+  background: var(--rrc-bg);
+  color: var(--rrc-text-primary);
+  line-height: 1.65;
   font-size: 16px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Minimalist Cursor */
+@media (pointer: fine) {
+  body {
+    cursor: default;
+  }
+  .rrc-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--rrc-text-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+  }
+  .rrc-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(247, 245, 241, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out, width 0.2s, height 0.2s;
+  }
+  body.cursor-hover .rrc-cursor-ring {
+    width: 48px;
+    height: 48px;
+    border-color: rgba(247, 245, 241, 0.6);
+  }
 }
 
 img, video {
@@ -92,61 +117,34 @@ img, video {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--t-fast);
 }
 
 p {
-  margin: 0 0 var(--sp-3);
-  color: var(--rrc-grey);
+  color: var(--rrc-text-secondary);
+  margin-bottom: var(--sp-3);
   font-weight: 400;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
-  color: var(--rrc-white);
-  margin: 0 0 var(--sp-3);
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  line-height: 1.15;
+  color: var(--rrc-text-primary);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-h1 {
-  font-size: clamp(42px, 6.5vw, 84px);
-}
-
-h2 {
-  font-size: clamp(30px, 4.5vw, 54px);
-}
-
-h3 {
-  font-size: clamp(22px, 3vw, 36px);
-}
-
-h4 {
-  font-size: 20px;
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-ul, ol {
-  margin: 0 0 var(--sp-3);
-  padding-left: 20px;
-  color: var(--rrc-grey);
-}
-
-button, input, select, textarea {
-  font-family: inherit;
-  color: inherit;
-}
+h1 { font-size: clamp(48px, 7vw, 96px); }
+h2 { font-size: clamp(32px, 4.5vw, 60px); }
+h3 { font-size: clamp(24px, 3vw, 40px); }
+h4 { font-size: 20px; font-weight: 600; }
 
 .rrc-container {
-  width: min(100% - 48px, 1280px);
+  width: min(100% - 48px, 1360px);
   margin: 0 auto;
 }
 
-.rrc-container-wide {
-  width: min(100% - 48px, 1520px);
+.rrc-container-narrow {
+  width: min(100% - 48px, 980px);
   margin: 0 auto;
 }
 
@@ -155,90 +153,33 @@ button, input, select, textarea {
   position: relative;
 }
 
-.rrc-section-sm {
-  padding: var(--sp-5) 0;
-}
-
-.rrc-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-family: var(--font-data);
+.rrc-mono-tag {
+  font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--rrc-gold);
-  font-weight: 700;
-  margin-bottom: var(--sp-2);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--rrc-text-secondary);
   display: inline-flex;
   align-items: center;
-  gap: var(--sp-2);
+  gap: 8px;
 }
 
-.rrc-eyebrow::before {
+.rrc-mono-tag::before {
   content: "";
   display: inline-block;
-  width: 14px;
-  height: 1px;
-  background: var(--rrc-gold);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rrc-text-primary);
 }
 
-.rrc-data {
-  font-family: var(--font-data);
-  color: var(--rrc-gold);
-}
-
-/* Polestar-style Telemetry Micro-Badge */
-.rrc-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: var(--r-sm);
-  font-family: var(--font-data);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 700;
-  border: 1px solid var(--rrc-glass-border);
-  background: var(--rrc-glass-bg);
-  backdrop-filter: blur(12px);
-}
-
-.rrc-badge-local {
-  color: #34D399;
-  border-color: rgba(52, 211, 153, 0.3);
-  background: rgba(16, 185, 129, 0.1);
-}
-
-.rrc-badge-import {
-  color: var(--rrc-gold-bright);
-  border-color: rgba(197, 160, 89, 0.4);
-  background: rgba(197, 160, 89, 0.12);
-}
-
-/* Custom Luxury Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--rrc-obsidian);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--rrc-slate-light);
-  border-radius: 4px;
-  border: 2px solid var(--rrc-obsidian);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--rrc-gold);
-}
+.rrc-mono-tag.green::before { background: #34D399; }
+.rrc-mono-tag.clay::before { background: #F97316; }
 
 @media (max-width: 768px) {
-  .rrc-container, .rrc-container-wide {
-    width: min(100% - 32px, 1280px);
+  .rrc-container, .rrc-container-narrow {
+    width: min(100% - 32px, 1360px);
   }
-
   .rrc-section {
     padding: var(--sp-6) 0;
   }

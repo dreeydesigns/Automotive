@@ -6,277 +6,154 @@
   <title>Vehicle Dossier | Range Rover & Land Rover Centre</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/rrc-root.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/rrc-layout.css" />
   <link rel="stylesheet" href="css/rrc-components.css" />
-  <style>
-    .dossier-header {
-      padding: var(--sp-5) 0 var(--sp-3);
-      border-bottom: 1px solid var(--rrc-glass-border);
-      background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
-    }
-    .dossier-spec-card {
-      background: var(--rrc-charcoal);
-      border: 1px solid var(--rrc-glass-border);
-      border-radius: var(--r-md);
-      padding: var(--sp-4);
-      display: grid;
-      gap: 12px;
-    }
-    .dossier-spec-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .dossier-spec-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-  </style>
 </head>
-<body data-page="detail" class="rrc-pattern-grid">
+<body data-page="detail">
 
-  <!-- Header -->
   <nav class="rrc-nav" aria-label="Primary Navigation">
-    <div class="rrc-container-wide">
-      <div class="rrc-logo-wrap">
-        <a class="rrc-logo" href="index.html">
-          <span>RRC</span><span class="rrc-logo-gold">.</span>
-        </a>
-        <span class="rrc-logo-sub">Solihull to Nairobi</span>
-      </div>
-
-      <div class="rrc-nav-links">
-        <a href="marketplace.html">Showroom</a>
-        <a href="import.html">Bespoke Import</a>
-        <a href="sell.html">Consignment</a>
-        <a href="services.html">Atelier & Care</a>
-        <a href="about.html">Heritage</a>
-        <a href="blog.html">Journal</a>
-      </div>
-
-      <div class="rrc-nav-cta">
-        <a class="rrc-btn rrc-btn-gold" href="marketplace.html">← Back to Showroom</a>
-        <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation menu">☰</button>
+    <div class="rrc-container">
+      <a class="rrc-brand-title" href="index.html">
+        Range Rover / Land Rover Centre
+      </a>
+      <div class="rrc-nav-actions">
+        <a class="rrc-btn rrc-btn-secondary" href="marketplace.html">← Showroom</a>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Drawer -->
-  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
-    <button id="rrcNavClose" aria-label="Close menu">✕</button>
-    <a href="marketplace.html">Showroom</a>
-    <a href="import.html">Bespoke Import</a>
-    <a href="sell.html">Consignment</a>
-    <a href="services.html">Atelier & Care</a>
-    <a href="about.html">Heritage</a>
-    <a href="blog.html">Journal</a>
-    <a class="rrc-btn rrc-btn-gold" href="contact.html" style="margin-top: 24px;">Concierge Desk</a>
-  </div>
-
   <main class="rrc-main">
-    
-    <!-- Top Breadcrumb & Status -->
-    <header class="dossier-header">
-      <div class="rrc-container-wide" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--sp-2);">
+    <header style="padding: var(--sp-5) 0 var(--sp-3); border-bottom: 1px solid var(--rrc-border);">
+      <div class="rrc-container" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;">
         <div>
-          <p class="rrc-eyebrow" data-detail="eyebrow">Authenticated Motorcar Dossier</p>
-          <h1 style="margin: 0; font-size: clamp(28px, 4.5vw, 48px);" data-detail="name">Vehicle Loading...</h1>
+          <span class="rrc-mono-tag green" data-detail="stockId">Stock Dossier</span>
+          <h1 style="margin: 6px 0 0;" data-detail="name">Vehicle Dossier</h1>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
-          <span class="rrc-badge rrc-badge-local" data-detail="vinStatus">VIN: Verified</span>
-          <span class="rrc-badge rrc-badge-import" data-detail="logbook">Logbook: Ready</span>
+        <div>
+          <span class="rrc-mono-tag" data-detail="logbook">Ready for Transfer</span>
         </div>
       </div>
     </header>
 
-    <!-- Main Dossier Section -->
     <section class="rrc-section">
-      <div class="rrc-container-wide detail-layout">
+      <div class="rrc-container rrc-dossier-layout">
         
-        <!-- Left: High-Res Master Gallery -->
-        <div class="rrc-reveal">
-          <div class="detail-hero-frame">
-            <img id="detailHeroImg" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1600&auto=format" alt="Vehicle Master Photo" />
+        <!-- Left: Gallery & Specs -->
+        <div>
+          <div class="rrc-dossier-hero">
+            <img id="detailHeroImg" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1600&auto=format" alt="Vehicle Photo" />
           </div>
 
-          <!-- Interactive Filmstrip Track -->
-          <div class="detail-thumbs-track" id="detailThumbsTrack">
-            <!-- Populated via js/vehicle-detail.js -->
+          <div class="rrc-dossier-thumbs" id="detailThumbsTrack">
+            <!-- Populated dynamically via js/vehicle-detail.js -->
           </div>
 
-          <!-- Koenigsegg Technical Blueprint Grid -->
-          <div style="margin-top: var(--sp-5);">
-            <p class="rrc-eyebrow">Engineering Specifications</p>
-            <h3 style="margin-bottom: var(--sp-4);">Powertrain & Architecture</h3>
+          <!-- Specifications -->
+          <div style="margin-top: var(--sp-6);">
+            <span class="rrc-mono-tag">Engineering Telemetry</span>
+            <h3 style="margin: 8px 0 var(--sp-4);">Powertrain & Architecture</h3>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-4);">
-              <div class="dossier-spec-card">
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Engine & Capacity</span>
-                  <span class="detail-val-bright" data-detail="engine">—</span>
-                </div>
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Power & Torque</span>
-                  <span class="detail-val-bright" data-detail="power">—</span>
-                </div>
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Transmission</span>
-                  <span class="detail-val-bright" data-detail="transmission">—</span>
-                </div>
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Drivetrain Intel</span>
-                  <span class="detail-val-bright" data-detail="drivetrain">—</span>
-                </div>
+            <div class="rrc-dossier-specs-table" style="background: var(--rrc-surface); border-radius: 6px; padding: var(--sp-4);">
+              <div class="rrc-dossier-row">
+                <span>Engine / Capacity</span>
+                <span data-detail="engine">—</span>
               </div>
-
-              <div class="dossier-spec-card">
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Odometer (Verified)</span>
-                  <span class="detail-val-bright" data-detail="mileage">—</span>
-                </div>
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Exterior & Pack</span>
-                  <span class="detail-val-bright" data-detail="exterior">—</span>
-                </div>
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Interior & Trim</span>
-                  <span class="detail-val-bright" data-detail="interior">—</span>
-                </div>
-                <div class="dossier-spec-row">
-                  <span class="detail-label-dim">Warranty Coverage</span>
-                  <span class="detail-val-bright" data-detail="warranty">—</span>
-                </div>
+              <div class="rrc-dossier-row">
+                <span>Output / Torque</span>
+                <span data-detail="power">—</span>
+              </div>
+              <div class="rrc-dossier-row">
+                <span>Odometer</span>
+                <span data-detail="mileage">—</span>
+              </div>
+              <div class="rrc-dossier-row">
+                <span>Transmission</span>
+                <span data-detail="transmission">—</span>
+              </div>
+              <div class="rrc-dossier-row">
+                <span>Drivetrain</span>
+                <span data-detail="drivetrain">—</span>
+              </div>
+              <div class="rrc-dossier-row">
+                <span>Exterior Pack</span>
+                <span data-detail="exterior">—</span>
+              </div>
+              <div class="rrc-dossier-row">
+                <span>Cabin Leather</span>
+                <span data-detail="interior">—</span>
               </div>
             </div>
           </div>
 
-          <!-- Provenance Audit Report -->
-          <div style="margin-top: var(--sp-5); background: var(--rrc-charcoal); border: 1px solid var(--rrc-glass-border); border-radius: var(--r-md); padding: var(--sp-5);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-              <h4 style="margin: 0; color: var(--rrc-gold);">120-Point Diagnostic Clearance</h4>
-              <span class="rrc-badge rrc-badge-local">PASSED WITH ZERO FAULT CODES</span>
-            </div>
-            <p style="font-size: 14px; margin: 0; color: var(--rrc-grey-lt);">
-              This motorcar has completed comprehensive electronic ECU interrogation, injector balance verification, dynamic air suspension pressure tests, and complete mechanical validation in our Ridgeways atelier.
+          <!-- Workshop Provenance Note -->
+          <div style="margin-top: var(--sp-5); background: var(--rrc-surface); border: 1px solid var(--rrc-border); border-radius: 6px; padding: var(--sp-4);">
+            <span class="rrc-mono-tag green">120-Point ECU Audit Clearance</span>
+            <p style="margin: 8px 0 0; font-size: 14px;">
+              Audited in our Ridgeways atelier with zero fault codes. Complete diagnostic clearance on air suspension pressure, injector balance, and electronic differentials.
             </p>
           </div>
-
         </div>
 
-        <!-- Right: Acquisition Sidebar & Direct Concierge -->
-        <aside class="detail-sidebar-panel rrc-reveal">
+        <!-- Right: Acquisition & Advisor Contact -->
+        <aside class="rrc-dossier-sidebar">
           <div>
-            <span class="rrc-badge rrc-badge-import" style="margin-bottom: 12px;" data-detail="subtitle">Edition Trim</span>
-            <div class="detail-price-lg" data-detail="price">KES —</div>
+            <span class="rrc-mono-tag" data-detail="subtitle">Edition Trim</span>
+            <div style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; margin-top: 6px;" data-detail="price">KES —</div>
           </div>
 
-          <div class="detail-quick-specs">
-            <div class="detail-quick-row">
-              <span class="detail-label-dim">Stock Reference</span>
-              <span class="detail-val-bright" data-detail="stockId">—</span>
+          <div class="rrc-dossier-specs-table">
+            <div class="rrc-dossier-row">
+              <span>Location</span>
+              <span data-detail="location">Ridgeways Showroom</span>
             </div>
-            <div class="detail-quick-row">
-              <span class="detail-label-dim">Location</span>
-              <span class="detail-val-bright" data-detail="location">—</span>
+            <div class="rrc-dossier-row">
+              <span>Warranty</span>
+              <span data-detail="warranty">12 Months RRC Warranty</span>
             </div>
-            <div class="detail-quick-row">
-              <span class="detail-label-dim">Service Protocol</span>
-              <span class="detail-val-bright" data-detail="service">Full RRC Provenance Log</span>
+            <div class="rrc-dossier-row">
+              <span>VIN Status</span>
+              <span data-detail="vinStatus">Verified</span>
             </div>
           </div>
 
-          <div style="display: grid; gap: var(--sp-3);">
+          <div style="display: grid; gap: 10px;">
             <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" id="detailWhatsappBtn" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
-              Acquisition Concierge (WhatsApp)
+              Speak to Sales Advisor on WhatsApp
             </a>
-            
-            <a class="rrc-btn rrc-btn-gold rrc-btn-full" href="contact.html">
-              Book Private Viewing
+            <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="contact.html">
+              Schedule Private Viewing
             </a>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px;">
-              <a class="rrc-btn rrc-btn-outline" data-detail-link="finance" href="finance.html" style="font-size: 11px; padding: 10px 8px; text-align: center;">Finance Terms</a>
-              <a class="rrc-btn rrc-btn-outline" data-detail-link="insurance" href="insurance.html" style="font-size: 11px; padding: 10px 8px; text-align: center;">Insurance Assist</a>
-            </div>
           </div>
 
-          <div style="border-top: 1px solid var(--rrc-glass-border); padding-top: var(--sp-3); font-size: 13px; color: var(--rrc-grey);">
-            <p style="margin: 0;">🛡️ Includes 120-Point Inspection Certificate, Ready Logbook Transfer, and 24/7 Atelier Support.</p>
-          </div>
+          <p style="font-size: 12px; margin: 0; color: var(--rrc-text-muted);">
+            🛡️ Ready NTSA logbook transfer. Includes 120-point diagnostic file and ongoing atelier support.
+          </p>
         </aside>
 
       </div>
     </section>
-
   </main>
 
-  <!-- Fullscreen 4K Lightbox -->
-  <div class="detail-lightbox" id="detailLightbox">
-    <button class="detail-lightbox-close" id="detailLightboxClose">✕</button>
-    <img id="detailLightboxImg" src="" alt="High resolution preview" />
+  <div class="rrc-lightbox" id="detailLightbox">
+    <button class="rrc-lightbox-close" id="detailLightboxClose">✕</button>
+    <img id="detailLightboxImg" src="" alt="Dossier zoom" />
   </div>
 
-  <!-- Master Footer -->
   <footer class="rrc-footer">
-    <div class="rrc-container-wide rrc-footer-grid">
-      <div class="rrc-footer-col">
-        <div class="rrc-logo-wrap" style="margin-bottom: var(--sp-3);">
-          <span class="rrc-logo">RRC<span class="rrc-logo-gold">.</span></span>
-        </div>
-        <p style="font-size: 14px; max-width: 320px;">
-          The definitive Kenyan authority on Range Rover & Land Rover luxury motorcars.
-        </p>
-        <p style="font-size: 13px; color: var(--rrc-grey);" data-sanity="address">
-          Ridgeways, Kiambu Road, Nairobi, Kenya
-        </p>
+    <div class="rrc-container">
+      <div class="rrc-footer-bottom">
+        <span>© 2026 Range Rover / Land Rover Centre · Nairobi</span>
+        <span>Ridgeways, Kiambu Road</span>
       </div>
-
-      <div class="rrc-footer-col">
-        <h4>The Fleets</h4>
-        <ul class="rrc-footer-links">
-          <li><a href="marketplace.html">Range Rover SV</a></li>
-          <li><a href="marketplace.html">Range Rover Sport</a></li>
-          <li><a href="marketplace.html">Range Rover Velar</a></li>
-          <li><a href="marketplace.html">Defender 110 & 130</a></li>
-          <li><a href="marketplace.html">Discovery 4 & 5</a></li>
-        </ul>
-      </div>
-
-      <div class="rrc-footer-col">
-        <h4>Atelier Services</h4>
-        <ul class="rrc-footer-links">
-          <li><a href="import.html">UK Sourcing Protocol</a></li>
-          <li><a href="sell.html">Private Consignment</a></li>
-          <li><a href="services.html">ECU & Air Suspension Care</a></li>
-          <li><a href="finance.html">Luxury Vehicle Finance</a></li>
-          <li><a href="blog.html">The RRC Journal</a></li>
-        </ul>
-      </div>
-
-      <div class="rrc-footer-col">
-        <h4>Direct Concierge</h4>
-        <p style="font-size: 14px; margin-bottom: 8px;"><strong style="color: var(--rrc-white);">Direct Line:</strong> <span data-sanity="phone">+254 790 374 141</span></p>
-        <p style="font-size: 14px; margin-bottom: 16px;"><strong style="color: var(--rrc-white);">Email:</strong> <span data-sanity="email">info@rangerovercentre.co.ke</span></p>
-        <a class="rrc-btn rrc-btn-whatsapp rrc-btn-full" href="https://wa.me/254790374141" target="_blank" rel="noopener noreferrer">
-          WhatsApp Specialist
-        </a>
-      </div>
-    </div>
-
-    <div class="rrc-container-wide rrc-footer-bottom">
-      <span>© 2026 Range Rover Centre Nairobi · All Rights Reserved.</span>
-      <span>Curated Exclusively for Range Rover & Land Rover</span>
     </div>
   </footer>
 
   <script src="js/vehicle-data.js"></script>
   <script src="js/rrc-nav.js"></script>
-  <script src="js/rrc-reveal.js"></script>
+  <script src="js/rrc-interactive.js"></script>
   <script src="js/vehicle-detail.js"></script>
 </body>
 </html>
