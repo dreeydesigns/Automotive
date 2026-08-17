@@ -13,7 +13,7 @@
 
   const createCardElement = (vehicle) => {
     const article = document.createElement("article");
-    article.className = "vehicle-card rrc-reveal visible";
+    article.className = "vehicle-card rrc-reveal revealed";
     article.setAttribute("data-vehicle-card", "");
     article.setAttribute("data-availability", vehicle.availability || "kenya");
     article.setAttribute("data-make", vehicle.make || "range rover");
@@ -41,7 +41,7 @@
 
     article.innerHTML = `
       <div class="vehicle-image rrc-image">
-        <img class="rrc-lazy" src="${image.src}" srcset="${image.srcset || image.src}" loading="lazy" alt="${image.alt || vehicle.name}" />
+        <img class="rrc-lazy loaded" src="${image.src}" srcset="${image.srcset || image.src}" alt="${image.alt || vehicle.name}" />
         <span class="rrc-badge ${badgeClass} vehicle-badge">${badgeText}</span>
       </div>
       <div class="vehicle-card-body">
@@ -195,7 +195,7 @@
         isVisible = false;
       }
 
-      card.hidden = !isVisible;
+      card.style.display = isVisible ? "grid" : "none";
       if (isVisible) {
         visibleCount += 1;
       }
@@ -303,9 +303,10 @@
     sortSelect.addEventListener("change", applyFilters);
   }
 
+  // Initial render
   renderVehicles();
 
-  // Re-render immediately when live Sanity vehicles finish fetching
+  // Re-render when Sanity data arrives
   document.addEventListener("rrc:vehicles-ready", () => {
     renderVehicles();
   });

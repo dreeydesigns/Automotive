@@ -241,21 +241,30 @@
       }
     }
 
-    const images = (doc.images || []).map((img) => {
-      const assetRef = img?.asset?._ref;
-      const cdnUrl = parseSanityAssetUrl(assetRef) || "assets/images/hero-velar.jpg";
-      const alt = img.alt || name;
-      return {
-        src: cdnUrl,
-        srcset: `${cdnUrl}?w=900&auto=format 900w, ${cdnUrl}?w=1400&auto=format 1400w`,
-        thumb: `${cdnUrl}?w=400&auto=format`,
-        thumbSrcset: `${cdnUrl}?w=200&auto=format 200w, ${cdnUrl}?w=400&auto=format 400w`,
-        alt,
-      };
-    });
+    const images = (doc.images || [])
+      .map((img) => {
+        const assetRef = img?.asset?._ref;
+        const cdnUrl = parseSanityAssetUrl(assetRef);
+        if (!cdnUrl) return null;
+        const alt = img.alt || name;
+        return {
+          src: cdnUrl,
+          srcset: `${cdnUrl}?w=900&auto=format 900w, ${cdnUrl}?w=1400&auto=format 1400w`,
+          thumb: `${cdnUrl}?w=400&auto=format`,
+          thumbSrcset: `${cdnUrl}?w=200&auto=format 200w, ${cdnUrl}?w=400&auto=format 400w`,
+          alt,
+        };
+      })
+      .filter(Boolean);
 
     if (images.length === 0) {
-      images.push(makeStaticImage("rr-sport-front.jpg", name));
+      images.push({
+        src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format",
+        srcset: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900 900w",
+        thumb: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=400",
+        thumbSrcset: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=200 200w",
+        alt: name,
+      });
     }
 
     return {
@@ -293,31 +302,108 @@
   };
 
   window.RRC_VEHICLES = { ...staticVehicles };
+  window.RRC_SETTINGS = null;
+  window.RRC_POSTS = [];
+
+  const updateSiteSettingsDom = (settings) => {
+    if (!settings) return;
+    window.RRC_SETTINGS = settings;
+
+    // Hero updates
+    const eyebrow = document.querySelector("[data-sanity='heroEyebrow']");
+    if (eyebrow && settings.heroEyebrow) eyebrow.textContent = settings.heroEyebrow;
+
+    const title1 = document.querySelector("[data-sanity='heroTitleLine1']");
+    if (title1 && settings.heroTitleLine1) title1.textContent = settings.heroTitleLine1;
+
+    const title2 = document.querySelector("[data-sanity='heroTitleLine2']");
+    if (title2 && settings.heroTitleLine2) title2.textContent = settings.heroTitleLine2;
+
+    const subtitle = document.querySelector("[data-sanity='heroSubtitle']");
+    if (subtitle && settings.heroSubtitle) subtitle.textContent = settings.heroSubtitle;
+
+    const btnPrimary = document.querySelector("[data-sanity-link='heroPrimaryCta']");
+    if (btnPrimary) {
+      if (settings.heroPrimaryCtaText) btnPrimary.textContent = settings.heroPrimaryCtaText;
+      if (settings.heroPrimaryCtaLink) btnPrimary.href = settings.heroPrimaryCtaLink;
+    }
+
+    const btnSecondary = document.querySelector("[data-sanity-link='heroSecondaryCta']");
+    if (btnSecondary) {
+      if (settings.heroSecondaryCtaText) btnSecondary.textContent = settings.heroSecondaryCtaText;
+      if (settings.heroSecondaryCtaLink) btnSecondary.href = settings.heroSecondaryCtaLink;
+    }
+
+    // Hero Background Image
+    if (settings.heroBackgroundImage?.asset?._ref) {
+      const bannerUrl = parseSanityAssetUrl(settings.heroBackgroundImage.asset._ref);
+      const heroEl = document.querySelector(".rrc-hero");
+      if (heroEl && bannerUrl) {
+        heroEl.style.backgroundImage = `linear-gradient(to bottom, rgba(17,17,17,0.7), rgba(17,17,17,0.85)), url('${bannerUrl}')`;
+        heroEl.style.backgroundSize = "cover";
+        heroEl.style.backgroundPosition = "center";
+      }
+    }
+
+    // Contact info
+    if (settings.phone) {
+      document.querySelectorAll("[data-sanity='phone']").forEach((el) => (el.textContent = settings.phone));
+    }
+    if (settings.email) {
+      document.querySelectorAll("[data-sanity='email']").forEach((el) => (el.textContent = settings.email));
+    }
+    if (settings.address) {
+      document.querySelectorAll("[data-sanity='address']").forEach((el) => (el.textContent = settings.address));
+    }
+  };
 
   window.RRC_FETCH_PROMISE = (async () => {
     try {
-      const query = encodeURIComponent('*[_type == "vehicle"] | order(_createdAt desc)');
+      // Query vehicles, siteSettings, and blog posts simultaneously
+      const query = encodeURIComponent(`{
+        "vehicles": *[_type == "vehicle"] | order(_createdAt desc),
+        "settings": *[_type == "siteSettings"][0],
+        "posts": *[_type == "post"] | order(publishedAt desc)
+      }`);
+
       const res = await fetch(`https://${SANITY_PROJECT_ID}.api.sanity.io/${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${query}`);
       if (!res.ok) throw new Error(`Sanity fetch error: ${res.statusText}`);
       const data = await res.json();
-      if (Array.isArray(data.result) && data.result.length > 0) {
+      const result = data.result || {};
+
+      // 1. Process Vehicles
+      if (Array.isArray(result.vehicles) && result.vehicles.length > 0) {
         const liveVehicles = {};
-        data.result.forEach((doc) => {
+        result.vehicles.forEach((doc) => {
           const transformed = transformSanityDoc(doc);
           liveVehicles[transformed.id] = transformed;
         });
 
-        // Merge Sanity vehicles first, then static fallbacks
+        // Live Sanity cars take full precedence, followed by fallback catalogue
         window.RRC_VEHICLES = {
           ...liveVehicles,
           ...staticVehicles,
         };
       }
+
+      // 2. Process Site Settings & Banner
+      if (result.settings) {
+        updateSiteSettingsDom(result.settings);
+      }
+
+      // 3. Process Blog Posts
+      if (Array.isArray(result.posts)) {
+        window.RRC_POSTS = result.posts.map((p) => ({
+          ...p,
+          coverImageUrl: parseSanityAssetUrl(p.coverImage?.asset?._ref),
+        }));
+      }
     } catch (err) {
-      console.warn("Could not fetch Sanity vehicles live, using static dataset fallback.", err);
+      console.warn("Could not fetch Sanity data live, using static dataset fallback.", err);
     }
 
     document.dispatchEvent(new CustomEvent("rrc:vehicles-ready", { detail: window.RRC_VEHICLES }));
+    document.dispatchEvent(new CustomEvent("rrc:data-ready", { detail: { vehicles: window.RRC_VEHICLES, settings: window.RRC_SETTINGS, posts: window.RRC_POSTS } }));
     return window.RRC_VEHICLES;
   })();
 })();

@@ -151,6 +151,8 @@
   overflow: hidden;
   display: grid;
   height: 100%;
+  opacity: 1;
+  visibility: visible;
   transition: border-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
 }
 

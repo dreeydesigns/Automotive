@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal & Articles | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/marketplace.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-4);
+    }
+    .blog-card {
+      background: var(--rrc-bone);
+      border: 1px solid var(--rrc-sand);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--t-base), transform var(--t-base);
+    }
+    .blog-card:hover {
+      border-color: var(--rrc-gold);
+      transform: translateY(-4px);
+    }
+    .blog-card-media {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .blog-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .blog-card-body {
+      padding: var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: var(--sp-2);
+    }
+    .blog-card-meta {
+      font-size: 13px;
+      color: var(--rrc-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .blog-card-title {
+      font-size: 20px;
+      font-family: var(--font-display);
+      margin: 0;
+      color: var(--rrc-charcoal);
+    }
+    .blog-card-excerpt {
+      font-size: 14px;
+      color: var(--rrc-grey);
+      line-height: 1.6;
+      flex: 1;
+    }
+  </style>
+</head>
+<body data-page="blog">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Journal</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="marketplace.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Journal</a>
+  </div>
+
+  <main class="rrc-main">
+    <section class="rrc-section">
+      <div class="rrc-container rrc-reveal revealed">
+        <p class="rrc-eyebrow">The RRC Journal</p>
+        <h1>Insights, Guides & Luxury Marques</h1>
+        <p>Expert automotive advice, market developments, and Range Rover ownership guides.</p>
+      </div>
+    </section>
+
+    <section class="rrc-section">
+      <div class="rrc-container">
+        <div class="blog-grid" id="blogGrid">
+          <!-- Populated from Sanity CMS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p data-sanity="address">Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p data-sanity="phone">+254 790 374 141</p>
+        <p data-sanity="email">info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="marketplace.html">Marketplace</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="blog.html">Journal</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+  </footer>
+
+  <script src="js/vehicle-data.js"></script>
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script>
+    const samplePosts = [
+      {
+        title: "The Ultimate Range Rover Buyer's Guide in Kenya",
+        slug: { current: "range-rover-buyers-guide-kenya" },
+        category: "Guides",
+        coverImageUrl: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format",
+        excerpt: "Navigating duty, terrain response considerations, and full provenance checks for luxury SUVs in East Africa.",
+        publishedAt: "2026-08-15"
+      },
+      {
+        title: "Preventative Maintenance for SDV6 and V8 Supercharged Engines",
+        slug: { current: "maintaining-sdv6-v8-engines" },
+        category: "Maintenance",
+        coverImageUrl: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format",
+        excerpt: "Key diagnostic intervals, suspension calibration, and fluids to keep your vehicle performing at peak factory specifications.",
+        publishedAt: "2026-08-10"
+      },
+      {
+        title: "Direct UK & Japan Sourcing: How RRC Handles Import Logistics",
+        slug: { current: "direct-uk-japan-sourcing-guide" },
+        category: "Insights",
+        coverImageUrl: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900&auto=format",
+        excerpt: "How our acquisition specialists inspect, certify, and clear custom vehicles straight to your doorstep.",
+        publishedAt: "2026-08-01"
+      }
+    ];
+
+    const renderPosts = (posts) => {
+      const grid = document.getElementById("blogGrid");
+      if (!grid) return;
+      grid.innerHTML = "";
+      const displayPosts = (posts && posts.length > 0) ? posts : samplePosts;
+
+      displayPosts.forEach(post => {
+        const slug = post.slug?.current || post.slug || "#";
+        const cover = post.coverImageUrl || "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format";
+        const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-GB", { month: "short", day: "numeric", year: "numeric" }) : "";
+        const card = document.createElement("article");
+        card.className = "blog-card";
+        card.innerHTML = `
+          <div class="blog-card-media">
+            <img src="${cover}" alt="${post.title}" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">${post.category || "Journal"} ${date ? `· ${date}` : ""}</div>
+            <h3 class="blog-card-title">${post.title}</h3>
+            <p class="blog-card-excerpt">${post.excerpt || ""}</p>
+            <a class="rrc-card-action" href="blog-post.html?post=${encodeURIComponent(slug)}">Read Story →</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    };
+
+    renderPosts(window.RRC_POSTS);
+
+    document.addEventListener("rrc:data-ready", (e) => {
+      if (e.detail?.posts && e.detail.posts.length > 0) {
+        renderPosts(e.detail.posts);
+      }
+    });
+  </script>
+</body>
+</html>

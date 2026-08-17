@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article | Range Rover Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/rrc-root.css" />
+  <link rel="stylesheet" href="css/rrc-layout.css" />
+  <link rel="stylesheet" href="css/rrc-components.css" />
+  <link rel="stylesheet" href="css/marketplace.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .article-hero-media {
+      width: 100%;
+      height: 440px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      margin: var(--sp-4) 0;
+    }
+    .article-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .article-content {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--rrc-charcoal);
+      display: grid;
+      gap: var(--sp-3);
+    }
+    .article-content h2, .article-content h3 {
+      font-family: var(--font-display);
+      margin-top: var(--sp-4);
+    }
+    .article-content p {
+      color: var(--rrc-charcoal);
+    }
+  </style>
+</head>
+<body data-page="blog-post">
+  <nav class="rrc-nav" aria-label="Primary">
+    <div class="rrc-container">
+      <a class="rrc-logo" href="index.html">RRC</a>
+      <div class="rrc-nav-links">
+        <a href="marketplace.html">Marketplace</a>
+        <a href="import.html">Import a Car</a>
+        <a href="sell.html">Sell Your Car</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Journal</a>
+      </div>
+      <div class="rrc-nav-cta">
+        <a class="rrc-button rrc-button-primary" href="marketplace.html">Find My Car</a>
+      </div>
+      <button class="rrc-nav-toggle" id="rrcNavToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="rrcNavOverlay">Menu</button>
+    </div>
+  </nav>
+
+  <div class="rrc-nav-overlay" id="rrcNavOverlay" aria-hidden="true">
+    <button id="rrcNavClose" aria-label="Close navigation">X</button>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="import.html">Import a Car</a>
+    <a href="sell.html">Sell Your Car</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Journal</a>
+  </div>
+
+  <main class="rrc-main">
+    <article class="rrc-section">
+      <div class="rrc-container article-container rrc-reveal revealed">
+        <p class="rrc-eyebrow" id="postCategory">Journal</p>
+        <h1 id="postTitle">Article Title</h1>
+        <div class="vehicle-meta" id="postMeta">By RRC Team</div>
+
+        <div class="article-hero-media" id="postMedia">
+          <img id="postCover" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format" alt="Cover" />
+        </div>
+
+        <div class="article-content" id="postContent">
+          <p id="postExcerpt">Loading article details...</p>
+        </div>
+
+        <div style="margin-top: var(--sp-5); border-top: 1px solid var(--rrc-sand); padding-top: var(--sp-4);">
+          <a class="rrc-button rrc-button-outline" href="blog.html">← Back to Journal</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="rrc-footer">
+    <div class="rrc-container rrc-footer-grid">
+      <div>
+        <p class="rrc-logo">RRC</p>
+        <p data-sanity="address">Ridgeways, Kiambu Road, Nairobi</p>
+      </div>
+      <div>
+        <p><strong>Contact</strong></p>
+        <p data-sanity="phone">+254 790 374 141</p>
+        <p data-sanity="email">info@rangerovercentre.co.ke</p>
+      </div>
+      <div>
+        <p><strong>Navigate</strong></p>
+        <p><a href="marketplace.html">Marketplace</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="blog.html">Journal</a></p>
+      </div>
+    </div>
+    <div class="rrc-container"><small>Range Rover Centre · Nairobi · Est. 2016</small></div>
+  </footer>
+
+  <script src="js/vehicle-data.js"></script>
+  <script src="js/rrc-nav.js"></script>
+  <script src="js/rrc-reveal.js"></script>
+  <script>
+    const samplePosts = {
+      "range-rover-buyers-guide-kenya": {
+        title: "The Ultimate Range Rover Buyer's Guide in Kenya",
+        category: "Guides",
+        author: "RRC Concierge Team",
+        publishedAt: "2026-08-15",
+        coverImageUrl: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&auto=format",
+        excerpt: "Navigating duty, terrain response considerations, and full provenance checks for luxury SUVs in East Africa.",
+        bodyText: `
+          <p>Buying a Range Rover in Kenya requires a thorough understanding of duty structures, model variants, and local terrain requirements. Whether selecting a Range Rover Sport, Velar, or the flagship Autobiography, provenance is the single most important factor in long-term satisfaction.</p>
+          <h2>1. Fuel & Engine Selection</h2>
+          <p>The 3.0L SDV6 and D300 diesel powertrains provide massive low-end torque ideal for long distance travel between Nairobi, Naivasha, and the coast with superior fuel economy. For enthusiasts seeking performance, the 5.0L Supercharged V8 offers unmatched responsiveness and exhaust acoustics.</p>
+          <h2>2. Service History & Logbook Verification</h2>
+          <p>Every vehicle in our curated marketplace undergoes a 120-point diagnostic inspection, ECU scan, and verification of genuine mileage and maintenance records.</p>
+        `
+      }
+    };
+
+    const renderPostDetails = () => {
+      const params = new URLSearchParams(window.location.search);
+      const postSlug = params.get("post") || "range-rover-buyers-guide-kenya";
+
+      const livePost = (window.RRC_POSTS || []).find(p => (p.slug?.current || p.slug) === postSlug);
+      const post = livePost || samplePosts[postSlug] || samplePosts["range-rover-buyers-guide-kenya"];
+
+      if (!post) return;
+
+      document.title = `${post.title} | RRC Journal`;
+      document.getElementById("postTitle").textContent = post.title;
+      document.getElementById("postCategory").textContent = post.category || "Journal";
+      
+      const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-GB", { month: "long", day: "numeric", year: "numeric" }) : "";
+      document.getElementById("postMeta").textContent = `${post.author || "RRC Concierge"} · ${date}`;
+
+      if (post.coverImageUrl) {
+        document.getElementById("postCover").src = post.coverImageUrl;
+      }
+
+      const contentEl = document.getElementById("postContent");
+      if (livePost && Array.isArray(livePost.body)) {
+        // Simple portable text renderer
+        contentEl.innerHTML = livePost.body.map(block => {
+          if (block._type === 'block' && block.children) {
+            const text = block.children.map(c => c.text).join('');
+            if (block.style === 'h2') return `<h2>${text}</h2>`;
+            if (block.style === 'h3') return `<h3>${text}</h3>`;
+            return `<p>${text}</p>`;
+          }
+          return '';
+        }).join('');
+      } else if (post.bodyText) {
+        contentEl.innerHTML = post.bodyText;
+      } else {
+        contentEl.innerHTML = `<p>${post.excerpt || ""}</p>`;
+      }
+    };
+
+    renderPostDetails();
+    document.addEventListener("rrc:data-ready", renderPostDetails);
+  </script>
+</body>
+</html>
