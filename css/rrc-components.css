@@ -227,45 +227,117 @@
   margin-top: 12px;
   overflow-x: auto;
   padding-bottom: 4px;
+/* ==========================================================================
+   CAKE Makka Work Scandinavian Product Details & Dossier (4-Resolution Responsive)
+   ========================================================================== */
+
+.rrc-dossier-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: var(--sp-6);
+  align-items: start;
+}
+
+.rrc-dossier-hero {
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0D0D0E;
+  border: 1px solid var(--rrc-mist);
+  cursor: zoom-in;
+  position: relative;
+}
+
+.rrc-dossier-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rrc-dossier-hero:hover img {
+  transform: scale(1.02);
+}
+
+.rrc-dossier-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rrc-dossier-thumbs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.rrc-dossier-thumbs::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 2px;
+}
+
+.rrc-dossier-thumbs::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
 }
 
 .detail-thumb-item {
-  width: 80px;
-  height: 54px;
+  width: 88px;
+  height: 58px;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid var(--rrc-border);
+  border: 1px solid var(--rrc-mist);
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.65;
   transition: all var(--t-fast);
   flex-shrink: 0;
+  background: #000;
 }
 
 .detail-thumb-item.active,
 .detail-thumb-item:hover {
   opacity: 1;
-  border-color: var(--rrc-text-primary);
+  border-color: #0A0A0A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .detail-thumb-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.rrc-dossier-sidebar {
+  position: sticky;
+  top: 88px;
+  background: #FBFBF9;
+  border: 1px solid var(--rrc-mist);
+  border-radius: 6px;
+  padding: var(--sp-5);
+  display: grid;
+  gap: var(--sp-4);
 }
 
 .rrc-dossier-specs-table {
   display: grid;
-  border: 1px solid var(--rrc-border);
+  border: 1px solid var(--rrc-mist);
   border-radius: 6px;
   padding: var(--sp-4);
+  background: #FBFBF9;
 }
 
 .rrc-dossier-row {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--rrc-border);
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rrc-mist);
   font-size: 13px;
+  gap: 14px;
 }
 
 .rrc-dossier-row:last-child {
@@ -273,12 +345,19 @@
 }
 
 .rrc-dossier-row span:first-child {
+  font-family: var(--font-mono);
+  font-size: 11px;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+  flex-shrink: 0;
 }
 
 .rrc-dossier-row span:last-child {
   font-weight: 600;
-  color: var(--rrc-text-primary);
+  color: #0A0A0A;
+  text-align: right;
+  word-break: break-word;
 }
 
 /* Lightbox Modal */
@@ -287,10 +366,12 @@
   inset: 0;
   background: rgba(11, 11, 12, 0.95);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 2000;
+  padding: var(--sp-4);
 }
 
 .rrc-lightbox.open {
@@ -298,23 +379,33 @@
 }
 
 .rrc-lightbox img {
-  max-width: 90vw;
-  max-height: 88vh;
+  max-width: 92vw;
+  max-height: 90vh;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .rrc-lightbox-close {
   position: absolute;
   top: 24px;
   right: 24px;
-  background: transparent;
-  border: 1px solid var(--rrc-border);
-  color: var(--rrc-text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFF;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background var(--t-fast);
+}
+
+.rrc-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* CAKE Makka Work Sticky Bottom Action Bar */
@@ -328,6 +419,7 @@
   -webkit-backdrop-filter: blur(24px);
   border-top: 1px solid var(--rrc-mist);
   padding: 12px 0;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
   z-index: 1100;
   box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.08);
   transform: translateY(100%);
@@ -352,8 +444,8 @@
 }
 
 .rrc-cake-sticky-thumb {
-  width: 52px;
-  height: 36px;
+  width: 56px;
+  height: 38px;
   border-radius: 4px;
   overflow: hidden;
   background: #000;
@@ -364,6 +456,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* CAKE Scandinavian Feature Grid */
@@ -421,17 +514,109 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* ==========================================================================
+   4-RESOLUTION RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* 1. 8K & 4K Ultra-Wide Displays (> 2560px) */
+@media (min-width: 2560px) {
+  .rrc-dossier-layout {
+    grid-template-columns: minmax(0, 1fr) 520px;
+    gap: var(--sp-8);
+  }
+  .detail-thumb-item {
+    width: 120px;
+    height: 78px;
+  }
+  .rrc-cake-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+  }
+  .rrc-dossier-specs-table {
+    padding: var(--sp-6);
+  }
+  .rrc-dossier-row {
+    padding: 16px 0;
+    font-size: 16px;
+  }
+}
+
+/* 2. 1080p Desktop Displays (1025px – 1920px) */
+@media (min-width: 1025px) and (max-width: 1920px) {
+  .rrc-dossier-layout {
+    grid-template-columns: minmax(0, 1fr) 380px;
+  }
+  .rrc-cake-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 3. Tablet Displays (769px – 1024px) */
 @media (max-width: 1024px) {
-  .rrc-dossier-layout { grid-template-columns: 1fr; }
-  .rrc-dossier-sidebar { position: static; }
+  .rrc-dossier-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+  .rrc-dossier-sidebar {
+    position: static;
+    margin-top: var(--sp-4);
+  }
+  .rrc-cake-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .detail-thumb-item {
+    width: 80px;
+    height: 54px;
+  }
 }
 
+/* 4. Mobile Phone Displays (< 768px) */
 @media (max-width: 768px) {
+  .rrc-dossier-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+  .rrc-dossier-sidebar {
+    position: static;
+    padding: var(--sp-4);
+  }
+  .rrc-dossier-hero {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+  }
+  .rrc-cake-image-frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+  }
+  .rrc-cake-features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+  .detail-thumb-item {
+    width: 70px;
+    height: 48px;
+  }
+  .rrc-dossier-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 0;
+  }
+  .rrc-dossier-row span:last-child {
+    text-align: left;
+  }
   .rrc-cake-sticky-inner {
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: 10px;
+  }
+  .rrc-cake-sticky-inner .rrc-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }
+

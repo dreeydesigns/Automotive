@@ -185,10 +185,10 @@ p {
   background: #F59E0B;
 }
 
-/* Layout Containers (Section 06) */
+/* Layout Containers (Section 06 - 4-Resolution Responsive) */
 .rrc-container {
   width: 100%;
-  max-width: 1520px;
+  max-width: clamp(1200px, 90vw, 1560px);
   margin: 0 auto;
   padding: 0 var(--sp-5);
 }
@@ -198,6 +198,19 @@ p {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 var(--sp-5);
+}
+
+@media (min-width: 2560px) {
+  .rrc-container {
+    max-width: clamp(1800px, 85vw, 2400px);
+    padding: 0 var(--sp-7);
+  }
+}
+
+@media (max-width: 768px) {
+  .rrc-container, .rrc-container-narrow {
+    padding: 0 var(--sp-4);
+  }
 }
 
 .rrc-section {

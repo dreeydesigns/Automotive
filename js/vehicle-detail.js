@@ -45,8 +45,8 @@
     wrapper.setAttribute("data-thumb", "");
     wrapper.setAttribute("data-src", image.src);
     wrapper.setAttribute("data-srcset", image.srcset || image.src);
-    wrapper.setAttribute("data-alt", image.alt);
-    wrapper.innerHTML = `<img src="${image.thumb || image.src}" loading="lazy" alt="${image.alt} thumbnail" />`;
+    wrapper.setAttribute("data-alt", image.alt || "Vehicle Angle");
+    wrapper.innerHTML = `<img src="${image.thumb || image.src}" loading="lazy" alt="${image.alt || 'Vehicle Thumbnail'}" />`;
     return wrapper;
   };
 
@@ -63,25 +63,59 @@
     }
   };
 
+  const resolveVehicle = (requestedId, vehicles) => {
+    if (!vehicles || Object.keys(vehicles).length === 0) return null;
+    const vList = Object.values(vehicles);
+    if (!requestedId) return vList[0];
+
+    const reqNorm = decodeURIComponent(requestedId).toLowerCase().trim();
+
+    // 1. Direct dictionary match
+    if (vehicles[requestedId]) return vehicles[requestedId];
+    if (vehicles[reqNorm]) return vehicles[reqNorm];
+
+    // 2. Exact match by slug or id property
+    const exact = vList.find(v => (v.id && v.id.toLowerCase() === reqNorm) || (v._id && v._id.toLowerCase() === reqNorm));
+    if (exact) return exact;
+
+    // 3. Normalized fuzzy keyword match (e.g. 'land-rover-discovery-4-2011-diesel' -> matches Discovery 4 2011)
+    const keywords = reqNorm.split(/[-_\s]+/).filter(k => k.length > 2);
+    let bestMatch = null;
+    let maxMatches = 0;
+
+    vList.forEach(v => {
+      const vText = `${v.id || ""} ${v.name || ""} ${v.trim || ""} ${v.year || ""} ${v.model || ""}`.toLowerCase();
+      const matchCount = keywords.filter(kw => vText.includes(kw)).length;
+      if (matchCount > maxMatches) {
+        maxMatches = matchCount;
+        bestMatch = v;
+      }
+    });
+
+    if (bestMatch && maxMatches >= 1) return bestMatch;
+
+    // 4. Default to first motorcar
+    return vList[0];
+  };
+
   const renderVehicle = () => {
     const vehicles = window.RRC_VEHICLES || {};
-    const params = new URLSearchParams(window.location.search);
     const keys = Object.keys(vehicles);
     if (keys.length === 0) return;
 
+    const params = new URLSearchParams(window.location.search);
     const requestedId = params.get("car");
-    // Match requested ID or fallback to Discovery 4 if available, otherwise first vehicle
-    const vehicle = (requestedId && vehicles[requestedId]) || vehicles["land-rover-discovery-4-2011-sdv6-hse"] || vehicles[keys[0]];
+    const vehicle = resolveVehicle(requestedId, vehicles);
 
     if (!vehicle) return;
 
-    updateText("name", `${vehicle.name} ${vehicle.trim}`);
-    updateText("subtitle", `${vehicle.year} · ${vehicle.trim}`);
-    updateText("price", vehicle.price);
+    updateText("name", `${vehicle.name} ${vehicle.trim || ""}`.trim());
+    updateText("subtitle", `${vehicle.year} · ${vehicle.trim || "Certified"} · ${vehicle.location || "Nairobi"}`);
+    updateText("price", vehicle.price || "Price Upon Request");
     updateText("engine", vehicle.engine || "3.0L SDV6 Twin-Turbo");
     updateText("power", vehicle.power || "241 HP / 600 Nm");
-    updateText("mileage", vehicle.mileage || "45,000 KM");
-    updateText("transmission", vehicle.transmission || "8-Speed Automatic");
+    updateText("mileage", vehicle.mileage || "Verified Odometer");
+    updateText("transmission", vehicle.transmission || "Automatic");
     updateText("drivetrain", vehicle.drivetrain || "Permanent 4WD / Terrain Response");
     updateText("exterior", vehicle.exterior || "Santorini Black Metallic");
     updateText("interior", vehicle.interior || "Windsor Leather");
@@ -94,15 +128,15 @@
 
     // Key facts tags
     updateText("yearTag", `Year: ${vehicle.year}`);
-    updateText("mileageTag", `Mileage: ${vehicle.mileage}`);
+    updateText("mileageTag", `Mileage: ${vehicle.mileage || "Verified"}`);
     updateText("fuelTag", `Fuel: ${vehicle.fuel ? vehicle.fuel.charAt(0).toUpperCase() + vehicle.fuel.slice(1) : "Diesel"}`);
-    updateText("transmissionTag", `Transmission: ${vehicle.transmission}`);
+    updateText("transmissionTag", `Transmission: ${vehicle.transmission || "Automatic"}`);
     updateText("warrantyTag", `Warranty: ${vehicle.warranty || "6 Months"}`);
 
     updateLink("finance", `finance.html?car=${encodeURIComponent(vehicle.id)}`);
     updateLink("insurance", `insurance.html?car=${encodeURIComponent(vehicle.id)}`);
 
-    const msg = encodeURIComponent(`Hello Range Rover Centre, I am interested in acquiring the ${vehicle.name} ${vehicle.trim} (${vehicle.year}) priced at ${vehicle.price} (Stock Ref: ${vehicle.stockId}). Please provide the full provenance and atelier inspection file.`);
+    const msg = encodeURIComponent(`Hello Range Rover Centre, I am interested in acquiring the ${vehicle.name} ${vehicle.trim || ""} (${vehicle.year}) priced at ${vehicle.price} (Ref: ${vehicle.stockId || vehicle.id}). Please provide the provenance file.`);
     if (whatsappBtn) whatsappBtn.href = `https://wa.me/254790374141?text=${msg}`;
     if (stickyWhatsappBtn) stickyWhatsappBtn.href = `https://wa.me/254790374141?text=${msg}`;
 
@@ -120,7 +154,7 @@
       stackImg1.src = (vehicle.images[1] ? vehicle.images[1].src : vehicle.images[0].src);
     }
     if (stackImg2 && vehicle.images) {
-      stackImg2.src = (vehicle.images[2] ? vehicle.images[2].src : vehicle.images[0].src);
+      stackImg2.src = (vehicle.images[2] ? vehicle.images[2].src : (vehicle.images[1] ? vehicle.images[1].src : vehicle.images[0].src));
     }
 
     if (thumbsContainer && vehicle.images && vehicle.images.length) {
@@ -138,15 +172,15 @@
       otherVehicles.forEach(sim => {
         const simImg = (sim.images && sim.images[0]) ? sim.images[0].src : "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=900&auto=format";
         const simCard = document.createElement("article");
-        simCard.className = "rrc-showroom-card rrc-reveal";
+        simCard.className = "rrc-showroom-card rrc-reveal revealed";
         simCard.innerHTML = `
-          <div class="rrc-showroom-media rrc-clip-reveal">
+          <div class="rrc-showroom-media">
             <img src="${simImg}" alt="${sim.name}" loading="lazy" />
           </div>
           <div class="rrc-showroom-body">
             <span class="rrc-mono-tag ${sim.availability === 'import' ? 'clay' : 'green'}">${sim.availability === 'import' ? 'UK In Transit' : 'Nairobi Ready'}</span>
             <div class="rrc-showroom-header">
-              <h3 class="rrc-showroom-title">${sim.name} ${sim.trim}</h3>
+              <h3 class="rrc-showroom-title">${sim.name} ${sim.trim || ""}</h3>
               <span class="rrc-showroom-price">${sim.price}</span>
             </div>
             <div class="rrc-showroom-specs">
@@ -163,10 +197,16 @@
       });
     }
 
-    document.title = `${vehicle.name} ${vehicle.trim} | Range Rover & Land Rover Centre`;
+    document.title = `${vehicle.name} ${vehicle.trim || ""} | Range Rover & Land Rover Centre`;
   };
 
-  renderVehicle();
+  if (window.RRC_FETCH_PROMISE) {
+    window.RRC_FETCH_PROMISE.then(() => {
+      renderVehicle();
+    });
+  } else if (window.RRC_VEHICLES && Object.keys(window.RRC_VEHICLES).length > 0) {
+    renderVehicle();
+  }
 
   document.addEventListener("rrc:vehicles-ready", () => {
     renderVehicle();
