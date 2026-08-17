@@ -433,51 +433,8 @@
           <a class="rrc-btn rrc-btn-secondary" href="blog.html">Explore Journal →</a>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-5);">
-          <!-- Article 01 -->
-          <article class="rrc-journey-card rrc-reveal">
-            <div class="rrc-journey-media rrc-clip-reveal">
-              <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&auto=format" alt="Buyer's Guide" loading="lazy" />
-            </div>
-            <div class="rrc-journey-body">
-              <span class="rrc-mono-tag">Guides · 6 Min Read</span>
-              <h4>The Ultimate Range Rover Buyer's Guide in Kenya</h4>
-              <p style="font-size: 13px; margin: 0;">Navigating duty, terrain response considerations, and full provenance checks.</p>
-              <div style="margin-top: 8px;">
-                <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="blog-post.html?post=range-rover-buyers-guide-kenya">Read Chronicle →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Article 02 -->
-          <article class="rrc-journey-card rrc-reveal">
-            <div class="rrc-journey-media rrc-clip-reveal">
-              <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&auto=format" alt="Maintenance" loading="lazy" />
-            </div>
-            <div class="rrc-journey-body">
-              <span class="rrc-mono-tag">Maintenance · 5 Min Read</span>
-              <h4>Maintaining SDV6 and V8 Supercharged Engines</h4>
-              <p style="font-size: 13px; margin: 0;">Key diagnostic intervals, pneumatic calibration, and fluids for factory tolerance.</p>
-              <div style="margin-top: 8px;">
-                <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="blog.html">Read Chronicle →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Article 03 -->
-          <article class="rrc-journey-card rrc-reveal">
-            <div class="rrc-journey-media rrc-clip-reveal">
-              <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&auto=format" alt="Sourcing" loading="lazy" />
-            </div>
-            <div class="rrc-journey-body">
-              <span class="rrc-mono-tag">Insights · 4 Min Read</span>
-              <h4>Direct UK & Japan Sourcing: The RRC Protocol</h4>
-              <p style="font-size: 13px; margin: 0;">How our acquisition team inspects and clears custom vehicles to your doorstep.</p>
-              <div style="margin-top: 8px;">
-                <a class="rrc-btn rrc-btn-secondary rrc-btn-full" href="blog.html">Read Chronicle →</a>
-              </div>
-            </div>
-          </article>
+        <div id="homepageBlogGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--sp-5);">
+          <!-- Dynamically populated from Sanity CMS post documents via js/vehicle-data.js -->
         </div>
       </div>
     </section>

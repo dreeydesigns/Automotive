@@ -7,12 +7,14 @@ export const siteSettingsType = defineType({
   groups: [
     { name: 'hero', title: '1. Hero & Video' },
     { name: 'story', title: '2. Story Narrative' },
-    { name: 'featured', title: '3. Featured Vehicle' },
-    { name: 'kenya', title: '4. Kenya Section' },
-    { name: 'workshop', title: '5. Atelier & Workshop' },
-    { name: 'centre', title: '6. Ridgeways Centre' },
-    { name: 'close', title: '7. Confidence Close' },
-    { name: 'footer', title: '8. Contacts & Footer' },
+    { name: 'models', title: '3. Model Switcher (6 Models)' },
+    { name: 'featured', title: '4. Featured Spotlight' },
+    { name: 'journey', title: '5. 5-Frame Journey Strip' },
+    { name: 'kenya', title: '6. Kenya Section' },
+    { name: 'workshop', title: '7. Atelier & Workshop Bays' },
+    { name: 'centre', title: '8. Ridgeways Centre' },
+    { name: 'close', title: '9. Confidence Close' },
+    { name: 'footer', title: '10. Contacts & Footer' },
   ],
   fields: [
     // ------------------------------------------------------------------------
@@ -37,7 +39,7 @@ export const siteSettingsType = defineType({
         'READY FOR THE DISTANCE.',
         'BUILT FOR BOTH.'
       ],
-      description: 'The headlines that rewrite smoothly as the visitor scrolls down.',
+      description: 'Headlines that rewrite smoothly as the visitor scrolls down.',
     }),
     defineField({
       name: 'heroSubtitle',
@@ -45,15 +47,14 @@ export const siteSettingsType = defineType({
       type: 'text',
       group: 'hero',
       rows: 3,
-      initialValue:
-        'Two British automotive legacies. Handcrafted for peerless refinement, verified for the Great Rift Valley and Kenyan terrain.',
+      initialValue: 'Two British automotive legacies. Handcrafted for peerless refinement, verified for the Great Rift Valley and Kenyan terrain.',
     }),
     defineField({
       name: 'heroVideoUrl',
       title: 'Hero Background Video URL (MP4 / WebM)',
       type: 'url',
       group: 'hero',
-      description: 'Provide a direct link to an MP4 video file or leave blank to use the background image.',
+      description: 'Provide a direct link to an MP4 video file.',
       initialValue: 'https://assets.mixkit.co/videos/preview/mixkit-car-driving-on-a-road-in-nature-4261-large.mp4',
     }),
     defineField({
@@ -62,7 +63,7 @@ export const siteSettingsType = defineType({
       type: 'image',
       group: 'hero',
       options: { hotspot: true },
-      description: 'Upload a high-resolution photo to replace the current hero background image.',
+      description: 'Upload a high-resolution photo to replace the hero background.',
     }),
     defineField({
       name: 'heroPrimaryCtaText',
@@ -149,7 +150,230 @@ export const siteSettingsType = defineType({
     }),
 
     // ------------------------------------------------------------------------
-    // 3. FEATURED PRODUCT SPOTLIGHT
+    // 3. MODEL FAMILY SHOWCASE (ALL 6 MODELS)
+    // ------------------------------------------------------------------------
+    defineField({
+      name: 'modelRangeRoverTitle',
+      title: '1. Range Rover - Title',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Range Rover',
+    }),
+    defineField({
+      name: 'modelRangeRoverDesc',
+      title: '1. Range Rover - Description',
+      type: 'text',
+      group: 'models',
+      rows: 2,
+      initialValue: 'Peerless refinement and effortless capability. The definitive luxury SUV for cross-county travel across East Africa.',
+    }),
+    defineField({
+      name: 'modelRangeRoverPower',
+      title: '1. Range Rover - Peak Power',
+      type: 'string',
+      group: 'models',
+      initialValue: '523 HP',
+    }),
+    defineField({
+      name: 'modelRangeRoverZeroSixty',
+      title: '1. Range Rover - 0-100 KM/H',
+      type: 'string',
+      group: 'models',
+      initialValue: '4.4s',
+    }),
+    defineField({
+      name: 'modelRangeRoverDrive',
+      title: '1. Range Rover - Drivetrain',
+      type: 'string',
+      group: 'models',
+      initialValue: 'AWD / Steering',
+    }),
+    defineField({
+      name: 'modelRangeRoverImg',
+      title: '1. Range Rover - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'models',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'modelSportTitle',
+      title: '2. Range Rover Sport - Title',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Range Rover Sport',
+    }),
+    defineField({
+      name: 'modelSportDesc',
+      title: '2. Range Rover Sport - Description',
+      type: 'text',
+      group: 'models',
+      rows: 2,
+      initialValue: 'Visceral, dramatic, and uncompromisingly agile. Dynamic air suspension with switchable volume chambers.',
+    }),
+    defineField({
+      name: 'modelSportPower',
+      title: '2. Range Rover Sport - Peak Power',
+      type: 'string',
+      group: 'models',
+      initialValue: '523 HP',
+    }),
+    defineField({
+      name: 'modelSportZeroSixty',
+      title: '2. Range Rover Sport - 0-100 KM/H',
+      type: 'string',
+      group: 'models',
+      initialValue: '4.3s',
+    }),
+    defineField({
+      name: 'modelSportDrive',
+      title: '2. Range Rover Sport - Drivetrain',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Dynamic AWD',
+    }),
+    defineField({
+      name: 'modelSportImg',
+      title: '2. Range Rover Sport - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'models',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'modelVelarTitle',
+      title: '3. Range Rover Velar - Title',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Range Rover Velar',
+    }),
+    defineField({
+      name: 'modelVelarDesc',
+      title: '3. Range Rover Velar - Description',
+      type: 'text',
+      group: 'models',
+      rows: 2,
+      initialValue: 'Avant-garde proportions with flush deployable door handles and pure reductionist design language.',
+    }),
+    defineField({
+      name: 'modelVelarPower',
+      title: '3. Range Rover Velar - Peak Power',
+      type: 'string',
+      group: 'models',
+      initialValue: '300 HP',
+    }),
+    defineField({
+      name: 'modelVelarZeroSixty',
+      title: '3. Range Rover Velar - 0-100 KM/H',
+      type: 'string',
+      group: 'models',
+      initialValue: '6.1s',
+    }),
+    defineField({
+      name: 'modelVelarDrive',
+      title: '3. Range Rover Velar - Drivetrain',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Intelligent AWD',
+    }),
+    defineField({
+      name: 'modelVelarImg',
+      title: '3. Range Rover Velar - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'models',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'modelDefenderTitle',
+      title: '4. Land Rover Defender - Title',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Land Rover Defender',
+    }),
+    defineField({
+      name: 'modelDefenderDesc',
+      title: '4. Land Rover Defender - Description',
+      type: 'text',
+      group: 'models',
+      rows: 2,
+      initialValue: 'An icon reimagined for the 21st century. Monocoque D7x architecture tested over 1.2 million kilometers of extreme terrain.',
+    }),
+    defineField({
+      name: 'modelDefenderPower',
+      title: '4. Land Rover Defender - Peak Power',
+      type: 'string',
+      group: 'models',
+      initialValue: '518 HP',
+    }),
+    defineField({
+      name: 'modelDefenderZeroSixty',
+      title: '4. Land Rover Defender - 0-100 KM/H',
+      type: 'string',
+      group: 'models',
+      initialValue: '4.9s',
+    }),
+    defineField({
+      name: 'modelDefenderDrive',
+      title: '4. Land Rover Defender - Drivetrain',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Permanent 4WD',
+    }),
+    defineField({
+      name: 'modelDefenderImg',
+      title: '4. Land Rover Defender - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'models',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'modelDiscoveryTitle',
+      title: '5. Land Rover Discovery - Title',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Land Rover Discovery',
+    }),
+    defineField({
+      name: 'modelDiscoveryDesc',
+      title: '5. Land Rover Discovery - Description',
+      type: 'text',
+      group: 'models',
+      rows: 2,
+      initialValue: 'Seven full-sized adult seats, 3,500kg towing capacity, and intelligent seat fold technology for seamless family expeditions.',
+    }),
+    defineField({
+      name: 'modelDiscoveryPower',
+      title: '5. Land Rover Discovery - Peak Power',
+      type: 'string',
+      group: 'models',
+      initialValue: '300 HP',
+    }),
+    defineField({
+      name: 'modelDiscoveryZeroSixty',
+      title: '5. Land Rover Discovery - 0-100 KM/H',
+      type: 'string',
+      group: 'models',
+      initialValue: '6.5s',
+    }),
+    defineField({
+      name: 'modelDiscoveryDrive',
+      title: '5. Land Rover Discovery - Drivetrain',
+      type: 'string',
+      group: 'models',
+      initialValue: 'Twin-Speed 4WD',
+    }),
+    defineField({
+      name: 'modelDiscoveryImg',
+      title: '5. Land Rover Discovery - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'models',
+      options: { hotspot: true },
+    }),
+
+    // ------------------------------------------------------------------------
+    // 4. FEATURED PRODUCT SPOTLIGHT
     // ------------------------------------------------------------------------
     defineField({
       name: 'featuredEyebrow',
@@ -200,11 +424,124 @@ export const siteSettingsType = defineType({
       title: 'Featured Button Link',
       type: 'string',
       group: 'featured',
-      initialValue: 'vehicle-detail.html?car=land-rover-defender-110-v8-carpathian',
+      initialValue: 'marketplace.html',
     }),
 
     // ------------------------------------------------------------------------
-    // 4. THE KENYA SECTION
+    // 5. 5-FRAME JOURNEY STRIP
+    // ------------------------------------------------------------------------
+    defineField({
+      name: 'journeyFrame1Title',
+      title: 'Frame 1 - Title',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Solihull Precision',
+    }),
+    defineField({
+      name: 'journeyFrame1Desc',
+      title: 'Frame 1 - Description',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Uncompromising manufacturing standards and clean service provenance.',
+    }),
+    defineField({
+      name: 'journeyFrame1Img',
+      title: 'Frame 1 - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'journey',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'journeyFrame2Title',
+      title: 'Frame 2 - Title',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Nairobi Arteries',
+    }),
+    defineField({
+      name: 'journeyFrame2Desc',
+      title: 'Frame 2 - Description',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Effortless poise across city roundabouts, expressways, and urban rhythm.',
+    }),
+    defineField({
+      name: 'journeyFrame2Img',
+      title: 'Frame 2 - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'journey',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'journeyFrame3Title',
+      title: 'Frame 3 - Title',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Rift Valley Descent',
+    }),
+    defineField({
+      name: 'journeyFrame3Desc',
+      title: 'Frame 3 - Description',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Dynamic air suspension adapting to elevation drops and steep gradients.',
+    }),
+    defineField({
+      name: 'journeyFrame3Img',
+      title: 'Frame 3 - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'journey',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'journeyFrame4Title',
+      title: 'Frame 4 - Title',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Laikipia Red Dust',
+    }),
+    defineField({
+      name: 'journeyFrame4Desc',
+      title: 'Frame 4 - Description',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Terrain Response 2 conquering unpaved savannah expanses effortlessly.',
+    }),
+    defineField({
+      name: 'journeyFrame4Img',
+      title: 'Frame 4 - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'journey',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'journeyFrame5Title',
+      title: 'Frame 5 - Title',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Homestead Sanctuary',
+    }),
+    defineField({
+      name: 'journeyFrame5Desc',
+      title: 'Frame 5 - Description',
+      type: 'string',
+      group: 'journey',
+      initialValue: 'Long-range grand touring luxury that arrives composed, every time.',
+    }),
+    defineField({
+      name: 'journeyFrame5Img',
+      title: 'Frame 5 - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'journey',
+      options: { hotspot: true },
+    }),
+
+    // ------------------------------------------------------------------------
+    // 6. THE KENYA SECTION
     // ------------------------------------------------------------------------
     defineField({
       name: 'kenyaEyebrow',
@@ -252,7 +589,7 @@ export const siteSettingsType = defineType({
     }),
 
     // ------------------------------------------------------------------------
-    // 5. ATELIER & WORKSHOP SECTION
+    // 7. ATELIER & WORKSHOP BAYS
     // ------------------------------------------------------------------------
     defineField({
       name: 'workshopEyebrow',
@@ -268,9 +605,100 @@ export const siteSettingsType = defineType({
       group: 'workshop',
       initialValue: "OWNERSHIP DOESN'T END AT DELIVERY.",
     }),
+    defineField({
+      name: 'bay1Title',
+      title: 'Bay 1 (Diagnostics) - Title',
+      type: 'string',
+      group: 'workshop',
+      initialValue: 'Factory Pathfinder & SDD Diagnostic Protocols',
+    }),
+    defineField({
+      name: 'bay1Desc',
+      title: 'Bay 1 (Diagnostics) - Description',
+      type: 'text',
+      group: 'workshop',
+      rows: 2,
+      initialValue: 'Full electronic control unit interrogation, module software flashes, real-time telemetry logging, and injector balance analysis.',
+    }),
+    defineField({
+      name: 'bay1Img',
+      title: 'Bay 1 (Diagnostics) - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'workshop',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'bay2Title',
+      title: 'Bay 2 (Maintenance) - Title',
+      type: 'string',
+      group: 'workshop',
+      initialValue: 'Scheduled Servicing & Powertrain Care',
+    }),
+    defineField({
+      name: 'bay2Desc',
+      title: 'Bay 2 (Maintenance) - Description',
+      type: 'text',
+      group: 'workshop',
+      rows: 2,
+      initialValue: 'Transmission fluid flushes, timing gear replacements for SDV6/V8 engines, and comprehensive preventative maintenance.',
+    }),
+    defineField({
+      name: 'bay2Img',
+      title: 'Bay 2 (Maintenance) - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'workshop',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'bay3Title',
+      title: 'Bay 3 (Parts) - Title',
+      type: 'string',
+      group: 'workshop',
+      initialValue: 'Direct Solihull Supply Chain',
+    }),
+    defineField({
+      name: 'bay3Desc',
+      title: 'Bay 3 (Parts) - Description',
+      type: 'text',
+      group: 'workshop',
+      rows: 2,
+      initialValue: '100% genuine Land Rover factory parts sourced directly from the UK with zero compromise on tolerances.',
+    }),
+    defineField({
+      name: 'bay3Img',
+      title: 'Bay 3 (Parts) - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'workshop',
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: 'bay4Title',
+      title: 'Bay 4 (Detailing) - Title',
+      type: 'string',
+      group: 'workshop',
+      initialValue: 'Atelier Detailing & Ceramic Protection',
+    }),
+    defineField({
+      name: 'bay4Desc',
+      title: 'Bay 4 (Detailing) - Description',
+      type: 'text',
+      group: 'workshop',
+      rows: 2,
+      initialValue: 'Paint depth correction, high-solids ceramic coatings, and interior semi-aniline leather hydration for Kenyan sunshine.',
+    }),
+    defineField({
+      name: 'bay4Img',
+      title: 'Bay 4 (Detailing) - Photo (Upload / Replace)',
+      type: 'image',
+      group: 'workshop',
+      options: { hotspot: true },
+    }),
 
     // ------------------------------------------------------------------------
-    // 6. RIDGEWAYS CENTRE (PHYSICAL LOCATION)
+    // 8. RIDGEWAYS CENTRE (PHYSICAL LOCATION)
     // ------------------------------------------------------------------------
     defineField({
       name: 'centreHeadline',
@@ -311,7 +739,7 @@ export const siteSettingsType = defineType({
     }),
 
     // ------------------------------------------------------------------------
-    // 7. CONFIDENCE CLOSE SECTION
+    // 9. CONFIDENCE CLOSE SECTION
     // ------------------------------------------------------------------------
     defineField({
       name: 'closeEyebrow',
@@ -344,7 +772,7 @@ export const siteSettingsType = defineType({
     }),
 
     // ------------------------------------------------------------------------
-    // 8. GLOBAL CONTACTS & FOOTER
+    // 10. GLOBAL CONTACTS & FOOTER
     // ------------------------------------------------------------------------
     defineField({
       name: 'phone',

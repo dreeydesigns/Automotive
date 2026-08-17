@@ -256,7 +256,7 @@
   const modelDrive = document.getElementById("rrcModelDrive");
   const modelLink = document.getElementById("rrcModelLink");
 
-  const modelShowcaseData = {
+  window.RRC_MODELS_DATA = window.RRC_MODELS_DATA || {
     "rangerover": {
       title: "Range Rover",
       desc: "Peerless refinement and effortless capability. The definitive luxury SUV for cross-county travel across East Africa.",
@@ -318,7 +318,7 @@
       modelTabs.forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
       const key = tab.getAttribute("data-model-tab");
-      const data = modelShowcaseData[key];
+      const data = window.RRC_MODELS_DATA[key];
       if (data) {
         if (modelTitle) modelTitle.textContent = data.title;
         if (modelDesc) modelDesc.textContent = data.desc;
@@ -346,7 +346,7 @@
   const workshopDesc = document.getElementById("rrcWorkshopDesc");
   const workshopTag = document.getElementById("rrcWorkshopTag");
 
-  const workshopData = {
+  window.RRC_WORKSHOP_DATA = window.RRC_WORKSHOP_DATA || {
     "diagnostics": {
       title: "Factory Pathfinder & SDD Diagnostic Protocols",
       desc: "Full electronic control unit interrogation, module software flashes, real-time telemetry logging, and injector balance analysis.",
